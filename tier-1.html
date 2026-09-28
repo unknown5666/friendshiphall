@@ -1,0 +1,588 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Tier 01 · Foundation — FHE Demo</title>
+<meta name="description" content="Live demo — Foundation & Fleet Command tier for Friendship Hall Crane Rental." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Manrope:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="media.css" />
+<link rel="icon" type="image/png" href="assets/fhe/logo.png" />
+<style>
+  /* ============================================
+     TIER 01 · DISPATCH YARD
+     Carbon black · safety amber · warning tape
+     ============================================ */
+  :root {
+    --bg: #0a0908;
+    --bg-elev: #131110;
+    --bg-elev-2: #1c1917;
+    --border: #292524;
+    --border-strong: #44403c;
+    --text: #fafaf9;
+    --text-mute: #d6d3d1;
+    --text-dim: #a8a29e;
+    --amber: #f59e0b;
+    --amber-hi: #fbbf24;
+    --amber-low: #78350f;
+    --grid-line: rgba(245,158,11,0.03);
+    --nav-bg: rgba(10,9,8,0.85);
+  }
+  :root[data-theme="light"] {
+    --bg: #fafaf7;
+    --bg-elev: #ffffff;
+    --bg-elev-2: #f1efe8;
+    --border: #d6d3d1;
+    --border-strong: #78716c;
+    --text: #0a0908;
+    --text-mute: #44403c;
+    --text-dim: #78716c;
+    --amber: #b45309;
+    --amber-hi: #d97706;
+    --grid-line: rgba(180,83,9,0.05);
+    --nav-bg: rgba(250,250,247,0.85);
+  }
+  /* Warning-tape hazard stripe — Tier 1 signature */
+  .hazard-stripe {
+    height: 8px;
+    background: repeating-linear-gradient(
+      -45deg,
+      var(--amber) 0 12px,
+      #0a0908 12px 24px
+    );
+    margin: 0;
+  }
+  :root[data-theme="light"] .hazard-stripe {
+    background: repeating-linear-gradient(
+      -45deg,
+      var(--amber) 0 12px,
+      #0a0908 12px 24px
+    );
+  }
+  /* Outrigger footprint (Tier 1 hover interaction) */
+  .footprint-wrap {
+    position: relative;
+    margin-top: var(--space-6);
+    border: 1px solid var(--border-strong);
+    padding: var(--space-6);
+    background:
+      radial-gradient(ellipse at center, rgba(245,158,11,0.05), transparent 65%),
+      var(--bg-elev);
+  }
+  .footprint-svg {
+    width: 100%;
+    height: 360px;
+    display: block;
+  }
+  @media (max-width: 720px) { .footprint-svg { height: 280px; } }
+
+  .outrigger {
+    transition: transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
+    transform-origin: 200px 180px;
+  }
+  .outrigger.deployed[data-og="nw"] { transform: translate(-46px, -32px); }
+  .outrigger.deployed[data-og="ne"] { transform: translate(46px, -32px); }
+  .outrigger.deployed[data-og="sw"] { transform: translate(-46px, 32px); }
+  .outrigger.deployed[data-og="se"] { transform: translate(46px, 32px); }
+
+  .pulse-ring {
+    opacity: 0;
+    transform-origin: center;
+  }
+  .pulse-ring.on {
+    animation: seismicPulse 1400ms ease-out;
+  }
+  @keyframes seismicPulse {
+    0% { opacity: 0.6; r: 4; }
+    100% { opacity: 0; r: 46; }
+  }
+
+  .footprint-readout {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: var(--bg);
+    border: 1px solid var(--amber);
+    padding: 10px 12px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text);
+    letter-spacing: 0.05em;
+    min-width: 180px;
+    opacity: 0;
+    transform: translateY(-8px);
+    transition: all 260ms ease;
+  }
+  .footprint-readout.on { opacity: 1; transform: translateY(0); }
+  .footprint-readout__key { color: var(--text-dim); font-size: 10px; }
+  .footprint-readout__val { color: var(--amber); font-size: 14px; }
+
+  /* Hero — Tier 1 */
+  .t1-hero {
+    padding: var(--space-8) 0;
+    border-bottom: 1px solid var(--border);
+    background:
+      radial-gradient(ellipse at right top, rgba(245,158,11,0.08), transparent 55%);
+  }
+  .lang-switch {
+    display: inline-flex;
+    border: 1px solid var(--border-strong);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .lang-switch button {
+    padding: 6px 12px;
+    background: transparent;
+    color: var(--text-mute);
+    border: 0;
+    cursor: pointer;
+    font: inherit;
+    letter-spacing: inherit;
+    text-transform: inherit;
+  }
+  .lang-switch button.on { background: var(--amber); color: #000; }
+</style>
+</head>
+<body>
+
+<div class="hazard-stripe"></div>
+<nav class="demo-nav">
+  <div class="container demo-nav__inner">
+    <a class="demo-nav__back" href="index.html">← BACK TO PROPOSAL</a>
+    <div class="demo-nav__center">
+      DEMO · <strong>TIER 01</strong> · FOUNDATION &amp; FLEET COMMAND
+    </div>
+    <div style="display:flex; gap:10px; align-items:center">
+      <div class="lang-switch">
+        <button class="on" data-lang="en">EN</button>
+        <button data-lang="ar">AR</button>
+      </div>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <span data-mode="dark" class="on">◐</span>
+        <span data-mode="light">◑</span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="t1-hero" style="position:relative; overflow:hidden">
+  <span class="orb" style="width:480px; height:480px; top:-120px; right:-100px"></span>
+  <div class="container">
+    <span class="corner-marker" style="top:24px; left:24px">SITE // 01</span>
+    <span class="corner-marker" style="top:24px; right:24px">DEMO ENV · FHECRANE.COM</span>
+
+    <div class="demo-hero__grid">
+      <div>
+        <div class="eyebrow reveal">Foundation · Fleet Command</div>
+        <h1 class="reveal" data-delay="1" data-en="Every crane on our yard, indexed and ready to lift." data-ar="كل رافعة في ساحتنا، مفهرسة وجاهزة للرفع.">
+          Every crane on our yard, indexed and ready to lift.
+        </h1>
+        <p class="reveal" data-delay="2" style="max-width:56ch; margin-top:20px; font-size:17px" data-en="Filter the fleet by tonnage, class, and reach. Add what you need to your inquiry basket — we return a fully priced RFQ inside 4 working hours." data-ar="افرز الأسطول حسب الطن، والفئة، والوصول. أضف ما تحتاجه إلى سلة الاستفسار — سنعود إليك بعرض سعر كامل خلال 4 ساعات عمل.">
+          Filter the fleet by tonnage, class, and reach. Add what you need to your inquiry basket — we return a fully priced RFQ inside 4 working hours.
+        </p>
+        <div class="reveal" data-delay="3" style="display:flex; gap:12px; margin-top:28px; flex-wrap:wrap">
+          <a class="btn btn--primary" href="#fleet">Browse fleet <span class="btn__arrow">↓</span></a>
+          <a class="btn" href="#rfq">Start an RFQ <span class="btn__arrow">→</span></a>
+        </div>
+      </div>
+
+      <div class="hero__panel reveal" data-delay="4">
+        <h4><span>FLEET · SNAPSHOT</span><span class="badge badge--live" style="font-size:10px; padding:2px 6px">LIVE</span></h4>
+        <div class="metric-row"><span class="metric-row__label">Total assets</span><span class="metric-row__val">48</span></div>
+        <div class="metric-row"><span class="metric-row__label">Available today</span><span class="metric-row__val green">31</span></div>
+        <div class="metric-row"><span class="metric-row__label">Heaviest crawler</span><span class="metric-row__val amber">700 T</span></div>
+        <div class="metric-row"><span class="metric-row__label">Fastest mobile</span><span class="metric-row__val">450 T</span></div>
+        <div class="metric-row"><span class="metric-row__label">Avg mobilization</span><span class="metric-row__val">36 h</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CINEMA STRIP — the fleet on the ground -->
+<section class="cinema-strip" aria-label="FHE mobile fleet in the field">
+  <img src="assets/fhe/pr-6.jpg" alt="FHE red-and-white Grove mobile crane, ready to mobilize" />
+  <div class="cinema-strip__meta">
+    <span>FHE // FLEET FEED 006</span>
+    <span>REEM ISLAND · 07:14</span>
+  </div>
+  <div class="container cinema-strip__inner">
+    <div>
+      <div class="cinema-strip__title">The <em>Friendship</em> fleet<br />rolls before dispatch does.</div>
+      <p class="cinema-strip__sub">
+        48 assets, an average 36-hour mobilization window, and every rig on a shared telemetry bus.
+        Filter the yard below — add what you need to a live RFQ.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- FIELD OPS marquee -->
+<section class="fleet-marquee" aria-label="Live fleet gallery">
+  <span class="fleet-marquee__fade fleet-marquee__fade--l"></span>
+  <div class="fleet-marquee__track">
+    <div class="dossier"><img src="assets/fhe/pr-2.jpg" alt=""><span class="dossier__scan"></span><span class="dossier__meta dossier__meta--tl">LTM-1500 · 500 T</span><span class="dossier__meta dossier__meta--bl">Available</span></div>
+    <div class="dossier"><img src="assets/fhe/pr-3.jpg" alt=""><span class="dossier__scan"></span><span class="dossier__meta dossier__meta--tl">CC-2800 · 600 T</span><span class="dossier__meta dossier__meta--bl">On-site · Habshan</span></div>
+    <div class="dossier"><img src="assets/fhe/pr-4.jpg" alt=""><span class="dossier__scan"></span><span class="dossier__meta dossier__meta--tl">LR-1750 · 750 T</span><span class="dossier__meta dossier__meta--bl">Available</span></div>
+    <div class="dossier"><img src="assets/fhe/pr-5.jpg" alt=""><span class="dossier__scan"></span><span class="dossier__meta dossier__meta--tl">AC-500 · 500 T</span><span class="dossier__meta dossier__meta--bl">Maintenance</span></div>
+    <div class="dossier"><img src="assets/fhe/pr-7.jpg" alt=""><span class="dossier__scan"></span><span class="dossier__meta dossier__meta--tl">GMK-5250L · 250 T</span><span class="dossier__meta dossier__meta--bl">Musaffah night</span></div>
+    <div class="dossier"><img src="assets/fhe/pr-8.jpg" alt=""><span class="dossier__scan"></span><span class="dossier__meta dossier__meta--tl">LTM-1200 · 200 T</span><span class="dossier__meta dossier__meta--bl">Corniche</span></div>
+    <div class="dossier"><img src="assets/fhe/pr-10.jpg" alt=""><span class="dossier__scan"></span><span class="dossier__meta dossier__meta--tl">LR-1600 · 600 T</span><span class="dossier__meta dossier__meta--bl">Ruwais LNG</span></div>
+    <div class="dossier"><img src="assets/fhe/pr-11.jpg" alt=""><span class="dossier__scan"></span><span class="dossier__meta dossier__meta--tl">BLOCK · 125 T</span><span class="dossier__meta dossier__meta--bl">Rigging detail</span></div>
+    <!-- loop -->
+    <div class="dossier"><img src="assets/fhe/pr-2.jpg" alt=""><span class="dossier__meta dossier__meta--tl">LTM-1500 · 500 T</span><span class="dossier__meta dossier__meta--bl">Available</span></div>
+    <div class="dossier"><img src="assets/fhe/pr-3.jpg" alt=""><span class="dossier__meta dossier__meta--tl">CC-2800 · 600 T</span><span class="dossier__meta dossier__meta--bl">On-site · Habshan</span></div>
+    <div class="dossier"><img src="assets/fhe/pr-4.jpg" alt=""><span class="dossier__meta dossier__meta--tl">LR-1750 · 750 T</span><span class="dossier__meta dossier__meta--bl">Available</span></div>
+    <div class="dossier"><img src="assets/fhe/pr-5.jpg" alt=""><span class="dossier__meta dossier__meta--tl">AC-500 · 500 T</span><span class="dossier__meta dossier__meta--bl">Maintenance</span></div>
+    <div class="dossier"><img src="assets/fhe/pr-7.jpg" alt=""><span class="dossier__meta dossier__meta--tl">GMK-5250L · 250 T</span><span class="dossier__meta dossier__meta--bl">Musaffah night</span></div>
+    <div class="dossier"><img src="assets/fhe/pr-8.jpg" alt=""><span class="dossier__meta dossier__meta--tl">LTM-1200 · 200 T</span><span class="dossier__meta dossier__meta--bl">Corniche</span></div>
+    <div class="dossier"><img src="assets/fhe/pr-10.jpg" alt=""><span class="dossier__meta dossier__meta--tl">LR-1600 · 600 T</span><span class="dossier__meta dossier__meta--bl">Ruwais LNG</span></div>
+    <div class="dossier"><img src="assets/fhe/pr-11.jpg" alt=""><span class="dossier__meta dossier__meta--tl">BLOCK · 125 T</span><span class="dossier__meta dossier__meta--bl">Rigging detail</span></div>
+  </div>
+  <span class="fleet-marquee__fade fleet-marquee__fade--r"></span>
+</section>
+
+<!-- OUTRIGGER FOOTPRINT (heavy-lift stability) -->
+<section class="section">
+  <div class="container">
+    <div class="eyebrow">01 · Ground bearing pressure — hover a crane</div>
+    <h2>Every heavy-lift asset ships with a <span style="color:var(--amber)">verified footprint.</span></h2>
+    <p style="margin-top:12px; max-width:60ch">
+      Hover any tonnage class below. The chassis deploys its outriggers, the seismic pulse marks the load spread,
+      and the readout shows the ground bearing pressure — the same figure your rigging engineer needs on day one.
+    </p>
+
+    <div class="footprint-wrap" id="footprintWrap">
+      <div class="footprint-readout" id="footprintReadout">
+        <div class="footprint-readout__key">GROUND BEARING · KN/M²</div>
+        <div class="footprint-readout__val" id="footprintGBP">—</div>
+        <div class="footprint-readout__key" style="margin-top:6px">MAT SIZE · M</div>
+        <div class="footprint-readout__val" id="footprintMat">—</div>
+      </div>
+
+      <svg class="footprint-svg" viewBox="0 0 400 240" aria-hidden="true">
+        <defs>
+          <pattern id="ground" width="16" height="16" patternUnits="userSpaceOnUse">
+            <path d="M0 8 L16 8 M8 0 L8 16" stroke="var(--border-strong)" stroke-width="0.4" opacity="0.55" />
+          </pattern>
+        </defs>
+        <rect x="0" y="0" width="400" height="240" fill="url(#ground)" />
+
+        <!-- pulse rings -->
+        <circle class="pulse-ring" cx="200" cy="180" r="4" fill="none" stroke="var(--amber)" stroke-width="0.8" />
+        <circle class="pulse-ring" cx="200" cy="180" r="4" fill="none" stroke="var(--amber)" stroke-width="0.8" style="animation-delay: 200ms" />
+
+        <!-- outrigger beams (deploy on hover) -->
+        <g class="outrigger" data-og="nw">
+          <rect x="184" y="164" width="24" height="6" fill="var(--bg-elev-2)" stroke="var(--amber)" />
+          <rect x="182" y="162" width="8" height="10" fill="var(--amber)" />
+        </g>
+        <g class="outrigger" data-og="ne">
+          <rect x="192" y="164" width="24" height="6" fill="var(--bg-elev-2)" stroke="var(--amber)" />
+          <rect x="210" y="162" width="8" height="10" fill="var(--amber)" />
+        </g>
+        <g class="outrigger" data-og="sw">
+          <rect x="184" y="188" width="24" height="6" fill="var(--bg-elev-2)" stroke="var(--amber)" />
+          <rect x="182" y="188" width="8" height="10" fill="var(--amber)" />
+        </g>
+        <g class="outrigger" data-og="se">
+          <rect x="192" y="188" width="24" height="6" fill="var(--bg-elev-2)" stroke="var(--amber)" />
+          <rect x="210" y="188" width="8" height="10" fill="var(--amber)" />
+        </g>
+
+        <!-- chassis -->
+        <rect x="180" y="164" width="40" height="30" fill="var(--bg-elev-2)" stroke="var(--text-mute)" />
+        <!-- house -->
+        <rect x="188" y="150" width="24" height="20" fill="var(--bg-elev-2)" stroke="var(--text-mute)" />
+        <!-- boom lattice -->
+        <rect x="200" y="155" width="90" height="6" fill="none" stroke="var(--amber)" transform="rotate(-30 200 158)" />
+
+        <!-- crane label -->
+        <text x="200" y="220" font-family="JetBrains Mono, monospace" font-size="9" fill="var(--text-dim)" text-anchor="middle" letter-spacing="1">LTM 1500-8.1 · 500T</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- FLEET MATRIX -->
+<section class="section" id="fleet">
+  <div class="container">
+    <div class="eyebrow">02 · Fleet matrix</div>
+    <h2>Filter, compare, <span style="color:var(--amber)">add to inquiry.</span></h2>
+    <p style="max-width:56ch; margin-top:12px">
+      Every card links to a full spec sheet and a downloadable load chart. Add up to eight cranes to a single RFQ.
+    </p>
+
+    <div class="filter-bar">
+      <span class="filter-bar__label">CLASS</span>
+      <button class="filter-chip active" data-filter-class="all">All</button>
+      <button class="filter-chip" data-filter-class="mobile">Mobile</button>
+      <button class="filter-chip" data-filter-class="crawler">Crawler</button>
+      <span class="filter-bar__label" style="margin-left:20px">TONNAGE</span>
+      <button class="filter-chip active" data-filter-ton="all">All</button>
+      <button class="filter-chip" data-filter-ton="light">≤ 100 T</button>
+      <button class="filter-chip" data-filter-ton="mid">101–300 T</button>
+      <button class="filter-chip" data-filter-ton="heavy">301–700 T</button>
+    </div>
+
+    <div class="matrix" id="matrix">
+      <!-- Cranes populated by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDIES teaser -->
+<section class="section" style="background: var(--bg-elev)">
+  <div class="container">
+    <div class="eyebrow">03 · Recent mobilizations</div>
+    <h2 style="margin-top:8px">Three briefs, <span style="color:var(--amber)">three signatures.</span></h2>
+    <div class="case-strip">
+      <a class="dossier" href="#">
+        <img src="assets/fhe/banner-1.jpg" alt="Ruwais LNG expansion — sunset lattice lift" />
+        <span class="dossier__scan"></span>
+        <span class="dossier__meta dossier__meta--tl">OG-2026-014</span>
+        <span class="dossier__meta dossier__meta--tr">320 T · 42 m</span>
+        <span class="dossier__meta dossier__meta--bl">Ruwais LNG expansion</span>
+        <span class="dossier__meta dossier__meta--br">4 d MOB</span>
+      </a>
+      <a class="dossier" href="#">
+        <img src="assets/fhe/pr-3.jpg" alt="Habshan gas-plant tie-in — twin lattice cranes" />
+        <span class="dossier__scan"></span>
+        <span class="dossier__meta dossier__meta--tl">HAB-2026-008</span>
+        <span class="dossier__meta dossier__meta--tr">700 T + 250 T</span>
+        <span class="dossier__meta dossier__meta--bl">Habshan gas-plant tie-in</span>
+        <span class="dossier__meta dossier__meta--br">12 wk</span>
+      </a>
+      <a class="dossier" href="#">
+        <img src="assets/fhe/pr-7.jpg" alt="Musaffah shipyard block lift — night shift" />
+        <span class="dossier__scan"></span>
+        <span class="dossier__meta dossier__meta--tl">MSD-2026-021</span>
+        <span class="dossier__meta dossier__meta--tr">450 T · NIGHT</span>
+        <span class="dossier__meta dossier__meta--bl">Musaffah shipyard block lift</span>
+        <span class="dossier__meta dossier__meta--br">LTI · 0</span>
+      </a>
+    </div>
+    <p class="mono" style="margin-top:24px; color:var(--text-dim)">
+      TIER 02 UNLOCKS interactive case study teardowns with rigging plans and load-chart overlays →
+    </p>
+  </div>
+</section>
+
+<!-- RFQ CART (sticky) -->
+<button class="rfq-toggle" id="rfqToggle">
+  <span>INQUIRY BASKET</span>
+  <span class="rfq-toggle__count" id="rfqCount">0</span>
+</button>
+
+<aside class="rfq-panel" id="rfqPanel">
+  <div class="rfq-panel__head">
+    <div class="rfq-panel__title">RFQ // BASKET</div>
+    <button class="rfq-panel__close" id="rfqClose">✕</button>
+  </div>
+  <div class="rfq-panel__body" id="rfqBody">
+    <div style="color:var(--text-dim); text-align:center; padding:24px 0; font-family:var(--font-mono); font-size:11px">
+      NO ASSETS SELECTED
+    </div>
+  </div>
+  <div class="rfq-panel__foot">
+    <div class="mono" style="display:flex; justify-content:space-between">
+      <span>Selected tonnage</span><span style="color:var(--amber)" id="rfqTotal">0 T</span>
+    </div>
+    <button class="rfq-panel__submit">SUBMIT INQUIRY →</button>
+  </div>
+</aside>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__cta">Ready for the <span class="amber">next tier?</span></div>
+      <div class="footer__col"><h5>Tier 02</h5><p><a href="tier-2.html">Engineering &amp; Interactive →</a></p></div>
+      <div class="footer__col"><h5>Tier 03</h5><p><a href="tier-3.html">Enterprise Portal →</a></p></div>
+    </div>
+    <div class="footer__base">
+      <span>FHE // TIER 01 · DEMO</span>
+      <span><a href="index.html" style="color:var(--text-dim); border:0">← Back to proposal</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Theme toggle
+  const root = document.documentElement;
+  const toggle = document.getElementById('themeToggle');
+  const setTheme = (mode) => {
+    root.setAttribute('data-theme', mode);
+    toggle.querySelectorAll('span').forEach(s => s.classList.toggle('on', s.dataset.mode === mode));
+    try { localStorage.setItem('fhe-theme', mode); } catch(_) {}
+  };
+  try { const saved = localStorage.getItem('fhe-theme'); if (saved) setTheme(saved); } catch(_) {}
+  toggle.addEventListener('click', () => {
+    const cur = root.getAttribute('data-theme') || 'dark';
+    setTheme(cur === 'dark' ? 'light' : 'dark');
+  });
+
+  // Language toggle
+  document.querySelectorAll('.lang-switch button').forEach(b => {
+    b.addEventListener('click', () => {
+      const lang = b.dataset.lang;
+      document.querySelectorAll('.lang-switch button').forEach(x => x.classList.toggle('on', x.dataset.lang === lang));
+      document.querySelectorAll('[data-en]').forEach(el => {
+        el.textContent = lang === 'ar' ? el.dataset.ar : el.dataset.en;
+      });
+      document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+      document.documentElement.setAttribute('lang', lang);
+    });
+  });
+
+  // Fleet data
+  const fleet = [
+    { id: 'LTM-1030', model: 'Liebherr LTM 1030-2.1', class: 'mobile', ton: 35, tonClass: 'light', reach: 30, boom: 30, weight: 24 },
+    { id: 'GMK-4100', model: 'Grove GMK4100L-1', class: 'mobile', ton: 100, tonClass: 'light', reach: 60, boom: 60, weight: 48 },
+    { id: 'LTM-1200', model: 'Liebherr LTM 1200-5.1', class: 'mobile', ton: 200, tonClass: 'mid', reach: 72, boom: 72, weight: 60 },
+    { id: 'LTM-1250', model: 'Liebherr LTM 1250-5.1', class: 'mobile', ton: 250, tonClass: 'mid', reach: 80, boom: 78, weight: 72 },
+    { id: 'LTM-1350', model: 'Liebherr LTM 1350-6.1', class: 'mobile', ton: 350, tonClass: 'heavy', reach: 100, boom: 70, weight: 96 },
+    { id: 'LTM-1450', model: 'Liebherr LTM 1450-8.1', class: 'mobile', ton: 450, tonClass: 'heavy', reach: 128, boom: 85, weight: 108 },
+    { id: 'LR-1300', model: 'Liebherr LR 1300', class: 'crawler', ton: 300, tonClass: 'mid', reach: 96, boom: 96, weight: 220 },
+    { id: 'LR-1600', model: 'Liebherr LR 1600/2', class: 'crawler', ton: 600, tonClass: 'heavy', reach: 138, boom: 105, weight: 380 },
+    { id: 'LR-1700', model: 'Liebherr LR 1700-1.0', class: 'crawler', ton: 700, tonClass: 'heavy', reach: 175, boom: 112, weight: 430 },
+    { id: 'CC-2400', model: 'Terex CC 2400-1', class: 'crawler', ton: 400, tonClass: 'heavy', reach: 108, boom: 90, weight: 300 },
+    { id: 'DEM-CC8800', model: 'Demag CC 8800-1', class: 'crawler', ton: 650, tonClass: 'heavy', reach: 156, boom: 108, weight: 410 },
+    { id: 'GMK-6300', model: 'Grove GMK6300L-1', class: 'mobile', ton: 300, tonClass: 'mid', reach: 90, boom: 80, weight: 84 },
+  ];
+
+  const matrix = document.getElementById('matrix');
+  const rfqCount = document.getElementById('rfqCount');
+  const rfqBody = document.getElementById('rfqBody');
+  const rfqTotal = document.getElementById('rfqTotal');
+  const rfqPanel = document.getElementById('rfqPanel');
+  const rfqToggleBtn = document.getElementById('rfqToggle');
+  const rfqClose = document.getElementById('rfqClose');
+
+  let basket = [];
+
+  function renderMatrix() {
+    matrix.innerHTML = fleet.map(c => `
+      <div class="crane" data-class="${c.class}" data-ton="${c.tonClass}" data-id="${c.id}" data-ton-val="${c.ton}">
+        <div class="crane__id"><span>${c.id}</span><span>${c.class === 'mobile' ? 'MOB' : 'CRW'}</span></div>
+        <div class="crane__ton">${c.ton}<small>T</small></div>
+        <div class="crane__model">${c.model}</div>
+        <div class="crane__specs">
+          <div><span>Max reach</span><span>${c.reach} m</span></div>
+          <div><span>Boom</span><span>${c.boom} m</span></div>
+          <div><span>Trans wt</span><span>${c.weight} t</span></div>
+        </div>
+        <button class="crane__add">+ ADD TO INQUIRY</button>
+      </div>
+    `).join('');
+
+    matrix.querySelectorAll('.crane__add').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const card = btn.closest('.crane');
+        const id = card.dataset.id;
+        if (basket.find(b => b.id === id)) {
+          basket = basket.filter(b => b.id !== id);
+          btn.classList.remove('added');
+          btn.textContent = '+ ADD TO INQUIRY';
+        } else {
+          const crane = fleet.find(c => c.id === id);
+          basket.push(crane);
+          btn.classList.add('added');
+          btn.textContent = '✓ IN BASKET';
+        }
+        updateBasket();
+      });
+    });
+
+    // Outrigger stabilizer hover — trigger on heavy cranes
+    matrix.querySelectorAll('.crane').forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        const tonVal = parseInt(card.dataset.tonVal);
+        if (tonVal >= 300) deployFootprint(tonVal, card.dataset.id);
+      });
+    });
+  }
+
+  function deployFootprint(ton, id) {
+    document.querySelectorAll('.outrigger').forEach(o => o.classList.add('deployed'));
+    document.querySelectorAll('.pulse-ring').forEach(p => {
+      p.classList.remove('on');
+      void p.offsetWidth;
+      p.classList.add('on');
+    });
+    const readout = document.getElementById('footprintReadout');
+    const gbp = Math.round(ton * 0.85 + 60);
+    const mat = (2 + ton / 200).toFixed(1);
+    document.getElementById('footprintGBP').textContent = gbp + ' kN/m²';
+    document.getElementById('footprintMat').textContent = mat + ' × ' + mat + ' m';
+    readout.classList.add('on');
+  }
+
+  function updateBasket() {
+    rfqCount.textContent = basket.length;
+    const total = basket.reduce((s, b) => s + b.ton, 0);
+    rfqTotal.textContent = total + ' T';
+    if (!basket.length) {
+      rfqBody.innerHTML = '<div style="color:var(--text-dim); text-align:center; padding:24px 0; font-family:var(--font-mono); font-size:11px">NO ASSETS SELECTED</div>';
+    } else {
+      rfqBody.innerHTML = basket.map(b => `
+        <div class="rfq-item">
+          <div><div class="rfq-item__model">${b.model}</div><div class="mono" style="font-size:10px; color:var(--text-dim); margin-top:2px">${b.id} · ${b.class.toUpperCase()}</div></div>
+          <div class="rfq-item__ton">${b.ton}T</div>
+        </div>
+      `).join('');
+    }
+  }
+
+  // Filters
+  let activeClass = 'all';
+  let activeTon = 'all';
+  document.querySelectorAll('[data-filter-class]').forEach(b => {
+    b.addEventListener('click', () => {
+      document.querySelectorAll('[data-filter-class]').forEach(x => x.classList.remove('active'));
+      b.classList.add('active');
+      activeClass = b.dataset.filterClass;
+      applyFilters();
+    });
+  });
+  document.querySelectorAll('[data-filter-ton]').forEach(b => {
+    b.addEventListener('click', () => {
+      document.querySelectorAll('[data-filter-ton]').forEach(x => x.classList.remove('active'));
+      b.classList.add('active');
+      activeTon = b.dataset.filterTon;
+      applyFilters();
+    });
+  });
+  function applyFilters() {
+    document.querySelectorAll('.crane').forEach(c => {
+      const okClass = activeClass === 'all' || c.dataset.class === activeClass;
+      const okTon = activeTon === 'all' || c.dataset.ton === activeTon;
+      c.classList.toggle('hidden', !(okClass && okTon));
+    });
+  }
+
+  // RFQ panel
+  rfqToggleBtn.addEventListener('click', () => rfqPanel.classList.add('open'));
+  rfqClose.addEventListener('click', () => rfqPanel.classList.remove('open'));
+
+  renderMatrix();
+
+  // Scroll reveal
+  const revealIO = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        revealIO.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px' });
+  document.querySelectorAll('.reveal').forEach(el => revealIO.observe(el));
+</script>
+
+</body>
+</html>
