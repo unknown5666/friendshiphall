@@ -1,55 +1,181 @@
 /* FHE // Telemetry — shared stylesheet (dark default + light theme) */
 
 :root {
-  --bg: #07070a;
-  --bg-elev: #0e0e12;
-  --bg-elev-2: #16161c;
-  --border: #202028;
-  --border-strong: #2d2d38;
-  --text: #f7f7fa;
-  --text-mute: #a8a8b5;
-  --text-dim: #6f6f7d;
-  --amber: #f5a524;
-  --amber-hi: #ffc55a;
-  --amber-low: #6b3a08;
-  --amber-glow: rgba(245,165,36,0.22);
-  --red: #f0525b;
-  --green: #34d399;
+  --bg: #0a0b0e;
+  --bg-elev: #101116;
+  --bg-elev-2: #181a22;
+  --bg-deep: #05060a;
+  --border: #1f2129;
+  --border-strong: #2b2e39;
+  --text: #f4f4f7;
+  --text-mute: #a1a3b1;
+  --text-dim: #676a78;
+  --text-etch: #1c1e26;
+  --amber: #ffab00;
+  --amber-hi: #ffc94b;
+  --amber-lo: #b87500;
+  --amber-low: #5a3800;
+  --amber-glow: rgba(255,171,0,0.28);
+  --amber-ink: #1a0f00;
+  --red: #ff4d5b;
+  --green: #22d38a;
   --blue-line: #4cc4ff;
-  --grid-line: rgba(255,255,255,0.018);
-  --panel-gradient: linear-gradient(180deg, rgba(24,24,32,0.75) 0%, rgba(14,14,18,0.55) 100%);
-  --panel-highlight: linear-gradient(180deg, rgba(255,255,255,0.045), rgba(255,255,255,0) 30%);
+  --grid-line: rgba(255,255,255,0.02);
+  --panel-gradient: linear-gradient(180deg, rgba(28,30,38,0.85) 0%, rgba(10,11,14,0.72) 100%);
+  --panel-highlight: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0) 30%);
   --sig-paper: #ffffff;
   --sig-ink: #111111;
   --sig-mute: #555555;
   --sig-line: #eeeeee;
-  --nav-bg: rgba(9,9,12,0.72);
-  --shadow-soft: 0 24px 60px -28px rgba(0,0,0,0.65);
-  --shadow-lift: 0 32px 80px -30px rgba(0,0,0,0.75), 0 0 0 1px rgba(245,165,36,0.14);
+  --nav-bg: rgba(8,9,13,0.78);
+  --shadow-soft: 0 24px 60px -28px rgba(0,0,0,0.75);
+  --shadow-lift: 0 32px 80px -30px rgba(0,0,0,0.85), 0 0 0 1px rgba(255,171,0,0.18);
+
+  /* --- Industrial materiality tokens --- */
+  --metal-hi: #4a4d58;
+  --metal-mid: #262832;
+  --metal-lo: #0c0d12;
+  --brushed-metal:
+    linear-gradient(90deg,
+      #1a1c24 0%,
+      #383b47 12%,
+      #22242e 24%,
+      #3d4050 38%,
+      #1e2028 52%,
+      #363845 66%,
+      #1e2028 78%,
+      #34364420 90%,
+      #16181f 100%);
+  --brushed-metal-strong:
+    linear-gradient(90deg,
+      #2a2d38 0%,
+      #52556310 8%,
+      #40434f 22%,
+      #262832 40%,
+      #4a4d5a 58%,
+      #2c2e39 76%,
+      #4a4d5a 88%,
+      #232530 100%);
+  --hazard-stripes:
+    repeating-linear-gradient(45deg,
+      var(--amber) 0px,
+      var(--amber) 8px,
+      #0a0b0e 8px,
+      #0a0b0e 16px);
+  --hazard-stripes-soft:
+    repeating-linear-gradient(45deg,
+      rgba(255,171,0,0.55) 0px,
+      rgba(255,171,0,0.55) 6px,
+      rgba(8,9,12,0.85) 6px,
+      rgba(8,9,12,0.85) 12px);
+  --rivet-shadow:
+    0 1px 0 rgba(255,255,255,0.06) inset,
+    0 -1px 0 rgba(0,0,0,0.55) inset;
+  --bevel-inset:
+    inset 0 1px 0 rgba(255,255,255,0.055),
+    inset 0 -1px 0 rgba(0,0,0,0.55),
+    inset 1px 0 0 rgba(255,255,255,0.02),
+    inset -1px 0 0 rgba(0,0,0,0.3);
+  --bevel-inset-strong:
+    inset 0 1px 0 rgba(255,255,255,0.09),
+    inset 0 -1px 0 rgba(0,0,0,0.7),
+    inset 1px 0 0 rgba(255,255,255,0.04),
+    inset -1px 0 0 rgba(0,0,0,0.4);
+  --etched-text-shadow:
+    0 1px 0 rgba(255,255,255,0.05),
+    0 -1px 0 rgba(0,0,0,0.85);
+  --amber-emboss:
+    0 1px 0 rgba(0,0,0,0.75),
+    0 -1px 0 rgba(255,220,120,0.35);
+  --amber-led-glow:
+    0 0 6px rgba(255,171,0,0.65),
+    0 0 18px rgba(255,171,0,0.35),
+    0 0 42px rgba(255,171,0,0.18);
 }
 
 :root[data-theme="light"] {
-  --bg: #f4f2ec;
-  --bg-elev: #ffffff;
-  --bg-elev-2: #eae7dd;
-  --border: #dcd8cd;
-  --border-strong: #9a9689;
+  --bg: #ece9df;
+  --bg-elev: #f7f4ea;
+  --bg-elev-2: #e2dfd2;
+  --bg-deep: #d8d4c4;
+  --border: #c8c3b2;
+  --border-strong: #8f8b7d;
   --text: #0b0b0d;
   --text-mute: #4a4a55;
   --text-dim: #7b7b86;
+  --text-etch: #dcd9cc;
   --amber: #a04a05;
   --amber-hi: #c96a08;
+  --amber-lo: #7a3705;
   --amber-low: #fbd48b;
-  --amber-glow: rgba(160,74,5,0.16);
+  --amber-glow: rgba(160,74,5,0.20);
+  --amber-ink: #ffffff;
   --red: #b1252d;
   --green: #067a54;
   --blue-line: #0369a1;
-  --grid-line: rgba(0,0,0,0.038);
-  --panel-gradient: linear-gradient(180deg, #ffffff 0%, rgba(255,255,255,0.55) 100%);
+  --grid-line: rgba(0,0,0,0.045);
+  --panel-gradient: linear-gradient(180deg, #ffffff 0%, rgba(240,236,224,0.6) 100%);
   --panel-highlight: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0) 40%);
-  --nav-bg: rgba(244,242,236,0.78);
-  --shadow-soft: 0 24px 60px -30px rgba(0,0,0,0.18);
-  --shadow-lift: 0 32px 80px -34px rgba(0,0,0,0.22), 0 0 0 1px rgba(160,74,5,0.16);
+  --nav-bg: rgba(236,233,223,0.82);
+  --shadow-soft: 0 24px 60px -30px rgba(0,0,0,0.22);
+  --shadow-lift: 0 32px 80px -34px rgba(0,0,0,0.26), 0 0 0 1px rgba(160,74,5,0.22);
+
+  --metal-hi: #c4c0b0;
+  --metal-mid: #a09c8c;
+  --metal-lo: #7a7668;
+  --brushed-metal:
+    linear-gradient(90deg,
+      #cbc7b8 0%,
+      #ded9c8 14%,
+      #b5b1a2 30%,
+      #d5d0be 46%,
+      #b7b3a4 62%,
+      #d5d0be 76%,
+      #b3af9f 88%,
+      #ccc7b6 100%);
+  --brushed-metal-strong:
+    linear-gradient(90deg,
+      #b3af9e 0%,
+      #d2ccb9 22%,
+      #a5a190 44%,
+      #d0cbb6 66%,
+      #ada897 88%,
+      #b7b2a1 100%);
+  --hazard-stripes:
+    repeating-linear-gradient(45deg,
+      var(--amber) 0px,
+      var(--amber) 8px,
+      #ece9df 8px,
+      #ece9df 16px);
+  --hazard-stripes-soft:
+    repeating-linear-gradient(45deg,
+      rgba(160,74,5,0.55) 0px,
+      rgba(160,74,5,0.55) 6px,
+      rgba(236,233,223,0.9) 6px,
+      rgba(236,233,223,0.9) 12px);
+  --rivet-shadow:
+    0 1px 0 rgba(255,255,255,0.6) inset,
+    0 -1px 0 rgba(0,0,0,0.15) inset;
+  --bevel-inset:
+    inset 0 1px 0 rgba(255,255,255,0.75),
+    inset 0 -1px 0 rgba(0,0,0,0.12),
+    inset 1px 0 0 rgba(255,255,255,0.35),
+    inset -1px 0 0 rgba(0,0,0,0.06);
+  --bevel-inset-strong:
+    inset 0 1px 0 rgba(255,255,255,0.8),
+    inset 0 -1px 0 rgba(0,0,0,0.18),
+    inset 1px 0 0 rgba(255,255,255,0.45),
+    inset -1px 0 0 rgba(0,0,0,0.1);
+  --etched-text-shadow:
+    0 1px 0 rgba(255,255,255,0.7),
+    0 -1px 0 rgba(0,0,0,0.15);
+  --amber-emboss:
+    0 1px 0 rgba(255,255,255,0.65),
+    0 -1px 0 rgba(0,0,0,0.15);
+  --amber-led-glow:
+    0 0 6px rgba(160,74,5,0.4),
+    0 0 18px rgba(160,74,5,0.22),
+    0 0 42px rgba(160,74,5,0.1);
 }
 
 :root {
@@ -72,6 +198,12 @@
   --space-8: 64px;
   --space-9: 96px;
   --space-10: 128px;
+  --space-11: 176px;
+  --space-12: 224px;
+
+  /* Fluid, mammoth-scale section rhythm */
+  --section-y: clamp(96px, 11vw, 176px);
+  --section-y-lg: clamp(120px, 14vw, 224px);
 
   --radius: 4px;
   --radius-lg: 12px;
@@ -169,16 +301,16 @@ h1, h2, h3, h4, h5 {
 }
 
 h1 {
-  font-size: clamp(48px, 7vw, 104px);
-  line-height: 0.94;
-  letter-spacing: -0.04em;
+  font-size: clamp(50px, 7.6vw, 120px);
+  line-height: 0.92;
+  letter-spacing: -0.045em;
   font-weight: 500;
 }
 
 h2 {
-  font-size: clamp(32px, 3.8vw, 56px);
-  line-height: 1.02;
-  letter-spacing: -0.032em;
+  font-size: clamp(34px, 4.6vw, 70px);
+  line-height: 0.98;
+  letter-spacing: -0.036em;
 }
 
 h3 {
@@ -359,6 +491,31 @@ a:hover { color: var(--amber-hi); border-color: var(--amber-hi); }
   align-items: center;
   justify-content: space-between;
   padding: 18px 0;
+  transition: padding 520ms var(--ease-out);
+}
+/* Nav condenses as the page scrolls — a small, confident settle */
+.nav {
+  transition: background 400ms var(--ease-out), border-color 400ms var(--ease-out), box-shadow 500ms var(--ease-out);
+}
+.nav--scrolled .nav__inner { padding: 11px 0; }
+.nav--scrolled {
+  box-shadow: 0 18px 50px -34px rgba(0,0,0,0.9);
+  border-bottom-color: var(--border-strong);
+}
+
+/* Scroll-progress hairline — razor-thin amber, tracks read depth */
+.scroll-rail {
+  position: fixed;
+  top: 0; left: 0;
+  height: 2px;
+  width: 100%;
+  transform: scaleX(var(--p, 0));
+  transform-origin: 0 50%;
+  background: linear-gradient(90deg, var(--amber-lo), var(--amber-hi));
+  box-shadow: 0 0 12px var(--amber-glow);
+  z-index: 60;
+  pointer-events: none;
+  will-change: transform;
 }
 .nav__logo {
   font-family: var(--font-mono);
@@ -388,10 +545,11 @@ a:hover { color: var(--amber-hi); border-color: var(--amber-hi); }
 
 /* Section */
 .section {
-  padding: calc(var(--space-9) + 12px) 0;
+  padding: var(--section-y) 0;
   border-bottom: 1px solid var(--border);
   position: relative;
 }
+.section--tall { padding: var(--section-y-lg) 0; }
 @media (max-width: 720px) {
   .section { padding: var(--space-8) 0; }
 }
@@ -406,7 +564,7 @@ a:hover { color: var(--amber-hi); border-color: var(--amber-hi); }
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--text-mute);
-  margin-bottom: var(--space-5);
+  margin-bottom: var(--space-6);
 }
 .eyebrow::before {
   content: "";
@@ -426,7 +584,7 @@ a:hover { color: var(--amber-hi); border-color: var(--amber-hi); }
 
 /* Hero */
 .hero {
-  padding: calc(var(--space-9) + 8px) 0 var(--space-9);
+  padding: clamp(72px, 8.5vw, 140px) 0 clamp(84px, 10vw, 164px);
   border-bottom: 1px solid var(--border);
   position: relative;
   overflow: hidden;
@@ -1792,21 +1950,51 @@ h2 .amber,
 }
 
 /* Scroll reveal — assigned by JS observer */
-.reveal {
+.reveal,
+[data-reveal] {
   opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 900ms var(--ease-out), transform 1100ms var(--ease-out);
-  will-change: opacity, transform;
+  transform: translateY(34px);
+  filter: blur(10px);
+  transition:
+    opacity 900ms var(--ease-out),
+    transform 1200ms var(--ease-out),
+    filter 1000ms var(--ease-out);
+  will-change: opacity, transform, filter;
 }
-.reveal.in {
+.reveal.in,
+[data-reveal].in {
   opacity: 1;
   transform: translateY(0);
+  filter: blur(0);
 }
 .reveal[data-delay="1"] { transition-delay: 100ms; }
 .reveal[data-delay="2"] { transition-delay: 200ms; }
 .reveal[data-delay="3"] { transition-delay: 300ms; }
 .reveal[data-delay="4"] { transition-delay: 400ms; }
 .reveal[data-delay="5"] { transition-delay: 500ms; }
+
+/* Stagger — children lift in sequence once the group is in view */
+[data-stagger] > * {
+  opacity: 0;
+  transform: translateY(30px);
+  filter: blur(8px);
+  transition:
+    opacity 820ms var(--ease-out),
+    transform 1040ms var(--ease-out),
+    filter 900ms var(--ease-out);
+  will-change: opacity, transform, filter;
+}
+[data-stagger].in > * {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+[data-stagger].in > *:nth-child(1) { transition-delay: 60ms; }
+[data-stagger].in > *:nth-child(2) { transition-delay: 140ms; }
+[data-stagger].in > *:nth-child(3) { transition-delay: 220ms; }
+[data-stagger].in > *:nth-child(4) { transition-delay: 300ms; }
+[data-stagger].in > *:nth-child(5) { transition-delay: 380ms; }
+[data-stagger].in > *:nth-child(6) { transition-delay: 460ms; }
 
 /* Ambient amber orb — floats behind hero */
 .orb {
@@ -2277,6 +2465,11 @@ h2 .amber,
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+  .reveal, [data-reveal], [data-stagger] > * {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
 }
 
 /* =============================
@@ -2390,4 +2583,927 @@ h2 .amber,
   .theme-toggle span { padding: 4px 6px; }
   h1 { font-size: 36px; line-height: 1.0; }
   .container { padding: 0 16px; }
+}
+
+/* =====================================================
+   TACTILE INDUSTRIAL MATERIALITY & SKEUOMORPHIC DEPTH
+   Inspired by heavy-machinery cabins, hydraulic panels,
+   and aerospace instrumentation.
+   ===================================================== */
+
+/* Etched micro-text: pressed into the metal, reads as engraved */
+.spec-etch,
+.spec-etch--sm,
+.spec-etch--rev {
+  font-family: var(--font-mono);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: #6a6d78;
+  text-shadow: var(--etched-text-shadow);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.spec-etch { font-size: 10px; }
+.spec-etch--sm { font-size: 9px; letter-spacing: 0.28em; }
+.spec-etch--rev { font-size: 10px; color: var(--amber-lo); }
+:root[data-theme="light"] .spec-etch,
+:root[data-theme="light"] .spec-etch--sm { color: #8a8676; }
+.spec-etch__sep {
+  display: inline-block;
+  width: 4px; height: 4px;
+  background: var(--amber);
+  box-shadow: 0 0 6px var(--amber-glow);
+  border-radius: 50%;
+  transform: translateY(-1px);
+}
+
+/* Rivet dot — a machined bolt-head detail */
+.rivet {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 35% 30%,
+      #6c6f7a 0%,
+      #3a3c46 40%,
+      #101218 100%);
+  box-shadow:
+    0 1px 0 rgba(255,255,255,0.06),
+    0 0 0 1px rgba(0,0,0,0.6),
+    inset 0 -1px 1px rgba(0,0,0,0.6);
+  display: inline-block;
+  flex-shrink: 0;
+}
+:root[data-theme="light"] .rivet {
+  background:
+    radial-gradient(circle at 35% 30%,
+      #f4efdf 0%,
+      #a49f8f 45%,
+      #6c6858 100%);
+  box-shadow:
+    0 1px 0 rgba(255,255,255,0.6),
+    0 0 0 1px rgba(0,0,0,0.2),
+    inset 0 -1px 1px rgba(0,0,0,0.25);
+}
+
+/* Rivet row: four rivets, one per corner mask */
+.rivets-4 { position: relative; }
+.rivets-4::before,
+.rivets-4::after,
+.rivets-4 > .rivets-4__b,
+.rivets-4 > .rivets-4__a {
+  content: "";
+  position: absolute;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 35% 30%,
+      #6c6f7a 0%,
+      #3a3c46 40%,
+      #101218 100%);
+  box-shadow:
+    0 1px 0 rgba(255,255,255,0.05),
+    inset 0 -1px 1px rgba(0,0,0,0.7);
+  z-index: 5;
+  pointer-events: none;
+}
+.rivets-4::before { top: 8px; left: 8px; }
+.rivets-4::after  { top: 8px; right: 8px; }
+:root[data-theme="light"] .rivets-4::before,
+:root[data-theme="light"] .rivets-4::after {
+  background:
+    radial-gradient(circle at 35% 30%,
+      #efe9d7 0%,
+      #ada898 45%,
+      #726d5d 100%);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.6), inset 0 -1px 1px rgba(0,0,0,0.28);
+}
+
+/* Hazard stripe strip — used sparingly, only on critical/warning states */
+.hazard-strip {
+  height: 4px;
+  background: var(--hazard-stripes-soft);
+  background-size: 200% 100%;
+  opacity: 0.55;
+}
+.hazard-strip--top {
+  position: absolute;
+  left: 0; right: 0; top: 0;
+  z-index: 3;
+}
+
+/* Brushed-metal top edge — a decorative strip on active/premium cards */
+.metal-edge {
+  position: absolute;
+  left: 0; right: 0;
+  height: 2px;
+  background: var(--brushed-metal-strong);
+  background-size: 200% 100%;
+  opacity: 0.85;
+  z-index: 3;
+  pointer-events: none;
+}
+.metal-edge--top { top: 0; }
+.metal-edge--bot { bottom: 0; }
+
+/* Amber LED — a small physical lamp indicator */
+.led {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 40% 35%, #ffe08a 0%, var(--amber) 50%, var(--amber-lo) 100%);
+  box-shadow:
+    0 0 6px rgba(255,171,0,0.7),
+    0 0 14px rgba(255,171,0,0.35),
+    inset 0 -1px 1px rgba(0,0,0,0.4);
+  display: inline-block;
+  flex-shrink: 0;
+  animation: ledFlicker 3.4s ease-in-out infinite;
+}
+@keyframes ledFlicker {
+  0%, 96%, 100% { opacity: 1; }
+  97% { opacity: 0.55; }
+  98% { opacity: 1; }
+  99% { opacity: 0.7; }
+}
+:root[data-theme="light"] .led {
+  background: radial-gradient(circle at 40% 35%, #ffc47a 0%, var(--amber) 55%, var(--amber-lo) 100%);
+}
+
+/* Physical toggle-switch aesthetic (for filter chips, toggle groups) */
+.industrial-switch {
+  position: relative;
+  padding: 9px 18px 9px 30px;
+  border: 1px solid #2a2c34;
+  background:
+    linear-gradient(180deg, #22242c 0%, #14161c 55%, #0c0d13 100%);
+  color: var(--text-mute);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 4px;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.05),
+    inset 0 -1px 0 rgba(0,0,0,0.75),
+    0 1px 0 rgba(255,255,255,0.03),
+    0 6px 14px -8px rgba(0,0,0,0.7);
+  transition: color 200ms ease, box-shadow 260ms ease, border-color 200ms ease;
+  isolation: isolate;
+  overflow: hidden;
+}
+.industrial-switch::before {
+  content: "";
+  position: absolute;
+  left: 10px; top: 50%;
+  transform: translateY(-50%);
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #3d3f4b 0%, #191b23 60%, #0a0b10 100%);
+  box-shadow:
+    0 0 0 1px rgba(0,0,0,0.7),
+    inset 0 -1px 1px rgba(0,0,0,0.7);
+  transition: background 260ms ease, box-shadow 300ms ease;
+}
+.industrial-switch::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; top: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent);
+}
+.industrial-switch:hover {
+  color: var(--text);
+  border-color: #3c3f4b;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.08),
+    inset 0 -1px 0 rgba(0,0,0,0.75),
+    0 8px 20px -8px rgba(0,0,0,0.75);
+}
+.industrial-switch--on,
+.industrial-switch.active,
+.industrial-switch[aria-pressed="true"] {
+  color: var(--amber-hi);
+  border-color: rgba(255,171,0,0.55);
+  background:
+    linear-gradient(180deg, #24242c 0%, #16161d 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.08),
+    inset 0 -1px 0 rgba(0,0,0,0.75),
+    0 0 0 1px rgba(255,171,0,0.28),
+    0 8px 20px -6px rgba(255,171,0,0.22);
+}
+.industrial-switch--on::before,
+.industrial-switch.active::before,
+.industrial-switch[aria-pressed="true"]::before {
+  background: radial-gradient(circle at 35% 30%, #ffe08a 0%, var(--amber) 55%, var(--amber-lo) 100%);
+  box-shadow:
+    0 0 0 1px rgba(0,0,0,0.6),
+    0 0 6px rgba(255,171,0,0.75),
+    0 0 14px rgba(255,171,0,0.5),
+    inset 0 -1px 1px rgba(0,0,0,0.35);
+}
+:root[data-theme="light"] .industrial-switch {
+  background: linear-gradient(180deg, #f2eee0 0%, #d9d5c5 100%);
+  border-color: #b3ae9c;
+  color: #4a4a55;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.7),
+    inset 0 -1px 0 rgba(0,0,0,0.12),
+    0 6px 14px -8px rgba(0,0,0,0.2);
+}
+:root[data-theme="light"] .industrial-switch::before {
+  background: radial-gradient(circle at 35% 30%, #efe9d7 0%, #a49e8b 60%, #726d5d 100%);
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.2), inset 0 -1px 1px rgba(0,0,0,0.2);
+}
+
+/* Cabin panel — the primary skeuomorphic surface for premium panels */
+.cabin-panel {
+  position: relative;
+  background:
+    linear-gradient(180deg,
+      rgba(28,30,38,0.98) 0%,
+      rgba(14,15,20,0.92) 60%,
+      rgba(6,7,10,0.94) 100%);
+  border: 1px solid #23252e;
+  border-radius: 6px;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.055),
+    inset 0 -1px 0 rgba(0,0,0,0.6),
+    inset 1px 0 0 rgba(255,255,255,0.02),
+    inset -1px 0 0 rgba(0,0,0,0.35),
+    0 24px 60px -28px rgba(0,0,0,0.7);
+  isolation: isolate;
+  overflow: hidden;
+}
+.cabin-panel::before {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; top: 0;
+  height: 2px;
+  background: var(--brushed-metal);
+  background-size: 200% 100%;
+  opacity: 0.75;
+  pointer-events: none;
+}
+.cabin-panel::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0,0,0,0.7) 50%, transparent);
+  pointer-events: none;
+}
+:root[data-theme="light"] .cabin-panel {
+  background: linear-gradient(180deg, #faf7ed 0%, #ece7d4 100%);
+  border-color: #b6b09e;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.7),
+    inset 0 -1px 0 rgba(0,0,0,0.12),
+    0 24px 60px -28px rgba(0,0,0,0.22);
+}
+
+/* Bevel — a shallow inset surface for readouts, gauges, meter faces */
+.bevel {
+  background: linear-gradient(180deg, #08090e 0%, #0e1017 100%);
+  box-shadow: var(--bevel-inset-strong);
+  border-radius: 3px;
+}
+:root[data-theme="light"] .bevel {
+  background: linear-gradient(180deg, #d6d2c1 0%, #e6e2d1 100%);
+}
+
+/* LCD readout treatment — the digits sit inside a slightly recessed slab */
+.lcd {
+  position: relative;
+  padding: 10px 14px;
+  background:
+    linear-gradient(180deg, #05060a 0%, #0b0d13 100%);
+  border: 1px solid #1a1c24;
+  border-radius: 3px;
+  box-shadow: var(--bevel-inset-strong);
+  font-family: var(--font-mono);
+  color: var(--amber);
+  text-shadow: var(--amber-led-glow);
+  letter-spacing: 0.06em;
+  font-variant-numeric: tabular-nums;
+}
+:root[data-theme="light"] .lcd {
+  background: linear-gradient(180deg, #d0ccbb 0%, #dad6c4 100%);
+  border-color: #a09b8a;
+  color: var(--amber);
+  text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+}
+
+/* Torqued corner — the "SPEC-REV.04" bracket in the corner of a panel */
+.torque-corner {
+  position: absolute;
+  top: 10px; right: 10px;
+  z-index: 4;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 10px 5px 8px;
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.22em;
+  color: #7a7d88;
+  text-transform: uppercase;
+  text-shadow: var(--etched-text-shadow);
+  background: linear-gradient(180deg, #18191f 0%, #0d0e13 100%);
+  border: 1px solid #1c1e26;
+  border-radius: 3px;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.05),
+    inset 0 -1px 0 rgba(0,0,0,0.55),
+    0 4px 10px -4px rgba(0,0,0,0.6);
+}
+:root[data-theme="light"] .torque-corner {
+  background: linear-gradient(180deg, #ede8d6 0%, #dcd7c6 100%);
+  border-color: #b0ab99;
+  color: #6a6656;
+  text-shadow: var(--etched-text-shadow);
+}
+.torque-corner__led {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #ffe08a 0%, var(--amber) 55%, var(--amber-lo) 100%);
+  box-shadow: 0 0 5px var(--amber-glow), 0 0 10px var(--amber-glow);
+  animation: ledFlicker 3.4s ease-in-out infinite;
+}
+
+/* Mystical pricing plate — replaces exact tier price, feels like a sealed spec */
+.spec-plate {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  padding: 8px 12px 9px;
+  min-width: 132px;
+  background:
+    linear-gradient(180deg, #1a1c23 0%, #0a0b0e 100%);
+  border: 1px solid #24262f;
+  border-radius: 3px;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.06),
+    inset 0 -1px 0 rgba(0,0,0,0.7),
+    0 4px 12px -6px rgba(0,0,0,0.65);
+  position: relative;
+  isolation: isolate;
+}
+.spec-plate::before {
+  content: "";
+  position: absolute;
+  left: 6px; right: 6px; top: 3px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+}
+:root[data-theme="light"] .spec-plate {
+  background: linear-gradient(180deg, #efe9d7 0%, #d6d1bf 100%);
+  border-color: #a5a08e;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.75), inset 0 -1px 0 rgba(0,0,0,0.15);
+}
+.spec-plate__rev {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--amber);
+  text-shadow: var(--amber-led-glow);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.spec-plate__val {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: #7a7d88;
+  text-transform: uppercase;
+  text-shadow: var(--etched-text-shadow);
+}
+:root[data-theme="light"] .spec-plate__val { color: #6a6656; }
+
+/* Cabin panel corner rivets (opt-in via .cabin-panel--riveted) */
+.cabin-panel--riveted::before,
+.cabin-panel--riveted::after {
+  height: 2px;
+}
+.cabin-panel--riveted {
+  position: relative;
+}
+.cabin-panel--riveted > .rivet-tl,
+.cabin-panel--riveted > .rivet-tr,
+.cabin-panel--riveted > .rivet-bl,
+.cabin-panel--riveted > .rivet-br {
+  position: absolute;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #6c6f7a 0%, #3a3c46 40%, #101218 100%);
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.6), inset 0 -1px 1px rgba(0,0,0,0.6);
+  z-index: 6;
+  pointer-events: none;
+}
+.cabin-panel--riveted > .rivet-tl { top: 10px; left: 10px; }
+.cabin-panel--riveted > .rivet-tr { top: 10px; right: 10px; }
+.cabin-panel--riveted > .rivet-bl { bottom: 10px; left: 10px; }
+.cabin-panel--riveted > .rivet-br { bottom: 10px; right: 10px; }
+:root[data-theme="light"] .cabin-panel--riveted > .rivet-tl,
+:root[data-theme="light"] .cabin-panel--riveted > .rivet-tr,
+:root[data-theme="light"] .cabin-panel--riveted > .rivet-bl,
+:root[data-theme="light"] .cabin-panel--riveted > .rivet-br {
+  background: radial-gradient(circle at 35% 30%, #efe9d7 0%, #a49e8b 55%, #726d5d 100%);
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.2), inset 0 -1px 1px rgba(0,0,0,0.2);
+}
+
+/* Amber-lit LED indicator strip (used on active tier / hero card) */
+.led-strip {
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    var(--amber-lo) 12%,
+    var(--amber) 48%,
+    var(--amber-hi) 50%,
+    var(--amber) 52%,
+    var(--amber-lo) 88%,
+    transparent 100%);
+  box-shadow: 0 0 8px var(--amber-glow), 0 0 20px rgba(255,171,0,0.2);
+  opacity: 0.85;
+}
+
+/* Overlay the industrial upgrades onto existing components ------------ */
+
+/* Hero panel: cabin-panel materiality with brushed edge + LED */
+.hero__panel {
+  background:
+    linear-gradient(180deg,
+      rgba(30,32,40,0.96) 0%,
+      rgba(14,15,20,0.88) 55%,
+      rgba(6,7,10,0.92) 100%) !important;
+  border-color: #23252e;
+  box-shadow:
+    var(--bevel-inset),
+    var(--shadow-soft);
+}
+.hero__panel::before {
+  content: "";
+  top: 0; left: 0; right: 0;
+  bottom: auto;
+  width: auto;
+  height: 2px;
+  border: 0;
+  background: var(--brushed-metal-strong);
+  background-size: 200% 100%;
+  opacity: 0.72;
+}
+.hero__panel::after {
+  content: "";
+  bottom: 0; left: 0; right: 0;
+  top: auto;
+  width: auto;
+  height: 1px;
+  border: 0;
+  background: linear-gradient(90deg, transparent, rgba(0,0,0,0.6) 50%, transparent);
+}
+:root[data-theme="light"] .hero__panel {
+  background: linear-gradient(180deg, #faf7ed 0%, #ece7d4 100%) !important;
+  border-color: #b6b09e;
+}
+
+/* Buttons: gain machined bezel */
+.btn {
+  background:
+    linear-gradient(180deg, #1a1c22 0%, #0e1015 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.06),
+    inset 0 -1px 0 rgba(0,0,0,0.55),
+    0 6px 16px -8px rgba(0,0,0,0.55);
+}
+.btn:hover {
+  background: linear-gradient(180deg, var(--text) 0%, #d6d6db 100%);
+  color: var(--bg);
+  border-color: var(--text);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.4),
+    0 18px 44px -18px rgba(0,0,0,0.7);
+}
+:root[data-theme="light"] .btn {
+  background: linear-gradient(180deg, #f6f1df 0%, #ddd7c4 100%);
+}
+.btn--primary {
+  background: linear-gradient(180deg, #ffdd7a 0%, var(--amber-hi) 40%, var(--amber) 100%) !important;
+  color: var(--amber-ink) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.45),
+    inset 0 -1px 0 rgba(122,60,0,0.6),
+    0 8px 22px -8px var(--amber-glow),
+    0 0 0 1px rgba(255,171,0,0.45),
+    0 0 22px -8px var(--amber-glow) !important;
+}
+.btn--primary:hover {
+  background: linear-gradient(180deg, #fff0a6 0%, #ffd062 45%, var(--amber-hi) 100%) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.55),
+    inset 0 -1px 0 rgba(122,60,0,0.6),
+    0 22px 60px -14px var(--amber-glow),
+    0 0 0 1px rgba(255,171,0,0.65),
+    0 0 40px -6px var(--amber-glow) !important;
+}
+
+/* Theme toggle: brushed casing with switch */
+.theme-toggle {
+  background: linear-gradient(180deg, #1a1c22 0%, #0d0f14 100%);
+  box-shadow: var(--bevel-inset), 0 6px 14px -8px rgba(0,0,0,0.6);
+  border-color: #23252e;
+}
+:root[data-theme="light"] .theme-toggle {
+  background: linear-gradient(180deg, #f7f2e0 0%, #ddd7c4 100%);
+  border-color: #b3ae9c;
+}
+.theme-toggle span.on {
+  background: linear-gradient(180deg, #ffdd7a 0%, var(--amber-hi) 40%, var(--amber) 100%);
+  color: var(--amber-ink);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.5),
+    inset 0 -1px 0 rgba(122,60,0,0.55),
+    0 0 8px var(--amber-glow),
+    0 4px 12px -4px var(--amber-glow);
+}
+
+/* Tier card: cabin panel with brushed rail + spec plate + rivets */
+.tier {
+  border-color: #23252e;
+  background:
+    linear-gradient(180deg,
+      rgba(24,26,34,0.98) 0%,
+      rgba(12,13,18,0.94) 60%,
+      rgba(6,7,10,0.96) 100%);
+  box-shadow:
+    var(--bevel-inset),
+    0 24px 60px -30px rgba(0,0,0,0.7);
+}
+.tier::after {
+  background: var(--brushed-metal);
+  background-size: 200% 100%;
+  height: 2px;
+  opacity: 0.7;
+}
+.tier:hover {
+  border-color: rgba(255,171,0,0.4);
+  box-shadow:
+    var(--bevel-inset),
+    0 32px 80px -30px rgba(0,0,0,0.85),
+    0 0 0 1px rgba(255,171,0,0.28),
+    0 0 40px -6px var(--amber-glow);
+}
+.tier:hover::after {
+  background: linear-gradient(90deg,
+    transparent 0%,
+    var(--amber-lo) 15%,
+    var(--amber) 50%,
+    var(--amber-lo) 85%,
+    transparent 100%);
+  box-shadow: 0 0 12px var(--amber-glow), 0 0 24px rgba(255,171,0,0.25);
+  height: 2px;
+}
+.tier--featured {
+  background:
+    linear-gradient(180deg,
+      rgba(255,171,0,0.09) 0%,
+      rgba(24,26,34,0.98) 22%,
+      rgba(12,13,18,0.94) 60%,
+      rgba(6,7,10,0.96) 100%);
+  border-color: rgba(255,171,0,0.32);
+  box-shadow:
+    var(--bevel-inset),
+    0 24px 60px -30px var(--amber-glow),
+    0 0 0 1px rgba(255,171,0,0.18);
+}
+.tier--featured::after {
+  background: linear-gradient(90deg, transparent, var(--amber), transparent);
+  box-shadow: 0 0 12px var(--amber-glow), 0 0 24px rgba(255,171,0,0.25);
+}
+:root[data-theme="light"] .tier {
+  background: linear-gradient(180deg, #faf7ed 0%, #ece7d4 100%);
+  border-color: #b6b09e;
+}
+:root[data-theme="light"] .tier--featured {
+  background:
+    linear-gradient(180deg, rgba(160,74,5,0.08) 0%, #faf7ed 25%, #ece7d4 100%);
+  border-color: rgba(160,74,5,0.35);
+}
+
+/* Filter chips (Tier 2 fleet matrix): physical toggle switch aesthetic */
+.filter-chip {
+  padding: 9px 18px 9px 30px;
+  border: 1px solid #2a2c34;
+  background: linear-gradient(180deg, #22242c 0%, #14161c 55%, #0c0d13 100%);
+  color: var(--text-mute);
+  border-radius: 4px;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.05),
+    inset 0 -1px 0 rgba(0,0,0,0.75),
+    0 1px 0 rgba(255,255,255,0.03),
+    0 6px 14px -8px rgba(0,0,0,0.7);
+  position: relative;
+  transform: none;
+  overflow: hidden;
+}
+.filter-chip::before {
+  content: "";
+  position: absolute;
+  left: 10px; top: 50%;
+  transform: translateY(-50%);
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #3d3f4b 0%, #191b23 60%, #0a0b10 100%);
+  box-shadow:
+    0 0 0 1px rgba(0,0,0,0.7),
+    inset 0 -1px 1px rgba(0,0,0,0.7);
+  transition: background 260ms ease, box-shadow 300ms ease;
+}
+.filter-chip:hover {
+  color: var(--text);
+  border-color: #3c3f4b;
+  transform: none;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.08),
+    inset 0 -1px 0 rgba(0,0,0,0.75),
+    0 8px 20px -8px rgba(0,0,0,0.75);
+}
+.filter-chip.active {
+  background: linear-gradient(180deg, #24242c 0%, #16161d 100%);
+  color: var(--amber-hi);
+  border-color: rgba(255,171,0,0.55);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.08),
+    inset 0 -1px 0 rgba(0,0,0,0.75),
+    0 0 0 1px rgba(255,171,0,0.28),
+    0 8px 20px -6px rgba(255,171,0,0.22);
+}
+.filter-chip.active::before {
+  background: radial-gradient(circle at 35% 30%, #ffe08a 0%, var(--amber) 55%, var(--amber-lo) 100%);
+  box-shadow:
+    0 0 0 1px rgba(0,0,0,0.6),
+    0 0 6px rgba(255,171,0,0.75),
+    0 0 14px rgba(255,171,0,0.5),
+    inset 0 -1px 1px rgba(0,0,0,0.35);
+}
+:root[data-theme="light"] .filter-chip {
+  background: linear-gradient(180deg, #f2eee0 0%, #d9d5c5 100%);
+  border-color: #b3ae9c;
+  color: #4a4a55;
+}
+:root[data-theme="light"] .filter-chip::before {
+  background: radial-gradient(circle at 35% 30%, #efe9d7 0%, #a49e8b 60%, #726d5d 100%);
+}
+:root[data-theme="light"] .filter-chip.active {
+  color: var(--amber);
+  background: linear-gradient(180deg, #faf6e4 0%, #e0dbca 100%);
+}
+
+/* Perf scores: gauge-face LCD readouts */
+.perf-scores {
+  border-color: #23252e;
+  background: #0a0b0e;
+}
+.perf-score {
+  background: linear-gradient(180deg, #12141b 0%, #0a0b0e 100%);
+  box-shadow: var(--bevel-inset);
+  position: relative;
+}
+.perf-score::before {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; top: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+}
+.perf-score__val {
+  text-shadow: var(--amber-led-glow);
+}
+:root[data-theme="light"] .perf-score {
+  background: linear-gradient(180deg, #f7f3e2 0%, #ece7d4 100%);
+}
+
+/* Counts: LCD-glass readouts inside a machined cabinet */
+.counts__grid {
+  border-color: #23252e;
+  background: #0a0b0e;
+  box-shadow: var(--bevel-inset);
+}
+.count {
+  background: linear-gradient(180deg, #14161d 0%, #0a0b0e 100%);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
+}
+.count::before {
+  height: 2px;
+  background: var(--brushed-metal);
+  background-size: 200% 100%;
+  opacity: 0.6;
+}
+.count:hover::before {
+  opacity: 1;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    var(--amber-lo) 15%,
+    var(--amber) 50%,
+    var(--amber-lo) 85%,
+    transparent 100%);
+  box-shadow: 0 0 10px var(--amber-glow);
+}
+.count__val {
+  text-shadow:
+    0 0 20px rgba(255,171,0,0.25),
+    0 0 50px rgba(255,171,0,0.12);
+}
+:root[data-theme="light"] .count {
+  background: linear-gradient(180deg, #f7f3e2 0%, #ece7d4 100%);
+}
+
+/* VS table: riveted panel with machined header rail */
+.vs-table {
+  border-color: #23252e;
+  box-shadow: var(--bevel-inset);
+  position: relative;
+  background: #0a0b0e;
+}
+.vs-table::before {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; top: 0;
+  height: 2px;
+  background: var(--brushed-metal-strong);
+  background-size: 200% 100%;
+  opacity: 0.75;
+  z-index: 4;
+  pointer-events: none;
+}
+.vs-row--head > span {
+  background: linear-gradient(180deg, #1a1c23 0%, #0e0f14 100%);
+  color: #8a8d99;
+  text-shadow: var(--etched-text-shadow);
+}
+.vs-row > span:first-child {
+  color: var(--text);
+  text-shadow: var(--etched-text-shadow);
+}
+.vs-row__us {
+  background:
+    linear-gradient(180deg, rgba(255,171,0,0.14) 0%, rgba(255,171,0,0.04) 100%);
+  box-shadow: inset 0 1px 0 rgba(255,220,120,0.15);
+}
+.vs-row--head .vs-row__us {
+  background: linear-gradient(180deg, rgba(255,171,0,0.22) 0%, rgba(255,171,0,0.08) 100%);
+}
+:root[data-theme="light"] .vs-table { background: #ece7d4; }
+:root[data-theme="light"] .vs-row--head > span {
+  background: linear-gradient(180deg, #ddd7c4 0%, #cac4b0 100%);
+  color: #6a6656;
+}
+
+/* Signal ticker: cabin-console strip */
+.signal-ticker {
+  background:
+    linear-gradient(180deg, #0d0e14 0%, #05060a 100%);
+  box-shadow: inset 0 -1px 0 rgba(0,0,0,0.7);
+  position: relative;
+}
+.signal-ticker::before {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; top: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.06) 50%, transparent);
+}
+.signal-ticker__label {
+  background: linear-gradient(180deg, rgba(255,171,0,0.11) 0%, rgba(255,171,0,0.03) 100%);
+  border-right-color: #1e2028;
+  text-shadow: var(--amber-emboss);
+}
+:root[data-theme="light"] .signal-ticker {
+  background: linear-gradient(180deg, #dfdac7 0%, #cec8b3 100%);
+}
+
+/* Metric row (market comp panel): etched labels */
+.metric-row__label { text-shadow: var(--etched-text-shadow); }
+
+/* Corner marker: etched */
+.corner-marker {
+  text-shadow: var(--etched-text-shadow);
+  padding: 3px 8px;
+  background: linear-gradient(180deg, rgba(20,22,28,0.75) 0%, rgba(8,9,13,0.6) 100%);
+  border: 1px solid rgba(50,52,62,0.55);
+  border-radius: 2px;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+:root[data-theme="light"] .corner-marker {
+  background: linear-gradient(180deg, rgba(247,244,234,0.9) 0%, rgba(228,222,204,0.7) 100%);
+  border-color: #b6b09e;
+}
+
+/* Eyebrow: dashed etched label with an LED bullet */
+.eyebrow {
+  padding: 4px 10px 4px 4px;
+  color: var(--text-mute);
+  text-shadow: var(--etched-text-shadow);
+}
+.eyebrow::before {
+  width: 8px;
+  height: 8px;
+  background: radial-gradient(circle at 40% 35%, #ffe08a 0%, var(--amber) 50%, var(--amber-lo) 100%);
+  border-radius: 50%;
+  box-shadow: 0 0 5px var(--amber-glow), 0 0 12px rgba(255,171,0,0.35);
+  animation: ledFlicker 3.4s ease-in-out infinite;
+}
+
+/* Badges: cabin readout pill */
+.badge {
+  background:
+    linear-gradient(180deg, rgba(24,26,34,0.9) 0%, rgba(10,11,14,0.85) 100%);
+  border-color: #2c2e39;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.05),
+    inset 0 -1px 0 rgba(0,0,0,0.5);
+  text-shadow: var(--etched-text-shadow);
+}
+:root[data-theme="light"] .badge {
+  background: linear-gradient(180deg, rgba(247,244,234,0.95) 0%, rgba(220,215,196,0.85) 100%);
+  border-color: #b3ae9c;
+}
+.badge--live {
+  background:
+    linear-gradient(180deg, rgba(34,211,138,0.13) 0%, rgba(10,11,14,0.85) 100%);
+  border-color: rgba(34,211,138,0.45);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.05),
+    inset 0 -1px 0 rgba(0,0,0,0.5),
+    0 0 12px rgba(34,211,138,0.15);
+}
+
+/* Sector card: metal-rimmed frame */
+.sector {
+  border-color: #23252e;
+  box-shadow: var(--bevel-inset);
+}
+.sector:hover {
+  border-color: rgba(255,171,0,0.4);
+  box-shadow:
+    var(--bevel-inset),
+    0 32px 80px -30px rgba(0,0,0,0.85),
+    0 0 0 1px rgba(255,171,0,0.28),
+    0 0 40px -6px var(--amber-glow);
+}
+.sector__tag {
+  background: linear-gradient(180deg, rgba(16,18,24,0.85) 0%, rgba(6,7,10,0.85) 100%);
+  border-color: rgba(255,171,0,0.5);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.06),
+    inset 0 -1px 0 rgba(0,0,0,0.55),
+    0 0 8px rgba(255,171,0,0.15);
+  text-shadow: var(--amber-emboss);
+}
+
+/* Perf list: cabinet log rows */
+.perf-list li:hover .perf-list__num {
+  color: var(--amber-hi);
+  border-color: rgba(255,171,0,0.4);
+  box-shadow: 0 0 12px var(--amber-glow);
+}
+.perf-list__num {
+  background: linear-gradient(180deg, #14161d 0%, #0a0b0e 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.04),
+    inset 0 -1px 0 rgba(0,0,0,0.5);
+}
+:root[data-theme="light"] .perf-list__num {
+  background: linear-gradient(180deg, #f7f3e2 0%, #ece7d4 100%);
+}
+
+/* Timeline phase cards → cabinet cells */
+.section > .container > div[style*="repeat(4"] > div {
+  background: linear-gradient(180deg, #12141b 0%, #0a0b0e 100%) !important;
+  box-shadow: var(--bevel-inset);
+  position: relative;
+}
+:root[data-theme="light"] .section > .container > div[style*="repeat(4"] > div {
+  background: linear-gradient(180deg, #f7f3e2 0%, #ece7d4 100%) !important;
+}
+
+/* Section eyebrows already handled above; make sure hero corner marker is legible */
+:root[data-theme="light"] .signal-ticker__label { color: var(--amber); }
+
+/* Amber accents: emboss headings so they feel machined */
+h1 .amber, h2 .amber, .footer__cta .amber {
+  text-shadow: var(--amber-emboss);
+}
+
+/* Reduced motion — kill LED flicker */
+@media (prefers-reduced-motion: reduce) {
+  .led, .eyebrow::before, .torque-corner__led {
+    animation: none;
+  }
 }

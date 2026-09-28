@@ -114,6 +114,17 @@
   background: #000;
   border: 1px solid var(--border-strong);
   isolation: isolate;
+  transform:
+    perspective(1200px)
+    rotateX(calc(var(--ty, 0) * -3deg))
+    rotateY(calc(var(--tx, 0) * 3deg))
+    translateZ(0);
+  transition: transform 640ms var(--ease-out), box-shadow 640ms var(--ease-out);
+  will-change: transform;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-photo { transform: none !important; }
+  .hero-photo > img { animation: none !important; }
 }
 .hero-photo > img {
   position: absolute;

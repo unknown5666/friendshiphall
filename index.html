@@ -14,6 +14,8 @@
 </head>
 <body>
 
+<div class="scroll-rail" id="scrollRail" aria-hidden="true"></div>
+
 <!-- ============== LIVE SIGNAL TICKER ============== -->
 <div class="signal-ticker" aria-label="Live operations feed">
   <div class="signal-ticker__label">
@@ -200,12 +202,16 @@
           send a portal, a load-chart previewer, and a real-time fleet map. This proposal closes that gap in one build.
         </p>
       </div>
-      <div class="hero__panel" style="padding: 28px">
-        <div class="mono" style="margin-bottom:12px">MARKET COMP · JUL 2026</div>
+      <div class="hero__panel cabin-panel cabin-panel--riveted" style="padding: 28px">
+        <span class="rivet-tl"></span><span class="rivet-tr"></span>
+        <span class="rivet-bl"></span><span class="rivet-br"></span>
+        <span class="torque-corner"><span class="torque-corner__led"></span>SPEC-REV.04</span>
+        <div class="mono" style="margin-bottom:12px; letter-spacing:0.22em">MARKET COMP · JUL 2026</div>
         <div class="metric-row"><span class="metric-row__label">Mammoet flagship</span><span class="metric-row__val">$50k+</span></div>
         <div class="metric-row"><span class="metric-row__label">Sarens flagship</span><span class="metric-row__val">$42k+</span></div>
         <div class="metric-row"><span class="metric-row__label">GCC regional avg</span><span class="metric-row__val">$18k</span></div>
-        <div class="metric-row"><span class="metric-row__label">FHE Tier 3 (this)</span><span class="metric-row__val amber">$28–35k</span></div>
+        <div class="metric-row"><span class="metric-row__label">FHE // Telemetry</span><span class="metric-row__val amber lcd" style="padding:4px 10px; font-size:12px">◐ ON APPLICATION</span></div>
+        <div class="led-strip" style="margin-top:14px"></div>
       </div>
     </div>
   </div>
@@ -224,17 +230,19 @@
     <div class="tiers">
       <!-- TIER 1 -->
       <article class="tier reveal" data-delay="1">
+        <span class="torque-corner"><span class="torque-corner__led"></span>ISO-9001 // REV.01</span>
         <div class="tier__photo">
           <img src="assets/fhe/pr-2.jpg" alt="FHE Liebherr mobile crane — fleet foundation" />
           <div class="tier__photo-tag"><span>FLEET · GROUND-LEVEL</span><span>TIER 01</span></div>
         </div>
         <div class="tier__head">
           <div>
-            <div class="tier__num">TIER 01</div>
+            <div class="tier__num">TIER 01 · SPEC-REV.01</div>
             <div class="tier__name">Foundation<br />& Fleet Command</div>
           </div>
-          <div class="tier__price">
-            $12–18k<small>AED 44k – 66k</small>
+          <div class="spec-plate">
+            <span class="spec-plate__rev"><span class="led"></span>SPEC-REV.01</span>
+            <span class="spec-plate__val">◐ ON APPLICATION</span>
           </div>
         </div>
         <p class="tier__focus">A cinematic dark-mode flagship with a working fleet matrix and RFQ cart.</p>
@@ -253,6 +261,7 @@
 
       <!-- TIER 2 -->
       <article class="tier tier--featured reveal" data-delay="2">
+        <span class="torque-corner"><span class="torque-corner__led"></span>ISO-9001 // REV.02</span>
         <div class="tier__photo">
           <img src="assets/fhe/banner-2.jpg" alt="Yacht lift — heavy-lift engineering showcase" />
           <div class="tier__photo-tag"><span>ENGINEERED LIFT · YACHT · 180 T</span><span>TIER 02</span></div>
@@ -262,8 +271,9 @@
             <div class="tier__num">TIER 02 · MOST PITCHED</div>
             <div class="tier__name">Engineering<br />& Interactive</div>
           </div>
-          <div class="tier__price">
-            $18–22k<small>AED 66k – 80k</small>
+          <div class="spec-plate">
+            <span class="spec-plate__rev"><span class="led"></span>SPEC-REV.02</span>
+            <span class="spec-plate__val">◐ ON APPLICATION</span>
           </div>
         </div>
         <p class="tier__focus">Adds the visual firepower that closes enterprise briefs.</p>
@@ -282,6 +292,7 @@
 
       <!-- TIER 3 -->
       <article class="tier reveal" data-delay="3">
+        <span class="torque-corner"><span class="torque-corner__led"></span>ISO-9001 // REV.03</span>
         <div class="tier__photo">
           <img src="assets/fhe/banner-4.jpg" alt="Cranes and skyscrapers — enterprise portal scope" />
           <div class="tier__photo-tag"><span>ENTERPRISE · URBAN CORE</span><span>TIER 03</span></div>
@@ -291,8 +302,9 @@
             <div class="tier__num">TIER 03 · FLAGSHIP</div>
             <div class="tier__name">Enterprise Portal<br />+ M365 Migration</div>
           </div>
-          <div class="tier__price">
-            $28–35k+<small>AED 103k – 128k+</small>
+          <div class="spec-plate">
+            <span class="spec-plate__rev"><span class="led"></span>SPEC-REV.03</span>
+            <span class="spec-plate__val">◐ ON APPLICATION</span>
           </div>
         </div>
         <p class="tier__focus">A full operations layer + moves FHE onto Microsoft 365 / Teams.</p>
@@ -585,13 +597,6 @@
         <span role="cell" class="vs-no">—</span>
         <span role="cell" class="vs-no">—</span>
       </div>
-      <div class="vs-row" role="row">
-        <span role="cell">Total build (USD)</span>
-        <span role="cell" class="vs-row__us"><strong>$28–35 k</strong></span>
-        <span role="cell">$40 k+</span>
-        <span role="cell">$50 k+</span>
-        <span role="cell">$42 k+</span>
-      </div>
     </div>
     <div class="mono vs-note">
       <span>SRC · Lighthouse mobile · Dubai edge · 2026-09-28</span>
@@ -711,6 +716,8 @@
 </footer>
 
 <script>
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   // Theme toggle
   const root = document.documentElement;
   const toggle = document.getElementById('themeToggle');
@@ -750,11 +757,63 @@
       hookLine.setAttribute('y2', 180 + drop);
     }
   }
-  window.addEventListener('scroll', updateBoom, { passive: true });
-  updateBoom();
+  // Scroll-progress rail + nav condense — batched into one rAF-throttled pass
+  const scrollRail = document.getElementById('scrollRail');
+  const navEl = document.querySelector('.nav');
+  let scrollTick = false;
+  function onScroll() {
+    updateBoom();
+    if (!scrollTick) {
+      scrollTick = true;
+      requestAnimationFrame(() => {
+        const doc = document.documentElement;
+        const max = doc.scrollHeight - doc.clientHeight;
+        const p = max > 0 ? Math.min(1, doc.scrollTop / max) : 0;
+        if (scrollRail) scrollRail.style.setProperty('--p', p.toFixed(4));
+        if (navEl) navEl.classList.toggle('nav--scrolled', doc.scrollTop > 40);
+        scrollTick = false;
+      });
+    }
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
 
-  // Scroll reveal
-  const revealItems = document.querySelectorAll('.reveal');
+  // Hero photo — buttery pointer-driven parallax tilt (cursor leads the frame)
+  const heroPhoto = document.querySelector('.hero-photo');
+  if (heroPhoto && !prefersReduced && window.matchMedia('(pointer:fine)').matches) {
+    const heroWrap = heroPhoto.closest('.hero');
+    let tiltTick = false, lastX = 0, lastY = 0;
+    (heroWrap || heroPhoto).addEventListener('pointermove', (e) => {
+      const r = heroPhoto.getBoundingClientRect();
+      lastX = ((e.clientX - r.left) / r.width - 0.5) * 2;
+      lastY = ((e.clientY - r.top) / r.height - 0.5) * 2;
+      if (!tiltTick) {
+        tiltTick = true;
+        requestAnimationFrame(() => {
+          heroPhoto.style.setProperty('--tx', Math.max(-1, Math.min(1, lastX)).toFixed(3));
+          heroPhoto.style.setProperty('--ty', Math.max(-1, Math.min(1, lastY)).toFixed(3));
+          tiltTick = false;
+        });
+      }
+    });
+    (heroWrap || heroPhoto).addEventListener('pointerleave', () => {
+      heroPhoto.style.setProperty('--tx', '0');
+      heroPhoto.style.setProperty('--ty', '0');
+    });
+  }
+
+  // Scroll reveal — hero elements are tagged in markup; section headers and
+  // data grids are auto-tagged here. They live below the fold, so tagging them
+  // synchronously introduces no flash while adding a cinematic entrance.
+  document.querySelectorAll('.section').forEach(sec => {
+    sec.querySelectorAll(':scope > .container > .eyebrow, :scope .eyebrow')
+      .forEach(el => { if (!el.closest('.reveal')) el.setAttribute('data-reveal', ''); });
+    const h = sec.querySelector('h2');
+    if (h && !h.closest('.reveal')) h.setAttribute('data-reveal', '');
+  });
+  document.querySelectorAll('.counts__grid, .sectors, .field-mosaic, .perf-list')
+    .forEach(g => g.setAttribute('data-stagger', ''));
+
   const revealIO = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (e.isIntersecting) {
@@ -762,8 +821,9 @@
         revealIO.unobserve(e.target);
       }
     });
-  }, { threshold: 0.12, rootMargin: '0px' });
-  revealItems.forEach(el => revealIO.observe(el));
+  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+  document.querySelectorAll('.reveal, [data-reveal], [data-stagger]')
+    .forEach(el => revealIO.observe(el));
 
   // Tier cards — pointer-tracked glow
   document.querySelectorAll('.tier').forEach(t => {
