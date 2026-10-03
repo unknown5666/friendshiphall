@@ -1,0 +1,1670 @@
+[
+ {
+  "name": "hero-gantry-dusk",
+  "source": "C:/Users/user/Downloads/FHE Assets/20171219_071418.jpg",
+  "taken": "2017-12-19T07:14:18",
+  "orientation": "landscape",
+  "aspect": 1.3333,
+  "alt": "Two mobile cranes lifting a yellow bridge-launching girder marked SAFETY FIRST under a dusk sky",
+  "use": "Hero / infrastructure showcase. Most cinematic warm image.",
+  "sizes": [
+   {
+    "w": 480,
+    "h": 360,
+    "file": "assets/media/hero-gantry-dusk-480.webp",
+    "kb": 18
+   },
+   {
+    "w": 640,
+    "h": 480,
+    "file": "assets/media/hero-gantry-dusk-640.webp",
+    "kb": 29
+   },
+   {
+    "w": 800,
+    "h": 600,
+    "file": "assets/media/hero-gantry-dusk-800.webp",
+    "kb": 42
+   },
+   {
+    "w": 960,
+    "h": 720,
+    "file": "assets/media/hero-gantry-dusk-960.webp",
+    "kb": 55
+   },
+   {
+    "w": 1280,
+    "h": 960,
+    "file": "assets/media/hero-gantry-dusk-1280.webp",
+    "kb": 86
+   },
+   {
+    "w": 1920,
+    "h": 1440,
+    "file": "assets/media/hero-gantry-dusk-1920.webp",
+    "kb": 154
+   }
+  ],
+  "jpg": "assets/media/hero-gantry-dusk-1280.jpg"
+ },
+ {
+  "name": "bridge-segment-spmt",
+  "source": "C:/Users/user/Downloads/FHE Assets/20180226_122716.jpg",
+  "taken": "2018-02-26T12:27:16",
+  "orientation": "portrait",
+  "aspect": 0.75,
+  "alt": "Red mobile crane beside a bridge box-girder segment loaded on a multi-axle modular trailer",
+  "use": "Heavy transport + rigging; infrastructure.",
+  "sizes": [
+   {
+    "w": 480,
+    "h": 640,
+    "file": "assets/media/bridge-segment-spmt-480.webp",
+    "kb": 31
+   },
+   {
+    "w": 640,
+    "h": 853,
+    "file": "assets/media/bridge-segment-spmt-640.webp",
+    "kb": 50
+   },
+   {
+    "w": 800,
+    "h": 1067,
+    "file": "assets/media/bridge-segment-spmt-800.webp",
+    "kb": 73
+   },
+   {
+    "w": 960,
+    "h": 1280,
+    "file": "assets/media/bridge-segment-spmt-960.webp",
+    "kb": 98
+   },
+   {
+    "w": 1280,
+    "h": 1707,
+    "file": "assets/media/bridge-segment-spmt-1280.webp",
+    "kb": 153
+   }
+  ],
+  "jpg": "assets/media/bridge-segment-spmt-1280.jpg"
+ },
+ {
+  "name": "pier-cap-lift",
+  "source": "C:/Users/user/Downloads/FHE Assets/20180305_092636.jpg",
+  "taken": "2018-03-05T09:26:36",
+  "orientation": "portrait",
+  "aspect": 0.75,
+  "alt": "White mobile crane lowering a precast concrete pier cap onto a bridge column",
+  "use": "Engineered lift / infrastructure.",
+  "sizes": [
+   {
+    "w": 480,
+    "h": 640,
+    "file": "assets/media/pier-cap-lift-480.webp",
+    "kb": 27
+   },
+   {
+    "w": 640,
+    "h": 853,
+    "file": "assets/media/pier-cap-lift-640.webp",
+    "kb": 45
+   },
+   {
+    "w": 800,
+    "h": 1067,
+    "file": "assets/media/pier-cap-lift-800.webp",
+    "kb": 66
+   },
+   {
+    "w": 960,
+    "h": 1280,
+    "file": "assets/media/pier-cap-lift-960.webp",
+    "kb": 89
+   },
+   {
+    "w": 1280,
+    "h": 1707,
+    "file": "assets/media/pier-cap-lift-1280.webp",
+    "kb": 144
+   }
+  ],
+  "jpg": "assets/media/pier-cap-lift-1280.jpg"
+ },
+ {
+  "name": "precast-segment-spreader",
+  "source": "C:/Users/user/Downloads/FHE Assets/20180327_135442.jpg",
+  "taken": "2018-03-27T13:54:42",
+  "orientation": "portrait",
+  "aspect": 0.75,
+  "alt": "Red heavy crane setting a precast bridge segment using a blue spreader beam",
+  "use": "Rigging engineering / lift planning.",
+  "sizes": [
+   {
+    "w": 480,
+    "h": 640,
+    "file": "assets/media/precast-segment-spreader-480.webp",
+    "kb": 33
+   },
+   {
+    "w": 640,
+    "h": 853,
+    "file": "assets/media/precast-segment-spreader-640.webp",
+    "kb": 56
+   },
+   {
+    "w": 800,
+    "h": 1067,
+    "file": "assets/media/precast-segment-spreader-800.webp",
+    "kb": 81
+   },
+   {
+    "w": 960,
+    "h": 1280,
+    "file": "assets/media/precast-segment-spreader-960.webp",
+    "kb": 112
+   },
+   {
+    "w": 1280,
+    "h": 1707,
+    "file": "assets/media/precast-segment-spreader-1280.webp",
+    "kb": 184
+   }
+  ],
+  "jpg": "assets/media/precast-segment-spreader-1280.jpg"
+ },
+ {
+  "name": "lowbed-trailer",
+  "source": "C:/Users/user/Downloads/FHE Assets/20180410_183509.jpg",
+  "taken": "2018-04-10T18:35:09",
+  "orientation": "landscape",
+  "aspect": 1.3333,
+  "alt": "Mobile crane lifting a yacht onto a lowbed trailer at sunset",
+  "use": "Heavy transportation / lowbed trailers; Marine sector.",
+  "sizes": [
+   {
+    "w": 480,
+    "h": 360,
+    "file": "assets/media/lowbed-trailer-480.webp",
+    "kb": 16
+   },
+   {
+    "w": 640,
+    "h": 480,
+    "file": "assets/media/lowbed-trailer-640.webp",
+    "kb": 25
+   },
+   {
+    "w": 800,
+    "h": 600,
+    "file": "assets/media/lowbed-trailer-800.webp",
+    "kb": 36
+   },
+   {
+    "w": 960,
+    "h": 720,
+    "file": "assets/media/lowbed-trailer-960.webp",
+    "kb": 48
+   },
+   {
+    "w": 1280,
+    "h": 960,
+    "file": "assets/media/lowbed-trailer-1280.webp",
+    "kb": 74
+   },
+   {
+    "w": 1920,
+    "h": 1440,
+    "file": "assets/media/lowbed-trailer-1920.webp",
+    "kb": 132
+   }
+  ],
+  "jpg": "assets/media/lowbed-trailer-1280.jpg"
+ },
+ {
+  "name": "crane-on-flatbed",
+  "source": "C:/Users/user/Downloads/FHE Assets/20180502_122952.jpg",
+  "taken": "2018-05-02T12:29:52",
+  "orientation": "landscape",
+  "aspect": 1.3333,
+  "alt": "Heavy crane lifting a mobile crane carrier onto a flatbed trailer with orange round slings",
+  "use": "Flatbed transport / rigging.",
+  "sizes": [
+   {
+    "w": 480,
+    "h": 360,
+    "file": "assets/media/crane-on-flatbed-480.webp",
+    "kb": 19
+   },
+   {
+    "w": 640,
+    "h": 480,
+    "file": "assets/media/crane-on-flatbed-640.webp",
+    "kb": 29
+   },
+   {
+    "w": 800,
+    "h": 600,
+    "file": "assets/media/crane-on-flatbed-800.webp",
+    "kb": 42
+   },
+   {
+    "w": 960,
+    "h": 720,
+    "file": "assets/media/crane-on-flatbed-960.webp",
+    "kb": 56
+   },
+   {
+    "w": 1280,
+    "h": 960,
+    "file": "assets/media/crane-on-flatbed-1280.webp",
+    "kb": 88
+   },
+   {
+    "w": 1920,
+    "h": 1440,
+    "file": "assets/media/crane-on-flatbed-1920.webp",
+    "kb": 164
+   }
+  ],
+  "jpg": "assets/media/crane-on-flatbed-1280.jpg"
+ },
+ {
+  "name": "tower-crane-dismantle",
+  "source": "C:/Users/user/Downloads/FHE Assets/20190320_105137.jpg",
+  "taken": "2019-03-20T10:51:37",
+  "orientation": "portrait",
+  "aspect": 0.75,
+  "alt": "Telescopic mobile crane dismantling a tower crane on a city site",
+  "use": "Construction sector; tower crane erection/dismantling.",
+  "sizes": [
+   {
+    "w": 480,
+    "h": 640,
+    "file": "assets/media/tower-crane-dismantle-480.webp",
+    "kb": 30
+   },
+   {
+    "w": 640,
+    "h": 853,
+    "file": "assets/media/tower-crane-dismantle-640.webp",
+    "kb": 52
+   },
+   {
+    "w": 800,
+    "h": 1067,
+    "file": "assets/media/tower-crane-dismantle-800.webp",
+    "kb": 80
+   },
+   {
+    "w": 960,
+    "h": 1280,
+    "file": "assets/media/tower-crane-dismantle-960.webp",
+    "kb": 111
+   },
+   {
+    "w": 1280,
+    "h": 1707,
+    "file": "assets/media/tower-crane-dismantle-1280.webp",
+    "kb": 184
+   }
+  ],
+  "jpg": "assets/media/tower-crane-dismantle-1280.jpg"
+ },
+ {
+  "name": "piling-rig-excavation",
+  "source": "C:/Users/user/Downloads/FHE Assets/20190505_135616.jpg",
+  "taken": "2019-05-05T13:56:16",
+  "orientation": "landscape",
+  "aspect": 1.3333,
+  "alt": "Mobile crane lowering a piling rig into a deep excavation between city towers",
+  "use": "Construction sector; tight urban site.",
+  "sizes": [
+   {
+    "w": 480,
+    "h": 360,
+    "file": "assets/media/piling-rig-excavation-480.webp",
+    "kb": 34
+   },
+   {
+    "w": 640,
+    "h": 480,
+    "file": "assets/media/piling-rig-excavation-640.webp",
+    "kb": 56
+   },
+   {
+    "w": 800,
+    "h": 600,
+    "file": "assets/media/piling-rig-excavation-800.webp",
+    "kb": 84
+   },
+   {
+    "w": 960,
+    "h": 720,
+    "file": "assets/media/piling-rig-excavation-960.webp",
+    "kb": 117
+   },
+   {
+    "w": 1280,
+    "h": 960,
+    "file": "assets/media/piling-rig-excavation-1280.webp",
+    "kb": 196
+   },
+   {
+    "w": 1920,
+    "h": 1440,
+    "file": "assets/media/piling-rig-excavation-1920.webp",
+    "kb": 386
+   }
+  ],
+  "jpg": "assets/media/piling-rig-excavation-1280.jpg"
+ },
+ {
+  "name": "fhe-crane-plant-lift",
+  "source": "C:/Users/user/Downloads/FHE Assets/20190620_100351.jpg",
+  "taken": "2019-06-20T10:03:51",
+  "orientation": "landscape",
+  "aspect": 1.3333,
+  "alt": "FHE-branded all-terrain crane lifting wrapped plant equipment into a building",
+  "use": "Manufacturing / plant installation; branded fleet.",
+  "sizes": [
+   {
+    "w": 480,
+    "h": 360,
+    "file": "assets/media/fhe-crane-plant-lift-480.webp",
+    "kb": 24
+   },
+   {
+    "w": 640,
+    "h": 480,
+    "file": "assets/media/fhe-crane-plant-lift-640.webp",
+    "kb": 40
+   },
+   {
+    "w": 800,
+    "h": 600,
+    "file": "assets/media/fhe-crane-plant-lift-800.webp",
+    "kb": 59
+   },
+   {
+    "w": 960,
+    "h": 720,
+    "file": "assets/media/fhe-crane-plant-lift-960.webp",
+    "kb": 79
+   },
+   {
+    "w": 1280,
+    "h": 960,
+    "file": "assets/media/fhe-crane-plant-lift-1280.webp",
+    "kb": 128
+   },
+   {
+    "w": 1920,
+    "h": 1440,
+    "file": "assets/media/fhe-crane-plant-lift-1920.webp",
+    "kb": 243
+   }
+  ],
+  "jpg": "assets/media/fhe-crane-plant-lift-1280.jpg"
+ },
+ {
+  "name": "luffing-jib-towercrane",
+  "source": "C:/Users/user/Downloads/FHE Assets/20190914_095408.jpg",
+  "taken": "2019-09-14T09:54:08",
+  "orientation": "landscape",
+  "aspect": 1.3333,
+  "alt": "Yellow luffing-jib crane assembling a tower crane beside a concrete frame",
+  "use": "Construction; luffing jib capability.",
+  "sizes": [
+   {
+    "w": 480,
+    "h": 360,
+    "file": "assets/media/luffing-jib-towercrane-480.webp",
+    "kb": 11
+   },
+   {
+    "w": 640,
+    "h": 480,
+    "file": "assets/media/luffing-jib-towercrane-640.webp",
+    "kb": 17
+   },
+   {
+    "w": 800,
+    "h": 600,
+    "file": "assets/media/luffing-jib-towercrane-800.webp",
+    "kb": 26
+   },
+   {
+    "w": 960,
+    "h": 720,
+    "file": "assets/media/luffing-jib-towercrane-960.webp",
+    "kb": 35
+   },
+   {
+    "w": 1280,
+    "h": 960,
+    "file": "assets/media/luffing-jib-towercrane-1280.webp",
+    "kb": 56
+   },
+   {
+    "w": 1920,
+    "h": 1440,
+    "file": "assets/media/luffing-jib-towercrane-1920.webp",
+    "kb": 106
+   }
+  ],
+  "jpg": "assets/media/luffing-jib-towercrane-1280.jpg"
+ },
+ {
+  "name": "tensile-roof-tandem",
+  "source": "C:/Users/user/Downloads/FHE Assets/20190922_115952.jpg",
+  "taken": "2019-09-22T11:59:52",
+  "orientation": "landscape",
+  "aspect": 1.3333,
+  "alt": "Four mobile cranes in a coordinated multi-crane lift of a tensile fabric roof",
+  "use": "Multi-crane engineered lift; capability showcase.",
+  "sizes": [
+   {
+    "w": 480,
+    "h": 360,
+    "file": "assets/media/tensile-roof-tandem-480.webp",
+    "kb": 15
+   },
+   {
+    "w": 640,
+    "h": 480,
+    "file": "assets/media/tensile-roof-tandem-640.webp",
+    "kb": 24
+   },
+   {
+    "w": 800,
+    "h": 600,
+    "file": "assets/media/tensile-roof-tandem-800.webp",
+    "kb": 36
+   },
+   {
+    "w": 960,
+    "h": 720,
+    "file": "assets/media/tensile-roof-tandem-960.webp",
+    "kb": 49
+   },
+   {
+    "w": 1280,
+    "h": 960,
+    "file": "assets/media/tensile-roof-tandem-1280.webp",
+    "kb": 79
+   },
+   {
+    "w": 1920,
+    "h": 1440,
+    "file": "assets/media/tensile-roof-tandem-1920.webp",
+    "kb": 149
+   }
+  ],
+  "jpg": "assets/media/tensile-roof-tandem-1280.jpg"
+ },
+ {
+  "name": "port-vessel-dusk",
+  "source": "C:/Users/user/Downloads/FHE Assets/20191028_174349.jpg",
+  "taken": "2019-10-28T17:43:49",
+  "orientation": "portrait",
+  "aspect": 0.75,
+  "alt": "Red luffing-jib crane lifting a vessel at a port at dusk",
+  "use": "Marine / Oil and Gas sector.",
+  "sizes": [
+   {
+    "w": 480,
+    "h": 640,
+    "file": "assets/media/port-vessel-dusk-480.webp",
+    "kb": 25
+   },
+   {
+    "w": 640,
+    "h": 853,
+    "file": "assets/media/port-vessel-dusk-640.webp",
+    "kb": 40
+   },
+   {
+    "w": 800,
+    "h": 1067,
+    "file": "assets/media/port-vessel-dusk-800.webp",
+    "kb": 58
+   },
+   {
+    "w": 960,
+    "h": 1280,
+    "file": "assets/media/port-vessel-dusk-960.webp",
+    "kb": 77
+   },
+   {
+    "w": 1280,
+    "h": 1707,
+    "file": "assets/media/port-vessel-dusk-1280.webp",
+    "kb": 120
+   }
+  ],
+  "jpg": "assets/media/port-vessel-dusk-1280.jpg"
+ },
+ {
+  "name": "night-dhow-lift",
+  "source": "C:/Users/user/Downloads/FHE Assets/20191126_011441.jpg",
+  "taken": "2019-11-26T01:14:41",
+  "orientation": "landscape",
+  "aspect": 1.3333,
+  "alt": "Night lift of a traditional wooden dhow with spreader bars under floodlights",
+  "use": "24/7 operations; Marine sector. Strong dark image.",
+  "sizes": [
+   {
+    "w": 480,
+    "h": 360,
+    "file": "assets/media/night-dhow-lift-480.webp",
+    "kb": 18
+   },
+   {
+    "w": 640,
+    "h": 480,
+    "file": "assets/media/night-dhow-lift-640.webp",
+    "kb": 27
+   },
+   {
+    "w": 800,
+    "h": 600,
+    "file": "assets/media/night-dhow-lift-800.webp",
+    "kb": 38
+   },
+   {
+    "w": 960,
+    "h": 720,
+    "file": "assets/media/night-dhow-lift-960.webp",
+    "kb": 49
+   },
+   {
+    "w": 1280,
+    "h": 960,
+    "file": "assets/media/night-dhow-lift-1280.webp",
+    "kb": 73
+   },
+   {
+    "w": 1920,
+    "h": 1440,
+    "file": "assets/media/night-dhow-lift-1920.webp",
+    "kb": 122
+   }
+  ],
+  "jpg": "assets/media/night-dhow-lift-1280.jpg"
+ },
+ {
+  "name": "luffing-highrise-red",
+  "source": "C:/Users/user/Downloads/FHE Assets/20191226_091748.jpg",
+  "taken": "2019-12-26T09:17:48",
+  "orientation": "portrait",
+  "aspect": 0.75,
+  "alt": "Red lattice luffing crane rising between high-rise towers",
+  "use": "High-rise construction; vertical drama.",
+  "sizes": [
+   {
+    "w": 480,
+    "h": 640,
+    "file": "assets/media/luffing-highrise-red-480.webp",
+    "kb": 32
+   },
+   {
+    "w": 640,
+    "h": 853,
+    "file": "assets/media/luffing-highrise-red-640.webp",
+    "kb": 52
+   },
+   {
+    "w": 800,
+    "h": 1067,
+    "file": "assets/media/luffing-highrise-red-800.webp",
+    "kb": 77
+   },
+   {
+    "w": 960,
+    "h": 1280,
+    "file": "assets/media/luffing-highrise-red-960.webp",
+    "kb": 102
+   },
+   {
+    "w": 1280,
+    "h": 1707,
+    "file": "assets/media/luffing-highrise-red-1280.webp",
+    "kb": 159
+   }
+  ],
+  "jpg": "assets/media/luffing-highrise-red-1280.jpg"
+ },
+ {
+  "name": "fhe-carrier-closeup",
+  "source": "C:/Users/user/Downloads/FHE Assets/20191226_145911.jpg",
+  "taken": "2019-12-26T14:59:11",
+  "orientation": "landscape",
+  "aspect": 1.333,
+  "alt": "Close-up of a red FRIENDSHIP crane carrier cab and yellow boom head",
+  "use": "Fleet / brand detail. Great texture crop.",
+  "sizes": [
+   {
+    "w": 480,
+    "h": 360,
+    "file": "assets/media/fhe-carrier-closeup-480.webp",
+    "kb": 34
+   },
+   {
+    "w": 640,
+    "h": 480,
+    "file": "assets/media/fhe-carrier-closeup-640.webp",
+    "kb": 55
+   },
+   {
+    "w": 800,
+    "h": 600,
+    "file": "assets/media/fhe-carrier-closeup-800.webp",
+    "kb": 79
+   },
+   {
+    "w": 960,
+    "h": 720,
+    "file": "assets/media/fhe-carrier-closeup-960.webp",
+    "kb": 105
+   },
+   {
+    "w": 1280,
+    "h": 960,
+    "file": "assets/media/fhe-carrier-closeup-1280.webp",
+    "kb": 160
+   },
+   {
+    "w": 1920,
+    "h": 1440,
+    "file": "assets/media/fhe-carrier-closeup-1920.webp",
+    "kb": 281
+   }
+  ],
+  "jpg": "assets/media/fhe-carrier-closeup-1280.jpg"
+ },
+ {
+  "name": "mobile-crane-clouds",
+  "source": "C:/Users/user/Downloads/FHE Assets/20200128_100616.jpg",
+  "taken": "2020-01-28T10:06:16",
+  "orientation": "portrait",
+  "aspect": 0.75,
+  "alt": "Red and yellow all-terrain crane rigged under a cloud-streaked sky",
+  "use": "Fleet - mobile cranes.",
+  "sizes": [
+   {
+    "w": 480,
+    "h": 640,
+    "file": "assets/media/mobile-crane-clouds-480.webp",
+    "kb": 22
+   },
+   {
+    "w": 640,
+    "h": 853,
+    "file": "assets/media/mobile-crane-clouds-640.webp",
+    "kb": 36
+   },
+   {
+    "w": 800,
+    "h": 1067,
+    "file": "assets/media/mobile-crane-clouds-800.webp",
+    "kb": 50
+   },
+   {
+    "w": 960,
+    "h": 1280,
+    "file": "assets/media/mobile-crane-clouds-960.webp",
+    "kb": 68
+   },
+   {
+    "w": 1280,
+    "h": 1707,
+    "file": "assets/media/mobile-crane-clouds-1280.webp",
+    "kb": 107
+   }
+  ],
+  "jpg": "assets/media/mobile-crane-clouds-1280.jpg"
+ },
+ {
+  "name": "night-luffing-city",
+  "source": "C:/Users/user/Downloads/FHE Assets/20200305_032727.jpg",
+  "taken": "2020-03-05T03:27:27",
+  "orientation": "landscape",
+  "aspect": 1.3333,
+  "alt": "Yellow luffing crane working at night between lit city towers",
+  "use": "24/7 operations; dark hero candidate.",
+  "sizes": [
+   {
+    "w": 480,
+    "h": 360,
+    "file": "assets/media/night-luffing-city-480.webp",
+    "kb": 24
+   },
+   {
+    "w": 640,
+    "h": 480,
+    "file": "assets/media/night-luffing-city-640.webp",
+    "kb": 37
+   },
+   {
+    "w": 800,
+    "h": 600,
+    "file": "assets/media/night-luffing-city-800.webp",
+    "kb": 53
+   },
+   {
+    "w": 960,
+    "h": 720,
+    "file": "assets/media/night-luffing-city-960.webp",
+    "kb": 70
+   },
+   {
+    "w": 1280,
+    "h": 960,
+    "file": "assets/media/night-luffing-city-1280.webp",
+    "kb": 107
+   },
+   {
+    "w": 1920,
+    "h": 1440,
+    "file": "assets/media/night-luffing-city-1920.webp",
+    "kb": 195
+   }
+  ],
+  "jpg": "assets/media/night-luffing-city-1280.jpg"
+ },
+ {
+  "name": "luffing-building-day",
+  "source": "C:/Users/user/Downloads/FHE Assets/20200612_141528.jpg",
+  "taken": "2020-06-12T14:15:28",
+  "orientation": "portrait",
+  "aspect": 0.75,
+  "alt": "Yellow luffing crane alongside a curved mid-rise building",
+  "use": "Fleet - heavy mobile cranes.",
+  "sizes": [
+   {
+    "w": 480,
+    "h": 640,
+    "file": "assets/media/luffing-building-day-480.webp",
+    "kb": 50
+   },
+   {
+    "w": 640,
+    "h": 853,
+    "file": "assets/media/luffing-building-day-640.webp",
+    "kb": 84
+   },
+   {
+    "w": 800,
+    "h": 1067,
+    "file": "assets/media/luffing-building-day-800.webp",
+    "kb": 124
+   },
+   {
+    "w": 960,
+    "h": 1280,
+    "file": "assets/media/luffing-building-day-960.webp",
+    "kb": 170
+   },
+   {
+    "w": 1280,
+    "h": 1707,
+    "file": "assets/media/luffing-building-day-1280.webp",
+    "kb": 271
+   }
+  ],
+  "jpg": "assets/media/luffing-building-day-1280.jpg"
+ },
+ {
+  "name": "excavator-rooftop-lift",
+  "source": "C:/Users/user/Downloads/FHE Assets/20200916_132914.jpg",
+  "taken": "2020-09-16T13:29:14",
+  "orientation": "portrait",
+  "aspect": 0.75,
+  "alt": "FHE crane lifting an excavator up the face of a building",
+  "use": "Heavy lift; construction.",
+  "sizes": [
+   {
+    "w": 480,
+    "h": 640,
+    "file": "assets/media/excavator-rooftop-lift-480.webp",
+    "kb": 59
+   },
+   {
+    "w": 640,
+    "h": 853,
+    "file": "assets/media/excavator-rooftop-lift-640.webp",
+    "kb": 95
+   },
+   {
+    "w": 800,
+    "h": 1067,
+    "file": "assets/media/excavator-rooftop-lift-800.webp",
+    "kb": 136
+   },
+   {
+    "w": 960,
+    "h": 1280,
+    "file": "assets/media/excavator-rooftop-lift-960.webp",
+    "kb": 183
+   },
+   {
+    "w": 1280,
+    "h": 1707,
+    "file": "assets/media/excavator-rooftop-lift-1280.webp",
+    "kb": 289
+   }
+  ],
+  "jpg": "assets/media/excavator-rooftop-lift-1280.jpg"
+ },
+ {
+  "name": "yacht-spreader-lift",
+  "source": "C:/Users/user/Downloads/FHE Assets/20201003_142614.jpg",
+  "taken": "2020-10-03T14:26:14",
+  "orientation": "portrait",
+  "aspect": 0.75,
+  "alt": "Yellow mobile crane lifting a yacht hull with a spreader frame",
+  "use": "Marine sector.",
+  "sizes": [
+   {
+    "w": 480,
+    "h": 640,
+    "file": "assets/media/yacht-spreader-lift-480.webp",
+    "kb": 19
+   },
+   {
+    "w": 640,
+    "h": 853,
+    "file": "assets/media/yacht-spreader-lift-640.webp",
+    "kb": 32
+   },
+   {
+    "w": 800,
+    "h": 1067,
+    "file": "assets/media/yacht-spreader-lift-800.webp",
+    "kb": 47
+   },
+   {
+    "w": 960,
+    "h": 1280,
+    "file": "assets/media/yacht-spreader-lift-960.webp",
+    "kb": 63
+   },
+   {
+    "w": 1280,
+    "h": 1707,
+    "file": "assets/media/yacht-spreader-lift-1280.webp",
+    "kb": 103
+   }
+  ],
+  "jpg": "assets/media/yacht-spreader-lift-1280.jpg"
+ },
+ {
+  "name": "heavy-crane-superlift-night",
+  "source": "C:/Users/user/Downloads/FHE Assets/20201027_220520.jpg",
+  "taken": "2020-10-27T22:05:20",
+  "orientation": "portrait",
+  "aspect": 0.75,
+  "alt": "FHE heavy crane with superlift counterweight working at night",
+  "use": "Heavy fleet top tier; 24/7. Dark, dramatic portrait.",
+  "sizes": [
+   {
+    "w": 480,
+    "h": 640,
+    "file": "assets/media/heavy-crane-superlift-night-480.webp",
+    "kb": 38
+   },
+   {
+    "w": 640,
+    "h": 853,
+    "file": "assets/media/heavy-crane-superlift-night-640.webp",
+    "kb": 60
+   },
+   {
+    "w": 800,
+    "h": 1067,
+    "file": "assets/media/heavy-crane-superlift-night-800.webp",
+    "kb": 84
+   },
+   {
+    "w": 960,
+    "h": 1280,
+    "file": "assets/media/heavy-crane-superlift-night-960.webp",
+    "kb": 109
+   },
+   {
+    "w": 1280,
+    "h": 1707,
+    "file": "assets/media/heavy-crane-superlift-night-1280.webp",
+    "kb": 167
+   }
+  ],
+  "jpg": "assets/media/heavy-crane-superlift-night-1280.jpg"
+ },
+ {
+  "name": "yellow-crane-towercrane",
+  "source": "C:/Users/user/Downloads/FHE Assets/20201030_153853.jpg",
+  "taken": "2020-10-30T15:38:53",
+  "orientation": "portrait",
+  "aspect": 0.75,
+  "alt": "Yellow mobile crane working beside a tower crane on a tree-lined site",
+  "use": "Construction.",
+  "sizes": [
+   {
+    "w": 480,
+    "h": 640,
+    "file": "assets/media/yellow-crane-towercrane-480.webp",
+    "kb": 44
+   },
+   {
+    "w": 640,
+    "h": 853,
+    "file": "assets/media/yellow-crane-towercrane-640.webp",
+    "kb": 76
+   },
+   {
+    "w": 800,
+    "h": 1067,
+    "file": "assets/media/yellow-crane-towercrane-800.webp",
+    "kb": 113
+   },
+   {
+    "w": 960,
+    "h": 1280,
+    "file": "assets/media/yellow-crane-towercrane-960.webp",
+    "kb": 155
+   },
+   {
+    "w": 1280,
+    "h": 1707,
+    "file": "assets/media/yellow-crane-towercrane-1280.webp",
+    "kb": 251
+   }
+  ],
+  "jpg": "assets/media/yellow-crane-towercrane-1280.jpg"
+ },
+ {
+  "name": "terex-friendship-closeup",
+  "source": "C:/Users/user/Downloads/FHE Assets/20201104_160904.jpg",
+  "taken": "2020-11-04T16:09:04",
+  "orientation": "landscape",
+  "aspect": 1.3333,
+  "alt": "White Terex all-terrain crane in FRIENDSHIP livery",
+  "use": "Fleet - mobile cranes (mid tonnage).",
+  "sizes": [
+   {
+    "w": 480,
+    "h": 360,
+    "file": "assets/media/terex-friendship-closeup-480.webp",
+    "kb": 33
+   },
+   {
+    "w": 640,
+    "h": 480,
+    "file": "assets/media/terex-friendship-closeup-640.webp",
+    "kb": 51
+   },
+   {
+    "w": 800,
+    "h": 600,
+    "file": "assets/media/terex-friendship-closeup-800.webp",
+    "kb": 74
+   },
+   {
+    "w": 960,
+    "h": 720,
+    "file": "assets/media/terex-friendship-closeup-960.webp",
+    "kb": 100
+   },
+   {
+    "w": 1280,
+    "h": 960,
+    "file": "assets/media/terex-friendship-closeup-1280.webp",
+    "kb": 162
+   },
+   {
+    "w": 1920,
+    "h": 1440,
+    "file": "assets/media/terex-friendship-closeup-1920.webp",
+    "kb": 310
+   }
+  ],
+  "jpg": "assets/media/terex-friendship-closeup-1280.jpg"
+ },
+ {
+  "name": "rigging-team",
+  "source": "C:/Users/user/Downloads/FHE Assets/20201104_1738421.png",
+  "taken": "2020-11-04T17:38:42",
+  "orientation": "landscape",
+  "aspect": 1.5751,
+  "alt": "Three FHE crew in red coveralls in front of a Terex FRIENDSHIP crane",
+  "use": "People / operators / safety / rigging team.",
+  "sizes": [
+   {
+    "w": 480,
+    "h": 305,
+    "file": "assets/media/rigging-team-480.webp",
+    "kb": 18
+   },
+   {
+    "w": 640,
+    "h": 406,
+    "file": "assets/media/rigging-team-640.webp",
+    "kb": 28
+   },
+   {
+    "w": 800,
+    "h": 508,
+    "file": "assets/media/rigging-team-800.webp",
+    "kb": 40
+   },
+   {
+    "w": 960,
+    "h": 610,
+    "file": "assets/media/rigging-team-960.webp",
+    "kb": 54
+   },
+   {
+    "w": 1280,
+    "h": 813,
+    "file": "assets/media/rigging-team-1280.webp",
+    "kb": 84
+   },
+   {
+    "w": 1920,
+    "h": 1219,
+    "file": "assets/media/rigging-team-1920.webp",
+    "kb": 151
+   }
+  ],
+  "jpg": "assets/media/rigging-team-1280.jpg"
+ },
+ {
+  "name": "transmission-tower-a",
+  "source": "C:/Users/user/Downloads/FHE Assets/20201106_161818.jpg",
+  "taken": "2020-11-06T16:18:18",
+  "orientation": "portrait",
+  "aspect": 0.75,
+  "alt": "Heavy crane rigged between two red-and-white lattice transmission towers",
+  "use": "Utilities / Oil and Gas / energy sector.",
+  "sizes": [
+   {
+    "w": 480,
+    "h": 640,
+    "file": "assets/media/transmission-tower-a-480.webp",
+    "kb": 27
+   },
+   {
+    "w": 640,
+    "h": 853,
+    "file": "assets/media/transmission-tower-a-640.webp",
+    "kb": 45
+   },
+   {
+    "w": 800,
+    "h": 1067,
+    "file": "assets/media/transmission-tower-a-800.webp",
+    "kb": 66
+   },
+   {
+    "w": 960,
+    "h": 1280,
+    "file": "assets/media/transmission-tower-a-960.webp",
+    "kb": 89
+   },
+   {
+    "w": 1280,
+    "h": 1707,
+    "file": "assets/media/transmission-tower-a-1280.webp",
+    "kb": 141
+   }
+  ],
+  "jpg": "assets/media/transmission-tower-a-1280.jpg"
+ },
+ {
+  "name": "transmission-tower-b",
+  "source": "C:/Users/user/Downloads/FHE Assets/20201106_161958.jpg",
+  "taken": "2020-11-06T16:19:58",
+  "orientation": "portrait",
+  "aspect": 0.75,
+  "alt": "Heavy crane counterweight and luffing jib between lattice transmission towers",
+  "use": "Utilities / energy sector.",
+  "sizes": [
+   {
+    "w": 480,
+    "h": 640,
+    "file": "assets/media/transmission-tower-b-480.webp",
+    "kb": 40
+   },
+   {
+    "w": 640,
+    "h": 853,
+    "file": "assets/media/transmission-tower-b-640.webp",
+    "kb": 69
+   },
+   {
+    "w": 800,
+    "h": 1067,
+    "file": "assets/media/transmission-tower-b-800.webp",
+    "kb": 103
+   },
+   {
+    "w": 960,
+    "h": 1280,
+    "file": "assets/media/transmission-tower-b-960.webp",
+    "kb": 142
+   },
+   {
+    "w": 1280,
+    "h": 1707,
+    "file": "assets/media/transmission-tower-b-1280.webp",
+    "kb": 232
+   }
+  ],
+  "jpg": "assets/media/transmission-tower-b-1280.jpg"
+ },
+ {
+  "name": "luffing-civic-building",
+  "source": "C:/Users/user/Downloads/FHE Assets/20201107_131518.jpg",
+  "taken": "2020-11-07T13:15:18",
+  "orientation": "portrait",
+  "aspect": 0.75,
+  "alt": "Yellow luffing crane lifting steelwork beside a civic building",
+  "use": "Construction.",
+  "sizes": [
+   {
+    "w": 480,
+    "h": 640,
+    "file": "assets/media/luffing-civic-building-480.webp",
+    "kb": 37
+   },
+   {
+    "w": 640,
+    "h": 853,
+    "file": "assets/media/luffing-civic-building-640.webp",
+    "kb": 61
+   },
+   {
+    "w": 800,
+    "h": 1067,
+    "file": "assets/media/luffing-civic-building-800.webp",
+    "kb": 89
+   },
+   {
+    "w": 960,
+    "h": 1280,
+    "file": "assets/media/luffing-civic-building-960.webp",
+    "kb": 122
+   },
+   {
+    "w": 1280,
+    "h": 1707,
+    "file": "assets/media/luffing-civic-building-1280.webp",
+    "kb": 192
+   }
+  ],
+  "jpg": "assets/media/luffing-civic-building-1280.jpg"
+ },
+ {
+  "name": "superlift-truss-red",
+  "source": "C:/Users/user/Downloads/FHE Assets/20201116_153349.jpg",
+  "taken": "2020-11-16T15:33:49",
+  "orientation": "landscape",
+  "aspect": 1.3333,
+  "alt": "Red FHE heavy crane with superlift counterweight lifting a steel truss",
+  "use": "Heavy fleet; wide-angle.",
+  "sizes": [
+   {
+    "w": 480,
+    "h": 360,
+    "file": "assets/media/superlift-truss-red-480.webp",
+    "kb": 22
+   },
+   {
+    "w": 640,
+    "h": 480,
+    "file": "assets/media/superlift-truss-red-640.webp",
+    "kb": 36
+   },
+   {
+    "w": 800,
+    "h": 600,
+    "file": "assets/media/superlift-truss-red-800.webp",
+    "kb": 54
+   },
+   {
+    "w": 960,
+    "h": 720,
+    "file": "assets/media/superlift-truss-red-960.webp",
+    "kb": 75
+   },
+   {
+    "w": 1280,
+    "h": 960,
+    "file": "assets/media/superlift-truss-red-1280.webp",
+    "kb": 126
+   },
+   {
+    "w": 1920,
+    "h": 1440,
+    "file": "assets/media/superlift-truss-red-1920.webp",
+    "kb": 244
+   }
+  ],
+  "jpg": "assets/media/superlift-truss-red-1280.jpg"
+ },
+ {
+  "name": "tandem-bridge-panorama",
+  "source": "C:/Users/user/Downloads/FHE Assets/20201116_153907.jpg",
+  "taken": "2020-11-16T15:39:07",
+  "orientation": "landscape",
+  "aspect": 2.3506,
+  "alt": "Two cranes performing a tandem lift of a steel pedestrian bridge",
+  "use": "Panoramic ~2.35:1. Tandem lift showcase / wide banner.",
+  "sizes": [
+   {
+    "w": 480,
+    "h": 204,
+    "file": "assets/media/tandem-bridge-panorama-480.webp",
+    "kb": 11
+   },
+   {
+    "w": 640,
+    "h": 272,
+    "file": "assets/media/tandem-bridge-panorama-640.webp",
+    "kb": 18
+   },
+   {
+    "w": 800,
+    "h": 340,
+    "file": "assets/media/tandem-bridge-panorama-800.webp",
+    "kb": 26
+   },
+   {
+    "w": 960,
+    "h": 408,
+    "file": "assets/media/tandem-bridge-panorama-960.webp",
+    "kb": 36
+   },
+   {
+    "w": 1280,
+    "h": 545,
+    "file": "assets/media/tandem-bridge-panorama-1280.webp",
+    "kb": 60
+   },
+   {
+    "w": 1920,
+    "h": 817,
+    "file": "assets/media/tandem-bridge-panorama-1920.webp",
+    "kb": 122
+   }
+  ],
+  "jpg": "assets/media/tandem-bridge-panorama-1280.jpg"
+ },
+ {
+  "name": "fisheye-highrise-luffing",
+  "source": "C:/Users/user/Downloads/FHE Assets/20201129_094347.jpg",
+  "taken": "2020-11-29T09:43:47",
+  "orientation": "portrait",
+  "aspect": 0.75,
+  "alt": "Yellow luffing crane reaching up a high-rise facade",
+  "use": "High-rise construction.",
+  "sizes": [
+   {
+    "w": 480,
+    "h": 640,
+    "file": "assets/media/fisheye-highrise-luffing-480.webp",
+    "kb": 36
+   },
+   {
+    "w": 640,
+    "h": 853,
+    "file": "assets/media/fisheye-highrise-luffing-640.webp",
+    "kb": 61
+   },
+   {
+    "w": 800,
+    "h": 1067,
+    "file": "assets/media/fisheye-highrise-luffing-800.webp",
+    "kb": 89
+   },
+   {
+    "w": 960,
+    "h": 1280,
+    "file": "assets/media/fisheye-highrise-luffing-960.webp",
+    "kb": 121
+   },
+   {
+    "w": 1280,
+    "h": 1707,
+    "file": "assets/media/fisheye-highrise-luffing-1280.webp",
+    "kb": 193
+   }
+  ],
+  "jpg": "assets/media/fisheye-highrise-luffing-1280.jpg"
+ },
+ {
+  "name": "boom-sky-abstract",
+  "source": "C:/Users/user/Downloads/FHE Assets/20201129_114755.jpg",
+  "taken": "2020-11-29T11:47:55",
+  "orientation": "landscape",
+  "aspect": 1.3333,
+  "alt": "Looking up a crane boom and luffing jib against a mackerel sky",
+  "use": "Abstract texture / section background.",
+  "sizes": [
+   {
+    "w": 480,
+    "h": 360,
+    "file": "assets/media/boom-sky-abstract-480.webp",
+    "kb": 27
+   },
+   {
+    "w": 640,
+    "h": 480,
+    "file": "assets/media/boom-sky-abstract-640.webp",
+    "kb": 42
+   },
+   {
+    "w": 800,
+    "h": 600,
+    "file": "assets/media/boom-sky-abstract-800.webp",
+    "kb": 58
+   },
+   {
+    "w": 960,
+    "h": 720,
+    "file": "assets/media/boom-sky-abstract-960.webp",
+    "kb": 73
+   },
+   {
+    "w": 1280,
+    "h": 960,
+    "file": "assets/media/boom-sky-abstract-1280.webp",
+    "kb": 110
+   },
+   {
+    "w": 1920,
+    "h": 1440,
+    "file": "assets/media/boom-sky-abstract-1920.webp",
+    "kb": 188
+   }
+  ],
+  "jpg": "assets/media/boom-sky-abstract-1280.jpg"
+ },
+ {
+  "name": "superlift-uae-flag",
+  "source": "C:/Users/user/Downloads/FHE Assets/20201129_121725.jpg",
+  "taken": "2020-11-29T12:17:25",
+  "orientation": "portrait",
+  "aspect": 0.75,
+  "alt": "Heavy crane with superlift counterweight beside a tower draped with the UAE flag",
+  "use": "Heavy fleet / UAE heritage (35+ years).",
+  "sizes": [
+   {
+    "w": 480,
+    "h": 640,
+    "file": "assets/media/superlift-uae-flag-480.webp",
+    "kb": 42
+   },
+   {
+    "w": 640,
+    "h": 853,
+    "file": "assets/media/superlift-uae-flag-640.webp",
+    "kb": 69
+   },
+   {
+    "w": 800,
+    "h": 1067,
+    "file": "assets/media/superlift-uae-flag-800.webp",
+    "kb": 101
+   },
+   {
+    "w": 960,
+    "h": 1280,
+    "file": "assets/media/superlift-uae-flag-960.webp",
+    "kb": 136
+   },
+   {
+    "w": 1280,
+    "h": 1707,
+    "file": "assets/media/superlift-uae-flag-1280.webp",
+    "kb": 216
+   }
+  ],
+  "jpg": "assets/media/superlift-uae-flag-1280.jpg"
+ },
+ {
+  "name": "heavy-crane-truss",
+  "source": "C:/Users/user/Downloads/FHE Assets/asdaf.jpg",
+  "taken": null,
+  "orientation": "landscape",
+  "aspect": 1.6214,
+  "alt": "Red FHE crane with counterweight stack lifting a steel truss",
+  "use": "Heavy fleet.",
+  "sizes": [
+   {
+    "w": 480,
+    "h": 296,
+    "file": "assets/media/heavy-crane-truss-480.webp",
+    "kb": 24
+   },
+   {
+    "w": 640,
+    "h": 395,
+    "file": "assets/media/heavy-crane-truss-640.webp",
+    "kb": 39
+   },
+   {
+    "w": 800,
+    "h": 493,
+    "file": "assets/media/heavy-crane-truss-800.webp",
+    "kb": 56
+   },
+   {
+    "w": 960,
+    "h": 592,
+    "file": "assets/media/heavy-crane-truss-960.webp",
+    "kb": 76
+   },
+   {
+    "w": 1280,
+    "h": 789,
+    "file": "assets/media/heavy-crane-truss-1280.webp",
+    "kb": 120
+   },
+   {
+    "w": 1920,
+    "h": 1184,
+    "file": "assets/media/heavy-crane-truss-1920.webp",
+    "kb": 212
+   }
+  ],
+  "jpg": "assets/media/heavy-crane-truss-1280.jpg"
+ },
+ {
+  "name": "fleet-yard",
+  "source": "C:/Users/user/Downloads/FHE Assets/banner(1).jpg",
+  "taken": null,
+  "orientation": "landscape",
+  "aspect": 1.1832,
+  "alt": "FHE fleet of red and yellow all-terrain cranes in the yard",
+  "use": "Fleet overview / about.",
+  "sizes": [
+   {
+    "w": 480,
+    "h": 406,
+    "file": "assets/media/fleet-yard-480.webp",
+    "kb": 18
+   },
+   {
+    "w": 640,
+    "h": 541,
+    "file": "assets/media/fleet-yard-640.webp",
+    "kb": 30
+   },
+   {
+    "w": 800,
+    "h": 676,
+    "file": "assets/media/fleet-yard-800.webp",
+    "kb": 45
+   },
+   {
+    "w": 960,
+    "h": 811,
+    "file": "assets/media/fleet-yard-960.webp",
+    "kb": 63
+   },
+   {
+    "w": 1280,
+    "h": 1082,
+    "file": "assets/media/fleet-yard-1280.webp",
+    "kb": 106
+   },
+   {
+    "w": 1920,
+    "h": 1623,
+    "file": "assets/media/fleet-yard-1920.webp",
+    "kb": 204
+   }
+  ],
+  "jpg": "assets/media/fleet-yard-1280.jpg"
+ },
+ {
+  "name": "crawler-crane-coast",
+  "source": "C:/Users/user/Downloads/FHE Assets/banner.jpg",
+  "taken": null,
+  "orientation": "landscape",
+  "aspect": 1.3333,
+  "alt": "White lattice-boom crawler crane working on a coastal site",
+  "use": "Fleet - CRAWLER CRANES.",
+  "sizes": [
+   {
+    "w": 480,
+    "h": 360,
+    "file": "assets/media/crawler-crane-coast-480.webp",
+    "kb": 12
+   },
+   {
+    "w": 640,
+    "h": 480,
+    "file": "assets/media/crawler-crane-coast-640.webp",
+    "kb": 21
+   },
+   {
+    "w": 800,
+    "h": 600,
+    "file": "assets/media/crawler-crane-coast-800.webp",
+    "kb": 32
+   },
+   {
+    "w": 960,
+    "h": 720,
+    "file": "assets/media/crawler-crane-coast-960.webp",
+    "kb": 46
+   },
+   {
+    "w": 1280,
+    "h": 960,
+    "file": "assets/media/crawler-crane-coast-1280.webp",
+    "kb": 81
+   },
+   {
+    "w": 1920,
+    "h": 1440,
+    "file": "assets/media/crawler-crane-coast-1920.webp",
+    "kb": 169
+   }
+  ],
+  "jpg": "assets/media/crawler-crane-coast-1280.jpg"
+ },
+ {
+  "name": "contact-boom-sky",
+  "source": "C:/Users/user/Downloads/FHE Assets/contactus.png",
+  "taken": null,
+  "orientation": "landscape",
+  "aspect": 1.3333,
+  "alt": "Crane boom and jib against a vivid blue cloud-patterned sky",
+  "use": "Contact section background (very saturated).",
+  "sizes": [
+   {
+    "w": 480,
+    "h": 360,
+    "file": "assets/media/contact-boom-sky-480.webp",
+    "kb": 35
+   },
+   {
+    "w": 640,
+    "h": 480,
+    "file": "assets/media/contact-boom-sky-640.webp",
+    "kb": 53
+   },
+   {
+    "w": 800,
+    "h": 600,
+    "file": "assets/media/contact-boom-sky-800.webp",
+    "kb": 73
+   },
+   {
+    "w": 960,
+    "h": 720,
+    "file": "assets/media/contact-boom-sky-960.webp",
+    "kb": 96
+   },
+   {
+    "w": 1280,
+    "h": 960,
+    "file": "assets/media/contact-boom-sky-1280.webp",
+    "kb": 142
+   },
+   {
+    "w": 1920,
+    "h": 1440,
+    "file": "assets/media/contact-boom-sky-1920.webp",
+    "kb": 246
+   }
+  ],
+  "jpg": "assets/media/contact-boom-sky-1280.jpg"
+ },
+ {
+  "name": "services-uae-flag",
+  "source": "C:/Users/user/Downloads/FHE Assets/our services.png",
+  "taken": null,
+  "orientation": "portrait",
+  "aspect": 0.75,
+  "alt": "Heavy crane with superlift counterweight beside a tower draped with the UAE flag",
+  "use": "Services section (client services visual; saturated edit of superlift-uae-flag).",
+  "sizes": [
+   {
+    "w": 480,
+    "h": 640,
+    "file": "assets/media/services-uae-flag-480.webp",
+    "kb": 43
+   },
+   {
+    "w": 640,
+    "h": 853,
+    "file": "assets/media/services-uae-flag-640.webp",
+    "kb": 71
+   },
+   {
+    "w": 800,
+    "h": 1067,
+    "file": "assets/media/services-uae-flag-800.webp",
+    "kb": 104
+   },
+   {
+    "w": 960,
+    "h": 1280,
+    "file": "assets/media/services-uae-flag-960.webp",
+    "kb": 139
+   },
+   {
+    "w": 1280,
+    "h": 1707,
+    "file": "assets/media/services-uae-flag-1280.webp",
+    "kb": 217
+   }
+  ],
+  "jpg": "assets/media/services-uae-flag-1280.jpg"
+ }
+]

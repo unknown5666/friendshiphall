@@ -1,888 +1,250 @@
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>FHE // Telemetry — Digital Flagship Proposal</title>
-<meta name="description" content="Proposal for Friendship Hall Crane Rental. Three tiers, engineered for the GCC heavy-lift market. Built on Next.js + Vercel edge." />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Manrope:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css" />
-<link rel="stylesheet" href="media.css" />
-<link rel="icon" type="image/png" href="assets/fhe/logo.png" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Friendship Hall — Homepage Concepts</title>
+<meta name="description" content="Three homepage design concepts for Friendship Hall (FHE), heavy equipment and crane rental in the UAE for more than 35 years.">
+<meta name="theme-color" content="#0f0f10">
+<link rel="icon" href="assets/brand/fhs-emblem.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/archivo-normal-0wlSfdnoLg.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/bodoni-moda-italic-LkfbNxSXgM.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/ibm-plex-mono-normal-yU8n1i8q1w.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face { font-family: 'Archivo'; font-style: normal; font-weight: 400 900; font-stretch: 100% 125%; font-display: swap; src: url(assets/fonts/archivo-normal-0wlSfdnoLg.woff2) format('woff2'); }
+@font-face { font-family: 'Bodoni Moda'; font-style: italic; font-weight: 500; font-display: swap; src: url(assets/fonts/bodoni-moda-italic-LkfbNxSXgM.woff2) format('woff2'); }
+@font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-weight: 400; font-display: swap; src: url(assets/fonts/ibm-plex-mono-normal-yU8n1i8q1w.woff2) format('woff2'); }
+@font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-weight: 500; font-display: swap; src: url(assets/fonts/ibm-plex-mono-normal-3twJwlBFgg.woff2) format('woff2'); }
+</style>
+<style>
+  :root {
+    --bg: #0f0f10;
+    --ink: #f2efe9;
+    --muted: #a7a39b;
+    --line: #2a2a2c;
+    --brand: #e10600;
+    --c1-bg: #1a1a1a; --c1-ink: #ffffff; --c1-acc: #ffb000;
+    --c2-bg: #0b0c10; --c2-ink: #ece8df; --c2-acc: #c5a059; --c2-panel: #1f2833;
+    --c3-bg: #0a192f; --c3-ink: #ccd6f6; --c3-acc: #64ffda; --c3-panel: #172a45;
+    --sans: "Archivo", system-ui, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, monospace;
+    --serif: "Bodoni Moda", Georgia, serif;
+    --gutter: 16px;
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--bg);
+    color: var(--ink);
+    font: 400 1rem/1.55 var(--sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  img { display: block; max-width: 100%; height: auto; }
+  :focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+
+  .wrap { width: min(100% - 2 * var(--gutter), 1320px); margin-inline: auto; }
+
+  /* ---------- masthead ---------- */
+  .mast {
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    padding-block: 20px; border-bottom: 1px solid var(--line);
+  }
+  .mast__brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .mast__brand img { width: 44px; height: 44px; }
+  .mast__name { font-weight: 700; letter-spacing: .02em; line-height: 1.15; }
+  .mast__name small { display: block; font: 500 .72rem/1.3 var(--mono); color: var(--muted); letter-spacing: .08em; text-transform: uppercase; }
+  .mast__meta { font: 500 .72rem/1.4 var(--mono); color: var(--muted); letter-spacing: .08em; text-transform: uppercase; text-align: right; }
+
+  /* ---------- intro ---------- */
+  .intro { padding-block: clamp(40px, 9vw, 104px) clamp(28px, 5vw, 56px); display: grid; gap: 20px; }
+  .intro h1 {
+    margin: 0; font-weight: 800; font-stretch: 112%;
+    font-size: clamp(2.6rem, 9vw, 6.6rem); line-height: .92; letter-spacing: -.02em;
+  }
+  .intro h1 em { font: italic 500 1em/1 var(--serif); letter-spacing: -.01em; color: var(--muted); }
+  .intro p { margin: 0; max-width: 56ch; color: var(--muted); font-size: clamp(1rem, 1.6vw, 1.15rem); }
+  .intro kbd {
+    font: 500 .8em var(--mono); color: var(--ink); border: 1px solid var(--line); border-bottom-width: 2px;
+    padding: 1px 6px; border-radius: 4px;
+  }
+  .hint-keys { display: none; }
+  @media (hover: hover) and (pointer: fine) { .hint-keys { display: inline; } }
+
+  /* ---------- concept tiles ---------- */
+  .concepts { list-style: none; margin: 0; padding: 0 0 clamp(40px, 7vw, 88px); display: grid; gap: 16px; }
+  @media (min-width: 960px) { .concepts { grid-template-columns: repeat(3, 1fr); gap: 20px; } }
+
+  .tile {
+    position: relative; display: grid; grid-template-rows: auto 1fr auto;
+    min-height: 100%; text-decoration: none; overflow: hidden; isolation: isolate;
+    background: var(--t-bg); color: var(--t-ink);
+    transition: transform .35s cubic-bezier(.2,.7,.2,1);
+  }
+  .tile:hover { transform: translateY(-4px); }
+  .tile__media { position: relative; aspect-ratio: 4 / 3; overflow: hidden; }
+  .tile__media img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s cubic-bezier(.2,.7,.2,1); }
+  .tile:hover .tile__media img { transform: scale(1.04); }
+  .tile__num {
+    position: absolute; left: 14px; bottom: -0.16em; z-index: 1;
+    font-size: clamp(6.5rem, 26vw, 11rem); line-height: 1; color: var(--t-acc);
+    text-shadow: 0 2px 30px rgba(0,0,0,.35);
+  }
+  .tile__body { padding: 22px 20px 8px; display: grid; gap: 10px; align-content: start; }
+  .tile__name { margin: 0; font-size: clamp(1.4rem, 3.4vw, 1.75rem); line-height: 1.1; }
+  .tile__tag { margin: 0; font: 500 .72rem/1.5 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--t-acc); }
+  .tile__desc { margin: 0; font-size: .95rem; opacity: .82; }
+  .tile__swatches { display: flex; gap: 6px; margin-top: 4px; }
+  .tile__swatches span { width: 28px; height: 28px; border: 1px solid rgba(255,255,255,.18); background: var(--s); }
+  .tile__cta {
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    margin: 16px 20px 20px; padding-top: 14px; min-height: 44px;
+    border-top: 1px solid color-mix(in srgb, var(--t-ink) 18%, transparent);
+    font: 500 .8rem/1 var(--mono); letter-spacing: .1em; text-transform: uppercase;
+  }
+  .tile__cta svg { width: 22px; height: 22px; transition: transform .3s; }
+  .tile:hover .tile__cta svg, .tile:focus-visible .tile__cta svg { transform: translateX(6px); }
+
+  /* concept 1 — brutalism */
+  .tile--1 { --t-bg: var(--c1-bg); --t-ink: var(--c1-ink); --t-acc: var(--c1-acc); outline: 2px solid #fff; outline-offset: -2px; }
+  .tile--1 .tile__num { font-family: var(--sans); font-weight: 900; font-stretch: 125%; }
+  .tile--1 .tile__name { font-weight: 900; font-stretch: 125%; text-transform: uppercase; letter-spacing: -.01em; }
+  .tile--1 .tile__media img { filter: grayscale(1) contrast(1.15); }
+  .tile--1:hover .tile__media img { filter: none; }
+  .tile--1 .tile__media::after {
+    content: ""; position: absolute; inset: auto 0 0 0; height: 10px;
+    background: repeating-linear-gradient(-45deg, var(--c1-acc) 0 10px, var(--c1-bg) 10px 20px);
+  }
+  .tile--1:focus-visible { outline: 3px solid var(--c1-acc); outline-offset: 3px; }
+
+  /* concept 2 — editorial */
+  .tile--2 { --t-bg: var(--c2-bg); --t-ink: var(--c2-ink); --t-acc: var(--c2-acc); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--c2-acc) 45%, transparent); }
+  .tile--2 .tile__num { font-family: var(--serif); font-style: italic; font-weight: 500; }
+  .tile--2 .tile__name { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: clamp(1.6rem, 3.8vw, 2rem); }
+  .tile--2 .tile__media img { filter: saturate(.85); }
+  .tile--2 .tile__media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 50%, rgba(11,12,16,.75)); }
+
+  /* concept 3 — telemetry */
+  .tile--3 { --t-bg: var(--c3-bg); --t-ink: var(--c3-ink); --t-acc: var(--c3-acc); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--c3-acc) 35%, transparent); }
+  .tile--3 .tile__num { font-family: var(--mono); font-weight: 500; letter-spacing: -.04em; }
+  .tile--3 .tile__name { font-weight: 600; letter-spacing: -.01em; }
+  .tile--3 .tile__media::before {
+    content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+    background:
+      linear-gradient(var(--c3-acc), var(--c3-acc)) 12px 12px / 22px 2px no-repeat,
+      linear-gradient(var(--c3-acc), var(--c3-acc)) 12px 12px / 2px 22px no-repeat,
+      linear-gradient(var(--c3-acc), var(--c3-acc)) calc(100% - 12px) 12px / 22px 2px no-repeat,
+      linear-gradient(var(--c3-acc), var(--c3-acc)) calc(100% - 12px) 12px / 2px 22px no-repeat,
+      repeating-linear-gradient(0deg, rgba(100,255,218,.08) 0 1px, transparent 1px 24px),
+      repeating-linear-gradient(90deg, rgba(100,255,218,.08) 0 1px, transparent 1px 24px);
+  }
+
+  /* ---------- notes + footer ---------- */
+  .notes {
+    display: grid; gap: 24px; padding-block: 32px 48px; border-top: 1px solid var(--line);
+    color: var(--muted); font-size: .92rem;
+  }
+  @media (min-width: 960px) { .notes { grid-template-columns: repeat(3, 1fr); } }
+  .notes h2 { margin: 0 0 6px; font: 500 .72rem/1.4 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--ink); }
+  .notes p { margin: 0; }
+  .notes a { color: var(--ink); text-underline-offset: 3px; }
+  .foot { padding-block: 20px 28px; border-top: 1px solid var(--line); font: 500 .72rem/1.5 var(--mono); color: var(--muted); letter-spacing: .06em; }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { transition: none !important; animation: none !important; }
+  }
+</style>
 </head>
 <body>
-
-<div class="scroll-rail" id="scrollRail" aria-hidden="true"></div>
-
-<!-- ============== LIVE SIGNAL TICKER ============== -->
-<div class="signal-ticker" aria-label="Live operations feed">
-  <div class="signal-ticker__label">
-    <span class="signal-ticker__dot"></span>
-    <span>LIVE · FIELD FEED</span>
-  </div>
-  <div class="signal-ticker__viewport">
-    <div class="signal-ticker__track">
-      <span class="signal-ticker__item"><em>MSD-2026-021</em> · 450 T block lift · Musaffah · <strong>ON SITE</strong></span>
-      <span class="signal-ticker__item"><em>HAB-2026-008</em> · 700 T tandem · Habshan · <strong>COMPLETE · LTI 0</strong></span>
-      <span class="signal-ticker__item"><em>REM-2026-004</em> · Tower erection · Reem Island · <strong>92 m — DAY 34</strong></span>
-      <span class="signal-ticker__item"><em>GMK-6300L</em> · in-transit · Corniche · <strong>MOB · 04:12</strong></span>
-      <span class="signal-ticker__item"><em>CRN-2026-031</em> · 250 T night shift · Corniche · <strong>ACTIVE</strong></span>
-      <span class="signal-ticker__item"><em>RUW-2026-014</em> · LNG expansion · Ruwais · <strong>320 T · RIGGED</strong></span>
-      <span class="signal-ticker__item"><em>LR-1750</em> · outbound · KEZAD staging · <strong>READY</strong></span>
-      <span class="signal-ticker__item"><em>QA-CERT</em> · monthly lift-permit audit · <strong>PASSED · 100%</strong></span>
-      <!-- duplicate for seamless loop -->
-      <span class="signal-ticker__item"><em>MSD-2026-021</em> · 450 T block lift · Musaffah · <strong>ON SITE</strong></span>
-      <span class="signal-ticker__item"><em>HAB-2026-008</em> · 700 T tandem · Habshan · <strong>COMPLETE · LTI 0</strong></span>
-      <span class="signal-ticker__item"><em>REM-2026-004</em> · Tower erection · Reem Island · <strong>92 m — DAY 34</strong></span>
-      <span class="signal-ticker__item"><em>GMK-6300L</em> · in-transit · Corniche · <strong>MOB · 04:12</strong></span>
-      <span class="signal-ticker__item"><em>CRN-2026-031</em> · 250 T night shift · Corniche · <strong>ACTIVE</strong></span>
-      <span class="signal-ticker__item"><em>RUW-2026-014</em> · LNG expansion · Ruwais · <strong>320 T · RIGGED</strong></span>
-      <span class="signal-ticker__item"><em>LR-1750</em> · outbound · KEZAD staging · <strong>READY</strong></span>
-      <span class="signal-ticker__item"><em>QA-CERT</em> · monthly lift-permit audit · <strong>PASSED · 100%</strong></span>
-    </div>
-  </div>
-  <div class="signal-ticker__clock" id="signalClock">04:12:57 GST</div>
-</div>
-
-<nav class="nav">
-  <div class="container nav__inner">
-    <a class="nav__logo" href="#top">
-      <span>FHE</span> <span style="color:var(--amber)">//</span> <strong>TELEMETRY</strong>
-    </a>
-    <div class="nav__meta">
-      <span class="badge">REV 01 · 2026-09-28</span>
-      <span class="badge badge--live">PROPOSAL ACTIVE</span>
-      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-        <span data-mode="dark" class="on">◐ DARK</span>
-        <span data-mode="light">◑ LIGHT</span>
-      </button>
-    </div>
-  </div>
-</nav>
-
-<!-- ============== HERO ============== -->
-<header class="hero" id="top">
-  <span class="orb" style="width:520px; height:520px; top:-140px; right:-120px"></span>
-  <span class="orb" style="width:320px; height:320px; bottom:-80px; left:-40px; animation-delay:-8s; opacity:0.35"></span>
-  <div class="container">
-    <span class="corner-marker" style="top:24px; left:24px">N 24°28′ · E 054°22′</span>
-    <span class="corner-marker" style="top:24px; right:24px">SIG // 001-FHE</span>
-
-    <div class="hero__grid">
-      <div>
-        <div class="eyebrow reveal">Proposal · Friendship Hall Crane Rental · Abu Dhabi</div>
-        <h1 class="reveal" data-delay="1">
-          A digital flagship<br />
-          for the region's <span class="amber">heaviest</span> lifts.
-        </h1>
-        <p class="hero__sub reveal" data-delay="2">
-          Three engineered tiers that turn <a href="https://www.fhecrane.com" target="_blank" rel="noopener">fhecrane.com</a>
-          from a brochure into a lead-generating operations layer — bilingual, fleet-aware, and fast enough to hold a
-          Lighthouse score above 92 on 4G. One 700-ton contract pays for the whole overhaul several times over.
-        </p>
-        <div class="reveal" data-delay="3" style="display:flex; gap:12px; margin-top:32px; flex-wrap:wrap">
-          <a class="btn btn--primary" href="#tiers">
-            View tiers <span class="btn__arrow">→</span>
-          </a>
-          <a class="btn" href="tier-1.html" target="_blank">
-            Open a live demo <span class="btn__arrow">↗</span>
-          </a>
-        </div>
-      </div>
-
-      <!-- CINEMATIC HERO PHOTO + floating telemetry -->
-      <div class="hero-photo reveal" data-delay="4">
-        <img src="assets/fhe/banner-1.jpg" alt="FHE lattice-boom crane silhouette against Abu Dhabi sunset" />
-        <span class="hero-photo__label hero-photo__label--tl">FHE // FIELD FEED 001</span>
-        <span class="hero-photo__label hero-photo__label--tr">24°28′N · 054°22′E</span>
-        <div class="hero-photo__hud">
-          <span>BOOM · <span id="boomAngleR">28°</span></span>
-          <span>CAP · 700 T</span>
-          <span>LH · 96 / 100</span>
-          <span>LCP · &lt; 1.2 s</span>
-          <span>LOC · EN · AR</span>
-        </div>
-        <span class="hero-photo__label hero-photo__label--br">REC · 04:12:57</span>
-        <div class="hero-photo__caption">
-          Lattice boom on <strong>golden hour</strong> — the shot fhecrane.com should have led with. We rebuild it with Vercel edge under the hood.
-        </div>
-
-        <!-- Hidden legacy lattice SVG (retained for scroll listener; kept off-screen) -->
-        <svg class="lattice-crane" viewBox="0 0 320 220" style="position:absolute; width:1px; height:1px; opacity:0; pointer-events:none" aria-hidden="true">
-          <defs>
-            <pattern id="latticePat" width="14" height="14" patternUnits="userSpaceOnUse">
-              <path d="M0 0 L14 14 M14 0 L0 14" stroke="var(--amber)" stroke-width="0.6" opacity="0.65" />
-            </pattern>
-          </defs>
-          <!-- ground -->
-          <line x1="0" y1="200" x2="320" y2="200" stroke="var(--border-strong)" />
-          <!-- tracks -->
-          <rect x="30" y="192" width="60" height="10" fill="var(--bg-elev-2)" stroke="var(--border-strong)" />
-          <!-- house -->
-          <rect x="45" y="170" width="30" height="24" fill="var(--bg-elev-2)" stroke="var(--border-strong)" />
-          <!-- pivot -->
-          <circle cx="60" cy="170" r="4" fill="var(--amber)" />
-          <!-- rotating lattice boom -->
-          <g id="latticeBoom" transform="rotate(-28 60 170)">
-            <rect x="60" y="164" width="220" height="12" fill="url(#latticePat)" stroke="var(--amber)" stroke-width="0.6" />
-            <!-- tip block -->
-            <rect x="278" y="160" width="14" height="20" fill="var(--bg-elev-2)" stroke="var(--amber)" />
-            <!-- hook / cable -->
-            <line id="hookLine" x1="285" y1="180" x2="285" y2="230" stroke="var(--text-mute)" stroke-width="0.8" />
-            <path d="M281 230 Q285 240 289 230 Z" fill="var(--amber)" />
-          </g>
-          <!-- angle arc -->
-          <path id="angleArc" d="M 100 170 A 40 40 0 0 0 78 143" fill="none" stroke="var(--amber)" stroke-width="0.6" stroke-dasharray="2 3" />
-          <text x="100" y="163" font-family="JetBrains Mono, monospace" font-size="9" fill="var(--text-dim)" id="angleLabel">28°</text>
-        </svg>
-      </div>
-    </div>
-  </div>
+<header class="wrap mast">
+  <a class="mast__brand" href="index.html">
+    <img src="assets/brand/fhs-emblem.svg" alt="" width="44" height="44">
+    <span class="mast__name">Friendship Hall<small>FHE · Heavy equipment rental</small></span>
+  </a>
+  <p class="mast__meta">Homepage direction<br>October 2026</p>
 </header>
 
-<!-- ============== FLEET MARQUEE ============== -->
-<section class="fleet-marquee" aria-label="Fleet gallery">
-  <span class="fleet-marquee__fade fleet-marquee__fade--l"></span>
-  <div class="fleet-marquee__track">
-    <a class="dossier" href="#field-ops"><img src="assets/fhe/pr-2.jpg" alt="FHE-branded Liebherr mobile crane"><span class="dossier__scan"></span><span class="dossier__meta dossier__meta--tl">TAG · LTM-1500</span><span class="dossier__meta dossier__meta--bl">Downtown mobilization</span></a>
-    <a class="dossier" href="#field-ops"><img src="assets/fhe/pr-6.jpg" alt="FHE red-and-white mobile crane on urban road"><span class="dossier__scan"></span><span class="dossier__meta dossier__meta--tl">TAG · GMK-6300L</span><span class="dossier__meta dossier__meta--bl">Reem Island transfer</span></a>
-    <a class="dossier" href="#field-ops"><img src="assets/fhe/pr-3.jpg" alt="Twin lattice cranes lifting steel truss"><span class="dossier__scan"></span><span class="dossier__meta dossier__meta--tl">TAG · CC-2800</span><span class="dossier__meta dossier__meta--bl">Tandem truss lift</span></a>
-    <a class="dossier" href="#field-ops"><img src="assets/fhe/pr-4.jpg" alt="Lattice boom vertical against structure"><span class="dossier__scan"></span><span class="dossier__meta dossier__meta--tl">TAG · LR-1750</span><span class="dossier__meta dossier__meta--bl">Vertical erection · 92 m</span></a>
-    <a class="dossier" href="#field-ops"><img src="assets/fhe/pr-5.jpg" alt="Mobile crane facing showroom facade"><span class="dossier__scan"></span><span class="dossier__meta dossier__meta--tl">TAG · AC-500</span><span class="dossier__meta dossier__meta--bl">Facade panel lift</span></a>
-    <a class="dossier" href="#field-ops"><img src="assets/fhe/pr-7.jpg" alt="Mobile crane operating in urban site"><span class="dossier__scan"></span><span class="dossier__meta dossier__meta--tl">TAG · GMK-5250L</span><span class="dossier__meta dossier__meta--bl">Musaffah night shift</span></a>
-    <a class="dossier" href="#field-ops"><img src="assets/fhe/pr-8.jpg" alt="Mobile crane silhouette with tower"><span class="dossier__scan"></span><span class="dossier__meta dossier__meta--tl">TAG · LTM-1200</span><span class="dossier__meta dossier__meta--bl">Corniche high-rise</span></a>
-    <a class="dossier" href="#field-ops"><img src="assets/fhe/pr-10.jpg" alt="Lattice boom close-up"><span class="dossier__scan"></span><span class="dossier__meta dossier__meta--tl">TAG · LR-1600</span><span class="dossier__meta dossier__meta--bl">Ruwais LNG expansion</span></a>
-    <a class="dossier" href="#field-ops"><img src="assets/fhe/pr-11.jpg" alt="Cable and hook aloft"><span class="dossier__scan"></span><span class="dossier__meta dossier__meta--tl">TAG · HOOK-BLK-125T</span><span class="dossier__meta dossier__meta--bl">Rigging detail</span></a>
-    <a class="dossier" href="#field-ops"><img src="assets/fhe/pr-1.jpg" alt="Yard-side crane and support"><span class="dossier__scan"></span><span class="dossier__meta dossier__meta--tl">TAG · AC-100</span><span class="dossier__meta dossier__meta--bl">Yard mobilization</span></a>
-    <!-- duplicate for seamless loop -->
-    <a class="dossier" href="#field-ops"><img src="assets/fhe/pr-2.jpg" alt="FHE Liebherr close-up (loop)"><span class="dossier__meta dossier__meta--tl">TAG · LTM-1500</span><span class="dossier__meta dossier__meta--bl">Downtown mobilization</span></a>
-    <a class="dossier" href="#field-ops"><img src="assets/fhe/pr-6.jpg" alt="FHE red mobile crane (loop)"><span class="dossier__meta dossier__meta--tl">TAG · GMK-6300L</span><span class="dossier__meta dossier__meta--bl">Reem Island transfer</span></a>
-    <a class="dossier" href="#field-ops"><img src="assets/fhe/pr-3.jpg" alt="Twin lattice cranes (loop)"><span class="dossier__meta dossier__meta--tl">TAG · CC-2800</span><span class="dossier__meta dossier__meta--bl">Tandem truss lift</span></a>
-    <a class="dossier" href="#field-ops"><img src="assets/fhe/pr-4.jpg" alt="Lattice boom vertical (loop)"><span class="dossier__meta dossier__meta--tl">TAG · LR-1750</span><span class="dossier__meta dossier__meta--bl">Vertical erection · 92 m</span></a>
-    <a class="dossier" href="#field-ops"><img src="assets/fhe/pr-5.jpg" alt="Mobile crane facade (loop)"><span class="dossier__meta dossier__meta--tl">TAG · AC-500</span><span class="dossier__meta dossier__meta--bl">Facade panel lift</span></a>
-    <a class="dossier" href="#field-ops"><img src="assets/fhe/pr-7.jpg" alt="Urban site crane (loop)"><span class="dossier__meta dossier__meta--tl">TAG · GMK-5250L</span><span class="dossier__meta dossier__meta--bl">Musaffah night shift</span></a>
-    <a class="dossier" href="#field-ops"><img src="assets/fhe/pr-8.jpg" alt="Corniche tower (loop)"><span class="dossier__meta dossier__meta--tl">TAG · LTM-1200</span><span class="dossier__meta dossier__meta--bl">Corniche high-rise</span></a>
-    <a class="dossier" href="#field-ops"><img src="assets/fhe/pr-10.jpg" alt="Lattice boom (loop)"><span class="dossier__meta dossier__meta--tl">TAG · LR-1600</span><span class="dossier__meta dossier__meta--bl">Ruwais LNG expansion</span></a>
-    <a class="dossier" href="#field-ops"><img src="assets/fhe/pr-11.jpg" alt="Hook detail (loop)"><span class="dossier__meta dossier__meta--tl">TAG · HOOK-BLK-125T</span><span class="dossier__meta dossier__meta--bl">Rigging detail</span></a>
-    <a class="dossier" href="#field-ops"><img src="assets/fhe/pr-1.jpg" alt="Yard mobilization (loop)"><span class="dossier__meta dossier__meta--tl">TAG · AC-100</span><span class="dossier__meta dossier__meta--bl">Yard mobilization</span></a>
-  </div>
-  <span class="fleet-marquee__fade fleet-marquee__fade--r"></span>
-</section>
+<main class="wrap">
+  <section class="intro" aria-labelledby="intro-title">
+    <h1 id="intro-title">Three ways to<br>lift <em>the brand.</em></h1>
+    <p>Three complete, mobile-first homepage concepts built from FHE's own site photography, certificates and fleet range.
+      Open one, explore it, then use your browser's Back button to come straight back here.<span class="hint-keys"> Shortcut: press <kbd>1</kbd> <kbd>2</kbd> or <kbd>3</kbd>.</span></p>
+  </section>
 
-<!-- Positioning strip -->
-<section class="strip">
-  <div class="strip__inner">
-    <span>Bilingual EN / AR RTL-native</span>
-    <span>Vercel edge · Dubai + Frankfurt POPs</span>
-    <span>Next.js 15 · React Server Components</span>
-    <span>Structured RFQ payloads · webhook-ready</span>
-    <span>Guaranteed Lighthouse ≥ 92</span>
-    <span>Bilingual EN / AR RTL-native</span>
-    <span>Vercel edge · Dubai + Frankfurt POPs</span>
-    <span>Next.js 15 · React Server Components</span>
-    <span>Structured RFQ payloads · webhook-ready</span>
-    <span>Guaranteed Lighthouse ≥ 92</span>
-  </div>
-</section>
-
-<!-- ============== POSITIONING ============== -->
-<section class="section">
-  <div class="container">
-    <div class="eyebrow">01 · The math</div>
-    <div style="display:grid; grid-template-columns: 1.4fr 1fr; gap:64px; align-items:end">
-      <div>
-        <h2>
-          One 700-ton contract<br />
-          pays for the site <span style="color:var(--amber)">seven times over.</span>
-        </h2>
-        <p style="margin-top:24px; font-size:17px; max-width:56ch">
-          FHE competes for the same GCC enterprise briefs as Mammoet and Sarens. Those firms don't send PDFs — they
-          send a portal, a load-chart previewer, and a real-time fleet map. This proposal closes that gap in one build.
-        </p>
-      </div>
-      <div class="hero__panel cabin-panel cabin-panel--riveted" style="padding: 28px">
-        <span class="rivet-tl"></span><span class="rivet-tr"></span>
-        <span class="rivet-bl"></span><span class="rivet-br"></span>
-        <span class="torque-corner"><span class="torque-corner__led"></span>SPEC-REV.04</span>
-        <div class="mono" style="margin-bottom:12px; letter-spacing:0.22em">MARKET COMP · JUL 2026</div>
-        <div class="metric-row"><span class="metric-row__label">Mammoet flagship</span><span class="metric-row__val">$50k+</span></div>
-        <div class="metric-row"><span class="metric-row__label">Sarens flagship</span><span class="metric-row__val">$42k+</span></div>
-        <div class="metric-row"><span class="metric-row__label">GCC regional avg</span><span class="metric-row__val">$18k</span></div>
-        <div class="metric-row"><span class="metric-row__label">FHE // Telemetry</span><span class="metric-row__val amber lcd" style="padding:4px 10px; font-size:12px">◐ ON APPLICATION</span></div>
-        <div class="led-strip" style="margin-top:14px"></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============== TIERS ============== -->
-<section class="section" id="tiers">
-  <div class="container">
-    <div class="eyebrow">02 · Three tiers · each a full site</div>
-    <h2>Pick where you want to <span style="color:var(--amber)">enter the market.</span></h2>
-    <p style="margin-top:16px; max-width:64ch">
-      Every tier ships as a live production site — same design language, same performance floor, same bilingual core.
-      Each subsequent tier layers deeper software utility on top.
-    </p>
-
-    <div class="tiers">
-      <!-- TIER 1 -->
-      <article class="tier reveal" data-delay="1">
-        <span class="torque-corner"><span class="torque-corner__led"></span>ISO-9001 // REV.01</span>
-        <div class="tier__photo">
-          <img src="assets/fhe/pr-2.jpg" alt="FHE Liebherr mobile crane — fleet foundation" />
-          <div class="tier__photo-tag"><span>FLEET · GROUND-LEVEL</span><span>TIER 01</span></div>
+  <ol class="concepts" aria-label="Homepage concepts">
+    <li>
+      <a class="tile tile--1" href="concept-1.html">
+        <div class="tile__media">
+          <img src="assets/media/fhe-carrier-closeup-640.webp" srcset="assets/media/fhe-carrier-closeup-480.webp 480w, assets/media/fhe-carrier-closeup-640.webp 640w, assets/media/fhe-carrier-closeup-800.webp 800w, assets/media/fhe-carrier-closeup-960.webp 960w, assets/media/fhe-carrier-closeup-1280.webp 1280w" sizes="(min-width: 960px) 32vw, 100vw" width="640" height="480" alt="" decoding="async" fetchpriority="high">
+          <span class="tile__num" aria-hidden="true">1</span>
         </div>
-        <div class="tier__head">
-          <div>
-            <div class="tier__num">TIER 01 · SPEC-REV.01</div>
-            <div class="tier__name">Foundation<br />& Fleet Command</div>
-          </div>
-          <div class="spec-plate">
-            <span class="spec-plate__rev"><span class="led"></span>SPEC-REV.01</span>
-            <span class="spec-plate__val">◐ ON APPLICATION</span>
-          </div>
+        <div class="tile__body">
+          <p class="tile__tag">Concept 01 — Heavy machinery</p>
+          <h2 class="tile__name">Industrial Brutalism</h2>
+          <p class="tile__desc">Stark, mechanical, built like a load chart. Giant block type, raw bento grids, hard borders and safety-amber signals.</p>
+          <div class="tile__swatches" aria-hidden="true"><span style="--s:#1A1A1A"></span><span style="--s:#FFFFFF"></span><span style="--s:#FFB000"></span></div>
         </div>
-        <p class="tier__focus">A cinematic dark-mode flagship with a working fleet matrix and RFQ cart.</p>
-        <ul class="feature-list">
-          <li><span><strong>Telemetry Dark UI</strong> — matte carbon, safety-amber data accents, brutalist grid.</span></li>
-          <li><span><strong>Interactive Fleet Matrix</strong> — filter Mobile vs Crawler, tonnage &amp; reach, spec sheets.</span></li>
-          <li><span><strong>Bilingual EN / AR core</strong> — first-class RTL, not an afterthought translation.</span></li>
-          <li><span><strong>Instant RFQ Cart</strong> — bundle cranes + lowbeds, submit a structured lead.</span></li>
-          <li><span><strong>Vercel edge deploy</strong> — Lighthouse ≥ 92, LCP &lt; 1.2s.</span></li>
-        </ul>
-        <div class="tier__cta">
-          <span class="mono">4–5 wk build</span>
-          <a class="btn btn--primary" href="tier-1.html" target="_blank">Open demo <span class="btn__arrow">↗</span></a>
-        </div>
-      </article>
-
-      <!-- TIER 2 -->
-      <article class="tier tier--featured reveal" data-delay="2">
-        <span class="torque-corner"><span class="torque-corner__led"></span>ISO-9001 // REV.02</span>
-        <div class="tier__photo">
-          <img src="assets/fhe/banner-2.jpg" alt="Yacht lift — heavy-lift engineering showcase" />
-          <div class="tier__photo-tag"><span>ENGINEERED LIFT · YACHT · 180 T</span><span>TIER 02</span></div>
-        </div>
-        <div class="tier__head">
-          <div>
-            <div class="tier__num">TIER 02 · MOST PITCHED</div>
-            <div class="tier__name">Engineering<br />& Interactive</div>
-          </div>
-          <div class="spec-plate">
-            <span class="spec-plate__rev"><span class="led"></span>SPEC-REV.02</span>
-            <span class="spec-plate__val">◐ ON APPLICATION</span>
-          </div>
-        </div>
-        <p class="tier__focus">Adds the visual firepower that closes enterprise briefs.</p>
-        <ul class="feature-list">
-          <li><span><strong>All of Tier 1</strong>, plus:</span></li>
-          <li><span><strong>Blueprint Canvas</strong> — draggable boom / radius / load, live SVG crane responds.</span></li>
-          <li><span><strong>Interactive Load-Chart Previewer</strong> — clearances answered in-browser, no PDFs.</span></li>
-          <li><span><strong>Dynamic Case Study Teardowns</strong> — tons lifted, duration, region, on a grid.</span></li>
-          <li><span><strong>Regional SEO schema</strong> — engineered to rank "heavy crane rental Abu Dhabi".</span></li>
-        </ul>
-        <div class="tier__cta">
-          <span class="mono">6–7 wk build</span>
-          <a class="btn btn--primary" href="tier-2.html" target="_blank">Open demo <span class="btn__arrow">↗</span></a>
-        </div>
-      </article>
-
-      <!-- TIER 3 -->
-      <article class="tier reveal" data-delay="3">
-        <span class="torque-corner"><span class="torque-corner__led"></span>ISO-9001 // REV.03</span>
-        <div class="tier__photo">
-          <img src="assets/fhe/banner-4.jpg" alt="Cranes and skyscrapers — enterprise portal scope" />
-          <div class="tier__photo-tag"><span>ENTERPRISE · URBAN CORE</span><span>TIER 03</span></div>
-        </div>
-        <div class="tier__head">
-          <div>
-            <div class="tier__num">TIER 03 · FLAGSHIP</div>
-            <div class="tier__name">Enterprise Portal<br />+ M365 Migration</div>
-          </div>
-          <div class="spec-plate">
-            <span class="spec-plate__rev"><span class="led"></span>SPEC-REV.03</span>
-            <span class="spec-plate__val">◐ ON APPLICATION</span>
-          </div>
-        </div>
-        <p class="tier__focus">A full operations layer + moves FHE onto Microsoft 365 / Teams.</p>
-        <ul class="feature-list">
-          <li><span><strong>All of Tier 1 &amp; 2</strong>, plus:</span></li>
-          <li><span><strong>Client Portal Accounts</strong> — active rentals, invoices, permits, per-contractor.</span></li>
-          <li><span><strong>Live Fleet Availability Sync</strong> — Available / On-Site / Maintenance, no double-book.</span></li>
-          <li><span><strong>Risk &amp; Compliance Hub</strong> — audits, operator certs, lift permits, verifiable by clients.</span></li>
-          <li><span><strong>Custom API / ERP webhooks</strong> — RFQ payloads into internal dispatch systems.</span></li>
-          <li><span><strong>Microsoft 365 migration</strong> — mailboxes, calendar, SharePoint, Teams &amp; branded signatures.</span></li>
-        </ul>
-        <div class="tier__cta">
-          <span class="mono">10–14 wk build</span>
-          <a class="btn btn--primary" href="tier-3.html" target="_blank">Open demo <span class="btn__arrow">↗</span></a>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ============== FIELD OPS MOSAIC ============== -->
-<section class="section" id="field-ops" style="background:var(--bg-elev); border-top:1px solid var(--border-strong); border-bottom:1px solid var(--border-strong)">
-  <div class="container">
-    <div class="eyebrow">Field ops · Live inventory · GCC 2020–2026</div>
-    <div style="display:grid; grid-template-columns: 1.4fr 1fr; gap:48px; align-items:end">
-      <div>
-        <h2>Real fleet. Real briefs.<br /><span style="color:var(--amber)">Rendered like a dossier</span>, not a brochure.</h2>
-      </div>
-      <p style="font-size:15px; color:var(--text-mute); max-width:56ch">
-        Every image below is pulled straight from FHE's own archive. On the new site each one lives inside a
-        filterable case-study record — tonnage, radius, region, duration — with a load-chart preview one click away.
-      </p>
-    </div>
-
-    <div class="field-mosaic">
-      <a class="dossier mosaic-a" href="tier-2.html">
-        <img src="assets/fhe/banner-3.jpg" alt="Yellow mobile crane operating on active construction site" />
-        <span class="dossier__scan"></span>
-        <span class="dossier__meta dossier__meta--tl">CASE · MSD-2026-021</span>
-        <span class="dossier__meta dossier__meta--tr">MOB · 36 h</span>
-        <span class="dossier__meta dossier__meta--bl">Musaffah shipyard block lift</span>
-        <span class="dossier__meta dossier__meta--br">450 T · 12 d</span>
+        <span class="tile__cta">Open concept 1<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span>
       </a>
-      <a class="dossier mosaic-c" href="tier-2.html">
-        <img src="assets/fhe/pr-3.jpg" alt="Twin lattice cranes coordinated lift" />
-        <span class="dossier__scan"></span>
-        <span class="dossier__meta dossier__meta--tl">CASE · HAB-2026-008</span>
-        <span class="dossier__meta dossier__meta--bl">Habshan gas-plant tie-in</span>
-        <span class="dossier__meta dossier__meta--br">700 T</span>
-      </a>
-      <a class="dossier mosaic-d" href="tier-2.html">
-        <img src="assets/fhe/pr-4.jpg" alt="Vertical lattice boom rigging" />
-        <span class="dossier__scan"></span>
-        <span class="dossier__meta dossier__meta--tl">CASE · REM-2026-004</span>
-        <span class="dossier__meta dossier__meta--bl">Reem tower crane erection</span>
-        <span class="dossier__meta dossier__meta--br">92 m · 6 wk</span>
-      </a>
-      <a class="dossier mosaic-b" href="tier-3.html">
-        <img src="assets/fhe/pr-6.jpg" alt="FHE red-and-white mobile crane" />
-        <span class="dossier__scan"></span>
-        <span class="dossier__meta dossier__meta--tl">FLEET · GMK-6300L</span>
-        <span class="dossier__meta dossier__meta--tr">STATUS · AVAIL</span>
-        <span class="dossier__meta dossier__meta--bl">The Friendship fleet, on the road</span>
-        <span class="dossier__meta dossier__meta--br">300 T</span>
-      </a>
-      <a class="dossier mosaic-e" href="tier-3.html">
-        <img src="assets/fhe/banner-4.jpg" alt="Urban skyscraper heavy lift" />
-        <span class="dossier__scan"></span>
-        <span class="dossier__meta dossier__meta--tl">CASE · RUW-2026-014</span>
-        <span class="dossier__meta dossier__meta--bl">Ruwais LNG expansion</span>
-        <span class="dossier__meta dossier__meta--br">320 T · 42 m radius</span>
-      </a>
-      <a class="dossier mosaic-f" href="tier-1.html">
-        <img src="assets/fhe/pr-7.jpg" alt="Night-shift mobile crane on urban site" />
-        <span class="dossier__scan"></span>
-        <span class="dossier__meta dossier__meta--tl">CASE · CRN-2026-031</span>
-        <span class="dossier__meta dossier__meta--tr">LTI · 0</span>
-        <span class="dossier__meta dossier__meta--bl">Corniche high-rise · night shift</span>
-        <span class="dossier__meta dossier__meta--br">250 T · 9 d</span>
-      </a>
-    </div>
-
-    <div class="mono" style="margin-top:28px; color:var(--text-dim); display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px">
-      <span>SOURCE · FHECRANE.COM · ARCHIVE 2020 – 2026</span>
-      <span>NEXT · <a href="tier-2.html" style="color:var(--amber)">open Tier 02 to walk a case study →</a></span>
-    </div>
-  </div>
-</section>
-
-<!-- ============== BY THE NUMBERS ============== -->
-<section class="section counts" aria-label="Operational scale">
-  <div class="container">
-    <div class="eyebrow">Live · By the numbers</div>
-    <div class="counts__lede">
-      <h2>
-        The scale FHE already runs at —<br />
-        <span style="color:var(--amber)">now readable</span> in one page-load.
-      </h2>
-      <p class="counts__note">
-        Al Faris publishes their scale as four static digits at the bottom of a slow homepage. We render it as a live
-        telemetry feed on the edge — so the numbers a client sees are the numbers dispatch sees.
-      </p>
-    </div>
-    <div class="counts__grid">
-      <div class="count">
-        <span class="count__label">MAX SAFE LIFT · SINGLE PICK</span>
-        <span class="count__val" data-count-to="700" data-count-suffix=" T">0</span>
-        <span class="count__sub">700-ton lattice, 42 m radius, double-block rig</span>
-      </div>
-      <div class="count">
-        <span class="count__label">FLEET UNITS · ROTATING</span>
-        <span class="count__val" data-count-to="52" data-count-suffix="+">0</span>
-        <span class="count__sub">Liebherr, Grove, Manitowoc — mobile + crawler</span>
-      </div>
-      <div class="count">
-        <span class="count__label">OPERATING YEARS · GCC</span>
-        <span class="count__val" data-count-to="24" data-count-suffix=" yr">0</span>
-        <span class="count__sub">Abu Dhabi HQ · KSA + Oman coverage</span>
-      </div>
-      <div class="count">
-        <span class="count__label">LOST-TIME INCIDENTS · 2026</span>
-        <span class="count__val" data-count-to="0">0</span>
-        <span class="count__sub">438 days LTI-free · logged, verifiable in Tier 3 portal</span>
-      </div>
-      <div class="count">
-        <span class="count__label">CONTRACT VALUE PIPELINE</span>
-        <span class="count__val" data-count-to="128" data-count-suffix="M">0</span>
-        <span class="count__sub">Rolling 12-month bid book · AED · confirmed + tendered</span>
-      </div>
-      <div class="count">
-        <span class="count__label">LIGHTHOUSE FLOOR · CONTRACT</span>
-        <span class="count__val" data-count-to="96" data-count-suffix="/100">0</span>
-        <span class="count__sub">Mobile · 4G · Dubai edge · falls below → free re-tune</span>
-      </div>
-    </div>
-    <div class="counts__foot mono">
-      <span>SRC · fleet dispatch · TIER-3 portal · TS 04:12:57 GST</span>
-      <span>UPDATED · <span class="amber">every 90 s on production</span></span>
-    </div>
-  </div>
-</section>
-
-<!-- ============== SECTORS ============== -->
-<section class="section sectors-section">
-  <div class="container">
-    <div class="eyebrow">Sectors served · GCC</div>
-    <div class="sectors-lede">
-      <div>
-        <h2>Six sectors. One dispatch desk.<br /><span style="color:var(--amber)">Zero brochure PDFs.</span></h2>
-      </div>
-      <p style="font-size:15px; color:var(--text-mute); max-width:56ch">
-        On the current fhecrane.com, a project engineer has to email to learn the fleet exists. On the new one, they
-        click a sector, filter to their tonnage, and land in Tier 2's blueprint canvas with the load-chart already
-        rendered.
-      </p>
-    </div>
-
-    <div class="sectors">
-      <a class="sector" href="tier-2.html">
-        <img src="assets/fhe/pr-10.jpg" alt="LNG plant lattice-boom lift" />
-        <span class="sector__scan"></span>
-        <span class="sector__tag">SEC · 01</span>
-        <div class="sector__body">
-          <h3>Oil, Gas & Petrochemical</h3>
-          <p>Shutdown lifts, pipe racks, reactor swaps. Habshan · Ruwais · Jubail.</p>
-          <span class="sector__stat">700 T MAX · 42 m RADIUS</span>
+    </li>
+    <li>
+      <a class="tile tile--2" href="concept-2.html">
+        <div class="tile__media">
+          <img src="assets/media/hero-gantry-dusk-640.webp" srcset="assets/media/hero-gantry-dusk-480.webp 480w, assets/media/hero-gantry-dusk-640.webp 640w, assets/media/hero-gantry-dusk-800.webp 800w, assets/media/hero-gantry-dusk-960.webp 960w, assets/media/hero-gantry-dusk-1280.webp 1280w" sizes="(min-width: 960px) 32vw, 100vw" width="640" height="480" alt="" decoding="async" loading="lazy">
+          <span class="tile__num" aria-hidden="true">2</span>
         </div>
+        <div class="tile__body">
+          <p class="tile__tag">Concept 02 — Premium contractor</p>
+          <h2 class="tile__name">Cinematic Editorial</h2>
+          <p class="tile__desc">Dark, calm and expensive. High-contrast serif headlines, sweeping asymmetric layouts and brushed-gold detail.</p>
+          <div class="tile__swatches" aria-hidden="true"><span style="--s:#0B0C10"></span><span style="--s:#1F2833"></span><span style="--s:#C5A059"></span></div>
+        </div>
+        <span class="tile__cta">Open concept 2<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span>
       </a>
-      <a class="sector" href="tier-2.html">
-        <img src="assets/fhe/banner-4.jpg" alt="Urban skyscraper heavy lift" />
-        <span class="sector__scan"></span>
-        <span class="sector__tag">SEC · 02</span>
-        <div class="sector__body">
-          <h3>Infrastructure & Construction</h3>
-          <p>Bridge segments, precast towers, high-rise cores. Reem · Corniche · Saadiyat.</p>
-          <span class="sector__stat">450 T · 92 m HOOK HEIGHT</span>
+    </li>
+    <li>
+      <a class="tile tile--3" href="concept-3.html">
+        <div class="tile__media">
+          <img src="assets/media/night-luffing-city-640.webp" srcset="assets/media/night-luffing-city-480.webp 480w, assets/media/night-luffing-city-640.webp 640w, assets/media/night-luffing-city-800.webp 800w, assets/media/night-luffing-city-960.webp 960w, assets/media/night-luffing-city-1280.webp 1280w" sizes="(min-width: 960px) 32vw, 100vw" width="640" height="480" alt="" decoding="async" loading="lazy">
+          <span class="tile__num" aria-hidden="true">3</span>
         </div>
+        <div class="tile__body">
+          <p class="tile__tag">Concept 03 — Digital cockpit</p>
+          <h2 class="tile__name">Data-Dense Telemetry</h2>
+          <p class="tile__desc">An engineering control room. Live UAE clock, metric modules, blueprint frames and an interactive 25–700T capacity scale.</p>
+          <div class="tile__swatches" aria-hidden="true"><span style="--s:#0A192F"></span><span style="--s:#172A45"></span><span style="--s:#64FFDA"></span></div>
+        </div>
+        <span class="tile__cta">Open concept 3<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span>
       </a>
-      <a class="sector" href="tier-2.html">
-        <img src="assets/fhe/banner-2.jpg" alt="Yacht lift — marine sector" />
-        <span class="sector__scan"></span>
-        <span class="sector__tag">SEC · 03</span>
-        <div class="sector__body">
-          <h3>Marine & Offshore</h3>
-          <p>Yacht lifts, jacket sections, quayside transfer. Musaffah · Mina Zayed.</p>
-          <span class="sector__stat">180 T · TWIN-PICK RIG</span>
-        </div>
-      </a>
-      <a class="sector" href="tier-3.html">
-        <img src="assets/fhe/pr-4.jpg" alt="Wind turbine vertical erection" />
-        <span class="sector__scan"></span>
-        <span class="sector__tag">SEC · 04</span>
-        <div class="sector__body">
-          <h3>Renewable Energy</h3>
-          <p>Turbine nacelle, blade set, transformer swap. Al Dhafra solar · Barakah zone.</p>
-          <span class="sector__stat">320 T · 110 m REACH</span>
-        </div>
-      </a>
-      <a class="sector" href="tier-2.html">
-        <img src="assets/fhe/pr-3.jpg" alt="Twin-lift industrial truss" />
-        <span class="sector__scan"></span>
-        <span class="sector__tag">SEC · 05</span>
-        <div class="sector__body">
-          <h3>Power Generation</h3>
-          <p>Boiler drums, HRSG modules, GT rotors. IWPP fleet · KIZAD grid.</p>
-          <span class="sector__stat">TANDEM · 900 T COMBINED</span>
-        </div>
-      </a>
-      <a class="sector" href="tier-3.html">
-        <img src="assets/fhe/pr-6.jpg" alt="SPMT trailer logistics" />
-        <span class="sector__scan"></span>
-        <span class="sector__tag">SEC · 06</span>
-        <div class="sector__body">
-          <h3>Shipping & SPMT Logistics</h3>
-          <p>Modular trailer runs, port-to-site convoys, out-of-gauge escorts.</p>
-          <span class="sector__stat">SPMT · 12-AXLE · 400 T</span>
-        </div>
-      </a>
-    </div>
-  </div>
-</section>
+    </li>
+  </ol>
 
-<!-- ============== VS COMPETITOR ============== -->
-<section class="section vs-section" aria-label="Competitive comparison">
-  <div class="container">
-    <div class="eyebrow">Head-to-head · GCC digital estate</div>
-    <div class="vs-lede">
-      <h2>The regional field, side-by-side.<br /><span style="color:var(--amber)">Where FHE takes the lead.</span></h2>
-      <p style="max-width:60ch; margin-top:16px">
-        Rated against the three digital estates FHE is quoted against most: Al Faris (regional incumbent),
-        Mammoet (global flagship), and Sarens (global flagship). Scores are Lighthouse-observed and bid-desk-verified,
-        Sept 2026.
-      </p>
+  <section class="notes" aria-label="About these concepts">
+    <div>
+      <h2>Shared across all three</h2>
+      <p>The hook preloader (the FHS emblem drops on a crane cable, settles, then docks into the header), a lazy-loaded heavy-lift time-lapse, services, the 25–700T fleet, field work, industries, ISO 9001 / ISO 45001 / ICV, leadership and 24/7 contact.</p>
     </div>
+    <div>
+      <h2>Content</h2>
+      <p>Facts come from fhecrane.com, the "Our services" document and FHE's certificates. Project dates are the capture dates of the client's photos. Leadership portraits other than Habib's are placeholders.</p>
+    </div>
+    <div>
+      <h2>Archive</h2>
+      <p>The earlier telemetry pitch is kept, untouched, in <a href="_archive/telemetry-pitch/index.html">the archive</a>.</p>
+    </div>
+  </section>
+</main>
 
-    <div class="vs-table" role="table">
-      <div class="vs-row vs-row--head" role="row">
-        <span role="columnheader">Capability</span>
-        <span role="columnheader" class="vs-row__us">FHE // TELEMETRY</span>
-        <span role="columnheader">Al Faris</span>
-        <span role="columnheader">Mammoet</span>
-        <span role="columnheader">Sarens</span>
-      </div>
-      <div class="vs-row" role="row">
-        <span role="cell">Mobile Lighthouse (perf)</span>
-        <span role="cell" class="vs-row__us"><strong>96</strong></span>
-        <span role="cell">54</span>
-        <span role="cell">71</span>
-        <span role="cell">63</span>
-      </div>
-      <div class="vs-row" role="row">
-        <span role="cell">Bilingual EN / AR RTL-native</span>
-        <span role="cell" class="vs-row__us vs-yes">✓</span>
-        <span role="cell" class="vs-yes">✓</span>
-        <span role="cell" class="vs-no">—</span>
-        <span role="cell" class="vs-no">—</span>
-      </div>
-      <div class="vs-row" role="row">
-        <span role="cell">Interactive fleet matrix</span>
-        <span role="cell" class="vs-row__us vs-yes">✓</span>
-        <span role="cell" class="vs-no">PDF</span>
-        <span role="cell" class="vs-yes">✓</span>
-        <span role="cell" class="vs-no">PDF</span>
-      </div>
-      <div class="vs-row" role="row">
-        <span role="cell">Load-chart previewer (in-browser)</span>
-        <span role="cell" class="vs-row__us vs-yes">✓</span>
-        <span role="cell" class="vs-no">—</span>
-        <span role="cell" class="vs-no">—</span>
-        <span role="cell" class="vs-no">—</span>
-      </div>
-      <div class="vs-row" role="row">
-        <span role="cell">Structured RFQ cart · webhook</span>
-        <span role="cell" class="vs-row__us vs-yes">✓</span>
-        <span role="cell" class="vs-no">Form</span>
-        <span role="cell" class="vs-no">Form</span>
-        <span role="cell" class="vs-no">Form</span>
-      </div>
-      <div class="vs-row" role="row">
-        <span role="cell">Client portal · live availability</span>
-        <span role="cell" class="vs-row__us vs-yes">✓</span>
-        <span role="cell" class="vs-no">—</span>
-        <span role="cell" class="vs-yes">✓</span>
-        <span role="cell" class="vs-no">—</span>
-      </div>
-      <div class="vs-row" role="row">
-        <span role="cell">Edge deploy · Dubai POP</span>
-        <span role="cell" class="vs-row__us vs-yes">✓</span>
-        <span role="cell" class="vs-no">—</span>
-        <span role="cell" class="vs-no">—</span>
-        <span role="cell" class="vs-no">—</span>
-      </div>
-    </div>
-    <div class="mono vs-note">
-      <span>SRC · Lighthouse mobile · Dubai edge · 2026-09-28</span>
-      <span>NEXT · <a href="tier-3.html" style="color:var(--amber)">open Tier 03 — the flagship →</a></span>
-    </div>
-  </div>
-</section>
-
-<!-- ============== PERFORMANCE ============== -->
-<section class="section" style="background: var(--bg-elev)">
-  <div class="container">
-    <div class="eyebrow">03 · What "fast" actually means here</div>
-    <h2>Numbers we <span style="color:var(--amber)">guarantee in writing.</span></h2>
-    <p style="max-width:60ch; margin-top:16px">
-      All three tiers ship on Vercel edge, statically pre-rendered where possible, with images served as AVIF and
-      hydration deferred. Below is the performance envelope the contract will target.
-    </p>
-
-    <div class="perf-grid">
-      <div>
-        <div class="perf-scores">
-          <div class="perf-score">
-            <span class="perf-score__label">LIGHTHOUSE · MOBILE</span>
-            <span class="perf-score__val">96</span>
-            <span class="perf-score__sub">Contract floor: 92. Any drop below triggers a free tune-up.</span>
-          </div>
-          <div class="perf-score">
-            <span class="perf-score__label">LARGEST CONTENTFUL PAINT</span>
-            <span class="perf-score__val">1.1<span style="font-size:20px; color:var(--text-dim)">s</span></span>
-            <span class="perf-score__sub">Measured on Dubai edge, Fast 3G throttled.</span>
-          </div>
-          <div class="perf-score">
-            <span class="perf-score__label">FIRST INPUT DELAY</span>
-            <span class="perf-score__val">18<span style="font-size:20px; color:var(--text-dim)">ms</span></span>
-            <span class="perf-score__sub">React Server Components + streaming.</span>
-          </div>
-          <div class="perf-score">
-            <span class="perf-score__label">CUMULATIVE LAYOUT SHIFT</span>
-            <span class="perf-score__val">0.02</span>
-            <span class="perf-score__sub">Reserved image dimensions, font-display swap.</span>
-          </div>
-        </div>
-      </div>
-
-      <div>
-        <ul class="perf-list">
-          <li><span class="perf-list__key">FRAMEWORK</span><span class="perf-list__val">Next.js 15 · React Server Components</span><span class="perf-list__num">RSC</span></li>
-          <li><span class="perf-list__key">STYLING</span><span class="perf-list__val">Tailwind + hand-tuned tokens</span><span class="perf-list__num">v4</span></li>
-          <li><span class="perf-list__key">HOSTING</span><span class="perf-list__val">Vercel edge · Dubai + Frankfurt POPs</span><span class="perf-list__num">EDGE</span></li>
-          <li><span class="perf-list__key">MEDIA</span><span class="perf-list__val">AVIF / WebP · adaptive srcset</span><span class="perf-list__num">AVIF</span></li>
-          <li><span class="perf-list__key">CMS</span><span class="perf-list__val">Sanity or Payload — self-serve for FHE ops</span><span class="perf-list__num">HDLESS</span></li>
-          <li><span class="perf-list__key">SEO</span><span class="perf-list__val">Structured data, hreflang EN/AR, sitemaps</span><span class="perf-list__num">GCC</span></li>
-          <li><span class="perf-list__key">SECURITY</span><span class="perf-list__val">TLS 1.3, CSP, WAF, weekly Snyk scans</span><span class="perf-list__num">HRDN</span></li>
-          <li><span class="perf-list__key">TTFB</span><span class="perf-list__val">First byte from Dubai edge</span><span class="perf-list__num">~80ms</span></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============== TIMELINE ============== -->
-<section class="section">
-  <div class="container">
-    <div class="eyebrow">04 · Delivery</div>
-    <h2>From kick-off to <span style="color:var(--amber)">live in Dubai edge.</span></h2>
-    <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:0; border:1px solid var(--border-strong); margin-top:32px">
-      <div style="padding:24px; border-right:1px solid var(--border); background:var(--bg-elev)">
-        <div class="mono" style="color:var(--amber)">PHASE 01 · WK 1–2</div>
-        <h3 style="margin-top:8px; font-size:18px">Discovery & fleet inventory</h3>
-        <p style="font-size:13px; margin-top:8px">Full fleet audit, RFQ workflow shadow, competitor teardown.</p>
-      </div>
-      <div style="padding:24px; border-right:1px solid var(--border); background:var(--bg-elev)">
-        <div class="mono" style="color:var(--amber)">PHASE 02 · WK 3–5</div>
-        <h3 style="margin-top:8px; font-size:18px">Design + prototype</h3>
-        <p style="font-size:13px; margin-top:8px">Full brand system, EN/AR type stacks, blueprint canvas prototype.</p>
-      </div>
-      <div style="padding:24px; border-right:1px solid var(--border); background:var(--bg-elev)">
-        <div class="mono" style="color:var(--amber)">PHASE 03 · WK 6–10</div>
-        <h3 style="margin-top:8px; font-size:18px">Build + integration</h3>
-        <p style="font-size:13px; margin-top:8px">Next.js build, CMS hydration, RFQ webhooks, load-chart engine.</p>
-      </div>
-      <div style="padding:24px; background:var(--bg-elev)">
-        <div class="mono" style="color:var(--amber)">PHASE 04 · WK 11–12</div>
-        <h3 style="margin-top:8px; font-size:18px">QA + launch</h3>
-        <p style="font-size:13px; margin-top:8px">Full a11y audit, Lighthouse cert, edge deploy, DNS cutover.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============== FOOTER ============== -->
-<footer class="footer">
-  <div class="container">
-    <div class="footer__grid">
-      <div>
-        <div class="footer__cta">
-          Ready to <span class="amber">deploy?</span><br />
-          The 700-ton contract is already waiting.
-        </div>
-      </div>
-      <div class="footer__col">
-        <h5>Direct line</h5>
-        <p>+971 __ ___ ____</p>
-        <p style="margin-top:4px"><a href="mailto:studio@example.com">studio@example.com</a></p>
-      </div>
-      <div class="footer__col">
-        <h5>Next step</h5>
-        <p><a href="tier-2.html" target="_blank">Walk through Tier 2 →</a></p>
-        <p style="margin-top:4px"><a href="tier-3.html" target="_blank">Or the flagship portal →</a></p>
-      </div>
-    </div>
-    <div class="footer__base">
-      <span>FHE // TELEMETRY · REV 01</span>
-      <span>PROPOSAL VALID · 30 DAYS · 2026-09-28</span>
-    </div>
-  </div>
-</footer>
+<footer class="wrap foot">Friendship Hall Sole Proprietorship L.L.C · Mohamed Bin Zayed City, Abu Dhabi · Design proposal © 2026</footer>
 
 <script>
-  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  // Theme toggle
-  const root = document.documentElement;
-  const toggle = document.getElementById('themeToggle');
-  const setTheme = (mode) => {
-    root.setAttribute('data-theme', mode);
-    toggle.querySelectorAll('span').forEach(s => {
-      s.classList.toggle('on', s.dataset.mode === mode);
-    });
-    try { localStorage.setItem('fhe-theme', mode); } catch(_) {}
-  };
-  try {
-    const saved = localStorage.getItem('fhe-theme');
-    if (saved) setTheme(saved);
-  } catch(_) {}
-  toggle.addEventListener('click', () => {
-    const cur = root.getAttribute('data-theme') || 'dark';
-    setTheme(cur === 'dark' ? 'light' : 'dark');
+  // Number keys open a concept. Normal navigation, so Back returns here.
+  addEventListener('keydown', function (e) {
+    if (e.metaKey || e.ctrlKey || e.altKey || /input|textarea|select/i.test(e.target.tagName)) return;
+    if (e.key === '1' || e.key === '2' || e.key === '3') location.href = 'concept-' + e.key + '.html';
   });
-
-  // Lattice boom scroll-scrubber (hero)
-  const boom = document.getElementById('latticeBoom');
-  const angleLabel = document.getElementById('angleLabel');
-  const boomAngleR = document.getElementById('boomAngleR');
-  const hookLine = document.getElementById('hookLine');
-  const hero = document.querySelector('.hero');
-  function updateBoom() {
-    if (!boom || !hero) return;
-    const rect = hero.getBoundingClientRect();
-    const progress = Math.min(1, Math.max(0, -rect.top / (rect.height + 400)));
-    const angle = -28 - progress * 55; // -28 → -83°
-    boom.setAttribute('transform', `rotate(${angle} 60 170)`);
-    const displayAngle = Math.round(-angle);
-    if (angleLabel) angleLabel.textContent = displayAngle + '°';
-    if (boomAngleR) boomAngleR.textContent = displayAngle + '°';
-    if (hookLine) {
-      const drop = 50 - progress * 30;
-      hookLine.setAttribute('y2', 180 + drop);
-    }
-  }
-  // Scroll-progress rail + nav condense — batched into one rAF-throttled pass
-  const scrollRail = document.getElementById('scrollRail');
-  const navEl = document.querySelector('.nav');
-  let scrollTick = false;
-  function onScroll() {
-    updateBoom();
-    if (!scrollTick) {
-      scrollTick = true;
-      requestAnimationFrame(() => {
-        const doc = document.documentElement;
-        const max = doc.scrollHeight - doc.clientHeight;
-        const p = max > 0 ? Math.min(1, doc.scrollTop / max) : 0;
-        if (scrollRail) scrollRail.style.setProperty('--p', p.toFixed(4));
-        if (navEl) navEl.classList.toggle('nav--scrolled', doc.scrollTop > 40);
-        scrollTick = false;
-      });
-    }
-  }
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
-
-  // Hero photo — buttery pointer-driven parallax tilt (cursor leads the frame)
-  const heroPhoto = document.querySelector('.hero-photo');
-  if (heroPhoto && !prefersReduced && window.matchMedia('(pointer:fine)').matches) {
-    const heroWrap = heroPhoto.closest('.hero');
-    let tiltTick = false, lastX = 0, lastY = 0;
-    (heroWrap || heroPhoto).addEventListener('pointermove', (e) => {
-      const r = heroPhoto.getBoundingClientRect();
-      lastX = ((e.clientX - r.left) / r.width - 0.5) * 2;
-      lastY = ((e.clientY - r.top) / r.height - 0.5) * 2;
-      if (!tiltTick) {
-        tiltTick = true;
-        requestAnimationFrame(() => {
-          heroPhoto.style.setProperty('--tx', Math.max(-1, Math.min(1, lastX)).toFixed(3));
-          heroPhoto.style.setProperty('--ty', Math.max(-1, Math.min(1, lastY)).toFixed(3));
-          tiltTick = false;
-        });
-      }
-    });
-    (heroWrap || heroPhoto).addEventListener('pointerleave', () => {
-      heroPhoto.style.setProperty('--tx', '0');
-      heroPhoto.style.setProperty('--ty', '0');
-    });
-  }
-
-  // Scroll reveal — hero elements are tagged in markup; section headers and
-  // data grids are auto-tagged here. They live below the fold, so tagging them
-  // synchronously introduces no flash while adding a cinematic entrance.
-  document.querySelectorAll('.section').forEach(sec => {
-    sec.querySelectorAll(':scope > .container > .eyebrow, :scope .eyebrow')
-      .forEach(el => { if (!el.closest('.reveal')) el.setAttribute('data-reveal', ''); });
-    const h = sec.querySelector('h2');
-    if (h && !h.closest('.reveal')) h.setAttribute('data-reveal', '');
-  });
-  document.querySelectorAll('.counts__grid, .sectors, .field-mosaic, .perf-list')
-    .forEach(g => g.setAttribute('data-stagger', ''));
-
-  const revealIO = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('in');
-        revealIO.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
-  document.querySelectorAll('.reveal, [data-reveal], [data-stagger]')
-    .forEach(el => revealIO.observe(el));
-
-  // Tier cards — pointer-tracked glow
-  document.querySelectorAll('.tier').forEach(t => {
-    t.addEventListener('pointermove', (e) => {
-      const r = t.getBoundingClientRect();
-      t.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
-      t.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100) + '%');
-    });
-  });
-
-  // Sector cards — same pointer-tracked glow
-  document.querySelectorAll('.sector').forEach(s => {
-    s.addEventListener('pointermove', (e) => {
-      const r = s.getBoundingClientRect();
-      s.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
-      s.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100) + '%');
-    });
-  });
-
-  // Animated counters — fire once per element when it enters the viewport
-  const countEls = document.querySelectorAll('[data-count-to]');
-  const countIO = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      const el = entry.target;
-      const end = parseFloat(el.dataset.countTo);
-      const suffix = el.dataset.countSuffix || '';
-      const duration = 1400;
-      const start = performance.now();
-      const easeOut = (t) => 1 - Math.pow(1 - t, 3);
-      const tick = (now) => {
-        const p = Math.min(1, (now - start) / duration);
-        const v = end * easeOut(p);
-        // integer for round targets, one decimal otherwise
-        const display = Number.isInteger(end) ? Math.round(v) : v.toFixed(1);
-        el.textContent = display + suffix;
-        if (p < 1) requestAnimationFrame(tick);
-      };
-      requestAnimationFrame(tick);
-      countIO.unobserve(el);
-    });
-  }, { threshold: 0.35 });
-  countEls.forEach(el => countIO.observe(el));
-
-  // Signal-ticker live clock (GST = UTC+4)
-  const clockEl = document.getElementById('signalClock');
-  function tickClock() {
-    if (!clockEl) return;
-    const now = new Date();
-    // shift to UTC+4 Gulf Standard Time
-    const gst = new Date(now.getTime() + (now.getTimezoneOffset() + 240) * 60000);
-    const hh = String(gst.getHours()).padStart(2, '0');
-    const mm = String(gst.getMinutes()).padStart(2, '0');
-    const ss = String(gst.getSeconds()).padStart(2, '0');
-    clockEl.textContent = `${hh}:${mm}:${ss} GST`;
-  }
-  tickClock();
-  setInterval(tickClock, 1000);
 </script>
-
 </body>
 </html>

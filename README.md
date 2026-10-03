@@ -1,42 +1,59 @@
-# FHE // Telemetry — pitch site
+# Friendship Hall (FHE): homepage concepts
 
-Single-page pitch for Friendship Hall Crane Rental. Three clickable tier demos.
+This folder holds three complete, mobile-first homepage concepts for Friendship Hall Sole Proprietorship L.L.C (fhecrane.com). They're plain static HTML and CSS with a little vanilla JS, and there's no build step.
 
-## Files
-- `index.html` — the pitch itself (hero, positioning, three tiers, perf, timeline, footer)
-- `tier-1.html` — Foundation & Fleet Command demo (fleet matrix, outrigger footprint, RFQ cart)
-- `tier-2.html` — Engineering & Interactive demo (blueprint canvas, load-chart, case teardowns)
-- `tier-3.html` — Enterprise Portal + M365 demo (portal shell, compliance hub, webhook, signature, Teams)
-- `styles.css` — shared Telemetry design system (dark + light themes)
-- `vercel.json` — deploy config
-- `.claude/launch.json` — local preview server
+| Page | What it is |
+|------|------------|
+| `index.html` | The hub. Click **1**, **2** or **3** (or press the number key) to open a concept. The browser Back button returns here. |
+| `concept-1.html` | **Industrial Brutalism.** Charcoal #1A1A1A, white, safety amber #FFB000. Block type, bento grids, hard borders. |
+| `concept-2.html` | **Cinematic Editorial.** Obsidian #0B0C10, zinc #1F2833, brushed gold #C5A059. Serif headlines, asymmetric layout. |
+| `concept-3.html` | **Data-Dense Telemetry.** Navy #0A192F, steel #172A45, cyan #64FFDA. Metric modules and an interactive 25–700T capacity scale. |
 
-## Local preview
+The earlier "FHE // Telemetry" pitch is archived, unchanged, in `_archive/telemetry-pitch/`. It still opens on its own.
+
+## Preview locally
 ```bash
 npx -y serve -l 5173 .
 ```
-Then open http://localhost:5173
+Then open http://localhost:5173. Use a server rather than double-clicking the files: the video needs HTTP range requests to seek and loop correctly.
 
-## Deploy to Vercel
-```bash
-vercel deploy --prod
+## Deploy
+Run `vercel deploy --prod`. `vercel.json` turns on clean URLs (`/concept-1`) and sets cache headers.
+
+## Structure
 ```
-Static site — no build step. Vercel edge caches everything.
+index.html                 hub (1 · 2 · 3)
+concept-{1,2,3}.html       the three concepts
+css/concept-{1,2,3}.css    one stylesheet per concept
+js/fhe-core.js             shared behaviour (see below)
+js/concept-{n}.js          concept-specific interactions
+assets/media/              optimised photos (WebP 640/960/1280/1920 + one 1280 JPG each) + manifest.json
+assets/fonts/              self-hosted Google Fonts (latin woff2); @font-face is inlined in each page's <head>
+assets/team/               leadership portraits (800×1000)
+assets/video/              crane-timelapse.mp4 (28.6 s, 720p), posters, cues JSON
+assets/brand/              FHS emblem SVG (standalone red + inline currentColor version)
+```
 
-## Design system
-- Fonts: Space Grotesk (display), Manrope (body), JetBrains Mono (data), Instrument Serif italic (accent)
-- Palette: matte carbon (#09090b) + safety amber (#f59e0b); light mode swaps to warm paper + deeper amber
-- Theme toggle: top-right, persists via localStorage
+## Shared behaviour (`js/fhe-core.js`)
+- **Hook preloader (`@keyframes hookDropAndLift`).** The FHS emblem, whose "H" holds a crane hook block, drops on a cable, catches with a bounce, holds, then lifts and docks into the header logo slot. The script measures the slot and passes the offset to the CSS as `--dock-x`, `--dock-y` and `--dock-scale`. Tap or Escape skips it. It doesn't run for reduced-motion users or on Back/Forward navigation.
+- **Back button.** In-page menu links scroll with `history.replaceState`, so they never add history entries. Back always returns to the previous page. The "All concepts" link calls `history.back()` when you arrived from the hub. The mobile menus are buttons, not hash links.
+- **Lazy time-lapse.** The `<video>` gets its source only when it nears the viewport (IntersectionObserver), and it pauses when off-screen.
+- Reveal-on-scroll, count-up numbers, a live Asia/Dubai clock and a scrolled-header flag.
 
-## Performance targets (guaranteed in the pitch)
-- Lighthouse mobile ≥ 92 (goal 96)
-- LCP < 1.2s on Dubai edge, Fast 3G throttled
-- FID < 20ms
-- CLS < 0.05
+## Assets: where everything came from
+The original photos are in `C:/Users/user/Downloads/FHE Assets/` (2–23 MB phone images). Browsers can't load `C:/` paths from a web page, and those paths won't exist on a server. So each photo was resized to WebP, given a descriptive name and placed in `assets/media/`. `assets/media/manifest.json` maps every file back to its original and records its capture date, aspect ratio, alt text and intended use. For example:
 
-## What each tier demonstrates
-| Tier | Signature interaction |
-|------|-----------------------|
-| 01 | Hover any 300T+ crane → outriggers deploy on the isometric chassis + seismic pulse + ground-bearing readout |
-| 02 | Drag Load / Angle / Length sliders → boom rotates, cable tensions, hook drops, load chart marker tracks the envelope |
-| 03 | Live dispatch log streams, fleet availability table, M365 migration checklist + email signature + Teams call cards |
+- `lowbed-trailer` ← `20180410_183509.jpg` (yacht onto a lowbed, sunset)
+- `rigging-team` ← `20201104_1738421.png` (crew in front of the Terex)
+- `crawler-crane-coast` ← `banner.jpg`
+- `tandem-bridge-panorama` ← `20201116_153907.jpg`
+
+The time-lapse was rendered from the 30 dated photos in capture order, from 2017-12-19 to 2020-11-29. `crane-timelapse.cues.json` lists when each photo appears in the video.
+
+There's no forklift photo in the asset folder, so forklifts are shown as typographic or blueprint spec blocks.
+
+## To finalise with the client
+- **Leadership portraits.** Haji Saleem (Chairman), Saeed (CEO), Darwaish (Managing Director) and Bashir (COO) have placeholder images. Replace `assets/team/{haji-saleem,saeed,darwaish,bashir}.webp` (and the `.jpg`) with 800×1000 photos under the same names.
+- **Habib** uses the real on-site photo. His title is set to **"Site Operations"**. Please confirm it.
+- **Certificates** shown: ISO 9001:2015 (SD-26048/01, valid to 25 Mar 2027), ISO 45001:2018 (valid to 30 Nov 2028) and ICV no. 150476, 47.14%. **The ICV certificate expires 03 Nov 2026**, so update it when it's renewed.
+- **WhatsApp numbers** are from fhecrane.com: Admin +971 52 902 6102, Sales +971 52 902 6105.
