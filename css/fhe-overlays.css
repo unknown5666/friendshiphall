@@ -1,0 +1,248 @@
+/* ==========================================================================
+   FHE overlays — shared by the three concepts. Linked BEFORE each concept stylesheet, so a concept can retheme
+   (custom properties on :root) or override any rule here. Behaviour: js/fhe-core.js §7 (hook) and §8 (WhatsApp).
+
+   1. Crane hook   a hook block on two falls of wire rope, fixed in the right margin. It pays out as you read,
+                   swings when you scroll and comes to rest just above the WhatsApp button at the foot of the page.
+   2. WhatsApp     floating button + a two-line chooser (native popover: light dismiss, Escape, top layer)
+
+   Theme tokens
+     hook      --hk-body --hk-stripe --hk-edge --hk-window --hk-steel-0..3 --hk-rope-hi --hk-rope-lo --hk-latch
+               --hk-tag-bg --hk-tag-fg --hk-tag-line --hk-font
+     whatsapp  --wa-bg --wa-fg --wa-line --wa-radius --wa-row --wa-row-line --wa-row-hi --wa-row-hi-line
+               --wa-accent --wa-tip-bg --wa-tip-fg --wa-font-t --wa-font-k --wa-font-n
+   ========================================================================== */
+
+:root {
+  --wa-size: 58px;
+  --wa-gap: clamp(14px, 2vw, 28px);              /* FAB inset from the right and bottom edges */
+  --wa-spring: cubic-bezier(.34, 1.56, .64, 1);
+  --hk-w: clamp(32px, 2.6vw + 22px, 76px);
+
+  --hk-body: #ffb000; --hk-stripe: #16181b; --hk-edge: rgb(0 0 0 / .55); --hk-window: #0c0d0f;
+  --hk-steel-0: #3b4148; --hk-steel-1: #e9edf1; --hk-steel-2: #9199a2; --hk-steel-3: #2b3036;
+  --hk-rope-hi: #a7aeb6; --hk-rope-lo: #42474e; --hk-latch: #ffb000;
+  --hk-tag-bg: rgb(12 13 15 / .82); --hk-tag-fg: #f2f2f2; --hk-tag-line: rgb(255 255 255 / .28);
+}
+
+/* ---------- 1. Crane hook ---------- */
+.hk {
+  position: fixed; top: 0; right: 0; z-index: 40;     /* under every concept's header, over page content */
+  width: var(--hk-w); height: 0; pointer-events: none;
+}
+@media (min-width: 960px) {
+  /* centred over the WhatsApp button, so the hook's last stop is right above it */
+  .hk { right: calc(var(--wa-gap) + (var(--wa-size) - var(--hk-w)) / 2); }
+}
+.hk__sway, .hk__swing { transform-origin: 50% 0; }  /* pivot = the jib head, at the top of the viewport */
+.hk__swing, .hk__drop { will-change: transform; }
+.hk__drop { position: relative; transform: translate3d(0, -120vh, 0); } /* parked out of sight until JS lowers it */
+@media (prefers-reduced-motion: no-preference) {
+  .hk__sway { animation: hkIdle 7s ease-in-out infinite alternate; } /* a breath of wind, on the compositor */
+}
+@keyframes hkIdle { from { transform: rotate(-.22deg); } to { transform: rotate(.22deg); } }
+
+.hk__svg {
+  display: block; width: 100%; height: auto; overflow: visible;
+  filter: drop-shadow(0 16px 14px rgb(0 0 0 / .38)) drop-shadow(0 2px 2px rgb(0 0 0 / .3));
+}
+/* two falls of wire rope running up to the jib; JS slides the lay pattern so the rope visibly pays out */
+.hk__rope {
+  position: absolute; bottom: calc(100% - 2px); height: 300vh;
+  width: max(1.5px, calc(var(--hk-w) * .032)); translate: -50% 0;
+  background:
+    linear-gradient(90deg, rgb(0 0 0 / .55), rgb(255 255 255 / .32) 40%, rgb(0 0 0 / .6)),
+    repeating-linear-gradient(-62deg, var(--hk-rope-hi) 0 1.3px, var(--hk-rope-lo) 1.3px 2.6px);
+}
+.hk__rope--dead { left: 38%; }
+.hk__rope--live { left: 62%; }
+
+.hk-body   { fill: var(--hk-body); }
+.hk-stripe { fill: var(--hk-stripe); }
+.hk-edge   { fill: none; stroke: var(--hk-edge); stroke-width: 1; }
+.hk-window { fill: var(--hk-window); }
+.hk-s0 { stop-color: var(--hk-steel-0); }
+.hk-s1 { stop-color: var(--hk-steel-1); }
+.hk-s2 { stop-color: var(--hk-steel-2); }
+.hk-s3 { stop-color: var(--hk-steel-3); }
+.hk-rope    { fill: none; stroke: var(--hk-rope-lo); stroke-width: 3.2; }
+.hk-rope-hi { fill: none; stroke: var(--hk-rope-hi); stroke-width: .9; stroke-dasharray: 1.6 1.4; }
+.hk-latch   { fill: none; stroke: var(--hk-latch); stroke-width: 2.4; stroke-linecap: round; }
+.hk-latch-pin { fill: var(--hk-latch); }
+.hk-spokes  { fill: none; stroke: var(--hk-steel-2); stroke-width: 1.5; stroke-linecap: round; }
+.hk-sheave, .hk-hook { transform-box: view-box; }
+.hk-sheave { transform-origin: 50px 30px; }
+.hk-hook   { transform-origin: 50px 91px; }    /* the crosshead pin */
+
+/* readout chip on a leader line, left of the block (wide screens only) */
+.hk__tag {
+  position: absolute; right: calc(100% + 16px); top: 8%;
+  display: none; gap: 3px; padding: 6px 9px 7px;
+  background: var(--hk-tag-bg); color: var(--hk-tag-fg); border: 1px solid var(--hk-tag-line);
+  font: 500 10px/1.2 var(--hk-font, ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace);
+  letter-spacing: .1em; text-transform: uppercase; white-space: nowrap; font-variant-numeric: tabular-nums;
+  -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+}
+.hk__tag::after {
+  content: ""; position: absolute; left: 100%; top: 50%; width: 16px; height: 1px; background: var(--hk-tag-line);
+}
+.hk__tag b { font-weight: inherit; opacity: .62; }
+.hk__dn::before {
+  content: ""; display: inline-block; vertical-align: 1px; margin-right: 6px;
+  border-left: 4px solid transparent; border-right: 4px solid transparent; border-top: 5px solid currentColor;
+}
+@media (min-width: 960px) { .hk__tag { display: grid; } }
+
+/* ---------- 2. WhatsApp ---------- */
+.wa {
+  position: fixed; z-index: 90;
+  right: var(--wa-gap); bottom: calc(var(--wa-gap) + env(safe-area-inset-bottom, 0px));
+  transition: opacity .3s, visibility .3s;
+}
+.is-preloading:not(.is-loaded) .wa,
+.nav-open .wa { opacity: 0; visibility: hidden; }
+.is-loaded .wa__fab { animation: waPop .9s var(--wa-spring) .15s backwards; }
+@keyframes waPop { from { opacity: 0; transform: translateY(18px) scale(.5); } }
+
+.wa__fab {
+  position: relative; display: grid; place-items: center;
+  width: var(--wa-size); height: var(--wa-size); padding: 0; margin: 0;
+  border: 0; border-radius: 50%; cursor: pointer; color: #fff;
+  background: radial-gradient(120% 120% at 30% 18%, #6ff3a0 0%, #25d366 36%, #128c7e 100%);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / .4), inset 0 -8px 16px rgb(0 0 0 / .16),
+    0 14px 30px -10px rgb(18 140 126 / .85), 0 3px 10px rgb(0 0 0 / .28);
+  transition: transform .45s var(--wa-spring), box-shadow .3s, background-color .3s;
+  -webkit-tap-highlight-color: transparent;
+}
+.wa__fab:active { transform: scale(.94); transition-duration: .12s; }
+@media (hover: hover) { .wa__fab:hover { transform: translateY(-3px) scale(1.05); } }
+
+/* sonar rings, every few seconds, until the panel has been opened */
+.wa__fab::before, .wa__fab::after {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+  border: 1.5px solid var(--wa-ring, #25d366); opacity: 0;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .wa:not(.was-opened) .wa__fab::before { animation: waSonar 4.2s cubic-bezier(.2, .7, .2, 1) 1.6s infinite; }
+  .wa:not(.was-opened) .wa__fab::after  { animation: waSonar 4.2s cubic-bezier(.2, .7, .2, 1) 1.95s infinite; }
+}
+@keyframes waSonar { 0% { opacity: .75; transform: scale(1); } 42%, 100% { opacity: 0; transform: scale(1.8); } }
+
+.wa__icon { grid-area: 1 / 1; transition: transform .5s var(--wa-spring), opacity .25s; }
+.wa__icon--wa { width: 50%; height: 50%; fill: currentColor; }
+.wa__icon--x {
+  width: 36%; height: 36%; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round;
+  opacity: 0; transform: rotate(-90deg) scale(.3);
+}
+.wa.is-open .wa__icon--wa { opacity: 0; transform: rotate(90deg) scale(.3); }
+.wa.is-open .wa__icon--x  { opacity: 1; transform: none; }
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .wa:not(.is-open) .wa__fab:hover .wa__icon--wa { animation: waWiggle .7s ease; }
+}
+@keyframes waWiggle { 25% { transform: rotate(-14deg); } 55% { transform: rotate(9deg); } 80% { transform: rotate(-4deg); } }
+
+/* label pill: on hover/focus, once as a tease, and while the hook rests on the button (wide screens) */
+.wa__tip {
+  position: absolute; right: calc(100% + 14px); top: 50%;
+  padding: 9px 14px; border-radius: 999px; white-space: nowrap; pointer-events: none;
+  background: var(--wa-tip-bg, #fff); color: var(--wa-tip-fg, #0b141a);
+  font: 600 .8125rem/1 var(--wa-font-k, inherit); letter-spacing: .01em;
+  box-shadow: 0 10px 26px -8px rgb(0 0 0 / .5);
+  opacity: 0; transform: translate(10px, -50%) scale(.9); transform-origin: 100% 50%;
+  transition: opacity .25s, transform .45s var(--wa-spring);
+}
+.wa__tip::after {
+  content: ""; position: absolute; left: 100%; top: 50%; translate: -1px -50%;
+  border: 5px solid transparent; border-left: 6px solid var(--wa-tip-bg, #fff); border-right: 0;
+}
+.wa:not(.is-open) .wa__fab:focus-visible .wa__tip,
+.wa.is-teasing:not(.is-open) .wa__tip { opacity: 1; transform: translate(0, -50%); }
+@media (hover: hover) { .wa:not(.is-open) .wa__fab:hover .wa__tip { opacity: 1; transform: translate(0, -50%); } }
+@media (min-width: 960px) { .hk-landed .wa:not(.is-open) .wa__tip { opacity: 1; transform: translate(0, -50%); } }
+.hk-landed .wa:not(.is-open) .wa__fab { box-shadow: 0 0 0 6px rgb(37 211 102 / .18), 0 14px 30px -10px rgb(18 140 126 / .85), 0 3px 10px rgb(0 0 0 / .28); }
+
+/* the chooser */
+.wa__panel {
+  position: fixed; margin: 0; padding: 16px; overflow: visible;
+  inset: auto var(--wa-gap) calc(var(--wa-gap) + env(safe-area-inset-bottom, 0px) + var(--wa-size) + 14px) auto;
+  width: min(372px, calc(100vw - 2 * var(--wa-gap)));
+  border: 1px solid var(--wa-line, rgb(255 255 255 / .12)); border-radius: var(--wa-radius, 22px);
+  background: var(--wa-bg, rgb(16 19 23 / .84)); color: var(--wa-fg, #f3f5f6);
+  -webkit-backdrop-filter: blur(22px) saturate(1.6); backdrop-filter: blur(22px) saturate(1.6);
+  box-shadow: 0 34px 70px -22px rgb(0 0 0 / .7), 0 0 0 1px rgb(0 0 0 / .25);
+  transform-origin: calc(100% - var(--wa-size) / 2) calc(100% + 14px + var(--wa-size) / 2); /* grows out of the FAB */
+  display: none; opacity: 0; transform: translateY(10px) scale(.94);
+  transition: opacity .18s ease, transform .25s ease, overlay .25s allow-discrete, display .25s allow-discrete;
+}
+.wa__panel:popover-open {
+  display: block; opacity: 1; transform: none;
+  transition: opacity .25s ease, transform .6s var(--wa-spring), overlay .6s allow-discrete, display .6s allow-discrete;
+}
+@starting-style { .wa__panel:popover-open { opacity: 0; transform: translateY(16px) scale(.86); } }
+.wa--fallback.is-open .wa__panel { display: block; opacity: 1; transform: none; }
+
+.wa__head { display: grid; gap: 6px; padding: 4px 4px 14px; }
+.wa__kicker {
+  display: flex; align-items: center; gap: 8px;
+  font: 600 .6875rem/1 var(--wa-font-k, inherit); letter-spacing: .16em; text-transform: uppercase;
+  color: var(--wa-accent, #25d366);
+}
+.wa__kicker::before {
+  content: ""; flex: none; width: 7px; height: 7px; border-radius: 50%; background: #25d366;
+  box-shadow: 0 0 0 3px rgb(37 211 102 / .22);
+}
+.wa__title { margin: 0; font: 700 1.1875rem/1.2 var(--wa-font-t, inherit); letter-spacing: -.01em; text-wrap: balance; }
+
+.wa__list { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.wa__line {
+  display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 14px;
+  min-height: 72px; padding: 12px 12px 12px 12px; color: inherit; text-decoration: none;
+  border: 1px solid var(--wa-row-line, rgb(255 255 255 / .08)); border-radius: max(0px, calc(var(--wa-radius, 22px) - 8px));
+  background: var(--wa-row, rgb(255 255 255 / .045));
+  transition: background-color .25s, border-color .25s, transform .4s var(--wa-spring);
+}
+.wa__line:hover, .wa__line:focus-visible {
+  background: var(--wa-row-hi, rgb(37 211 102 / .12)); border-color: var(--wa-row-hi-line, rgb(37 211 102 / .5));
+}
+@media (hover: hover) { .wa__line:hover { transform: translateX(-3px); } }
+.wa__avatar {
+  position: relative; display: grid; place-items: center; width: 46px; height: 46px; border-radius: 50%;
+  background: #fff; color: #14181d;
+}
+.wa__avatar img { width: 36px; height: 36px; }
+.wa__avatar--b {
+  background: linear-gradient(140deg, #3a424c, #15191e); color: #fff;
+  font: 700 1.15rem/1 var(--wa-font-t, inherit); box-shadow: inset 0 0 0 1px rgb(255 255 255 / .16);
+}
+.wa__avatar::after {             /* WhatsApp badge */
+  content: ""; position: absolute; right: -3px; bottom: -3px; width: 18px; height: 18px; border-radius: 50%;
+  border: 2px solid var(--wa-badge-ring, #15181c);
+  background: #25d366 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z'/%3E%3C/svg%3E") center / 11px no-repeat;
+}
+.wa__who { display: grid; gap: 4px; min-width: 0; }
+.wa__name { font: 700 1rem/1.15 var(--wa-font-t, inherit); }
+.wa__role { font-size: .75rem; line-height: 1.2; opacity: .66; }
+.wa__num {
+  font: 500 .8125rem/1.1 var(--wa-font-n, inherit); font-variant-numeric: tabular-nums; letter-spacing: .02em;
+  color: var(--wa-accent, #25d366); white-space: nowrap;
+}
+.wa__go {
+  display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%;
+  border: 1px solid var(--wa-row-line, rgb(255 255 255 / .14));
+  transition: background-color .25s, border-color .25s, color .25s;
+}
+.wa__go svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; transition: transform .4s var(--wa-spring); }
+.wa__line:hover .wa__go, .wa__line:focus-visible .wa__go { background: #25d366; border-color: #25d366; color: #06150c; }
+.wa__line:hover .wa__go svg, .wa__line:focus-visible .wa__go svg { transform: translate(2px, -2px); }
+.wa__foot { margin: 12px 0 0; text-align: center; font-size: .6875rem; letter-spacing: .04em; opacity: .5; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .wa__panel:popover-open .wa__head { animation: waRow .45s ease both; }
+  .wa__panel:popover-open .wa__line { animation: waRow .7s var(--wa-spring) .05s both; }
+  .wa__panel:popover-open li + li .wa__line { animation-delay: .12s; }
+}
+@keyframes waRow { from { opacity: 0; transform: translateY(14px); } }
+
+@media (max-width: 599px) { :root { --wa-size: 54px; } }
+@media print { .hk, .wa { display: none !important; } }

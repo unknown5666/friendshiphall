@@ -24,7 +24,8 @@ Run `vercel deploy --prod`. `vercel.json` turns on clean URLs (`/concept-1`) and
 ```
 index.html                 hub (1 · 2 · 3)
 concept-{1,2,3}.html       the three concepts
-css/concept-{1,2,3}.css    one stylesheet per concept
+css/concept-{1,2,3}.css    one stylesheet per concept (each ends with its crane-hook + WhatsApp theme)
+css/fhe-overlays.css       shared crane hook + floating WhatsApp, linked before each concept stylesheet
 js/fhe-core.js             shared behaviour (see below)
 js/concept-{n}.js          concept-specific interactions
 assets/media/              optimised photos (WebP 640/960/1280/1920 + one 1280 JPG each) + manifest.json
@@ -39,6 +40,8 @@ assets/brand/              FHS emblem SVG (standalone red + inline currentColor 
 - **Back button.** In-page menu links scroll with `history.replaceState`, so they never add history entries. Back always returns to the previous page. The "All concepts" link calls `history.back()` when you arrived from the hub. The mobile menus are buttons, not hash links.
 - **Lazy time-lapse.** The `<video>` gets its source only when it nears the viewport (IntersectionObserver), and it pauses when off-screen.
 - Reveal-on-scroll, count-up numbers, a live Asia/Dubai clock and a scrolled-header flag.
+- **Crane hook.** A hook block on two falls of wire rope hangs in the right margin and is lowered as you scroll. A spring gives it weight and a little bounce, scroll speed swings it like a pendulum (slower as the cable gets longer), the sheave turns and the rope visibly pays out. At the foot of the page it rests just above the WhatsApp button and shows the "WhatsApp us" label. JS builds it, so the pages carry no markup for it. With reduced motion it simply follows the page.
+- **Floating WhatsApp.** One button opens a chooser with two lines: Friendship Hall main line +971 52 833 5333 and Bashir (COO) +971 52 902 6103. Each opens WhatsApp with a short enquiry pre-filled. It uses the native `popover`, so tap-outside and Escape close it, and older browsers get a scripted fallback. It hides while the mobile menu is open and shows the label once, a third of the way down the page.
 
 ## Assets: where everything came from
 The original photos are in `C:/Users/user/Downloads/FHE Assets/` (2–23 MB phone images). Browsers can't load `C:/` paths from a web page, and those paths won't exist on a server. So each photo was resized to WebP, given a descriptive name and placed in `assets/media/`. `assets/media/manifest.json` maps every file back to its original and records its capture date, aspect ratio, alt text and intended use. For example:
@@ -56,4 +59,4 @@ There's no forklift photo in the asset folder, so forklifts are shown as typogra
 - **Leadership portraits.** Haji Saleem (Chairman), Saeed (CEO), Darwaish (Managing Director) and Bashir (COO) have placeholder images. Replace `assets/team/{haji-saleem,saeed,darwaish,bashir}.webp` (and the `.jpg`) with 800×1000 photos under the same names.
 - **Habib** uses the real on-site photo. His title is set to **"Site Operations"**. Please confirm it.
 - **Certificates** shown: ISO 9001:2015 (SD-26048/01, valid to 25 Mar 2027), ISO 45001:2018 (valid to 30 Nov 2028) and ICV no. 150476, 47.14%. **The ICV certificate expires 03 Nov 2026**, so update it when it's renewed.
-- **WhatsApp numbers** are from fhecrane.com: Admin +971 52 902 6102, Sales +971 52 902 6105.
+- **WhatsApp numbers** are from fhecrane.com: Admin +971 52 902 6102, Sales +971 52 902 6105. The floating button uses +971 52 833 5333 (labelled "Main line") and Bashir on +971 52 902 6103. Please confirm both labels.

@@ -1013,3 +1013,50 @@ section[id] { scroll-margin-top: var(--header-h); }
   .panorama__img { transform: translateX(-5%); }
 }
 
+
+/* ---------- 21. Overlays: crane hook + WhatsApp (structure: css/fhe-overlays.css) -- */
+/* A zinc hook block pin-striped in gold on warm polished steel; WhatsApp as an obsidian jewel ringed in gold. */
+:root {
+  --hk-body: #1F2833; --hk-stripe: var(--gold); --hk-edge: rgb(197 160 89 / .55); --hk-window: #07080B;
+  --hk-steel-0: #4a443b; --hk-steel-1: #f4ecdc; --hk-steel-2: #a99c84; --hk-steel-3: #25211c;
+  --hk-rope-hi: #bdb19b; --hk-rope-lo: #4b463e; --hk-latch: var(--gold);
+  --hk-tag-bg: rgb(11 12 16 / .78); --hk-tag-fg: var(--gold); --hk-tag-line: var(--gold-line); --hk-font: var(--sans);
+  --wa-bg: rgb(11 12 16 / .84); --wa-fg: var(--ivory); --wa-line: var(--gold-line); --wa-radius: 6px;
+  --wa-row: rgb(31 40 51 / .5); --wa-row-line: var(--ivory-line); --wa-row-hi: rgb(197 160 89 / .1); --wa-row-hi-line: var(--gold-line);
+  --wa-accent: var(--gold); --wa-tip-bg: var(--ivory); --wa-tip-fg: var(--obsidian); --wa-badge-ring: #12161C;
+  --wa-font-t: var(--serif); --wa-font-k: var(--sans); --wa-font-n: var(--sans);
+}
+.hk__tag { letter-spacing: .22em; }
+
+.wa__fab {
+  color: var(--gold);
+  background: radial-gradient(120% 120% at 30% 14%, #2c3746 0%, #151B23 52%, #0B0C10 100%);
+  box-shadow:
+    inset 0 0 0 1px var(--gold-line), inset 0 1px 0 rgb(255 255 255 / .12),
+    0 20px 40px -16px rgb(0 0 0 / .95), 0 0 0 1px rgb(0 0 0 / .45);
+}
+@media (hover: hover) {
+  .wa__fab:hover {
+    box-shadow: inset 0 0 0 1px var(--gold), 0 0 30px -6px rgb(197 160 89 / .55), 0 20px 40px -16px rgb(0 0 0 / .95);
+  }
+}
+.wa__fab::before, .wa__fab::after { border: 1px solid var(--gold); }
+.hk-landed .wa:not(.is-open) .wa__fab {
+  box-shadow: inset 0 0 0 1px var(--gold), 0 0 0 7px rgb(197 160 89 / .14), 0 20px 40px -16px rgb(0 0 0 / .95);
+}
+.wa__tip { border-radius: 2px; padding: 11px 16px; font: 500 .66rem/1 var(--sans); letter-spacing: .26em; text-transform: uppercase; }
+.wa__panel { padding: 22px 18px 16px; }
+.wa__kicker { font-weight: 500; letter-spacing: .28em; }
+.wa__kicker::before { background: var(--gold); box-shadow: 0 0 0 3px var(--gold-faint); }
+.wa__title { font-style: italic; font-weight: 500; font-size: 1.5rem; line-height: 1.08; letter-spacing: -.005em; }
+.wa__line { border-radius: 4px; }
+.wa__name { font-weight: 500; font-size: 1.1875rem; letter-spacing: 0; }
+.wa__role { font-size: .625rem; letter-spacing: .14em; text-transform: uppercase; opacity: .62; }
+.wa__num { color: var(--ivory-soft); letter-spacing: .04em; }
+.wa__avatar { background: var(--ivory); box-shadow: 0 0 0 1px var(--gold-line); }
+.wa__avatar--b {
+  background: radial-gradient(120% 120% at 30% 15%, #2c3746, #0B0C10); color: var(--gold);
+  font-style: italic; font-weight: 500; font-size: 1.4rem; box-shadow: inset 0 0 0 1px var(--gold-line);
+}
+.wa__line:hover .wa__go, .wa__line:focus-visible .wa__go { background: var(--gold); border-color: var(--gold); color: var(--obsidian); }
+.wa__foot { letter-spacing: .2em; text-transform: uppercase; font-size: .6rem; }

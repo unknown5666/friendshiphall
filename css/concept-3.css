@@ -866,3 +866,66 @@ html:not(.js) [data-crane], html:not(.js) .scale, html:not(.js) .cap__control { 
 
 /* QA fix: long chips wrap on 360px phones instead of widening the page */
 .chip { max-width: 100%; white-space: normal; }
+
+/* ---------------------------------------------------------------- 20. Overlays: crane hook + WhatsApp */
+/* Steel-blue hook block banded in cyan with a bracketed readout; WhatsApp as a HUD module with corner ticks.
+   Structure: css/fhe-overlays.css */
+:root {
+  --hk-body: #1C3252; --hk-stripe: var(--accent); --hk-edge: rgb(100 255 218 / .5); --hk-window: #050D18;
+  --hk-steel-0: #34445e; --hk-steel-1: #e4eeff; --hk-steel-2: #8b9dc0; --hk-steel-3: #1b283d;
+  --hk-rope-hi: #a3b3d1; --hk-rope-lo: #34425a; --hk-latch: var(--accent);
+  --hk-tag-bg: rgb(7 18 31 / .86); --hk-tag-fg: var(--accent); --hk-tag-line: var(--line-2); --hk-font: var(--font-mono);
+  --wa-bg: rgb(10 25 47 / .86); --wa-fg: var(--text); --wa-line: var(--line-2); --wa-radius: 12px;
+  --wa-row: rgb(23 42 69 / .7); --wa-row-line: var(--line); --wa-row-hi: rgb(100 255 218 / .08); --wa-row-hi-line: var(--line-2);
+  --wa-accent: var(--accent); --wa-tip-bg: var(--accent); --wa-tip-fg: var(--bg); --wa-badge-ring: #13253f;
+  --wa-font-t: var(--font-sans); --wa-font-k: var(--font-mono); --wa-font-n: var(--font-mono);
+}
+.hk__tag::before {
+  content: ""; position: absolute; inset: -4px; pointer-events: none;
+  background:
+    linear-gradient(var(--accent), var(--accent)) 0 0 / 6px 1px no-repeat,
+    linear-gradient(var(--accent), var(--accent)) 0 0 / 1px 6px no-repeat,
+    linear-gradient(var(--accent), var(--accent)) 100% 100% / 6px 1px no-repeat,
+    linear-gradient(var(--accent), var(--accent)) 100% 100% / 1px 6px no-repeat;
+}
+
+.wa__fab {
+  border-radius: 16px; color: var(--accent);
+  background:
+    linear-gradient(var(--accent), var(--accent)) 7px 7px / 8px 1.5px no-repeat,
+    linear-gradient(var(--accent), var(--accent)) 7px 7px / 1.5px 8px no-repeat,
+    linear-gradient(var(--accent), var(--accent)) calc(100% - 7px) calc(100% - 7px) / 8px 1.5px no-repeat,
+    linear-gradient(var(--accent), var(--accent)) calc(100% - 7px) calc(100% - 7px) / 1.5px 8px no-repeat,
+    linear-gradient(160deg, #1C3252, #0b1c33);
+  box-shadow:
+    inset 0 0 0 1px var(--line-2), 0 0 0 1px rgb(0 0 0 / .35),
+    0 0 26px -6px rgb(100 255 218 / .45), 0 16px 34px -14px rgb(0 0 0 / .85);
+}
+@media (hover: hover) {
+  .wa__fab:hover { box-shadow: inset 0 0 0 1px var(--accent), 0 0 36px -4px rgb(100 255 218 / .6), 0 16px 34px -14px rgb(0 0 0 / .85); }
+}
+.wa__fab::before, .wa__fab::after { border: 1px solid var(--accent); }
+.hk-landed .wa:not(.is-open) .wa__fab {
+  box-shadow: inset 0 0 0 1px var(--accent), 0 0 0 7px rgb(100 255 218 / .13), 0 0 36px -4px rgb(100 255 218 / .6);
+}
+.wa__tip { border-radius: 4px; font: 500 .72rem/1 var(--font-mono); letter-spacing: .1em; text-transform: uppercase; }
+.wa__panel {
+  padding-top: 20px;
+  background:
+    linear-gradient(var(--accent), var(--accent)) 10px 10px / 14px 1.5px no-repeat,
+    linear-gradient(var(--accent), var(--accent)) 10px 10px / 1.5px 14px no-repeat,
+    linear-gradient(var(--accent), var(--accent)) calc(100% - 10px) 10px / 14px 1.5px no-repeat,
+    linear-gradient(var(--accent), var(--accent)) calc(100% - 10px) 10px / 1.5px 14px no-repeat,
+    repeating-linear-gradient(0deg, var(--grid) 0 1px, transparent 1px 24px),
+    var(--wa-bg);
+}
+.wa__kicker { font-weight: 500; letter-spacing: .12em; }
+.wa__kicker::before { background: var(--accent); box-shadow: 0 0 0 3px rgb(100 255 218 / .2), 0 0 10px var(--accent); }
+.wa__title { font-weight: 600; font-size: 1.125rem; }
+.wa__avatar, .wa__go { border-radius: 8px; }
+.wa__avatar { box-shadow: 0 0 0 1px var(--line-2); }
+.wa__avatar--b { background: linear-gradient(160deg, #1C3252, #0b1c33); color: var(--accent); font-family: var(--font-mono); font-weight: 500; }
+.wa__name { font-weight: 600; }
+.wa__role { font: 500 .6875rem/1.2 var(--font-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); opacity: 1; }
+.wa__line:hover .wa__go, .wa__line:focus-visible .wa__go { background: var(--accent); border-color: var(--accent); color: var(--bg); }
+.wa__foot { font: 500 .625rem/1 var(--font-mono); letter-spacing: .12em; text-transform: uppercase; }
