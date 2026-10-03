@@ -121,6 +121,8 @@
   <span class="rail__label" data-rail-label>Prologue</span>
 </div>
 
+<div class="grain" aria-hidden="true"></div>
+
 <header class="site-header">
   <div class="concept-strip">
     <p class="concept-strip__note">Design proposal</p>
@@ -162,7 +164,7 @@
   </g>
 </svg>
       </span>
-      <span class="brand__word">Friendship Hall</span>
+      <span class="brand__word"><span>Friendship</span> <span>Hall</span></span>
     </a>
     <div class="bar__right">
       <nav class="nav" id="site-nav" aria-label="Primary">
@@ -174,15 +176,20 @@
           <li class="nav__extra"><a href="#industries"><span class="nav__no" aria-hidden="true">V</span>Industries</a></li>
           <li class="nav__extra"><a href="#safety"><span class="nav__no" aria-hidden="true">VI</span>Safety</a></li>
           <li><a href="#leadership"><span class="nav__no" aria-hidden="true">VII</span>Leadership</a></li>
-          <li><a href="#contact"><span class="nav__no" aria-hidden="true">VIII</span>Contact</a></li>
+          <li class="nav__extra"><a href="#contact"><span class="nav__no" aria-hidden="true">VIII</span>Contact</a></li>
         </ul>
         <div class="nav__foot">
           <p class="nav__foot-label">Any hour, anywhere in the UAE</p>
-          <a class="btn btn--solid" href="tel:+97124485660">Call +971 2 448 5660</a>
-          <a class="btn" href="https://wa.me/971529026105">WhatsApp Sales</a>
+          <a class="btn btn--solid" href="#contact" data-enquire>Contact us</a>
+          <a class="btn" href="tel:+97124485660">Call +971 2 448 5660</a>
+          <a class="btn btn--ghost" href="https://wa.me/971529026105">WhatsApp Sales</a>
         </div>
       </nav>
-      <a class="btn btn--bar" href="tel:+97124485660" aria-label="Call Friendship Hall, 24/7"><span>Call</span><span class="btn__long">&nbsp;24/7</span></a>
+      <a class="bar__call" href="tel:+97124485660" aria-label="Call Friendship Hall, 24/7: +971 2 448 5660">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M6.6 3.5h2.6l1.4 4-2 1.4a12 12 0 0 0 6.5 6.5l1.4-2 4 1.4v2.6a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4.6 5.7a2 2 0 0 1 2-2.2Z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
+        <span class="bar__call-num">+971 2 448 5660</span>
+      </a>
+      <a class="btn btn--bar" href="#contact" data-enquire>Contact us</a>
       <button class="nav-toggle" type="button" data-nav-toggle aria-controls="site-nav" aria-expanded="false" aria-label="Menu">
         <span class="nav-toggle__bars" aria-hidden="true"><i></i><i></i></span>
       </button>
@@ -212,10 +219,10 @@
       <div class="hero__aside" data-reveal="up" data-d="3">
         <p class="hero__lede">A leading heavy equipment rental company — comprehensive, quality equipment, delivered with punctuality. Mobile cranes from 25 to 700 tonnes, lowbed transport and engineered rigging studies.</p>
         <div class="hero__cta">
-          <a class="btn btn--solid" href="tel:+97124485660">Call 24/7
+          <a class="btn btn--solid" href="#contact" data-enquire>Contact us
             <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
-          <a class="btn btn--ghost" href="https://wa.me/971529026105">WhatsApp Sales
+          <a class="btn btn--ghost" href="tel:+97124485660">Call 24/7
             <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
         </div>
@@ -651,7 +658,7 @@
         <li class="industry" data-reveal="up">
           <h3 class="industry__name">Oil <em>&amp;</em> Gas</h3>
           <p class="industry__desc">Heavy industrial, refinery and power-site lifts, and the transmission-tower work that energy projects demand.</p>
-          <a class="industry__link link" href="#contact">Discuss a lift<span class="sr-only"> — Oil &amp; Gas</span></a>
+          <a class="industry__link link" href="#contact" data-enquire="Oil &amp; Gas">Discuss a lift<span class="sr-only"> — Oil &amp; Gas</span></a>
           <figure class="industry__thumb">
             <img src="assets/media/transmission-tower-a-640.webp"
                  srcset="assets/media/transmission-tower-a-480.webp 480w, assets/media/transmission-tower-a-640.webp 640w, assets/media/transmission-tower-a-800.webp 800w, assets/media/transmission-tower-a-960.webp 960w, assets/media/transmission-tower-a-1280.webp 1280w"
@@ -663,7 +670,7 @@
         <li class="industry" data-reveal="up">
           <h3 class="industry__name">Marine</h3>
           <p class="industry__desc">Vessels, yachts and dhows lifted and loaded for transport — by day and by floodlight.</p>
-          <a class="industry__link link" href="#contact">Discuss a lift<span class="sr-only"> — Marine</span></a>
+          <a class="industry__link link" href="#contact" data-enquire="Marine">Discuss a lift<span class="sr-only"> — Marine</span></a>
           <figure class="industry__thumb industry__thumb--land">
             <img src="assets/media/lowbed-trailer-640.webp"
                  srcset="assets/media/lowbed-trailer-480.webp 480w, assets/media/lowbed-trailer-640.webp 640w, assets/media/lowbed-trailer-800.webp 800w, assets/media/lowbed-trailer-960.webp 960w, assets/media/lowbed-trailer-1280.webp 1280w"
@@ -675,7 +682,7 @@
         <li class="industry" data-reveal="up">
           <h3 class="industry__name">Construction</h3>
           <p class="industry__desc">Precast and steel erection, tower-crane assembly and high-rise lifting on tight urban sites.</p>
-          <a class="industry__link link" href="#contact">Discuss a lift<span class="sr-only"> — Construction</span></a>
+          <a class="industry__link link" href="#contact" data-enquire="Construction">Discuss a lift<span class="sr-only"> — Construction</span></a>
           <figure class="industry__thumb">
             <img src="assets/media/luffing-highrise-red-640.webp"
                  srcset="assets/media/luffing-highrise-red-480.webp 480w, assets/media/luffing-highrise-red-640.webp 640w, assets/media/luffing-highrise-red-800.webp 800w, assets/media/luffing-highrise-red-960.webp 960w, assets/media/luffing-highrise-red-1280.webp 1280w"
@@ -687,7 +694,7 @@
         <li class="industry" data-reveal="up">
           <h3 class="industry__name">Manufacturing</h3>
           <p class="industry__desc">Plant and equipment installation — heavy machinery lifted into the building and set in place.</p>
-          <a class="industry__link link" href="#contact">Discuss a lift<span class="sr-only"> — Manufacturing</span></a>
+          <a class="industry__link link" href="#contact" data-enquire="Manufacturing">Discuss a lift<span class="sr-only"> — Manufacturing</span></a>
           <figure class="industry__thumb industry__thumb--land">
             <img src="assets/media/fhe-crane-plant-lift-640.webp"
                  srcset="assets/media/fhe-crane-plant-lift-480.webp 480w, assets/media/fhe-crane-plant-lift-640.webp 640w, assets/media/fhe-crane-plant-lift-800.webp 800w, assets/media/fhe-crane-plant-lift-960.webp 960w, assets/media/fhe-crane-plant-lift-1280.webp 1280w"
@@ -836,6 +843,12 @@
         </p>
         <h2 class="contact__title" id="contact-title" data-reveal="up">Call it in. <em>Any hour.</em></h2>
         <p class="contact__lede" data-reveal="up" data-d="2">Any crane rental job, anytime, anywhere in the United Arab Emirates. Our line is open 24/7<span class="contact__clock"> — it is <span data-uae-clock="hm">00:00</span> in the UAE now</span>.</p>
+        <div class="contact__cta" data-reveal="up" data-d="3">
+          <a class="btn btn--solid btn--xl" href="mailto:fhcrane@gmail.com?subject=Lift%20enquiry" data-enquire>Contact us
+            <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <p class="contact__cta-note">Describe the lift: service, crane size, site and date. It reaches our sales team on WhatsApp or by email.</p>
+        </div>
       </header>
 
       <div class="contact__grid grid">
@@ -877,6 +890,156 @@
     <p class="site-footer__fine">© 2026 Friendship Hall Sole Proprietorship L.L.C <span aria-hidden="true">·</span> Concept 2 of 3 — design proposal</p>
   </div>
 </footer>
+
+<!-- ============ CONTACT US: the lift slate (js/concept-2.js · css/concept-2.css §23) ============
+     Opened by any [data-enquire] link (its value, if any, names the sector). Without JS those links fall back to #contact.
+     The slate mirrors the form for sighted users; it is aria-hidden, the form carries everything. -->
+<dialog class="brief" id="brief" aria-labelledby="brief-title" data-brief>
+  <button class="brief__close" type="button" data-brief-close>
+    <span>Close</span>
+    <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+  </button>
+  <div class="brief__stage" data-brief-stage>
+    <div class="brief__scene">
+      <img class="brief__photo" src="assets/media/night-luffing-city-960.webp"
+           srcset="assets/media/night-luffing-city-640.webp 640w, assets/media/night-luffing-city-960.webp 960w, assets/media/night-luffing-city-1280.webp 1280w"
+           sizes="(min-width: 960px) 42vw, 100vw" width="1280" height="960" alt="" loading="lazy" decoding="async">
+      <div class="brief__slot" data-slate-home>
+        <div class="slate" data-slate aria-hidden="true">
+          <div class="slate__sticks">
+            <span class="slate__stick slate__stick--top" data-slate-stick></span>
+            <span class="slate__stick slate__stick--base"></span>
+            <span class="slate__hinge"></span>
+          </div>
+          <div class="slate__body">
+            <p class="slate__head"><span>Friendship Hall</span><span>Lift brief</span></p>
+            <div class="slate__cap">
+              <p class="slate__k">Crane</p>
+              <p class="slate__t"><span data-slate="t">100</span><small data-slate="unit">T</small></p>
+              <p class="slate__class" data-slate="class">Precast, steel erection, tower-crane assembly</p>
+            </div>
+            <dl class="slate__grid">
+              <div><dt>Service</dt><dd data-slate="service">Crane hire</dd></div>
+              <div><dt>Site</dt><dd data-slate="site" class="is-empty">—</dd></div>
+              <div><dt>From</dt><dd data-slate="date" class="is-empty">—</dd></div>
+              <div><dt>Client</dt><dd data-slate="client" class="is-empty">—</dd></div>
+            </dl>
+            <p class="slate__foot"><span>UAE <span data-uae-clock="hm">00:00</span> GST</span><span>Line open 24/7</span></p>
+          </div>
+        </div>
+      </div>
+      <p class="brief__scene-cap">Your brief, as our team will read it.</p>
+    </div>
+
+    <div class="brief__panel">
+      <header class="brief__head">
+        <p class="eyebrow" data-brief-kicker>Contact us · 24/7</p>
+        <h2 class="brief__title" id="brief-title" tabindex="-1" autofocus>Tell us about <em>the lift.</em></h2>
+        <p class="brief__lede">Fill in what you know. It reaches our sales team on WhatsApp or by email, and an engineer sizes the crane with you.</p>
+      </header>
+
+      <form class="brief__form" data-brief-form novalidate>
+        <input type="hidden" name="sector" value="" data-brief-sector>
+        <fieldset class="brief__step">
+          <legend class="brief__legend"><span class="brief__no" aria-hidden="true">01</span>The job</legend>
+          <fieldset class="field">
+            <legend class="field__label">Service</legend>
+            <div class="chips">
+              <label class="chip"><input type="radio" name="service" value="Crane hire" checked><span>Crane hire</span></label>
+              <label class="chip"><input type="radio" name="service" value="Heavy transport"><span>Heavy transport</span></label>
+              <label class="chip"><input type="radio" name="service" value="Site survey &amp; rigging study"><span>Site survey &amp; rigging study</span></label>
+            </div>
+          </fieldset>
+          <div class="field field--dial" data-dial>
+            <div class="dial__head">
+              <label class="field__label" for="bf-cap">Crane capacity</label>
+              <output class="dial__out" for="bf-cap" aria-hidden="true" data-cap-out>100 T</output>
+            </div>
+            <input class="dial" id="bf-cap" name="capacity" type="range" min="0" max="1000" step="1" value="416" aria-describedby="bf-cap-class" data-cap>
+            <ol class="dial__ticks" aria-hidden="true">
+              <li style="--x:0">25</li><li style="--x:.208">50</li><li style="--x:.416">100</li><li style="--x:.623">200</li>
+              <li style="--x:.746">300</li><li style="--x:.899">500</li><li style="--x:1">700</li>
+            </ol>
+            <p class="field__hint" id="bf-cap-class" data-cap-class>Typical work: precast, steel erection, tower-crane assembly.</p>
+            <label class="check"><input type="checkbox" name="advise" data-cap-advise><span class="check__box" aria-hidden="true"></span><span>Not sure. Advise me on the crane.</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="brief__step">
+          <legend class="brief__legend"><span class="brief__no" aria-hidden="true">02</span>The site</legend>
+          <div class="field-row">
+            <div class="field">
+              <label class="field__label" for="bf-site">Emirate</label>
+              <div class="select">
+                <select class="input" id="bf-site" name="site" data-bind="site">
+                  <option value="">Choose an emirate</option>
+                  <option>Abu Dhabi</option><option>Dubai</option><option>Sharjah</option><option>Ajman</option>
+                  <option>Umm Al Quwain</option><option>Ras Al Khaimah</option><option>Fujairah</option>
+                </select>
+              </div>
+            </div>
+            <div class="field">
+              <label class="field__label" for="bf-date">Start date</label>
+              <input class="input" id="bf-date" name="date" type="date" data-bind="date">
+            </div>
+          </div>
+          <div class="field">
+            <label class="field__label" for="bf-notes">About the lift <span class="field__opt">Optional</span></label>
+            <textarea class="input input--area" id="bf-notes" name="notes" rows="3" placeholder="Load weight, lift radius, site access, how long you need the crane"></textarea>
+          </div>
+        </fieldset>
+
+        <fieldset class="brief__step">
+          <legend class="brief__legend"><span class="brief__no" aria-hidden="true">03</span>You</legend>
+          <div class="field-row">
+            <div class="field">
+              <label class="field__label" for="bf-name">Name</label>
+              <input class="input" id="bf-name" name="name" type="text" autocomplete="name" required aria-describedby="bf-name-err" data-bind="client">
+              <p class="field__error" id="bf-name-err" data-error-for="bf-name"></p>
+            </div>
+            <div class="field">
+              <label class="field__label" for="bf-company">Company <span class="field__opt">Optional</span></label>
+              <input class="input" id="bf-company" name="company" type="text" autocomplete="organization" data-bind="client">
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label class="field__label" for="bf-phone">Phone</label>
+              <input class="input" id="bf-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+971" required aria-describedby="bf-phone-err">
+              <p class="field__error" id="bf-phone-err" data-error-for="bf-phone"></p>
+            </div>
+            <div class="field">
+              <label class="field__label" for="bf-email">Email <span class="field__opt">Optional</span></label>
+              <input class="input" id="bf-email" name="email" type="email" autocomplete="email" aria-describedby="bf-email-err">
+              <p class="field__error" id="bf-email-err" data-error-for="bf-email"></p>
+            </div>
+          </div>
+        </fieldset>
+
+        <div class="brief__dock" data-slate-dock></div>
+
+        <div class="brief__actions">
+          <button class="btn btn--solid" type="submit" value="whatsapp">Send on WhatsApp
+            <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <button class="btn" type="submit" value="email">Send by email</button>
+        </div>
+        <p class="brief__alt">Need a crane today? Call <a href="tel:+97124485660">+971 2 448 5660</a>, any hour.</p>
+      </form>
+
+      <div class="brief__done" data-brief-done hidden>
+        <p class="eyebrow">Brief ready</p>
+        <h3 class="brief__done-title" tabindex="-1" data-done-title>WhatsApp is open with your brief.</h3>
+        <p class="brief__done-text"><span data-done-text>Press send in WhatsApp and our sales team will reply.</span> If nothing opened, <a href="#" target="_blank" rel="noopener" data-done-link>open it here</a>.</p>
+        <div class="brief__actions">
+          <button class="btn" type="button" data-brief-edit>Edit the brief</button>
+          <button class="btn btn--solid" type="button" data-brief-close>Close</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</dialog>
 
 <!-- ============ WHATSAPP: floating chooser (fhe-core.js §8 · css/fhe-overlays.css §2) ============ -->
 <div class="wa" data-wa>

@@ -6,7 +6,7 @@ This folder holds three complete, mobile-first homepage concepts for Friendship 
 |------|------------|
 | `index.html` | The hub. Click **1**, **2** or **3** (or press the number key) to open a concept. The browser Back button returns here. |
 | `concept-1.html` | **Industrial Brutalism.** Charcoal #1A1A1A, white, safety amber #FFB000. Block type, bento grids, hard borders. |
-| `concept-2.html` | **Cinematic Editorial.** Obsidian #0B0C10, zinc #1F2833, brushed gold #C5A059. Serif headlines, asymmetric layout. |
+| `concept-2.html` | **Cinematic Editorial.** Obsidian #0B0C10, zinc #1F2833, brushed gold #C5A059. Serif headlines, asymmetric layout, film grain and a gold glint on the italics. Its **Contact us** button opens the lift slate (see below). |
 | `concept-3.html` | **Data-Dense Telemetry.** Navy #0A192F, steel #172A45, cyan #64FFDA. Metric modules and an interactive 25–700T capacity scale. |
 
 The earlier "FHE // Telemetry" pitch is archived, unchanged, in `_archive/telemetry-pitch/`. It still opens on its own.
@@ -42,6 +42,9 @@ assets/brand/              FHS emblem SVG (standalone red + inline currentColor 
 - Reveal-on-scroll, count-up numbers, a live Asia/Dubai clock and a scrolled-header flag.
 - **Crane hook.** A hook block on two falls of wire rope hangs in the right margin and is lowered as you scroll. A spring gives it weight and a little bounce, scroll speed swings it like a pendulum (slower as the cable gets longer), the sheave turns and the rope visibly pays out. At the foot of the page it rests just above the WhatsApp button and shows the "WhatsApp us" label. JS builds it, so the pages carry no markup for it. With reduced motion it simply follows the page.
 - **Floating WhatsApp.** One button opens a chooser with two lines: Friendship Hall main line +971 52 833 5333 and Bashir (COO) +971 52 902 6103. Each opens WhatsApp with a short enquiry pre-filled. It uses the native `popover`, so tap-outside and Escape close it, and older browsers get a scripted fallback. It hides while the mobile menu is open and shows the label once, a third of the way down the page.
+
+## Contact us (concept 2)
+Every **Contact us** button in concept 2 (header, hero, mobile menu, contact chapter, and the "Discuss a lift" links under Industries) opens a full-screen brief. Visitors pick a service, set the crane size on a 25–700 T dial (same log scale as the fleet chapter), and add the emirate, start date, notes and their details. A film-slate panel fills in as they type. **Send on WhatsApp** opens a chat with Sales (+971 52 902 6105) and **Send by email** opens their mail app addressed to fhcrane@gmail.com. Either way the brief is written out for them, and the slate claps shut. Nothing is stored or sent by the site itself, so there's no server or form backend to run. Name and phone are required. The behaviour is in `js/concept-2.js` §3 and the styles are in `css/concept-2.css` §23. Without JavaScript the buttons fall back to the contact chapter.
 
 ## Assets: where everything came from
 The original photos are in `C:/Users/user/Downloads/FHE Assets/` (2–23 MB phone images). Browsers can't load `C:/` paths from a web page, and those paths won't exist on a server. So each photo was resized to WebP, given a descriptive name and placed in `assets/media/`. `assets/media/manifest.json` maps every file back to its original and records its capture date, aspect ratio, alt text and intended use. For example:
