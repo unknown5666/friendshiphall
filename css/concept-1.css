@@ -1007,9 +1007,9 @@ html { scrollbar-gutter: stable; }
 }
 
 /* ---------- 19. Overlays: crane hook + WhatsApp (structure: css/fhe-overlays.css) ---------- */
-/* Safety-amber hook block with a black hazard band; WhatsApp as a hard-edged slab with an amber offset shadow. */
+/* Safety-amber twin-sheave block with a black hazard band over a forged-black ramshorn hook; WhatsApp as a hard-edged slab with an amber offset shadow. */
 :root {
-  --hk-body: var(--amber); --hk-stripe: var(--ink); --hk-latch: var(--amber); --hk-edge: rgb(0 0 0 / .72);
+  --hk-body: var(--amber); --hk-stripe: var(--ink); --hk-accent: var(--amber); --hk-edge: rgb(0 0 0 / .72);
   --hk-tag-bg: var(--ink); --hk-tag-fg: var(--amber); --hk-tag-line: var(--amber); --hk-font: var(--f-mono);
   --wa-radius: 0px; --wa-bg: var(--ink); --wa-fg: var(--paper); --wa-line: var(--paper);
   --wa-row: var(--ink-2); --wa-row-line: var(--hair); --wa-row-hi: var(--ink-3); --wa-row-hi-line: var(--amber);

@@ -1047,11 +1047,12 @@ section[id] { scroll-margin-top: var(--header-h); }
 
 
 /* ---------- 21. Overlays: crane hook + WhatsApp (structure: css/fhe-overlays.css) -- */
-/* A zinc hook block pin-striped in gold on warm polished steel; WhatsApp as an obsidian jewel ringed in gold. */
+/* A zinc twin-sheave block pin-striped in gold on warm polished steel, a warm-black ramshorn hook rimmed in gold; WhatsApp as an obsidian jewel ringed in gold. */
 :root {
   --hk-body: #1F2833; --hk-stripe: var(--gold); --hk-edge: rgb(197 160 89 / .55); --hk-window: #07080B;
   --hk-steel-0: #4a443b; --hk-steel-1: #f4ecdc; --hk-steel-2: #a99c84; --hk-steel-3: #25211c;
-  --hk-rope-hi: #bdb19b; --hk-rope-lo: #4b463e; --hk-latch: var(--gold);
+  --hk-forge-0: #0d0b09; --hk-forge-1: #4d4435; --hk-forge-2: #1a1611; --hk-forge-3: #080706;
+  --hk-rope-hi: #bdb19b; --hk-rope-lo: #4b463e; --hk-accent: var(--gold);
   --hk-tag-bg: rgb(11 12 16 / .78); --hk-tag-fg: var(--gold); --hk-tag-line: var(--gold-line); --hk-font: var(--sans);
   --wa-bg: rgb(11 12 16 / .84); --wa-fg: var(--ivory); --wa-line: var(--gold-line); --wa-radius: 6px;
   --wa-row: rgb(31 40 51 / .5); --wa-row-line: var(--ivory-line); --wa-row-hi: rgb(197 160 89 / .1); --wa-row-hi-line: var(--gold-line);

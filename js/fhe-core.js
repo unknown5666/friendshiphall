@@ -7,7 +7,7 @@
  *  4. Mobile nav       button-driven (never hash-driven), closes on navigate / Escape
  *  5. Lazy time-lapse  the <video> source is attached only when it nears the viewport; paused off-screen
  *  6. Reveal, count-up, UAE clock, scrolled-header flag
- *  7. Crane hook       a hook block on wire rope pays out down the right margin as you scroll (spring + pendulum)
+ *  7. Crane hook       a twin-sheave block and ramshorn hook on wire rope pays out down the right margin as you scroll (spring + pendulum)
  *  8. WhatsApp         floating button + two-line chooser (native popover, with a fallback)
  *
  *  Contract (markup each concept provides):
@@ -315,37 +315,45 @@
   onScroll();
 
   /* ---------------------------------------------------------------- 7. Crane hook */
-  // A hook block on two falls of wire rope hangs in the right margin and pays out as you read. Page progress sets the
-  // drop through a slightly under-damped spring (weight, a little cable stretch); scroll speed leans it off plumb so it
-  // swings about the jib head, slower as the cable lengthens (ω² = g/L); the hook trails on its swivel; the sheave
-  // turns and the rope lay slides as rope pays out. At the foot of the page it rests just above the WhatsApp button
-  // (html.hk-landed). Decorative only: built here, aria-hidden, no pointer events. Reduced motion: it tracks the page
-  // directly, no spring and no swing.
-  const HOOK_SVG = `<svg class="hk__svg" viewBox="0 0 100 222" aria-hidden="true" focusable="false">
+  // A twin-sheave block with a ramshorn double hook hangs in the right margin on four falls of wire rope and pays out
+  // as you read. Page progress sets the drop through a slightly under-damped spring (weight, a little cable stretch);
+  // scroll speed leans it off plumb so it swings about the jib head, slower as the cable lengthens (ω² = g/L); the
+  // hook trails on its swivel; the rope lay slides and the knurl on each sheave rim runs with it as rope pays out.
+  // At the foot of the page it rests just above the WhatsApp button (html.hk-landed). Decorative only: built here,
+  // aria-hidden, no pointer events. Reduced motion: it tracks the page directly, no spring and no swing.
+  const HOOK_SVG = `<svg class="hk__svg" viewBox="0 0 120 204" aria-hidden="true" focusable="false">
 <defs>
 <linearGradient id="hkSteel" x1="0" x2="1" y1="0" y2="0"><stop offset="0" class="hk-s0"/><stop offset=".3" class="hk-s1"/><stop offset=".62" class="hk-s2"/><stop offset="1" class="hk-s3"/></linearGradient>
+<linearGradient id="hkSteelV" x1="0" x2="0" y1="0" y2="1"><stop offset="0" class="hk-s1"/><stop offset=".45" class="hk-s2"/><stop offset="1" class="hk-s0"/></linearGradient>
+<linearGradient id="hkForge" x1="0" x2="1" y1="0" y2="0"><stop offset="0" class="hk-f0"/><stop offset=".3" class="hk-f1"/><stop offset=".66" class="hk-f2"/><stop offset="1" class="hk-f3"/></linearGradient>
 <linearGradient id="hkSheen" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#fff" stop-opacity=".4"/><stop offset=".34" stop-color="#fff" stop-opacity="0"/><stop offset=".66" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".42"/></linearGradient>
-<pattern id="hkHazard" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect class="hk-stripe" width="4" height="8"/></pattern>
-<clipPath id="hkPlate"><path d="M30 4H70Q84 4 84 18V64L77 86H23L16 64V18Q16 4 30 4Z"/></clipPath>
+<pattern id="hkHazard" width="13" height="13" patternUnits="userSpaceOnUse" patternTransform="rotate(52)"><rect class="hk-stripe" width="6.5" height="13"/></pattern>
+<pattern id="hkTickD" width="10" height="5" patternUnits="userSpaceOnUse"><rect class="hk-tick" width="10" height="1.3"/></pattern>
+<pattern id="hkTickL" width="10" height="5" patternUnits="userSpaceOnUse"><rect class="hk-tick" width="10" height="1.3"/></pattern>
+<clipPath id="hkPlate"><path d="M17 8H103Q115 8 115 20V64L90 96H30L5 64V20Q5 8 17 8Z"/></clipPath>
 </defs>
-<circle class="hk-window" cx="50" cy="30" r="17"/>
-<g class="hk-sheave"><circle cx="50" cy="30" r="12" fill="url(#hkSteel)"/><circle class="hk-window" cx="50" cy="30" r="9" opacity=".7"/><path class="hk-spokes" d="M50 21.5V38.5M41.5 30H58.5M44 24l12 12M56 24 44 36"/><circle cx="50" cy="30" r="3.2" fill="url(#hkSteel)"/></g>
-<path class="hk-rope" d="M38 0V30A12 12 0 0 0 62 30V0"/><path class="hk-rope-hi" d="M38 0V30A12 12 0 0 0 62 30V0"/>
-<path class="hk-body" fill-rule="evenodd" d="M30 4H70Q84 4 84 18V64L77 86H23L16 64V18Q16 4 30 4ZM67 30A17 17 0 1 0 33 30A17 17 0 1 0 67 30Z"/>
-<rect y="62" width="100" height="26" fill="url(#hkHazard)" clip-path="url(#hkPlate)"/>
-<path fill="url(#hkSheen)" fill-rule="evenodd" d="M30 4H70Q84 4 84 18V64L77 86H23L16 64V18Q16 4 30 4ZM67 30A17 17 0 1 0 33 30A17 17 0 1 0 67 30Z"/>
-<path class="hk-edge" d="M30 4H70Q84 4 84 18V64L77 86H23L16 64V18Q16 4 30 4ZM16 62H84"/><circle class="hk-edge" cx="50" cy="30" r="17"/>
-<path d="M30 5.2H70" stroke="#fff" stroke-opacity=".5" stroke-width="1"/>
-<g fill="url(#hkSteel)"><circle cx="24" cy="14" r="2.4"/><circle cx="76" cy="14" r="2.4"/><circle cx="24" cy="50" r="2.4"/><circle cx="76" cy="50" r="2.4"/></g>
-<rect x="27" y="86" width="46" height="9" rx="2.5" fill="url(#hkSteel)"/><rect class="hk-edge" x="27" y="86" width="46" height="9" rx="2.5"/>
+<path class="hk-window" d="M28 18H52Q55 18 55 21V61Q55 64 52 64H28Q25 64 25 61V21Q25 18 28 18ZM68 18H92Q95 18 95 21V61Q95 64 92 64H68Q65 64 65 61V21Q65 18 68 18Z"/>
+<path fill="url(#hkSteel)" d="M28 24Q31.5 19.5 35 24V58Q31.5 62.5 28 58Z"/><path fill="url(#hkSteel)" d="M36.5 24Q40 19.5 43.5 24V58Q40 62.5 36.5 58Z"/><path fill="url(#hkSteel)" d="M45 24Q48.5 19.5 52 24V58Q48.5 62.5 45 58Z"/><path fill="url(#hkSteel)" d="M68 24Q71.5 19.5 75 24V58Q71.5 62.5 68 58Z"/><path fill="url(#hkSteel)" d="M76.5 24Q80 19.5 83.5 24V58Q80 62.5 76.5 58Z"/><path fill="url(#hkSteel)" d="M85 24Q88.5 19.5 92 24V58Q88.5 62.5 85 58Z"/><path fill="url(#hkTickD)" d="M28 24Q31.5 19.5 35 24V58Q31.5 62.5 28 58Z"/><path fill="url(#hkTickL)" d="M36.5 24Q40 19.5 43.5 24V58Q40 62.5 36.5 58Z"/><path fill="url(#hkTickL)" d="M45 24Q48.5 19.5 52 24V58Q48.5 62.5 45 58Z"/><path fill="url(#hkTickD)" d="M68 24Q71.5 19.5 75 24V58Q71.5 62.5 68 58Z"/><path fill="url(#hkTickL)" d="M76.5 24Q80 19.5 83.5 24V58Q80 62.5 76.5 58Z"/><path fill="url(#hkTickL)" d="M85 24Q88.5 19.5 92 24V58Q88.5 62.5 85 58Z"/><path class="hk-edge" opacity=".55" d="M28 24Q31.5 19.5 35 24V58Q31.5 62.5 28 58Z"/><path class="hk-edge" opacity=".55" d="M36.5 24Q40 19.5 43.5 24V58Q40 62.5 36.5 58Z"/><path class="hk-edge" opacity=".55" d="M45 24Q48.5 19.5 52 24V58Q48.5 62.5 45 58Z"/><path class="hk-edge" opacity=".55" d="M68 24Q71.5 19.5 75 24V58Q71.5 62.5 68 58Z"/><path class="hk-edge" opacity=".55" d="M76.5 24Q80 19.5 83.5 24V58Q80 62.5 76.5 58Z"/><path class="hk-edge" opacity=".55" d="M85 24Q88.5 19.5 92 24V58Q88.5 62.5 85 58Z"/>
+<path class="hk-rope" d="M31.5 0V57M48.5 0V57M71.5 0V57M88.5 0V57"/><path class="hk-rope-hi" d="M31.5 0V57M48.5 0V57M71.5 0V57M88.5 0V57"/>
+<rect x="25" y="28" width="30" height="2.4" rx=".8" fill="url(#hkSteelV)"/><rect x="25" y="52" width="30" height="2.4" rx=".8" fill="url(#hkSteelV)"/><rect x="65" y="28" width="30" height="2.4" rx=".8" fill="url(#hkSteelV)"/><rect x="65" y="52" width="30" height="2.4" rx=".8" fill="url(#hkSteelV)"/>
+<g fill="url(#hkSteel)"><rect x="28.6" y="-12" width="5.8" height="10" rx="1.6"/><rect x="45.6" y="-12" width="5.8" height="10" rx="1.6"/><rect x="68.6" y="-12" width="5.8" height="10" rx="1.6"/><rect x="85.6" y="-12" width="5.8" height="10" rx="1.6"/></g><g class="hk-edge"><rect x="28.6" y="-12" width="5.8" height="10" rx="1.6"/><rect x="45.6" y="-12" width="5.8" height="10" rx="1.6"/><rect x="68.6" y="-12" width="5.8" height="10" rx="1.6"/><rect x="85.6" y="-12" width="5.8" height="10" rx="1.6"/></g>
+<path fill="url(#hkSteel)" d="M52 9V3Q52 -4 60 -4Q68 -4 68 3V9Z"/><path class="hk-edge" d="M52 9V3Q52 -4 60 -4Q68 -4 68 3V9Z"/><circle class="hk-window" cx="60" cy="2" r="2.6"/>
+<path class="hk-body" fill-rule="evenodd" d="M17 8H103Q115 8 115 20V64L90 96H30L5 64V20Q5 8 17 8ZM28 18H52Q55 18 55 21V61Q55 64 52 64H28Q25 64 25 61V21Q25 18 28 18ZM68 18H92Q95 18 95 21V61Q95 64 92 64H68Q65 64 65 61V21Q65 18 68 18Z"/>
+<rect y="66" width="120" height="32" fill="url(#hkHazard)" clip-path="url(#hkPlate)"/>
+<path fill="url(#hkSheen)" fill-rule="evenodd" d="M17 8H103Q115 8 115 20V64L90 96H30L5 64V20Q5 8 17 8ZM28 18H52Q55 18 55 21V61Q55 64 52 64H28Q25 64 25 61V21Q25 18 28 18ZM68 18H92Q95 18 95 21V61Q95 64 92 64H68Q65 64 65 61V21Q65 18 68 18Z"/>
+<path class="hk-edge" d="M17 8H103Q115 8 115 20V64L90 96H30L5 64V20Q5 8 17 8ZM7 66H113M28 18H52Q55 18 55 21V61Q55 64 52 64H28Q25 64 25 61V21Q25 18 28 18ZM68 18H92Q95 18 95 21V61Q95 64 92 64H68Q65 64 65 61V21Q65 18 68 18Z"/>
+<path class="hk-edge" opacity=".6" d="M10 14V62M15 14V62M20 14V62M100 14V62M105 14V62M110 14V62"/>
+<path d="M17 9.2H103" stroke="#fff" stroke-opacity=".5" stroke-width="1"/>
+<g fill="url(#hkSteel)"><circle cx="60" cy="27" r="1.9"/><circle cx="60" cy="41" r="1.9"/><circle cx="60" cy="55" r="1.9"/></g>
+<circle cx="60" cy="81" r="9" fill="url(#hkSteel)"/><circle class="hk-edge" cx="60" cy="81" r="9"/><circle class="hk-window" cx="60" cy="81" r="4.4" opacity=".8"/><circle cx="60" cy="81" r="2" fill="url(#hkSteel)"/>
+<rect x="38" y="96" width="44" height="8" rx="2.5" fill="url(#hkSteel)"/><rect class="hk-edge" x="38" y="96" width="44" height="8" rx="2.5"/>
 <g class="hk-hook">
-<rect x="40" y="95" width="20" height="10" rx="2" fill="url(#hkSteel)"/>
-<path fill="url(#hkSteel)" d="M38 105H62L64.5 110L62 115H38L35.5 110Z"/><path class="hk-edge" d="M38 105H62L64.5 110L62 115H38L35.5 110ZM46 105V115M54 105V115"/>
-<path fill="url(#hkSteel)" d="M45.5 115V146C45.5 157 22 160 21 186C20 207 35 218 53 218C70 218 81 206 81 190C81 177 77 166 72 159C70 156 66 156.5 66.5 160C67 166 67.5 176 67 186A15 15 0 0 1 37 186C37 171 45.5 162 54.5 156V115Z"/>
-<path class="hk-edge" d="M45.5 115V146C45.5 157 22 160 21 186C20 207 35 218 53 218C70 218 81 206 81 190C81 177 77 166 72 159C70 156 66 156.5 66.5 160C67 166 67.5 176 67 186A15 15 0 0 1 37 186C37 171 45.5 162 54.5 156V115Z"/>
-<path d="M26 176C25 195 35 209 51 212" fill="none" stroke="#fff" stroke-opacity=".55" stroke-width="1.6" stroke-linecap="round"/>
-<path d="M65.6 188A13.6 13.6 0 0 1 38.4 188" fill="none" stroke="#000" stroke-opacity=".3" stroke-width="2"/>
-<path class="hk-latch" d="M56 148L66.6 158.4"/><circle class="hk-latch-pin" cx="55.6" cy="147.6" r="1.8"/>
+<rect x="47" y="104" width="26" height="6" rx="1.5" fill="url(#hkSteel)"/>
+<path fill="url(#hkSteel)" d="M45 110H75L78 115L75 120H45L42 115Z"/><path class="hk-edge" d="M45 110H75L78 115L75 120H45L42 115ZM52 110V120M68 110V120"/>
+<path fill="url(#hkForge)" d="M67 120V158A11 11 0 0 0 89 158C89 150 88 145 86 140Q85 131 91 132C97 133 100 146 100 160C100 184 84 198 60 198C36 198 20 184 20 160C20 146 23 133 29 132Q35 131 34 140C32 145 31 150 31 158A11 11 0 0 0 53 158V120Z"/>
+<path class="hk-rim" d="M34 140C32 145 31 150 31 158A11 11 0 0 0 53 158V136M86 140C88 145 89 150 89 158A11 11 0 0 1 67 158V136"/>
+<path d="M24 162C24 182 38 194 56 195" fill="none" stroke="#fff" stroke-opacity=".34" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M55 124V150" fill="none" stroke="#fff" stroke-opacity=".22" stroke-width="1.4" stroke-linecap="round"/>
 </g>
 </svg>`;
 
@@ -354,15 +362,17 @@
     host.className = 'hk';
     host.setAttribute('aria-hidden', 'true');
     host.innerHTML = '<div class="hk__sway"><div class="hk__swing"><div class="hk__drop">'
-      + '<i class="hk__rope hk__rope--dead"></i><i class="hk__rope hk__rope--live"></i>' + HOOK_SVG
+      + '<i class="hk__rope hk__rope--a"></i><i class="hk__rope hk__rope--b"></i>'
+      + '<i class="hk__rope hk__rope--c"></i><i class="hk__rope hk__rope--d"></i>' + HOOK_SVG
       + '<span class="hk__tag"><b>SWL 700 T</b><span class="hk__dn"><span class="hk__pct">0</span>%</span></span>'
       + '</div></div></div>';
     document.body.append(host);
 
     const swing = host.querySelector('.hk__swing');
     const drop = host.querySelector('.hk__drop');
-    const [dead, live] = host.querySelectorAll('.hk__rope');
-    const sheave = host.querySelector('.hk-sheave');
+    const ropes = host.querySelectorAll('.hk__rope'); // a and c are made fast at the jib; b and d run over the sheaves
+    const knurlDead = host.querySelector('#hkTickD');   // rim of a sheave whose rope is made fast ...
+    const knurlLive = host.querySelector('#hkTickL');   // ... and of one whose rope runs
     const hook = host.querySelector('.hk-hook');
     const pct = host.querySelector('.hk__pct');
     const wa = document.querySelector('[data-wa]');
@@ -373,7 +383,7 @@
     let height = 0;
     let maxLean = 3.4; // degrees; halved on phones, where the hook hangs over the text column
     const measure = () => {
-      unit = drop.offsetWidth / 100 || 1;
+      unit = drop.offsetWidth / 120 || 1;
       maxLean = innerWidth < 600 ? 1.6 : 3.4;
       height = drop.offsetHeight;
       top = Math.max(132, innerHeight * 0.17); // clear of every concept's header
@@ -396,11 +406,15 @@
       swing.style.transform = `rotate(${th.toFixed(3)}deg)`;
       drop.style.transform = `translate3d(0,${y.toFixed(2)}px,0)`;
       hook.style.transform = `rotate(${ph.toFixed(3)}deg)`;
-      // The dead end is made fast at the jib, so its lay holds still in the world; the live fall runs over the
-      // sheave at twice the block's speed (once relative to it). The sheave turns by arc length / radius.
-      dead.style.backgroundPosition = `0 0,0 ${(-y).toFixed(1)}px`;
-      live.style.backgroundPosition = `0 0,0 ${y.toFixed(1)}px`;
-      sheave.style.transform = `rotate(${((y / (12 * unit)) * 57.2958 % 360).toFixed(1)}deg)`;
+      // The dead legs are made fast at the jib, so their lay holds still in the world; the live legs run over the
+      // sheaves at twice the block's speed (once relative to it). Seen edge-on, a sheave turns as the knurl on its
+      // rim running up or down with its rope; the pattern tile is 5 SVG units tall.
+      const dead = `0 0,0 ${(-y).toFixed(1)}px`, live = `0 0,0 ${y.toFixed(1)}px`;
+      ropes[0].style.backgroundPosition = ropes[2].style.backgroundPosition = dead;
+      ropes[1].style.backgroundPosition = ropes[3].style.backgroundPosition = live;
+      const u = y / unit;
+      knurlDead.setAttribute('patternTransform', `translate(0 ${(-u % 5).toFixed(2)})`);
+      knurlLive.setAttribute('patternTransform', `translate(0 ${(u % 5).toFixed(2)})`);
       const f = floor > top ? Math.min(1, Math.max(0, (y - top) / (floor - top))) : p;
       const txt = String(Math.round(f * 100));
       if (txt !== shown) pct.textContent = shown = txt;

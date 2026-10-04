@@ -2,13 +2,14 @@
    FHE overlays — shared by the three concepts. Linked BEFORE each concept stylesheet, so a concept can retheme
    (custom properties on :root) or override any rule here. Behaviour: js/fhe-core.js §7 (hook) and §8 (WhatsApp).
 
-   1. Crane hook   a hook block on two falls of wire rope, fixed in the right margin. It pays out as you read,
-                   swings when you scroll and comes to rest just above the WhatsApp button at the foot of the page.
+   1. Crane hook   a twin-sheave block with a ramshorn double hook, hung on four falls of wire rope in the right
+                   margin. It pays out as you read, swings when you scroll and comes to rest just above the
+                   WhatsApp button at the foot of the page.
    2. WhatsApp     floating button + a two-line chooser (native popover: light dismiss, Escape, top layer)
 
    Theme tokens
-     hook      --hk-body --hk-stripe --hk-edge --hk-window --hk-steel-0..3 --hk-rope-hi --hk-rope-lo --hk-latch
-               --hk-tag-bg --hk-tag-fg --hk-tag-line --hk-font
+     hook      --hk-body --hk-stripe --hk-edge --hk-window --hk-steel-0..3 --hk-forge-0..3
+               --hk-accent --hk-rope-hi --hk-rope-lo --hk-tag-bg --hk-tag-fg --hk-tag-line --hk-font
      whatsapp  --wa-bg --wa-fg --wa-line --wa-radius --wa-row --wa-row-line --wa-row-hi --wa-row-hi-line
                --wa-accent --wa-tip-bg --wa-tip-fg --wa-font-t --wa-font-k --wa-font-n
    ========================================================================== */
@@ -17,11 +18,12 @@
   --wa-size: 58px;
   --wa-gap: clamp(14px, 2vw, 28px);              /* FAB inset from the right and bottom edges */
   --wa-spring: cubic-bezier(.34, 1.56, .64, 1);
-  --hk-w: clamp(32px, 2.6vw + 22px, 76px);
+  --hk-w: clamp(42px, 4vw + 26px, 104px);       /* wider than a single-sheave block: two sheave nests need the room */
 
   --hk-body: #ffb000; --hk-stripe: #16181b; --hk-edge: rgb(0 0 0 / .55); --hk-window: #0c0d0f;
   --hk-steel-0: #3b4148; --hk-steel-1: #e9edf1; --hk-steel-2: #9199a2; --hk-steel-3: #2b3036;
-  --hk-rope-hi: #a7aeb6; --hk-rope-lo: #42474e; --hk-latch: #ffb000;
+  --hk-forge-0: #0b0c0e; --hk-forge-1: #434a52; --hk-forge-2: #17191d; --hk-forge-3: #070809;
+  --hk-rope-hi: #a7aeb6; --hk-rope-lo: #42474e; --hk-accent: #ffb000;
   --hk-tag-bg: rgb(12 13 15 / .82); --hk-tag-fg: #f2f2f2; --hk-tag-line: rgb(255 255 255 / .28);
 }
 
@@ -46,16 +48,19 @@
   display: block; width: 100%; height: auto; overflow: visible;
   filter: drop-shadow(0 16px 14px rgb(0 0 0 / .38)) drop-shadow(0 2px 2px rgb(0 0 0 / .3));
 }
-/* two falls of wire rope running up to the jib; JS slides the lay pattern so the rope visibly pays out */
+/* four falls of wire rope, two for each sheave nest, running up to the jib; JS slides the lay pattern so the rope
+   visibly pays out. Their x positions are the outer sheaves of each nest in the SVG (31.5, 48.5, 71.5, 88.5 of 120). */
 .hk__rope {
   position: absolute; bottom: calc(100% - 2px); height: 300vh;
-  width: max(1.5px, calc(var(--hk-w) * .032)); translate: -50% 0;
+  width: max(1.5px, calc(var(--hk-w) * .0267)); translate: -50% 0;
   background:
     linear-gradient(90deg, rgb(0 0 0 / .55), rgb(255 255 255 / .32) 40%, rgb(0 0 0 / .6)),
     repeating-linear-gradient(-62deg, var(--hk-rope-hi) 0 1.3px, var(--hk-rope-lo) 1.3px 2.6px);
 }
-.hk__rope--dead { left: 38%; }
-.hk__rope--live { left: 62%; }
+.hk__rope--a { left: 26.25%; }  /* left nest: the made-fast leg, then the leg that runs over its sheaves */
+.hk__rope--b { left: 40.42%; }
+.hk__rope--c { left: 59.58%; }  /* right nest, likewise */
+.hk__rope--d { left: 73.75%; }
 
 .hk-body   { fill: var(--hk-body); }
 .hk-stripe { fill: var(--hk-stripe); }
@@ -65,14 +70,15 @@
 .hk-s1 { stop-color: var(--hk-steel-1); }
 .hk-s2 { stop-color: var(--hk-steel-2); }
 .hk-s3 { stop-color: var(--hk-steel-3); }
+.hk-f0 { stop-color: var(--hk-forge-0); }
+.hk-f1 { stop-color: var(--hk-forge-1); }
+.hk-f2 { stop-color: var(--hk-forge-2); }
+.hk-f3 { stop-color: var(--hk-forge-3); }
 .hk-rope    { fill: none; stroke: var(--hk-rope-lo); stroke-width: 3.2; }
 .hk-rope-hi { fill: none; stroke: var(--hk-rope-hi); stroke-width: .9; stroke-dasharray: 1.6 1.4; }
-.hk-latch   { fill: none; stroke: var(--hk-latch); stroke-width: 2.4; stroke-linecap: round; }
-.hk-latch-pin { fill: var(--hk-latch); }
-.hk-spokes  { fill: none; stroke: var(--hk-steel-2); stroke-width: 1.5; stroke-linecap: round; }
-.hk-sheave, .hk-hook { transform-box: view-box; }
-.hk-sheave { transform-origin: 50px 30px; }
-.hk-hook   { transform-origin: 50px 91px; }    /* the crosshead pin */
+.hk-rim     { fill: none; stroke: var(--hk-accent); stroke-width: 1.3; stroke-linecap: round; stroke-opacity: .9; }  /* rim light in each throat */
+.hk-tick    { fill: #000; fill-opacity: .3; }                                       /* knurl on the sheave rim; JS scrolls it */
+.hk-hook { transform-box: view-box; transform-origin: 60px 104px; }                /* the swivel under the block */
 
 /* readout chip on a leader line, left of the block (wide screens only) */
 .hk__tag {

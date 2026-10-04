@@ -868,12 +868,13 @@ html:not(.js) [data-crane], html:not(.js) .scale, html:not(.js) .cap__control { 
 .chip { max-width: 100%; white-space: normal; }
 
 /* ---------------------------------------------------------------- 20. Overlays: crane hook + WhatsApp */
-/* Steel-blue hook block banded in cyan with a bracketed readout; WhatsApp as a HUD module with corner ticks.
+/* Steel-blue twin-sheave block banded in cyan, a navy-black ramshorn hook rimmed in cyan, a bracketed readout; WhatsApp as a HUD module with corner ticks.
    Structure: css/fhe-overlays.css */
 :root {
   --hk-body: #1C3252; --hk-stripe: var(--accent); --hk-edge: rgb(100 255 218 / .5); --hk-window: #050D18;
   --hk-steel-0: #34445e; --hk-steel-1: #e4eeff; --hk-steel-2: #8b9dc0; --hk-steel-3: #1b283d;
-  --hk-rope-hi: #a3b3d1; --hk-rope-lo: #34425a; --hk-latch: var(--accent);
+  --hk-forge-0: #050c17; --hk-forge-1: #34445e; --hk-forge-2: #0f1a2c; --hk-forge-3: #040910;
+  --hk-rope-hi: #a3b3d1; --hk-rope-lo: #34425a; --hk-accent: var(--accent);
   --hk-tag-bg: rgb(7 18 31 / .86); --hk-tag-fg: var(--accent); --hk-tag-line: var(--line-2); --hk-font: var(--font-mono);
   --wa-bg: rgb(10 25 47 / .86); --wa-fg: var(--text); --wa-line: var(--line-2); --wa-radius: 12px;
   --wa-row: rgb(23 42 69 / .7); --wa-row-line: var(--line); --wa-row-hi: rgb(100 255 218 / .08); --wa-row-hi-line: var(--line-2);
