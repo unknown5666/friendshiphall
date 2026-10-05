@@ -4,7 +4,7 @@ This folder holds three complete, mobile-first homepage concepts for Friendship 
 
 | Page | What it is |
 |------|------------|
-| `index.html` | The hub. Click **1**, **2** or **3** (or press the number key) to open a concept. The browser Back button returns here. |
+| `index.html` | The hub (still in the repo). On Vercel, `/` is rewritten to `concept-2.html`, the client-confirmed design. |
 | `concept-1.html` | **Industrial Brutalism.** Charcoal #1A1A1A, white, safety amber #FFB000. Block type, bento grids, hard borders. |
 | `concept-2.html` | **Cinematic Editorial.** Obsidian #0B0C10, zinc #1F2833, brushed gold #C5A059. Serif headlines, asymmetric layout, film grain and a gold glint on the italics. Its **Contact us** button opens the lift slate (see below). |
 | `concept-3.html` | **Data-Dense Telemetry.** Navy #0A192F, steel #172A45, cyan #64FFDA. Metric modules and an interactive 25–700T capacity scale. |
