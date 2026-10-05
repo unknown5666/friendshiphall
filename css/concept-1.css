@@ -1020,13 +1020,13 @@ html { scrollbar-gutter: stable; }
 .hk__tag { border-width: 2px; font-weight: 700; -webkit-backdrop-filter: none; backdrop-filter: none; }
 
 .wa__fab {
-  border-radius: 0; color: var(--ink); background: #25D366;
+  border-radius: 0; color: #fff; background: #25D366;
   border: 2px solid var(--ink); box-shadow: 5px 5px 0 var(--amber);
   transition: transform .18s var(--hard), box-shadow .18s var(--hard);
 }
 @media (hover: hover) { .wa__fab:hover { transform: translate(-2px, -2px); box-shadow: 7px 7px 0 var(--amber); } }
 .wa__fab:active { transform: translate(3px, 3px); box-shadow: 2px 2px 0 var(--amber); }
-.wa__fab::before, .wa__fab::after { border: 2px solid var(--amber); }
+.wa__fab::before, .wa__fab::after { border: 2px solid #25d366; }
 .hk-landed .wa:not(.is-open) .wa__fab { box-shadow: 5px 5px 0 var(--amber), 0 0 0 7px rgb(255 176 0 / .28); }
 .wa__tip {
   border-radius: 0; border: 2px solid var(--ink); box-shadow: 4px 4px 0 var(--ink);

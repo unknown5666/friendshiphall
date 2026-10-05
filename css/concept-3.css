@@ -891,23 +891,23 @@ html:not(.js) [data-crane], html:not(.js) .scale, html:not(.js) .cap__control { 
 }
 
 .wa__fab {
-  border-radius: 16px; color: var(--accent);
+  border-radius: 16px; color: #fff;
   background:
-    linear-gradient(var(--accent), var(--accent)) 7px 7px / 8px 1.5px no-repeat,
-    linear-gradient(var(--accent), var(--accent)) 7px 7px / 1.5px 8px no-repeat,
-    linear-gradient(var(--accent), var(--accent)) calc(100% - 7px) calc(100% - 7px) / 8px 1.5px no-repeat,
-    linear-gradient(var(--accent), var(--accent)) calc(100% - 7px) calc(100% - 7px) / 1.5px 8px no-repeat,
-    linear-gradient(160deg, #1C3252, #0b1c33);
+    linear-gradient(#fff, #fff) 7px 7px / 8px 1.5px no-repeat,
+    linear-gradient(#fff, #fff) 7px 7px / 1.5px 8px no-repeat,
+    linear-gradient(#fff, #fff) calc(100% - 7px) calc(100% - 7px) / 8px 1.5px no-repeat,
+    linear-gradient(#fff, #fff) calc(100% - 7px) calc(100% - 7px) / 1.5px 8px no-repeat,
+    linear-gradient(160deg, #3fe07e, #25d366 55%, #1ebe57);
   box-shadow:
-    inset 0 0 0 1px var(--line-2), 0 0 0 1px rgb(0 0 0 / .35),
-    0 0 26px -6px rgb(100 255 218 / .45), 0 16px 34px -14px rgb(0 0 0 / .85);
+    inset 0 0 0 1px rgb(255 255 255 / .25), 0 0 0 1px rgb(0 0 0 / .35),
+    0 0 26px -6px rgb(37 211 102 / .55), 0 16px 34px -14px rgb(0 0 0 / .85);
 }
 @media (hover: hover) {
-  .wa__fab:hover { box-shadow: inset 0 0 0 1px var(--accent), 0 0 36px -4px rgb(100 255 218 / .6), 0 16px 34px -14px rgb(0 0 0 / .85); }
+  .wa__fab:hover { box-shadow: inset 0 0 0 1px #fff, 0 0 36px -4px rgb(37 211 102 / .75), 0 16px 34px -14px rgb(0 0 0 / .85); }
 }
-.wa__fab::before, .wa__fab::after { border: 1px solid var(--accent); }
+.wa__fab::before, .wa__fab::after { border: 1px solid #25d366; }
 .hk-landed .wa:not(.is-open) .wa__fab {
-  box-shadow: inset 0 0 0 1px var(--accent), 0 0 0 7px rgb(100 255 218 / .13), 0 0 36px -4px rgb(100 255 218 / .6);
+  box-shadow: inset 0 0 0 1px #fff, 0 0 0 7px rgb(37 211 102 / .16), 0 0 36px -4px rgb(37 211 102 / .7);
 }
 .wa__tip { border-radius: 4px; font: 500 .72rem/1 var(--font-mono); letter-spacing: .1em; text-transform: uppercase; }
 .wa__panel {

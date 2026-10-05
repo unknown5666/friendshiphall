@@ -110,6 +110,18 @@
 .is-loaded .wa__fab { animation: waPop .9s var(--wa-spring) .15s backwards; }
 @keyframes waPop { from { opacity: 0; transform: translateY(18px) scale(.5); } }
 
+/* attention blink: a green glow + slight swell, on loop while the chooser is closed. filter/scale, not
+   box-shadow/transform, so it layers over each concept's own shadow and the hover/press transforms */
+@media (prefers-reduced-motion: no-preference) {
+  .is-loaded .wa:not(.is-open) .wa__fab {
+    animation: waPop .9s var(--wa-spring) .15s backwards, waBlink 1.4s ease-in-out 1.2s infinite;
+  }
+}
+@keyframes waBlink {
+  0%, 100% { filter: brightness(1) drop-shadow(0 0 0 rgb(37 211 102 / 0)); scale: 1; }
+  50%      { filter: brightness(1.18) drop-shadow(0 0 16px rgb(37 211 102 / .95)); scale: 1.07; }
+}
+
 .wa__fab {
   position: relative; display: grid; place-items: center;
   width: var(--wa-size); height: var(--wa-size); padding: 0; margin: 0;
@@ -124,14 +136,14 @@
 .wa__fab:active { transform: scale(.94); transition-duration: .12s; }
 @media (hover: hover) { .wa__fab:hover { transform: translateY(-3px) scale(1.05); } }
 
-/* sonar rings, every few seconds, until the panel has been opened */
+/* sonar rings, every few seconds, whenever the panel is closed */
 .wa__fab::before, .wa__fab::after {
   content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
   border: 1.5px solid var(--wa-ring, #25d366); opacity: 0;
 }
 @media (prefers-reduced-motion: no-preference) {
-  .wa:not(.was-opened) .wa__fab::before { animation: waSonar 4.2s cubic-bezier(.2, .7, .2, 1) 1.6s infinite; }
-  .wa:not(.was-opened) .wa__fab::after  { animation: waSonar 4.2s cubic-bezier(.2, .7, .2, 1) 1.95s infinite; }
+  .wa:not(.is-open) .wa__fab::before { animation: waSonar 2.4s cubic-bezier(.2, .7, .2, 1) 1.6s infinite; }
+  .wa:not(.is-open) .wa__fab::after  { animation: waSonar 2.4s cubic-bezier(.2, .7, .2, 1) 1.95s infinite; }
 }
 @keyframes waSonar { 0% { opacity: .75; transform: scale(1); } 42%, 100% { opacity: 0; transform: scale(1.8); } }
 

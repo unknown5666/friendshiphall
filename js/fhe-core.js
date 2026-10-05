@@ -19,7 +19,7 @@
  *    [data-hub-link]               link to index.html
  *    [data-nav-toggle][aria-controls=ID]   mobile menu button; #ID gets `.is-open`
  *    video[data-lazy-video][data-poster] > source[data-src]   inside [data-timelapse]; optional [data-timelapse-toggle]
- *    [data-reveal]  [data-count="35"]  [data-uae-clock="hms|hm"]
+ *    [data-reveal]  [data-count="40"]  [data-uae-clock="hms|hm"]
  *    [data-wa] > button[data-wa-fab][popovertarget=ID] + #ID[popover][data-wa-panel]   (styles: css/fhe-overlays.css)
  *    The crane hook needs no markup: it is built here and appended to <body>.
  *
