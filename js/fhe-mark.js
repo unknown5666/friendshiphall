@@ -329,7 +329,8 @@
         m.ring.style.strokeWidth = `calc(var(--sw) * ${(1 + 1.6 * Math.exp(-tk / 220)).toFixed(3)})`;
         fx.glow(cx, cy, S * 2.4, 0.42 * Math.exp(-tk / 200));
       }
-      glintAt(m, tk < 0 ? -1 : seg(tk, 100, 1300));
+      const gap = Math.min(1200, irisAt - lockAt);   // the glint fits the hold before the iris (shorter in the quick cut / a skip)
+      glintAt(m, tk < 0 ? -1 : seg(tk, gap * 0.08, gap * 1.08));
       const tons = String(Math.round(25 + 675 * outCubic(seg(t, T.ring[0], T.lock))));
       if (load && tons !== shown) load.textContent = shown = tons;
 
@@ -475,10 +476,13 @@
 
     if (reduced) { drawTo(1); pourTo(m, 1, 0); return; }
 
-    // progress: 0 as the seal's top meets the bottom of the screen, 1 as its centre reaches the middle
+    // progress: 0 as the seal's top meets the bottom of the screen, 1 as its centre reaches the middle — or, on screens
+    // too tall to scroll that far (iPad portrait, 1200px desktops), as the page reaches its foot, so the pour always finishes
     const progress = () => {
       const r = root.getBoundingClientRect();
-      return clamp((innerHeight - r.top) / (innerHeight * 0.5 + r.height / 2));
+      const left = Math.max(0, document.documentElement.scrollHeight - innerHeight - scrollY);   // scroll still available
+      const span = Math.min(innerHeight * 0.5 + r.height / 2, innerHeight - r.top + left);
+      return span > 0 ? clamp((innerHeight - r.top) / span) : 1;
     };
     // Each frame writes only what moved, so a settled seal costs nothing but the frame callback.
     // The drawing eases toward the scroll position (time constant 0.55 s), so a fast flick still plays out over ~2 s.
@@ -513,7 +517,8 @@
       still = settled;
     }
     new IntersectionObserver(([en]) => {
-      if (en.isIntersecting && !raf) { last = 0; lastY = scrollY; raf = requestAnimationFrame(frame); }
+      // the loop sleeps out of view, so on return start from where the page really is (never from a stale, fuller drawing)
+      if (en.isIntersecting && !raf) { last = 0; lastY = scrollY; eased = Math.min(eased, progress()); raf = requestAnimationFrame(frame); }
       else if (!en.isIntersecting && raf) { cancelAnimationFrame(raf); raf = 0; }
     }, { rootMargin: '15% 0px' }).observe(root);
 
