@@ -5,10 +5,10 @@
  *              A spark welds the ring while a load dial ticks round it; the rope and hook drop in and swing; three
  *              weld heads trace F·H·S; molten gold pours into the letters; the mark locks with a shockwave and a
  *              spray of sparks; then the ring opens as an iris onto the page while the mark flies into the header.
- *              The second visit in a session gets a two-second cut. A tap, a key or a scroll skips to the lock.
+ *              About 7.5 s; the second visit in a session gets a 3 s cut. A tap, a key or a scroll skips to the lock.
  *  2. Header   hovering the brand swings the hook on its ropes (and it swings once as the intro lands it).
- *  3. Seal     [data-seal] above the footer: the mark draws itself as it scrolls in and pours, tilts toward the
- *              pointer, and scroll speed swings the hook.
+ *  3. Seal     [data-seal] above the footer: the mark draws itself as it scrolls in and pours (eased behind the
+ *              scroll, so a fast flick still plays out), tilts toward the pointer, and scroll speed swings the hook.
  *
  *  The header copy of the mark (assets/brand/fhs-mark.inline.svg) is the source; the intro and the seal clone it.
  *  Every moving part is plain SVG + one canvas for sparks, driven by requestAnimationFrame from a single clock.
@@ -136,7 +136,7 @@
         for (let i = 0; i < n && parts.length < max; i++) {
           const a = dir + (Math.random() - 0.5) * spread;
           const v = v0 + Math.random() * (v1 - v0);
-          parts.push({ x, y, vx: Math.cos(a) * v, vy: Math.sin(a) * v, age: 0, life: 320 + Math.random() * 620 });
+          parts.push({ x, y, vx: Math.cos(a) * v, vy: Math.sin(a) * v, age: 0, life: 380 + Math.random() * 720 });
         }
       },
       glow(x, y, size, alpha) {
@@ -205,9 +205,10 @@
 
     // ms from the start. Everything up to the lock is a pure function of the clock, so a skip just moves the clock.
     // After the lock, times count from the moment it actually fired.
+    // open: lock → iris; iris: the iris and the flight to the header. Full ≈ 7.4 s, quick ≈ 3.1 s.
     const T = quick
-      ? { ring: [0, 620], drop: [60, 330], trace: [[150, 600], [190, 640], [230, 680]], pour: [380, 880], lock: 920, open: 380, iris: 900 }
-      : { ring: [150, 1250], drop: [1050, 1420], trace: [[1550, 2250], [1650, 2350], [1750, 2450]], pour: [2350, 3150], lock: 3200, open: 850, iris: 1000 };
+      ? { ring: [0, 900], drop: [100, 520], trace: [[250, 900], [310, 960], [370, 1020]], pour: [600, 1350], lock: 1400, open: 600, iris: 1100 }
+      : { ring: [250, 1800], drop: [1650, 2150], trace: [[2350, 3350], [2480, 3480], [2610, 3610]], pour: [3500, 4650], lock: 4750, open: 1200, iris: 1450 };
     const land = T.drop[1];
 
     const svg = source.cloneNode(true);
@@ -269,7 +270,7 @@
       // load dial: ticks appear behind the weld head, then turn; they ride out on the iris
       const ip = openAt < 0 ? 0 : seg(t, openAt, openAt + T.iris);
       const irisR = openAt < 0 ? 0 : lerp(R, Math.hypot(Math.max(cx, W - cx), Math.max(cy, H - cy)) + 60, inOutQuart(ip));
-      dial(t, pr < 1 ? head : Infinity, irisR ? irisR / R : 1, seg(t, T.ring[0], T.ring[0] + 300) * (1 - ip));
+      dial(t, pr < 1 ? head : Infinity, irisR ? irisR / R : 1, seg(t, T.ring[0], T.ring[0] + 450) * (1 - ip));
 
       // 2 · the rope and hook drop in, catch, and swing about the rope tops -----------------------------------------
       const off = cy / k + 380;   // far enough above to start off-screen
@@ -281,8 +282,8 @@
         ra = 3.2 * p;
       } else if (t >= land) {
         const s = t - land;
-        ry = 15 * Math.exp(-s / 170) * Math.sin((s / 250) * TAU);
-        ra = 3.2 * Math.exp(-s / 520) * Math.cos((s / 760) * TAU);
+        ry = 15 * Math.exp(-s / 220) * Math.sin((s / 320) * TAU);
+        ra = 3.2 * Math.exp(-s / 700) * Math.cos((s / 980) * TAU);
       }
       m.rig.style.visibility = t < T.drop[0] ? 'hidden' : '';
       m.rig.setAttribute('transform', `translate(0 ${ry.toFixed(2)}) rotate(${ra.toFixed(3)} 0 ${PIVOT})`);
@@ -315,20 +316,20 @@
           const a = Math.random() * TAU;
           fx.emit(cx + Math.cos(a) * R, cy + Math.sin(a) * R, 1, a, 0.5, 260, 1150);
         }
-        shocks.push({ at: t, dur: 900, r0: R, r1: R * 2.3, w: 2.4, a: 0.9 }, { at: t + 50, dur: 1200, r0: R * 0.98, r1: R * 3, w: 6, a: 0.14 });
+        shocks.push({ at: t, dur: 1200, r0: R, r1: R * 2.3, w: 2.4, a: 0.9 }, { at: t + 70, dur: 1600, r0: R * 0.98, r1: R * 3, w: 6, a: 0.14 });
       }
       let sx = 0, sy = 0, sc = 1;
       const tl = t - land;
-      if (tl > 0 && tl < 420) sy += 3.5 * Math.exp(-tl / 70) * Math.sin(tl / 17);
+      if (tl > 0 && tl < 520) sy += 3.5 * Math.exp(-tl / 90) * Math.sin(tl / 20);
       const tk = lockAt < 0 ? -1 : t - lockAt;
-      if (tk >= 0 && tk < 900) {
-        sc *= 1 + 0.055 * Math.exp(-tk / 150) * Math.sin(tk / 46);
-        sx += 6 * Math.exp(-tk / 85) * Math.sin(tk / 11);
-        sy += 5 * Math.exp(-tk / 85) * Math.cos(tk / 13);
-        m.ring.style.strokeWidth = `calc(var(--sw) * ${(1 + 1.6 * Math.exp(-tk / 160)).toFixed(3)})`;
-        fx.glow(cx, cy, S * 2.4, 0.42 * Math.exp(-tk / 150));
+      if (tk >= 0 && tk < 1200) {
+        sc *= 1 + 0.055 * Math.exp(-tk / 200) * Math.sin(tk / 60);
+        sx += 6 * Math.exp(-tk / 110) * Math.sin(tk / 12);
+        sy += 5 * Math.exp(-tk / 110) * Math.cos(tk / 14);
+        m.ring.style.strokeWidth = `calc(var(--sw) * ${(1 + 1.6 * Math.exp(-tk / 220)).toFixed(3)})`;
+        fx.glow(cx, cy, S * 2.4, 0.42 * Math.exp(-tk / 200));
       }
-      glintAt(m, tk < 0 ? -1 : seg(tk, 60, 760));
+      glintAt(m, tk < 0 ? -1 : seg(tk, 100, 1300));
       const tons = String(Math.round(25 + 675 * outCubic(seg(t, T.ring[0], T.lock))));
       if (load && tons !== shown) load.textContent = shown = tons;
 
@@ -339,7 +340,7 @@
         backdrop.classList.add('is-iris');
         m.ring.style.visibility = 'hidden';   // the canvas carries the ring from here
         reveal(T.iris + 40);                  // hero reveals start under the opening iris
-        shocks.push({ at: t, dur: 600, r0: R, r1: R * 1.45, w: 4, a: 0.4 });
+        shocks.push({ at: t, dur: 800, r0: R, r1: R * 1.45, w: 4, a: 0.4 });
       }
       if (openAt >= 0) {
         backdrop.style.setProperty('--ir', `${(irisR - 1).toFixed(1)}px`);
@@ -372,7 +373,7 @@
     function dial(t, upTo, scale, alpha) {
       if (alpha <= 0) return;
       const ctx = fx.ctx;
-      const spin = Math.max(0, t - T.ring[1]) * 0.00011 + (lockAt < 0 ? 0 : Math.max(0, t - lockAt) * 0.00045);
+      const spin = Math.max(0, t - T.ring[1]) * 0.00008 + (lockAt < 0 ? 0 : Math.max(0, t - lockAt) * 0.0003);
       ctx.globalCompositeOperation = 'source-over';
       ctx.beginPath();
       for (let i = 0; i < 120; i++) {
@@ -396,7 +397,7 @@
     function skip() {
       if (done || openAt >= 0) return;
       const now = performance.now();
-      if (lockAt < 0) { t0 = now - T.lock; irisAt = T.lock + 300; }
+      if (lockAt < 0) { t0 = now - T.lock; irisAt = T.lock + 450; }
       else irisAt = Math.min(irisAt, now - t0 + 120);
     }
     const events = [['keydown', skip], ['wheel', skip], ['touchmove', skip], ['resize', measure]];
@@ -408,6 +409,7 @@
       events.forEach(([type, fn]) => removeEventListener(type, fn));
       doc.classList.add('mark-docked');
       fx.size(0, 0, 1);   // release the canvas memory; fhe-core hides the preloader
+      document.dispatchEvent(new CustomEvent('fhe:mark-docked'));
     }
 
     const start = () => {
@@ -435,10 +437,8 @@
     brand.addEventListener('pointerenter', swing);
     brand.addEventListener('focus', swing);
     mark.addEventListener('animationend', (e) => { if (e.animationName === 'fhmSwing') mark.classList.remove('is-swinging'); });
-    // the intro hands the mark over mid-swing: let it settle on its ropes
-    document.addEventListener('fhe:ready', () => {
-      if (document.documentElement.classList.contains('is-revealing') && document.querySelector('.mark-stage')) setTimeout(swing, 1050);
-    }, { once: true });
+    // the intro lands the mark in the slot: let it settle on its ropes
+    document.addEventListener('fhe:mark-docked', () => setTimeout(swing, 80), { once: true });
   }
 
   /* ---------------------------------------------------------------- 3. Seal */
@@ -475,25 +475,30 @@
 
     if (reduced) { drawTo(1); pourTo(m, 1, 0); return; }
 
-    // progress: 0 as the seal's top meets the bottom of the screen, 1 as its centre reaches 55% of the way down
+    // progress: 0 as the seal's top meets the bottom of the screen, 1 as its centre reaches the middle
     const progress = () => {
       const r = root.getBoundingClientRect();
-      return clamp((innerHeight - r.top) / (innerHeight * 0.45 + r.height / 2));
+      return clamp((innerHeight - r.top) / (innerHeight * 0.5 + r.height / 2));
     };
     // Each frame writes only what moved, so a settled seal costs nothing but the frame callback.
+    // The drawing eases toward the scroll position (time constant 0.55 s), so a fast flick still plays out over ~2 s.
     let raf = 0, last = 0, lastY = scrollY, ang = 0, vel = 0, shineAt = -1, poured = false, pourWas = -1, glinting = false, still = true;
+    let eased = 0;
     function frame(now) {
       raf = requestAnimationFrame(frame);
       const dt = Math.min(0.05, (now - (last || now)) / 1000);
       last = now;
-      const p = progress();
+      const target = progress();
+      eased += (target - eased) * (1 - Math.exp(-dt / 0.55));
+      if (Math.abs(target - eased) < 0.0005) eased = target;
+      const p = eased;
       drawTo(p);
       const pp = inOutSine(seg(p, 0.7, 0.97));
       if (pp > 0 && pp < 1 || pp !== pourWas) pourTo(m, pp, now * 0.004);   // the surface ripples while it pours
       pourWas = pp;
       if (pp >= 1 && !poured) { poured = true; shineAt = now; }
       if (pp < 1) poured = false;
-      const g = shineAt < 0 ? -1 : seg(now - shineAt, 0, 1100);
+      const g = shineAt < 0 ? -1 : seg(now - shineAt, 0, 1500);
       if (g > 0 && g < 1 || glinting) { glintAt(m, g); glinting = g > 0 && g < 1; }
 
       // the hook lags behind the page: scroll speed leans it, a damped spring brings it home
