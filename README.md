@@ -6,7 +6,7 @@ This folder holds three complete, mobile-first homepage concepts for Friendship 
 |------|------------|
 | `index.html` | The hub (still in the repo). On Vercel, `/` is rewritten to `concept-2.html`, the client-confirmed design. |
 | `concept-1.html` | **Industrial Brutalism.** Charcoal #1A1A1A, white, safety amber #FFB000. Block type, bento grids, hard borders. |
-| `concept-2.html` | **Cinematic Editorial.** Obsidian #0B0C10, zinc #1F2833, brushed gold #C5A059. Serif headlines, asymmetric layout, film grain and a gold glint on the italics. Its **Contact us** button opens the lift slate (see below). |
+| `concept-2.html` | **Cinematic Editorial.** Obsidian #0B0C10, zinc #1F2833, brushed gold #C5A059. Serif headlines, asymmetric layout, film grain and a gold glint on the italics. It opens with the **mark intro** and closes with the **seal** (see below). Its **Contact us** button opens the lift slate. |
 | `concept-3.html` | **Data-Dense Telemetry.** Navy #0A192F, steel #172A45, cyan #64FFDA. Metric modules and an interactive 25–700T capacity scale. |
 
 The earlier "FHE // Telemetry" pitch is archived, unchanged, in `_archive/telemetry-pitch/`. It still opens on its own.
@@ -27,21 +27,39 @@ concept-{1,2,3}.html       the three concepts
 css/concept-{1,2,3}.css    one stylesheet per concept (each ends with its crane-hook + WhatsApp theme)
 css/fhe-overlays.css       shared crane hook + floating WhatsApp, linked before each concept stylesheet
 js/fhe-core.js             shared behaviour (see below)
+js/fhe-mark.js             concept 2's logo animation: intro, header swing, footer seal (loaded before fhe-core.js)
 js/concept-{n}.js          concept-specific interactions
 assets/media/              optimised photos (WebP 640/960/1280/1920 + one 1280 JPG each) + manifest.json
 assets/fonts/              self-hosted Google Fonts (latin woff2); @font-face is inlined in each page's <head>
 assets/team/               leadership portraits (800×1000)
 assets/video/              crane-timelapse.mp4 (28.6 s, 720p), posters, cues JSON
-assets/brand/              FHS emblem SVG (standalone red + inline currentColor version)
+assets/brand/              FHS mark built from the client's DWG (fhs-mark.svg red, fhs-mark.inline.svg currentColor),
+                           the earlier emblem export (fhs-emblem*.svg, used by concepts 1 and 3) and source/ (the DWG + build script)
 ```
 
 ## Shared behaviour (`js/fhe-core.js`)
-- **Hook preloader (`@keyframes hookDropAndLift`).** The FHS emblem, whose "H" holds a crane hook block, drops on a cable, catches with a bounce, holds, then lifts and docks into the header logo slot. The script measures the slot and passes the offset to the CSS as `--dock-x`, `--dock-y` and `--dock-scale`. Tap or Escape skips it. It doesn't run for reduced-motion users or on Back/Forward navigation.
+- **Hook preloader (`@keyframes hookDropAndLift`, concepts 1 and 3).** The FHS emblem, whose "H" holds a crane hook block, drops on a cable, catches with a bounce, holds, then lifts and docks into the header logo slot. The script measures the slot and passes the offset to the CSS as `--dock-x`, `--dock-y` and `--dock-scale`. Tap or Escape skips it. It doesn't run for reduced-motion users or on Back/Forward navigation.
 - **Back button.** In-page menu links scroll with `history.replaceState`, so they never add history entries. Back always returns to the previous page. The "All concepts" link calls `history.back()` when you arrived from the hub. The mobile menus are buttons, not hash links.
 - **Lazy time-lapse.** The `<video>` gets its source only when it nears the viewport (IntersectionObserver), and it pauses when off-screen.
 - Reveal-on-scroll, count-up numbers, a live Asia/Dubai clock and a scrolled-header flag.
 - **Crane hook.** A twin-sheave block with a ramshorn double hook hangs in the right margin on four falls of wire rope and is lowered as you scroll. A spring gives it weight and a little bounce, scroll speed swings it like a pendulum (slower as the cable gets longer) and the hook trails on its swivel, while the rope lay and the knurl on the sheave rims run as the rope visibly pays out. Each concept recolours the block, its hazard band and the rim light in the hook's throats. At the foot of the page it rests just above the WhatsApp button and shows the "WhatsApp us" label. JS builds it, so the pages carry no markup for it. With reduced motion it simply follows the page.
 - **Floating WhatsApp.** One button opens a chooser with two lines: Friendship Hall main line +971 52 833 5333 and Bashir (COO) +971 52 902 6103. Each opens WhatsApp with a short enquiry pre-filled. It uses the native `popover`, so tap-outside and Escape close it, and older browsers get a scripted fallback. It hides while the mobile menu is open and shows the label once, a third of the way down the page.
+
+## The mark (concept 2)
+The logo comes from the client's AutoCAD file, `assets/brand/source/logo_fhe.dwg`. `build-mark.mjs` in the same folder reads it and writes `assets/brand/fhs-mark.svg` (brand red) and `fhs-mark.inline.svg` (currentColor). The drawing's circle is mapped to r = 500 at the origin, at a scale of 1:138, and every line, arc and pin comes straight from the DWG. The lettering in the DWG is a font reference (Times New Roman Bold), not geometry, so the glyph outlines come from the earlier vector export, `fhs-emblem.svg`. The script checks that export against the DWG and won't write the files if they disagree by more than one unit (today they're 0.07 apart). To rebuild, run `npm i --no-save @mlightcad/libredwg-web && node build-mark.mjs` inside `assets/brand/source/`. That folder is in `.vercelignore`, so it isn't deployed.
+
+`js/fhe-mark.js` animates the mark. The header copy is the source, and the other two uses clone it:
+- **Intro** (about 5 s). The preloader is `[data-preloader="mark"]`, so `fhe-core.js` hands it to `window.FHEIntro`.
+  1. A welding spark draws the ring while a load dial ticks round it and the readout counts 25 → 700 T.
+  2. The rope and hook drop in, catch, and swing.
+  3. Three weld heads trace F, H and S, throwing sparks.
+  4. Molten gold pours up into the letters.
+  5. The mark locks with a punch, a shockwave, a spray of sparks and a glint, and the name fades up.
+  6. The ring opens as an iris onto the hero while the mark flies into the header.
+
+  A second load in the same tab gets a 2 s cut (sessionStorage `fhe:mark`). A tap, key or scroll jumps to the lock. It doesn't run with reduced motion or on Back/Forward. Styles are in `css/concept-2.css` §3 and §3b.
+- **Header.** Hovering or focusing the brand swings the hook on its ropes. It also swings once as the intro lands it.
+- **Seal** (`[data-seal]`, top of the footer). A large mark draws itself as it scrolls in, then pours. It tilts toward the pointer with a moving highlight, scroll speed swings the hook, and the lettering turns slowly around it. With reduced motion it's shown finished and still.
 
 ## Contact us (concept 2)
 Every **Contact us** button in concept 2 (header, hero, mobile menu, contact chapter, and the "Discuss a lift" links under Industries) opens a full-screen brief. Visitors pick a service, set the crane size on a 25–700 T dial (same log scale as the fleet chapter), and add the emirate, start date, notes and their details. A film-slate panel fills in as they type. **Send on WhatsApp** opens a chat with Sales (+971 52 902 6105) and **Send by email** opens their mail app addressed to fhcrane@gmail.com. Either way the brief is written out for them, and the slate claps shut. Nothing is stored or sent by the site itself, so there's no server or form backend to run. Name and phone are required. The behaviour is in `js/concept-2.js` §3 and the styles are in `css/concept-2.css` §23. Without JavaScript the buttons fall back to the contact chapter.

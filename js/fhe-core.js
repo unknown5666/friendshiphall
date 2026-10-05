@@ -1,6 +1,7 @@
 /* FHE core — shared behaviour for the three homepage concepts. Loaded with `defer`, no dependencies.
  *
  *  1. Hook preloader   emblem drops on a cable, bounces, then lifts and docks into the header logo slot
+ *                      (a [data-preloader="mark"] preloader is handed to window.FHEIntro instead — js/fhe-mark.js)
  *  2. In-page links    anchor clicks scroll WITHOUT adding history entries, so Back always returns to the
  *                      previous page (the concepts hub) instead of stepping through #sections
  *  3. Hub link         "All concepts" uses history.back() when we arrived from the hub (no stack growth)
@@ -13,6 +14,7 @@
  *  Contract (markup each concept provides):
  *    <html> gets `js` + `is-preloading` from the inline head snippet (see build brief)
  *    [data-preloader] > .preloader__backdrop + [data-preloader-rig] (cable + inline emblem)
+ *      or [data-preloader="mark"] with js/fhe-mark.js loaded first: it gets { pre, dock, reveal } and calls reveal(ms)
  *    [data-dock-target]            header emblem the rig docks into
  *    [data-hub-link]               link to index.html
  *    [data-nav-toggle][aria-controls=ID]   mobile menu button; #ID gets `.is-open`
@@ -53,12 +55,13 @@
     document.dispatchEvent(new CustomEvent('fhe:ready'));
   }
 
-  function reveal() {
+  // `hold`: how long the curtain takes to clear before the preloader is removed
+  function reveal(hold = 700) {
     if (revealed) return;
     revealed = true;
     doc.classList.add('is-revealing'); // backdrop fades, header emblem appears, rig hides — same frame
     announce();
-    setTimeout(markLoaded, 700);
+    setTimeout(markLoaded, hold);
   }
 
   // Where the rig's centre sits at rest (its `translate` centring applied, its animated `transform` not),
@@ -103,10 +106,16 @@
   }
 
   function runPreloader() {
-    if (!doc.classList.contains('is-preloading') || !pre || !rig) {
+    const intro = pre && pre.dataset.preloader === 'mark' && typeof window.FHEIntro === 'function' ? window.FHEIntro : null;
+    if (!doc.classList.contains('is-preloading') || !pre || (!rig && !intro)) {
       revealed = true;
       markLoaded();
       announce();
+      return;
+    }
+    if (intro) {
+      // The mark intro runs its own show (skip, visibility, safety net) and calls reveal(ms) as its iris opens.
+      try { intro({ pre, dock, reveal }); } catch (err) { reveal(); }
       return;
     }
     rig.addEventListener('animationend', (e) => {
