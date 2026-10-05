@@ -25,7 +25,6 @@
   const seg = (t, a, b) => clamp((t - a) / (b - a));   // progress of t through [a, b]
   const lerp = (a, b, p) => a + (b - a) * p;
   const inOutCubic = (p) => (p < 0.5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2);
-  const inOutQuart = (p) => (p < 0.5 ? 8 * p ** 4 : 1 - Math.pow(-2 * p + 2, 4) / 2);
   const inOutSine = (p) => -(Math.cos(Math.PI * p) - 1) / 2;
   const outCubic = (p) => 1 - Math.pow(1 - p, 3);
 
@@ -269,7 +268,7 @@
 
       // load dial: ticks appear behind the weld head, then turn; they ride out on the iris
       const ip = openAt < 0 ? 0 : seg(t, openAt, openAt + T.iris);
-      const irisR = openAt < 0 ? 0 : lerp(R, Math.hypot(Math.max(cx, W - cx), Math.max(cy, H - cy)) + 60, inOutQuart(ip));
+      const irisR = openAt < 0 ? 0 : lerp(R, Math.hypot(Math.max(cx, W - cx), Math.max(cy, H - cy)) + 60, inOutCubic(ip));
       dial(t, pr < 1 ? head : Infinity, irisR ? irisR / R : 1, seg(t, T.ring[0], T.ring[0] + 450) * (1 - ip));
 
       // 2 · the rope and hook drop in, catch, and swing about the rope tops -----------------------------------------
@@ -485,7 +484,8 @@
       return span > 0 ? clamp((innerHeight - r.top) / span) : 1;
     };
     // Each frame writes only what moved, so a settled seal costs nothing but the frame callback.
-    // The drawing eases toward the scroll position (time constant 0.55 s), so a fast flick still plays out over ~2 s.
+    // The drawing chases the scroll position at most ~0.55 progress/s, then settles with a 0.55 s time constant, so a fast
+    // flick still draws the ring over ~0.8 s and pours over ~1.3 s; scrolling back up follows freely.
     let raf = 0, last = 0, lastY = scrollY, ang = 0, vel = 0, shineAt = -1, poured = false, pourWas = -1, glinting = false, still = true;
     let eased = 0;
     function frame(now) {
@@ -493,7 +493,8 @@
       const dt = Math.min(0.05, (now - (last || now)) / 1000);
       last = now;
       const target = progress();
-      eased += (target - eased) * (1 - Math.exp(-dt / 0.55));
+      const ahead = target - eased;
+      eased += (ahead > 0 ? Math.min(ahead, 0.3) : ahead) * (1 - Math.exp(-dt / 0.55));
       if (Math.abs(target - eased) < 0.0005) eased = target;
       const p = eased;
       drawTo(p);
