@@ -3,248 +3,981 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Friendship Hall — Homepage Concepts</title>
-<meta name="description" content="Three homepage design concepts for Friendship Hall (FHE), heavy equipment and crane rental in the UAE since 1986: 40 years of experience.">
-<meta name="theme-color" content="#0f0f10">
-<link rel="icon" href="assets/brand/fhs-emblem.svg" type="image/svg+xml">
-<link rel="preload" href="assets/fonts/archivo-normal-0wlSfdnoLg.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/fonts/bodoni-moda-italic-LkfbNxSXgM.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/fonts/ibm-plex-mono-normal-yU8n1i8q1w.woff2" as="font" type="font/woff2" crossorigin>
+<title>Friendship Hall — Heavy Crane Rental, UAE</title>
+<meta name="description" content="Friendship Hall (FHE): mobile cranes from 25 to 700 tonnes, heavy transport and engineered rigging studies across the UAE. Lifting in the UAE since 1986: 40 years of experience. Support 24/7.">
+<meta name="theme-color" content="#0B0C10">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Friendship Hall — FHE">
+<meta property="og:title" content="Friendship Hall — Forty years of lifting the Emirates, since 1986">
+<meta property="og:description" content="Mobile cranes from 25 to 700 tonnes, heavy transport and engineered rigging studies across the UAE. Support 24/7.">
+<meta property="og:image" content="assets/media/hero-gantry-dusk-1280.jpg">
+<meta property="og:image:alt" content="Two mobile cranes lifting a yellow bridge-launching girder marked SAFETY FIRST under a dusk sky">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/brand/fhs-mark.svg" type="image/svg+xml">
+<link rel="preload" as="image" href="assets/media/hero-gantry-dusk-1280.webp"
+      imagesrcset="assets/media/hero-gantry-dusk-480.webp 480w, assets/media/hero-gantry-dusk-640.webp 640w, assets/media/hero-gantry-dusk-800.webp 800w, assets/media/hero-gantry-dusk-960.webp 960w, assets/media/hero-gantry-dusk-1280.webp 1280w, assets/media/hero-gantry-dusk-1920.webp 1920w"
+      imagesizes="(min-width: 960px) 100vw, 150vw" fetchpriority="high">
+<script>
+(function (d) {
+  var n = performance.getEntriesByType && performance.getEntriesByType('navigation')[0];
+  d.classList.add('js');
+  if ((n && n.type === 'back_forward') || matchMedia('(prefers-reduced-motion: reduce)').matches) { d.classList.add('is-loaded'); return; }
+  d.classList.add('is-preloading');
+  setTimeout(function () {
+    if (window.FHE) return;
+    d.classList.remove('is-preloading'); d.classList.add('is-loaded');
+    document.querySelectorAll('[data-reveal]').forEach(function (e) { e.classList.add('is-in'); });
+  }, 6000);
+})(document.documentElement);
+</script>
+<link rel="preload" href="assets/fonts/bodoni-moda-italic-YJSPeKrcWw.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/bodoni-moda-normal-3LUYJSKSKg.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/instrument-sans-normal-ibnr0SZe1Q.woff2" as="font" type="font/woff2" crossorigin>
 <style>
-@font-face { font-family: 'Archivo'; font-style: normal; font-weight: 400 900; font-stretch: 100% 125%; font-display: swap; src: url(assets/fonts/archivo-normal-0wlSfdnoLg.woff2) format('woff2'); }
-@font-face { font-family: 'Bodoni Moda'; font-style: italic; font-weight: 500; font-display: swap; src: url(assets/fonts/bodoni-moda-italic-LkfbNxSXgM.woff2) format('woff2'); }
-@font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-weight: 400; font-display: swap; src: url(assets/fonts/ibm-plex-mono-normal-yU8n1i8q1w.woff2) format('woff2'); }
-@font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-weight: 500; font-display: swap; src: url(assets/fonts/ibm-plex-mono-normal-3twJwlBFgg.woff2) format('woff2'); }
+/* Self-hosted from Google Fonts (latin subset) for index.html. Generated — edit the source <link> and re-run instead. */
+@font-face { font-family: 'Bodoni Moda'; font-style: italic; font-weight: 400 600; font-display: swap; src: url(assets/fonts/bodoni-moda-italic-YJSPeKrcWw.woff2) format('woff2'); }
+@font-face { font-family: 'Bodoni Moda'; font-style: normal; font-weight: 400 600; font-display: swap; src: url(assets/fonts/bodoni-moda-normal-3LUYJSKSKg.woff2) format('woff2'); }
+@font-face { font-family: 'Instrument Sans'; font-style: normal; font-weight: 400 600; font-stretch: 100%; font-display: swap; src: url(assets/fonts/instrument-sans-normal-ibnr0SZe1Q.woff2) format('woff2'); }
 </style>
-<style>
-  :root {
-    --bg: #0f0f10;
-    --ink: #f2efe9;
-    --muted: #a7a39b;
-    --line: #2a2a2c;
-    --brand: #e10600;
-    --c1-bg: #1a1a1a; --c1-ink: #ffffff; --c1-acc: #ffb000;
-    --c2-bg: #0b0c10; --c2-ink: #ece8df; --c2-acc: #c5a059; --c2-panel: #1f2833;
-    --c3-bg: #0a192f; --c3-ink: #ccd6f6; --c3-acc: #64ffda; --c3-panel: #172a45;
-    --sans: "Archivo", system-ui, sans-serif;
-    --mono: "IBM Plex Mono", ui-monospace, monospace;
-    --serif: "Bodoni Moda", Georgia, serif;
-    --gutter: 16px;
-  }
-  *, *::before, *::after { box-sizing: border-box; }
-  html { -webkit-text-size-adjust: 100%; }
-  body {
-    margin: 0;
-    min-height: 100vh;
-    background: var(--bg);
-    color: var(--ink);
-    font: 400 1rem/1.55 var(--sans);
-    -webkit-font-smoothing: antialiased;
-  }
-  a { color: inherit; }
-  img { display: block; max-width: 100%; height: auto; }
-  :focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
-
-  .wrap { width: min(100% - 2 * var(--gutter), 1320px); margin-inline: auto; }
-
-  /* ---------- masthead ---------- */
-  .mast {
-    display: flex; align-items: center; justify-content: space-between; gap: 16px;
-    padding-block: 20px; border-bottom: 1px solid var(--line);
-  }
-  .mast__brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-  .mast__brand img { width: 44px; height: 44px; }
-  .mast__name { font-weight: 700; letter-spacing: .02em; line-height: 1.15; }
-  .mast__name small { display: block; font: 500 .72rem/1.3 var(--mono); color: var(--muted); letter-spacing: .08em; text-transform: uppercase; }
-  .mast__meta { font: 500 .72rem/1.4 var(--mono); color: var(--muted); letter-spacing: .08em; text-transform: uppercase; text-align: right; }
-
-  /* ---------- intro ---------- */
-  .intro { padding-block: clamp(40px, 9vw, 104px) clamp(28px, 5vw, 56px); display: grid; gap: 20px; }
-  .intro h1 {
-    margin: 0; font-weight: 800; font-stretch: 112%;
-    font-size: clamp(2.6rem, 9vw, 6.6rem); line-height: .92; letter-spacing: -.02em;
-  }
-  .intro h1 em { font: italic 500 1em/1 var(--serif); letter-spacing: -.01em; color: var(--muted); }
-  .intro p { margin: 0; max-width: 56ch; color: var(--muted); font-size: clamp(1rem, 1.6vw, 1.15rem); }
-  .intro kbd {
-    font: 500 .8em var(--mono); color: var(--ink); border: 1px solid var(--line); border-bottom-width: 2px;
-    padding: 1px 6px; border-radius: 4px;
-  }
-  .hint-keys { display: none; }
-  @media (hover: hover) and (pointer: fine) { .hint-keys { display: inline; } }
-
-  /* ---------- concept tiles ---------- */
-  .concepts { list-style: none; margin: 0; padding: 0 0 clamp(40px, 7vw, 88px); display: grid; gap: 16px; }
-  @media (min-width: 960px) { .concepts { grid-template-columns: repeat(3, 1fr); gap: 20px; } }
-
-  .tile {
-    position: relative; display: grid; grid-template-rows: auto 1fr auto;
-    min-height: 100%; text-decoration: none; overflow: hidden; isolation: isolate;
-    background: var(--t-bg); color: var(--t-ink);
-    transition: transform .35s cubic-bezier(.2,.7,.2,1);
-  }
-  .tile:hover { transform: translateY(-4px); }
-  .tile__media { position: relative; aspect-ratio: 4 / 3; overflow: hidden; }
-  .tile__media img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s cubic-bezier(.2,.7,.2,1); }
-  .tile:hover .tile__media img { transform: scale(1.04); }
-  .tile__num {
-    position: absolute; left: 14px; bottom: -0.16em; z-index: 1;
-    font-size: clamp(6.5rem, 26vw, 11rem); line-height: 1; color: var(--t-acc);
-    text-shadow: 0 2px 30px rgba(0,0,0,.35);
-  }
-  .tile__body { padding: 22px 20px 8px; display: grid; gap: 10px; align-content: start; }
-  .tile__name { margin: 0; font-size: clamp(1.4rem, 3.4vw, 1.75rem); line-height: 1.1; }
-  .tile__tag { margin: 0; font: 500 .72rem/1.5 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--t-acc); }
-  .tile__desc { margin: 0; font-size: .95rem; opacity: .82; }
-  .tile__swatches { display: flex; gap: 6px; margin-top: 4px; }
-  .tile__swatches span { width: 28px; height: 28px; border: 1px solid rgba(255,255,255,.18); background: var(--s); }
-  .tile__cta {
-    display: flex; align-items: center; justify-content: space-between; gap: 12px;
-    margin: 16px 20px 20px; padding-top: 14px; min-height: 44px;
-    border-top: 1px solid color-mix(in srgb, var(--t-ink) 18%, transparent);
-    font: 500 .8rem/1 var(--mono); letter-spacing: .1em; text-transform: uppercase;
-  }
-  .tile__cta svg { width: 22px; height: 22px; transition: transform .3s; }
-  .tile:hover .tile__cta svg, .tile:focus-visible .tile__cta svg { transform: translateX(6px); }
-
-  /* concept 1 — brutalism */
-  .tile--1 { --t-bg: var(--c1-bg); --t-ink: var(--c1-ink); --t-acc: var(--c1-acc); outline: 2px solid #fff; outline-offset: -2px; }
-  .tile--1 .tile__num { font-family: var(--sans); font-weight: 900; font-stretch: 125%; }
-  .tile--1 .tile__name { font-weight: 900; font-stretch: 125%; text-transform: uppercase; letter-spacing: -.01em; }
-  .tile--1 .tile__media img { filter: grayscale(1) contrast(1.15); }
-  .tile--1:hover .tile__media img { filter: none; }
-  .tile--1 .tile__media::after {
-    content: ""; position: absolute; inset: auto 0 0 0; height: 10px;
-    background: repeating-linear-gradient(-45deg, var(--c1-acc) 0 10px, var(--c1-bg) 10px 20px);
-  }
-  .tile--1:focus-visible { outline: 3px solid var(--c1-acc); outline-offset: 3px; }
-
-  /* concept 2 — editorial */
-  .tile--2 { --t-bg: var(--c2-bg); --t-ink: var(--c2-ink); --t-acc: var(--c2-acc); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--c2-acc) 45%, transparent); }
-  .tile--2 .tile__num { font-family: var(--serif); font-style: italic; font-weight: 500; }
-  .tile--2 .tile__name { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: clamp(1.6rem, 3.8vw, 2rem); }
-  .tile--2 .tile__media img { filter: saturate(.85); }
-  .tile--2 .tile__media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 50%, rgba(11,12,16,.75)); }
-
-  /* concept 3 — telemetry */
-  .tile--3 { --t-bg: var(--c3-bg); --t-ink: var(--c3-ink); --t-acc: var(--c3-acc); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--c3-acc) 35%, transparent); }
-  .tile--3 .tile__num { font-family: var(--mono); font-weight: 500; letter-spacing: -.04em; }
-  .tile--3 .tile__name { font-weight: 600; letter-spacing: -.01em; }
-  .tile--3 .tile__media::before {
-    content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
-    background:
-      linear-gradient(var(--c3-acc), var(--c3-acc)) 12px 12px / 22px 2px no-repeat,
-      linear-gradient(var(--c3-acc), var(--c3-acc)) 12px 12px / 2px 22px no-repeat,
-      linear-gradient(var(--c3-acc), var(--c3-acc)) calc(100% - 12px) 12px / 22px 2px no-repeat,
-      linear-gradient(var(--c3-acc), var(--c3-acc)) calc(100% - 12px) 12px / 2px 22px no-repeat,
-      repeating-linear-gradient(0deg, rgba(100,255,218,.08) 0 1px, transparent 1px 24px),
-      repeating-linear-gradient(90deg, rgba(100,255,218,.08) 0 1px, transparent 1px 24px);
-  }
-
-  /* ---------- notes + footer ---------- */
-  .notes {
-    display: grid; gap: 24px; padding-block: 32px 48px; border-top: 1px solid var(--line);
-    color: var(--muted); font-size: .92rem;
-  }
-  @media (min-width: 960px) { .notes { grid-template-columns: repeat(3, 1fr); } }
-  .notes h2 { margin: 0 0 6px; font: 500 .72rem/1.4 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--ink); }
-  .notes p { margin: 0; }
-  .notes a { color: var(--ink); text-underline-offset: 3px; }
-  .foot { padding-block: 20px 28px; border-top: 1px solid var(--line); font: 500 .72rem/1.5 var(--mono); color: var(--muted); letter-spacing: .06em; }
-
-  @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after { transition: none !important; animation: none !important; }
-  }
-</style>
+<link rel="stylesheet" href="css/fhe-overlays.css">
+<link rel="stylesheet" href="css/site.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Friendship Hall Sole Proprietorship L.L.C",
+  "alternateName": "Friendship Hall — FHE",
+  "description": "Heavy equipment rental: mobile cranes from 25 to 700 tonnes, crawler cranes, forklifts, lowbed and flatbed trailers, with trained operators and lifting supervisors.",
+  "url": "https://fhecrane.com",
+  "telephone": "+97124485660",
+  "email": "fhcrane@gmail.com",
+  "image": "assets/media/hero-gantry-dusk-1280.jpg",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Office M-1, Bldg C-145, Sector M-9, Mohamed Bin Zayed City",
+    "postOfficeBoxNumber": "8058",
+    "addressLocality": "Abu Dhabi",
+    "addressCountry": "AE"
+  },
+  "areaServed": "AE",
+  "openingHours": "Mo-Su 00:00-23:59"
+}
+</script>
 </head>
 <body>
-<header class="wrap mast">
-  <a class="mast__brand" href="index.html">
-    <img src="assets/brand/fhs-emblem.svg" alt="" width="44" height="44">
-    <span class="mast__name">Friendship Hall<small>FHE · Heavy equipment rental</small></span>
-  </a>
-  <p class="mast__meta">Homepage direction<br>October 2026</p>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- The mark intro (js/fhe-mark.js): the stage gets a copy of the header mark; a canvas for sparks is added by script. -->
+<div class="preloader" data-preloader="mark" aria-hidden="true">
+  <div class="preloader__backdrop"></div>
+  <div class="preloader__hud">
+    <span class="preloader__frame"></span>
+    <span class="preloader__axis preloader__axis--x"></span>
+    <span class="preloader__axis preloader__axis--y"></span>
+    <p class="preloader__corner preloader__corner--tl">Mobile cranes 25–700 T</p>
+    <p class="preloader__corner preloader__corner--tr">UAE <span data-uae-clock="hm">00:00</span> GST</p>
+    <p class="preloader__corner preloader__corner--bl">Since 1986 · 40 years</p>
+    <p class="preloader__corner preloader__corner--br">Support 24/7</p>
+    <div class="mark-caption">
+      <p class="mark-caption__name">Friendship Hall</p>
+      <p class="mark-caption__line">Heavy lifting · United Arab Emirates</p>
+    </div>
+    <p class="mark-load">Load <b data-mark-load>25</b> T</p>
+  </div>
+  <div class="mark-stage" data-mark-stage></div>
+</div>
+
+<div class="rail" data-rail aria-hidden="true">
+  <span class="rail__line"></span>
+  <span class="rail__hook"></span>
+  <span class="rail__label" data-rail-label>Prologue</span>
+</div>
+
+<div class="grain" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="bar">
+    <a class="brand" href="#top" aria-label="Friendship Hall — home">
+      <span class="brand__emblem" data-dock-target>
+<svg class="fhs-mark" xmlns="http://www.w3.org/2000/svg" viewBox="-505 -505 1010 1010" aria-hidden="true" focusable="false">
+  <g class="fhm-ring" fill="none" stroke="currentColor" stroke-width="1.6"><path class="fhm-ring__path" pathLength="1" vector-effect="non-scaling-stroke" d="M0 -500A500 500 0 1 1 0 500A500 500 0 1 1 0 -500"/></g>
+  <g class="fhm-letters" fill="currentColor">
+    <path class="fhm-glyph fhm-glyph--f" pathLength="1" d="M-302.33 -119.43L-302.33 -6.47L-294.42 -6.47C-282.25 -6.47 -272.31 -8.29 -264.6 -11.94C-256.9 -15.6 -250.38 -21.75 -245.04 -30.4C-239.69 -39.05 -236.21 -50.75 -234.59 -65.49L-227.49 -65.49L-227.49 72.63L-234.59 72.63C-237.16 46.54 -244.16 29.33 -255.58 21.01C-267.01 12.69 -279.95 8.53 -294.42 8.53L-302.33 8.53L-302.33 92.7C-302.33 106.77 -301.55 115.56 -300 119.07C-298.44 122.59 -295.4 125.66 -290.87 128.3C-286.34 130.94 -280.22 132.26 -272.52 132.26L-263.39 132.26L-263.39 139.76L-407.18 139.76L-407.18 132.26L-398.06 132.26C-390.08 132.26 -383.65 130.84 -378.79 128C-375.27 126.1 -372.57 122.86 -370.67 118.26C-369.19 115.01 -368.44 106.49 -368.44 92.7L-368.44 -88.21C-368.44 -102.26 -369.19 -111.05 -370.68 -114.56C-372.17 -118.08 -375.18 -121.16 -379.71 -123.8C-384.24 -126.43 -390.35 -127.75 -398.06 -127.75L-407.18 -127.75L-407.18 -135.25L-175.16 -135.25L-175.16 -56.36L-183.48 -56.36C-185.38 -74.89 -190.21 -88.61 -197.98 -97.53C-205.76 -106.46 -217.02 -112.74 -231.75 -116.39C-239.86 -118.42 -254.87 -119.43 -276.77 -119.43Z"/>
+    <path class="fhm-glyph fhm-glyph--h" pathLength="1" d="M-49.23 7.52L-49.23 92.7C-49.23 106.77 -48.45 115.56 -46.9 119.07C-45.34 122.59 -42.3 125.66 -37.77 128.3C-33.24 130.94 -27.12 132.26 -19.42 132.26L-10.29 132.26L-10.29 139.76L-154.08 139.76L-154.08 132.26L-144.96 132.26C-136.98 132.26 -130.55 130.84 -125.69 128C-122.17 126.1 -119.47 122.86 -117.57 118.26C-116.09 115.01 -115.34 106.49 -115.34 92.7L-115.34 -88.21C-115.34 -102.26 -116.09 -111.05 -117.57 -114.56C-119.06 -118.08 -122.07 -121.16 -126.6 -123.8C-131.13 -126.43 -137.24 -127.75 -144.96 -127.75L-154.08 -127.75L-154.08 -135.25L-10.29 -135.25L-10.29 -127.75L-19.42 -127.75C-27.39 -127.75 -33.81 -126.33 -38.68 -123.49C-42.19 -121.59 -44.96 -118.35 -46.99 -113.76C-48.49 -110.51 -49.23 -101.99 -49.23 -88.21L-49.23 -10.32L47.92 -10.32L47.92 -88.21C47.92 -102.26 47.18 -111.05 45.69 -114.56C44.2 -118.08 41.16 -121.16 36.56 -123.8C31.96 -126.43 25.81 -127.75 18.11 -127.75L9.18 -127.75L9.18 -135.25L152.77 -135.25L152.77 -127.75L143.85 -127.75C135.73 -127.75 129.31 -126.33 124.59 -123.49C121.06 -121.59 118.29 -118.35 116.26 -113.76C114.78 -110.51 114.03 -101.99 114.03 -88.21L114.03 92.7C114.03 106.77 114.78 115.56 116.26 119.07C117.75 122.59 120.8 125.66 125.39 128.3C129.99 130.94 136.14 132.26 143.85 132.26L152.77 132.26L152.77 139.76L9.18 139.76L9.18 132.26L18.11 132.26C26.22 132.26 32.64 130.84 37.38 128C40.89 126.1 43.66 122.86 45.69 118.26C47.18 115.01 47.92 106.49 47.92 92.7L47.92 7.52Z"/>
+    <path class="fhm-glyph fhm-glyph--s" pathLength="1" d="M355.46 -141.55L357.68 -49.87L349.37 -49.87C345.45 -72.86 335.81 -91.35 320.47 -105.34C305.12 -119.33 288.52 -126.33 270.67 -126.33C256.88 -126.33 245.97 -122.65 237.92 -115.27C229.88 -107.9 225.86 -99.42 225.86 -89.82C225.86 -83.74 227.28 -78.33 230.12 -73.61C234.04 -67.25 240.32 -60.95 248.97 -54.74C255.33 -50.28 270 -42.37 292.99 -31.01C325.17 -15.19 346.87 -0.25 358.09 13.81C369.18 27.87 374.72 43.96 374.72 62.08C374.72 85.06 365.77 104.84 347.85 121.41C329.93 137.97 307.18 146.24 279.6 146.24C270.94 146.24 262.76 145.36 255.06 143.6C247.35 141.85 237.69 138.54 226.06 133.67C219.57 130.97 214.22 129.61 210.03 129.61C206.52 129.61 202.8 130.97 198.88 133.67C194.96 136.38 191.78 140.5 189.35 146.04L181.85 146.04L181.85 42.2L189.35 42.2C195.3 71.41 206.76 93.69 223.73 109.04C240.69 124.38 258.98 132.06 278.59 132.06C293.73 132.06 305.79 127.93 314.78 119.68C323.77 111.43 328.27 101.83 328.27 90.87C328.27 84.39 326.55 78.1 323.1 72.02C319.65 65.93 314.41 60.15 307.39 54.68C300.36 49.2 287.92 42.07 270.07 33.28C245.06 20.97 227.07 10.5 216.12 1.85C205.17 -6.81 196.75 -16.47 190.87 -27.15C184.99 -37.84 182.05 -49.6 182.05 -62.45C182.05 -84.35 190.09 -103.01 206.18 -118.42C222.27 -133.84 242.55 -141.55 267.03 -141.55C275.95 -141.55 284.6 -140.46 292.99 -138.29C299.34 -136.67 307.08 -133.66 316.21 -129.27C325.34 -124.88 331.72 -122.68 335.37 -122.68C338.88 -122.68 341.66 -123.76 343.69 -125.92C345.71 -128.09 347.61 -133.3 349.37 -141.55Z"/>
+  </g>
+  <g class="fhm-rig" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <g class="fhm-ropes"><path class="fhm-rope" pathLength="1" vector-effect="non-scaling-stroke" d="M-32 -103.73L-24.42 -94.15L-17.63 -103.33L-17.63 119.6L-25.22 110.43L-32.34 119.18Z"/><path class="fhm-rope" pathLength="1" vector-effect="non-scaling-stroke" d="M-7.58 -104.47L0 -94.9L6.78 -104.07L6.78 118.85L-0.8 109.68L-7.92 118.44Z"/><path class="fhm-rope" pathLength="1" vector-effect="non-scaling-stroke" d="M19.38 -104.22L26.96 -94.64L33.74 -103.82L33.74 119.11L26.16 109.94L19.04 118.69Z"/></g>
+    <g class="fhm-hook">
+      <path class="fhm-shank" pathLength="1" vector-effect="non-scaling-stroke" d="M21.74 290.63L13.62 281.15L13.62 140.38L-14.82 140.38L-14.82 279.8L-22.57 291.12"/>
+      <path class="fhm-arm" pathLength="1" vector-effect="non-scaling-stroke" d="M-16.17 186.95L-88.89 227.63L-89.3 225.98L-17.2 178.07Z"/><path class="fhm-arm" pathLength="1" vector-effect="non-scaling-stroke" d="M14.2 188.19L88.99 227.42L89.61 225.15L15.03 178.28Z"/>
+      <path class="fhm-lug" pathLength="1" vector-effect="non-scaling-stroke" d="M-14.88 170.45L-23.47 186.31L-14.88 197.21"/><path class="fhm-lug" pathLength="1" vector-effect="non-scaling-stroke" d="M13.87 170.45L22.46 186.64L13.87 197.54"/><path class="fhm-pin" pathLength="1" vector-effect="non-scaling-stroke" d="M-20.73 185.51a1.46 1.46 0 1 0 2.92 0a1.46 1.46 0 1 0 -2.92 0"/><path class="fhm-pin" pathLength="1" vector-effect="non-scaling-stroke" d="M15.71 185.92a1.39 1.39 0 1 0 2.77 0a1.39 1.39 0 1 0 -2.77 0"/>
+      <path class="fhm-horn" pathLength="1" vector-effect="non-scaling-stroke" d="M-86.85 216.63A64.92 64.92 0 0 0 -37.06 332.61"/><path class="fhm-horn" pathLength="1" vector-effect="non-scaling-stroke" d="M-86.39 216.58A53.8 53.8 0 0 0 -22.09 290.79"/><path class="fhm-horn" pathLength="1" vector-effect="non-scaling-stroke" d="M36.24 333.15A64.92 64.92 0 0 0 87.51 217.83"/><path class="fhm-horn" pathLength="1" vector-effect="non-scaling-stroke" d="M21.7 290.32A53.8 53.8 0 0 0 87.44 217.38"/>
+      <path class="fhm-base" pathLength="1" vector-effect="non-scaling-stroke" d="M-50 333.68L56.23 334.09"/>
+    </g>
+  </g>
+</svg>
+      </span>
+      <span class="brand__word"><span>Friendship</span> <span>Hall</span></span>
+    </a>
+    <div class="bar__right">
+      <nav class="nav" id="site-nav" aria-label="Primary">
+        <ul class="nav__list">
+          <li class="nav__extra"><a href="#timelapse"><span class="nav__no" aria-hidden="true">I</span>The work in time</a></li>
+          <li><a href="#services"><span class="nav__no" aria-hidden="true">II</span>Services</a></li>
+          <li><a href="#fleet"><span class="nav__no" aria-hidden="true">III</span>Fleet</a></li>
+          <li><a href="#works"><span class="nav__no" aria-hidden="true">IV</span>Projects</a></li>
+          <li class="nav__extra"><a href="#industries"><span class="nav__no" aria-hidden="true">V</span>Industries</a></li>
+          <li class="nav__extra"><a href="#safety"><span class="nav__no" aria-hidden="true">VI</span>Safety</a></li>
+          <li class="nav__extra"><a href="#contact"><span class="nav__no" aria-hidden="true">VII</span>Contact</a></li>
+        </ul>
+        <div class="nav__foot">
+          <p class="nav__foot-label">Any hour, anywhere in the UAE</p>
+          <a class="btn btn--solid" href="#contact" data-enquire>Contact us</a>
+          <a class="btn" href="tel:+97124485660">Call +971 2 448 5660</a>
+          <a class="btn btn--ghost" href="https://wa.me/971529026105">WhatsApp Sales</a>
+        </div>
+      </nav>
+      <a class="bar__call" href="tel:+97124485660" aria-label="Call Friendship Hall, 24/7: +971 2 448 5660">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M6.6 3.5h2.6l1.4 4-2 1.4a12 12 0 0 0 6.5 6.5l1.4-2 4 1.4v2.6a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4.6 5.7a2 2 0 0 1 2-2.2Z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
+        <span class="bar__call-num">+971 2 448 5660</span>
+      </a>
+      <a class="btn btn--bar" href="#contact" data-enquire>Contact us</a>
+      <button class="nav-toggle" type="button" data-nav-toggle aria-controls="site-nav" aria-expanded="false" aria-label="Menu">
+        <span class="nav-toggle__bars" aria-hidden="true"><i></i><i></i></span>
+      </button>
+    </div>
+  </div>
 </header>
 
-<main class="wrap">
-  <section class="intro" aria-labelledby="intro-title">
-    <h1 id="intro-title">Three ways to<br>lift <em>the brand.</em></h1>
-    <p>Three complete, mobile-first homepage concepts built from FHE's own site photography, certificates and fleet range.
-      Open one, explore it, then use your browser's Back button to come straight back here.<span class="hint-keys"> Shortcut: press <kbd>1</kbd> <kbd>2</kbd> or <kbd>3</kbd>.</span></p>
+<main id="main">
+
+  <!-- ===================================================== HERO -->
+  <section class="hero" id="top" aria-labelledby="hero-title" data-folio="Prologue">
+    <div class="hero__media">
+      <img class="hero__img" src="assets/media/hero-gantry-dusk-1280.webp"
+           srcset="assets/media/hero-gantry-dusk-480.webp 480w, assets/media/hero-gantry-dusk-640.webp 640w, assets/media/hero-gantry-dusk-800.webp 800w, assets/media/hero-gantry-dusk-960.webp 960w, assets/media/hero-gantry-dusk-1280.webp 1280w, assets/media/hero-gantry-dusk-1920.webp 1920w"
+           sizes="(min-width: 960px) 100vw, 150vw" width="1920" height="1440"
+           alt="Two mobile cranes lifting a yellow bridge-launching girder marked SAFETY FIRST under a dusk sky"
+           fetchpriority="high" decoding="async">
+      <p class="hero__credit">Two cranes, one launching girder · <time datetime="2017-12-19">19 Dec 2017</time></p>
+    </div>
+    <div class="hero__body wrap">
+      <p class="hero__eyebrow eyebrow" data-reveal="up">Heavy crane rental · United Arab Emirates · Since 1986</p>
+      <h1 class="hero__title" id="hero-title" data-reveal="lines">
+        <span class="line"><span>Forty years </span></span>
+        <span class="line"><span>of lifting </span></span>
+        <span class="line"><span><em>the Emirates.</em></span></span>
+      </h1>
+      <div class="hero__aside" data-reveal="up" data-d="3">
+        <p class="hero__lede">A leading heavy equipment rental company — comprehensive, quality equipment, delivered with punctuality. Mobile cranes from 25 to 700 tonnes, lowbed transport and engineered rigging studies.</p>
+        <div class="hero__cta">
+          <a class="btn btn--solid" href="#contact" data-enquire>Contact us
+            <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a class="btn btn--ghost" href="tel:+97124485660">Call 24/7
+            <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+      <dl class="facts" data-reveal="stagger">
+        <div class="facts__item"><dt>Years in the UAE, since 1986</dt><dd><span data-count="40">40</span></dd></div>
+        <div class="facts__item"><dt>Support, UAE-wide</dt><dd>24/7</dd></div>
+        <div class="facts__item"><dt>Mobile cranes</dt><dd>25–700<span class="facts__unit">T</span></dd></div>
+      </dl>
+    </div>
   </section>
 
-  <ol class="concepts" aria-label="Homepage concepts">
-    <li>
-      <a class="tile tile--1" href="concept-1.html">
-        <div class="tile__media">
-          <img src="assets/media/fhe-carrier-closeup-640.webp" srcset="assets/media/fhe-carrier-closeup-480.webp 480w, assets/media/fhe-carrier-closeup-640.webp 640w, assets/media/fhe-carrier-closeup-800.webp 800w, assets/media/fhe-carrier-closeup-960.webp 960w, assets/media/fhe-carrier-closeup-1280.webp 1280w" sizes="(min-width: 960px) 32vw, 100vw" width="640" height="480" alt="" decoding="async" fetchpriority="high">
-          <span class="tile__num" aria-hidden="true">1</span>
-        </div>
-        <div class="tile__body">
-          <p class="tile__tag">Concept 01 — Heavy machinery</p>
-          <h2 class="tile__name">Industrial Brutalism</h2>
-          <p class="tile__desc">Stark, mechanical, built like a load chart. Giant block type, raw bento grids, hard borders and safety-amber signals.</p>
-          <div class="tile__swatches" aria-hidden="true"><span style="--s:#1A1A1A"></span><span style="--s:#FFFFFF"></span><span style="--s:#FFB000"></span></div>
-        </div>
-        <span class="tile__cta">Open concept 1<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span>
-      </a>
-    </li>
-    <li>
-      <a class="tile tile--2" href="concept-2.html">
-        <div class="tile__media">
-          <img src="assets/media/hero-gantry-dusk-640.webp" srcset="assets/media/hero-gantry-dusk-480.webp 480w, assets/media/hero-gantry-dusk-640.webp 640w, assets/media/hero-gantry-dusk-800.webp 800w, assets/media/hero-gantry-dusk-960.webp 960w, assets/media/hero-gantry-dusk-1280.webp 1280w" sizes="(min-width: 960px) 32vw, 100vw" width="640" height="480" alt="" decoding="async" loading="lazy">
-          <span class="tile__num" aria-hidden="true">2</span>
-        </div>
-        <div class="tile__body">
-          <p class="tile__tag">Concept 02 — Premium contractor</p>
-          <h2 class="tile__name">Cinematic Editorial</h2>
-          <p class="tile__desc">Dark, calm and expensive. High-contrast serif headlines, sweeping asymmetric layouts and brushed-gold detail.</p>
-          <div class="tile__swatches" aria-hidden="true"><span style="--s:#0B0C10"></span><span style="--s:#1F2833"></span><span style="--s:#C5A059"></span></div>
-        </div>
-        <span class="tile__cta">Open concept 2<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span>
-      </a>
-    </li>
-    <li>
-      <a class="tile tile--3" href="concept-3.html">
-        <div class="tile__media">
-          <img src="assets/media/night-luffing-city-640.webp" srcset="assets/media/night-luffing-city-480.webp 480w, assets/media/night-luffing-city-640.webp 640w, assets/media/night-luffing-city-800.webp 800w, assets/media/night-luffing-city-960.webp 960w, assets/media/night-luffing-city-1280.webp 1280w" sizes="(min-width: 960px) 32vw, 100vw" width="640" height="480" alt="" decoding="async" loading="lazy">
-          <span class="tile__num" aria-hidden="true">3</span>
-        </div>
-        <div class="tile__body">
-          <p class="tile__tag">Concept 03 — Digital cockpit</p>
-          <h2 class="tile__name">Data-Dense Telemetry</h2>
-          <p class="tile__desc">An engineering control room. Live UAE clock, metric modules, blueprint frames and an interactive 25–700T capacity scale.</p>
-          <div class="tile__swatches" aria-hidden="true"><span style="--s:#0A192F"></span><span style="--s:#172A45"></span><span style="--s:#64FFDA"></span></div>
-        </div>
-        <span class="tile__cta">Open concept 3<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span>
-      </a>
-    </li>
-  </ol>
+  <!-- ===================================================== PROLOGUE -->
+  <section class="section prologue" id="prologue" aria-label="About Friendship Hall" data-folio="Prologue">
+    <div class="wrap grid">
+      <p class="chapter-mark prologue__mark" data-reveal>
+        <span class="chapter-mark__label">Prologue</span>
+        <span class="chapter-mark__rule" aria-hidden="true"></span>
+      </p>
+      <p class="prologue__statement" data-reveal="up">A leading heavy equipment rental company, bringing <em>comprehensive, quality equipment</em> and <em>punctuality</em> to any crane job, anytime, anywhere in the UAE.</p>
+      <div class="prologue__note" data-reveal="up" data-d="2">
+        <p>Friendship Hall — FHE — has been lifting in the United Arab Emirates since 1986: 40 years of real-world experience. One of the largest fleets of cranes, extensive lifting and rigging support, and trained operators and lifting supervisors, on call around the clock.</p>
+        <p><a class="link" href="#services">What we do</a></p>
+      </div>
+    </div>
+  </section>
 
-  <section class="notes" aria-label="About these concepts">
-    <div>
-      <h2>Shared across all three</h2>
-      <p>The hook preloader (the FHS emblem drops on a crane cable, settles, then docks into the header), a lazy-loaded heavy-lift time-lapse, services, the 25–700T fleet, field work, industries, ISO 9001 / ISO 45001 / ICV, leadership and 24/7 contact.</p>
+  <!-- ===================================================== I — FILM -->
+  <section class="section film-section" id="timelapse" aria-labelledby="film-title" data-folio="I · The work in time">
+    <div class="wrap">
+      <header class="chapter-head grid">
+        <p class="chapter-mark" data-reveal>
+          <span class="chapter-mark__no">I</span>
+          <span class="chapter-mark__rule" aria-hidden="true"></span>
+          <span class="chapter-mark__label">The work in time</span>
+          <span class="chapter-mark__of" aria-hidden="true">I / VII</span>
+        </p>
+        <h2 class="chapter-title" id="film-title" data-reveal="up">The work, <em>in time.</em></h2>
+        <p class="chapter-intro" data-reveal="up" data-d="2">A reel of FHE heavy lifts from 2017 to 2020, in the order they happened.</p>
+      </header>
+
+      <figure class="film" data-reveal>
+        <div class="film__bar film__bar--top" aria-hidden="true"><span>Friendship Hall · Heavy lifts</span><span>2017 — 2020</span></div>
+        <div class="film__frame">
+          <div class="timelapse" data-timelapse>
+            <video data-lazy-video muted loop playsinline preload="none" width="1280" height="720"
+                   data-poster="assets/video/crane-timelapse-poster-1280.webp"
+                   aria-label="Time-lapse of FHE heavy lifts, 2017 to 2020">
+              <source data-src="assets/video/crane-timelapse.mp4" type="video/mp4">
+            </video>
+            <button type="button" class="timelapse__toggle" data-timelapse-toggle aria-pressed="false">
+              <span class="timelapse__ring" aria-hidden="true">
+                <svg class="timelapse__icon timelapse__icon--play" viewBox="0 0 24 24" width="26" height="26" focusable="false"><path d="M8.5 5.2v13.6L19.2 12z" fill="currentColor"/></svg>
+                <svg class="timelapse__icon timelapse__icon--pause" viewBox="0 0 24 24" width="26" height="26" focusable="false"><path d="M7 5h3.6v14H7zM13.4 5H17v14h-3.6z" fill="currentColor"/></svg>
+              </span>
+              <span class="timelapse__state"><span class="timelapse__state-play">Play the reel</span><span class="timelapse__state-pause">Pause</span></span>
+            </button>
+          </div>
+        </div>
+        <div class="film__bar film__bar--bottom" aria-hidden="true"><span>UAE</span><span>24/7</span></div>
+        <figcaption class="film__cap"><span>2017 — 2020 · Time-lapse</span><span>From a girder lift in 2017 to a tandem lift in 2020</span></figcaption>
+      </figure>
     </div>
-    <div>
-      <h2>Content</h2>
-      <p>Facts come from fhecrane.com, the "Our services" document and FHE's certificates. Project dates are the capture dates of the client's photos. Leadership portraits other than Habib's are placeholders.</p>
+  </section>
+
+  <!-- ===================================================== II — SERVICES -->
+  <section class="section services" id="services" aria-labelledby="services-title" data-folio="II · Services">
+    <div class="wrap">
+      <header class="chapter-head grid">
+        <p class="chapter-mark" data-reveal>
+          <span class="chapter-mark__no">II</span>
+          <span class="chapter-mark__rule" aria-hidden="true"></span>
+          <span class="chapter-mark__label">Services</span>
+          <span class="chapter-mark__of" aria-hidden="true">II / VII</span>
+        </p>
+        <h2 class="chapter-title" id="services-title" data-reveal="up">What we <em>lift, move</em> and plan.</h2>
+        <p class="chapter-intro" data-reveal="up" data-d="2">Three services under one roof, delivered with punctuality — any crane rental job, anytime, anywhere in the UAE.</p>
+      </header>
+
+      <article class="service service--lifting grid">
+        <div class="service__text" data-reveal="stagger">
+          <p class="service__no">01</p>
+          <h3 class="service__title">Heavy lifting</h3>
+          <p>One of the largest fleets of cranes — 25 to 700-tonne mobile cranes — with extensive lifting and rigging equipment support. We have the capability to perform any crane rental job, anytime, anywhere in the UAE.</p>
+          <ul class="service__tags"><li>25–700 T mobile cranes</li><li>Lifting &amp; rigging support</li></ul>
+        </div>
+        <figure class="plate plate--matted service__fig" data-reveal>
+          <div class="plate__frame">
+            <img src="assets/media/bridge-segment-spmt-1280.webp"
+                 srcset="assets/media/bridge-segment-spmt-480.webp 480w, assets/media/bridge-segment-spmt-640.webp 640w, assets/media/bridge-segment-spmt-800.webp 800w, assets/media/bridge-segment-spmt-960.webp 960w, assets/media/bridge-segment-spmt-1280.webp 1280w"
+                 sizes="(min-width: 960px) 36vw, 92vw" width="1280" height="1707"
+                 alt="Red mobile crane beside a bridge box-girder segment loaded on a multi-axle modular trailer"
+                 loading="lazy" decoding="async">
+          </div>
+          <figcaption class="plate__cap"><time datetime="2018-02-26">26 Feb 2018</time><span>A box-girder segment on a multi-axle modular trailer, beside a red mobile crane.</span></figcaption>
+        </figure>
+      </article>
+
+      <article class="service service--transport grid">
+        <figure class="plate plate--matted service__fig" data-reveal>
+          <div class="plate__frame">
+            <img src="assets/media/lowbed-trailer-1280.webp"
+                 srcset="assets/media/lowbed-trailer-480.webp 480w, assets/media/lowbed-trailer-640.webp 640w, assets/media/lowbed-trailer-800.webp 800w, assets/media/lowbed-trailer-960.webp 960w, assets/media/lowbed-trailer-1280.webp 1280w, assets/media/lowbed-trailer-1920.webp 1920w"
+                 sizes="(min-width: 960px) 46vw, 92vw" width="1280" height="960"
+                 alt="Mobile crane lifting a yacht onto a lowbed trailer at sunset"
+                 loading="lazy" decoding="async">
+          </div>
+          <figcaption class="plate__cap"><time datetime="2018-04-10">10 Apr 2018</time><span>A yacht set onto a lowbed trailer at sunset.</span></figcaption>
+        </figure>
+        <div class="service__text" data-reveal="stagger">
+          <p class="service__no">02</p>
+          <h3 class="service__title">Heavy transportation <em>by truck trailer</em></h3>
+          <p>Best-in-class land transport on a wide variety of trailers, including hydraulic lowbeds and flatbeds. We move over-dimensional and overweight shipments that need special equipment and permits — with quality, reliability and on-time delivery.</p>
+          <ul class="service__tags"><li>Hydraulic lowbed</li><li>Flatbed</li><li>Special permits</li></ul>
+        </div>
+      </article>
+
+      <article class="service service--survey grid">
+        <div class="service__text" data-reveal="stagger">
+          <p class="service__no">03</p>
+          <h3 class="service__title">Site surveys <em>&amp; project estimation</em></h3>
+          <p>Free-of-cost consultation, and engineered rigging studies for maximum safety and efficiency. We plan the optimal deployment of the right equipment, so you get the most effective solution for the job.</p>
+          <ul class="service__tags"><li>Free consultation</li><li>Engineered rigging studies</li></ul>
+        </div>
+        <figure class="plate plate--matted service__fig" data-reveal>
+          <div class="plate__frame">
+            <img src="assets/media/precast-segment-spreader-1280.webp"
+                 srcset="assets/media/precast-segment-spreader-480.webp 480w, assets/media/precast-segment-spreader-640.webp 640w, assets/media/precast-segment-spreader-800.webp 800w, assets/media/precast-segment-spreader-960.webp 960w, assets/media/precast-segment-spreader-1280.webp 1280w"
+                 sizes="(min-width: 960px) 30vw, 92vw" width="1280" height="1707"
+                 alt="Red heavy crane setting a precast bridge segment using a blue spreader beam"
+                 loading="lazy" decoding="async">
+          </div>
+          <figcaption class="plate__cap"><time datetime="2018-03-27">27 Mar 2018</time><span>A precast bridge segment set with a blue spreader beam.</span></figcaption>
+        </figure>
+      </article>
     </div>
-    <div>
-      <h2>Archive</h2>
-      <p>The earlier telemetry pitch is kept, untouched, in <a href="_archive/telemetry-pitch/index.html">the archive</a>.</p>
+  </section>
+
+  <!-- ===================================================== INTERLUDE — PANORAMA -->
+  <section class="panorama" id="tandem" aria-label="Tandem lift of a steel pedestrian bridge, 16 November 2020" data-folio="Interlude">
+    <div class="panorama__frame">
+      <img class="panorama__img" src="assets/media/tandem-bridge-panorama-1280.webp"
+           srcset="assets/media/tandem-bridge-panorama-480.webp 480w, assets/media/tandem-bridge-panorama-640.webp 640w, assets/media/tandem-bridge-panorama-800.webp 800w, assets/media/tandem-bridge-panorama-960.webp 960w, assets/media/tandem-bridge-panorama-1280.webp 1280w, assets/media/tandem-bridge-panorama-1920.webp 1920w"
+           sizes="(min-width: 960px) 115vw, 135vw" width="1280" height="545"
+           alt="Two cranes performing a tandem lift of a steel pedestrian bridge"
+           loading="lazy" decoding="async">
+    </div>
+    <div class="panorama__cap wrap" data-reveal="up">
+      <p class="panorama__quote">Two cranes. One bridge. <em>Zero margin.</em></p>
+      <p class="panorama__meta"><time datetime="2020-11-16">16 Nov 2020</time><span>Tandem lift of a steel pedestrian bridge</span></p>
+    </div>
+  </section>
+
+  <!-- ===================================================== III — FLEET -->
+  <section class="section fleet" id="fleet" aria-labelledby="fleet-title" data-folio="III · The fleet">
+    <div class="wrap">
+      <header class="chapter-head grid">
+        <p class="chapter-mark" data-reveal>
+          <span class="chapter-mark__no">III</span>
+          <span class="chapter-mark__rule" aria-hidden="true"></span>
+          <span class="chapter-mark__label">The fleet</span>
+          <span class="chapter-mark__of" aria-hidden="true">III / VII</span>
+        </p>
+        <h2 class="chapter-title" id="fleet-title" data-reveal="up">The fleet, <em>by the tonne.</em></h2>
+        <p class="chapter-intro" data-reveal="up" data-d="2">From city picks to flagship lifts — with the trailers, support equipment and trained operators to put the right machine in the right place.</p>
+      </header>
+
+      <div class="range" data-reveal="up">
+        <p class="range__figure"><span class="range__n">25</span><span class="range__dash" aria-hidden="true"></span><span class="sr-only"> to </span><span class="range__n">700</span></p>
+        <p class="range__label"><em>tonnes</em> — mobile crane capacity range</p>
+      </div>
+
+      <div class="scale" data-reveal role="group" aria-label="Capacity scale, 25 to 700 tonnes">
+        <ol class="scale__ticks">
+          <li style="--x:0"><span>25<small>T</small></span></li>
+          <li style="--x:.208"><span>50<small>T</small></span></li>
+          <li style="--x:.416"><span>100<small>T</small></span></li>
+          <li style="--x:.623"><span>200<small>T</small></span></li>
+          <li style="--x:.746"><span>300<small>T</small></span></li>
+          <li style="--x:.899"><span>500<small>T</small></span></li>
+          <li style="--x:1"><span>700<small>T</small></span></li>
+        </ol>
+      </div>
+
+      <ol class="classes" data-reveal="stagger">
+        <li class="class" style="--from:0;--to:.263">
+          <p class="class__range">25–60<small>T</small></p>
+          <p class="class__use">City picks, HVAC &amp; signage, plant maintenance</p>
+          <span class="class__bar" aria-hidden="true"><i></i></span>
+        </li>
+        <li class="class" style="--from:.309;--to:.495">
+          <p class="class__range">70–130<small>T</small></p>
+          <p class="class__use">Precast, steel erection, tower-crane assembly</p>
+          <span class="class__bar" aria-hidden="true"><i></i></span>
+        </li>
+        <li class="class" style="--from:.538;--to:.746">
+          <p class="class__range">150–300<small>T</small></p>
+          <p class="class__use">Bridge girders, heavy modules, tandem lifts</p>
+          <span class="class__bar" aria-hidden="true"><i></i></span>
+        </li>
+        <li class="class" style="--from:.832;--to:.899">
+          <p class="class__range">400–500<small>T</small></p>
+          <p class="class__use">Heavy industrial, refinery &amp; power, superlift work</p>
+          <span class="class__bar" aria-hidden="true"><i></i></span>
+        </li>
+        <li class="class class--flagship" style="--from:.985;--to:1">
+          <p class="class__range">700<small>T</small></p>
+          <p class="class__use"><span class="class__flag">Flagship</span> Vessels, heavy plant, long-radius lifts</p>
+          <span class="class__bar" aria-hidden="true"><i></i></span>
+        </li>
+      </ol>
+
+      <div class="catalogue">
+        <div class="yard grid">
+          <div class="yard__text" data-reveal="stagger">
+            <p class="eyebrow">In the yard</p>
+            <p class="yard__lead">Mobile, crawler and forklift. Lowbed and flatbed. One of the largest fleets of cranes, ready for any job.</p>
+            <p class="yard__sub">Backed by man lifts, Bobcats, JCBs and excavators — and trained operators and lifting supervisors.</p>
+          </div>
+          <figure class="plate yard__fig" data-reveal>
+            <div class="plate__frame">
+              <img src="assets/media/fleet-yard-1280.webp"
+                   srcset="assets/media/fleet-yard-480.webp 480w, assets/media/fleet-yard-640.webp 640w, assets/media/fleet-yard-800.webp 800w, assets/media/fleet-yard-960.webp 960w, assets/media/fleet-yard-1280.webp 1280w, assets/media/fleet-yard-1920.webp 1920w"
+                   sizes="(min-width: 960px) 46vw, 92vw" width="1280" height="1082"
+                   alt="FHE fleet of red and yellow all-terrain cranes in the yard"
+                   loading="lazy" decoding="async">
+            </div>
+            <figcaption class="plate__cap"><span>The FHE fleet of red and yellow all-terrain cranes in the yard.</span></figcaption>
+          </figure>
+        </div>
+
+        <article class="tier tier--mobile grid">
+          <figure class="plate tier__fig" data-reveal>
+            <div class="plate__frame">
+              <img src="assets/media/heavy-crane-superlift-night-1280.webp"
+                   srcset="assets/media/heavy-crane-superlift-night-480.webp 480w, assets/media/heavy-crane-superlift-night-640.webp 640w, assets/media/heavy-crane-superlift-night-800.webp 800w, assets/media/heavy-crane-superlift-night-960.webp 960w, assets/media/heavy-crane-superlift-night-1280.webp 1280w"
+                   sizes="(min-width: 960px) 38vw, 92vw" width="1280" height="1707"
+                   alt="FHE heavy crane with superlift counterweight working at night"
+                   loading="lazy" decoding="async">
+            </div>
+            <figcaption class="plate__cap"><time datetime="2020-10-27">27 Oct 2020</time><span>A heavy crane with superlift counterweight, working at night.</span></figcaption>
+          </figure>
+          <div class="tier__text" data-reveal="stagger">
+            <p class="tier__kicker">Mobile cranes</p>
+            <h3 class="tier__title">25T <em>to</em> 700T</h3>
+            <p>The heart of the fleet: mobile cranes from 25 to 700 tonnes, rigged with superlift counterweight for the heaviest lifts.</p>
+          </div>
+        </article>
+
+        <article class="tier tier--crawler grid">
+          <div class="tier__text" data-reveal="stagger">
+            <p class="tier__kicker">Crawler cranes</p>
+            <h3 class="tier__title">Lattice boom, <em>long reach.</em></h3>
+            <p>Lattice-boom crawler cranes for heavy, long-radius lifting on site.</p>
+          </div>
+          <figure class="plate tier__fig" data-reveal>
+            <div class="plate__frame">
+              <img src="assets/media/crawler-crane-coast-1280.webp"
+                   srcset="assets/media/crawler-crane-coast-480.webp 480w, assets/media/crawler-crane-coast-640.webp 640w, assets/media/crawler-crane-coast-800.webp 800w, assets/media/crawler-crane-coast-960.webp 960w, assets/media/crawler-crane-coast-1280.webp 1280w, assets/media/crawler-crane-coast-1920.webp 1920w"
+                   sizes="(min-width: 960px) 54vw, 92vw" width="1280" height="960"
+                   alt="White lattice-boom crawler crane working on a coastal site"
+                   loading="lazy" decoding="async">
+            </div>
+            <figcaption class="plate__cap"><span>A white lattice-boom crawler crane working on a coastal site.</span></figcaption>
+          </figure>
+        </article>
+
+        <article class="tier tier--trailers grid">
+          <figure class="plate tier__fig" data-reveal>
+            <div class="plate__frame">
+              <img src="assets/media/crane-on-flatbed-1280.webp"
+                   srcset="assets/media/crane-on-flatbed-480.webp 480w, assets/media/crane-on-flatbed-640.webp 640w, assets/media/crane-on-flatbed-800.webp 800w, assets/media/crane-on-flatbed-960.webp 960w, assets/media/crane-on-flatbed-1280.webp 1280w, assets/media/crane-on-flatbed-1920.webp 1920w"
+                   sizes="(min-width: 960px) 46vw, 92vw" width="1280" height="960"
+                   alt="Heavy crane lifting a mobile crane carrier onto a flatbed trailer with orange round slings"
+                   loading="lazy" decoding="async">
+            </div>
+            <figcaption class="plate__cap"><time datetime="2018-05-02">2 May 2018</time><span>A crane carrier lifted onto a flatbed with orange round slings.</span></figcaption>
+          </figure>
+          <div class="tier__text" data-reveal="stagger">
+            <p class="tier__kicker">Lowbed &amp; flatbed trailers</p>
+            <h3 class="tier__title">Moved with <em>permits in hand.</em></h3>
+            <p>Hydraulic lowbeds and flatbeds for over-dimensional and overweight loads, with the special equipment and permits they require.</p>
+          </div>
+        </article>
+
+        <article class="tier tier--forklift grid">
+          <div class="tier__text" data-reveal="stagger">
+            <p class="tier__kicker">Forklifts</p>
+            <h3 class="tier__title">Down to <em>the yard.</em></h3>
+            <p>Forklifts for loading, unloading and material handling on site and in the yard.</p>
+          </div>
+          <div class="tier__plate" data-reveal>
+            <div class="spec" role="img" aria-label="Line drawing of a forklift">
+              <svg class="spec__svg" viewBox="0 0 360 230" focusable="false" aria-hidden="true">
+                <g class="spec__draw" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path class="spec__faint" d="M6 206H354"/>
+                  <path class="spec__faint" d="M14 8v10M9 13h10M346 8v10M341 13h10M14 212v10M9 217h10M346 212v10M341 217h10"/>
+                  <path class="spec__faint" stroke-dasharray="3 4" d="M24 22V200M24 22H58M24 200H40"/>
+                  <path class="spec__faint" d="M18 22h12M18 200h12"/>
+                  <path d="M58 22V200M72 22V200M58 22H72M58 76H72M58 128H72"/>
+                  <path d="M40 142V196H56V142Z"/>
+                  <path d="M6 192H40V198H6ZM6 186H40V192"/>
+                  <path d="M72 200V152H112L122 140H236V124H262Q300 124 316 148Q326 162 326 184V200H72Z"/>
+                  <path d="M110 140V56M232 140V56M104 56H244M104 56L112 48H236L244 56"/>
+                  <path class="spec__faint" d="M122 56V48M146 56V48M170 56V48M194 56V48M218 56V48"/>
+                  <path d="M168 140V118Q168 112 174 112H190Q196 112 196 118V140M196 140V94Q196 90 200 90H206Q210 90 210 94V140"/>
+                  <circle cx="136" cy="106" r="9"/>
+                  <path d="M136 115L142 140"/>
+                  <path class="spec__faint" d="M262 142H326M286 142V200"/>
+                  <circle cx="112" cy="178" r="28"/>
+                  <circle cx="112" cy="178" r="12"/>
+                  <circle cx="268" cy="184" r="22"/>
+                  <circle cx="268" cy="184" r="9"/>
+                </g>
+              </svg>
+              <p class="spec__label" aria-hidden="true"><span>Forklifts</span><span>Fleet plate</span></p>
+            </div>
+          </div>
+        </article>
+
+        <div class="support grid" data-reveal="stagger">
+          <div class="support__item">
+            <p class="support__label">Support equipment</p>
+            <p class="support__text">Man lifts, Bobcats, JCBs and excavators, on the job alongside the cranes.</p>
+          </div>
+          <div class="support__item">
+            <p class="support__label">Operators &amp; supervisors</p>
+            <p class="support__text">Trained operators and lifting supervisors provided with the equipment.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================== IV — SELECTED WORKS -->
+  <section class="section works" id="works" aria-labelledby="works-title" data-folio="IV · Selected works">
+    <div class="wrap">
+      <header class="chapter-head grid">
+        <p class="chapter-mark" data-reveal>
+          <span class="chapter-mark__no">IV</span>
+          <span class="chapter-mark__rule" aria-hidden="true"></span>
+          <span class="chapter-mark__label">Selected works</span>
+          <span class="chapter-mark__of" aria-hidden="true">IV / VII</span>
+        </p>
+        <h2 class="chapter-title" id="works-title" data-reveal="up">Selected works, <em>2019–2020.</em></h2>
+        <p class="chapter-intro" data-reveal="up" data-d="2">Photographed on site, shown with the date each frame was taken.</p>
+      </header>
+
+      <div class="works__grid">
+        <figure class="work work--1" data-reveal>
+          <div class="plate__frame">
+            <img src="assets/media/tensile-roof-tandem-1280.webp"
+                 srcset="assets/media/tensile-roof-tandem-480.webp 480w, assets/media/tensile-roof-tandem-640.webp 640w, assets/media/tensile-roof-tandem-800.webp 800w, assets/media/tensile-roof-tandem-960.webp 960w, assets/media/tensile-roof-tandem-1280.webp 1280w, assets/media/tensile-roof-tandem-1920.webp 1920w"
+                 sizes="(min-width: 960px) 55vw, 92vw" width="1280" height="960"
+                 alt="Four mobile cranes in a coordinated multi-crane lift of a tensile fabric roof"
+                 loading="lazy" decoding="async">
+          </div>
+          <figcaption class="work__cap"><time datetime="2019-09-22">22 Sep 2019</time><span>Four mobile cranes in a coordinated lift of a tensile fabric roof.</span></figcaption>
+        </figure>
+
+        <figure class="work work--2" data-reveal data-d="2">
+          <div class="plate__frame">
+            <img src="assets/media/port-vessel-dusk-1280.webp"
+                 srcset="assets/media/port-vessel-dusk-480.webp 480w, assets/media/port-vessel-dusk-640.webp 640w, assets/media/port-vessel-dusk-800.webp 800w, assets/media/port-vessel-dusk-960.webp 960w, assets/media/port-vessel-dusk-1280.webp 1280w"
+                 sizes="(min-width: 960px) 30vw, 72vw" width="1280" height="1707"
+                 alt="Red luffing-jib crane lifting a vessel at a port at dusk"
+                 loading="lazy" decoding="async">
+          </div>
+          <figcaption class="work__cap"><time datetime="2019-10-28">28 Oct 2019</time><span>A red luffing-jib crane lifting a vessel at a port, at dusk.</span></figcaption>
+        </figure>
+
+        <figure class="work work--3" data-reveal>
+          <div class="plate__frame">
+            <img src="assets/media/night-dhow-lift-1280.webp"
+                 srcset="assets/media/night-dhow-lift-480.webp 480w, assets/media/night-dhow-lift-640.webp 640w, assets/media/night-dhow-lift-800.webp 800w, assets/media/night-dhow-lift-960.webp 960w, assets/media/night-dhow-lift-1280.webp 1280w, assets/media/night-dhow-lift-1920.webp 1920w"
+                 sizes="(min-width: 960px) 46vw, 92vw" width="1280" height="960"
+                 alt="Night lift of a traditional wooden dhow with spreader bars under floodlights"
+                 loading="lazy" decoding="async">
+          </div>
+          <figcaption class="work__cap"><time datetime="2019-11-26">26 Nov 2019</time><span>A traditional wooden dhow lifted on spreader bars, at night under floodlights.</span></figcaption>
+        </figure>
+
+        <figure class="work work--4" data-reveal data-d="2">
+          <div class="plate__frame">
+            <img src="assets/media/excavator-rooftop-lift-1280.webp"
+                 srcset="assets/media/excavator-rooftop-lift-480.webp 480w, assets/media/excavator-rooftop-lift-640.webp 640w, assets/media/excavator-rooftop-lift-800.webp 800w, assets/media/excavator-rooftop-lift-960.webp 960w, assets/media/excavator-rooftop-lift-1280.webp 1280w"
+                 sizes="(min-width: 960px) 26vw, 66vw" width="1280" height="1707"
+                 alt="FHE crane lifting an excavator up the face of a building"
+                 loading="lazy" decoding="async">
+          </div>
+          <figcaption class="work__cap"><time datetime="2020-09-16">16 Sep 2020</time><span>An excavator lifted up the face of a building.</span></figcaption>
+        </figure>
+
+        <figure class="work work--5" data-reveal>
+          <div class="plate__frame">
+            <img src="assets/media/yacht-spreader-lift-1280.webp"
+                 srcset="assets/media/yacht-spreader-lift-480.webp 480w, assets/media/yacht-spreader-lift-640.webp 640w, assets/media/yacht-spreader-lift-800.webp 800w, assets/media/yacht-spreader-lift-960.webp 960w, assets/media/yacht-spreader-lift-1280.webp 1280w"
+                 sizes="(min-width: 960px) 30vw, 72vw" width="1280" height="1707"
+                 alt="Yellow mobile crane lifting a yacht hull with a spreader frame"
+                 loading="lazy" decoding="async">
+          </div>
+          <figcaption class="work__cap"><time datetime="2020-10-03">3 Oct 2020</time><span>A yacht hull raised on a spreader frame.</span></figcaption>
+        </figure>
+
+        <figure class="work work--6" data-reveal data-d="2">
+          <div class="plate__frame">
+            <img src="assets/media/luffing-civic-building-1280.webp"
+                 srcset="assets/media/luffing-civic-building-480.webp 480w, assets/media/luffing-civic-building-640.webp 640w, assets/media/luffing-civic-building-800.webp 800w, assets/media/luffing-civic-building-960.webp 960w, assets/media/luffing-civic-building-1280.webp 1280w"
+                 sizes="(min-width: 960px) 38vw, 82vw" width="1280" height="1707"
+                 alt="Yellow luffing crane lifting steelwork beside a civic building"
+                 loading="lazy" decoding="async">
+          </div>
+          <figcaption class="work__cap"><time datetime="2020-11-07">7 Nov 2020</time><span>A yellow luffing crane lifting steelwork beside a civic building.</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================== V — INDUSTRIES -->
+  <section class="section industries" id="industries" aria-labelledby="industries-title" data-folio="V · Industries">
+    <div class="wrap">
+      <header class="chapter-head grid">
+        <p class="chapter-mark" data-reveal>
+          <span class="chapter-mark__no">V</span>
+          <span class="chapter-mark__rule" aria-hidden="true"></span>
+          <span class="chapter-mark__label">Industries</span>
+          <span class="chapter-mark__of" aria-hidden="true">V / VII</span>
+        </p>
+        <h2 class="chapter-title" id="industries-title" data-reveal="up">Industries <em>we serve.</em></h2>
+      </header>
+
+      <ul class="industries__list">
+        <li class="industry" data-reveal="up">
+          <h3 class="industry__name">Oil <em>&amp;</em> Gas</h3>
+          <p class="industry__desc">Heavy industrial, refinery and power-site lifts, and the transmission-tower work that energy projects demand.</p>
+          <a class="industry__link link" href="#contact" data-enquire="Oil &amp; Gas">Discuss a lift<span class="sr-only"> — Oil &amp; Gas</span></a>
+          <figure class="industry__thumb">
+            <img src="assets/media/transmission-tower-a-640.webp"
+                 srcset="assets/media/transmission-tower-a-480.webp 480w, assets/media/transmission-tower-a-640.webp 640w, assets/media/transmission-tower-a-800.webp 800w, assets/media/transmission-tower-a-960.webp 960w, assets/media/transmission-tower-a-1280.webp 1280w"
+                 sizes="(min-width: 960px) 240px, 120px" width="1280" height="1707"
+                 alt="Heavy crane rigged between two red-and-white lattice transmission towers"
+                 loading="lazy" decoding="async">
+          </figure>
+        </li>
+        <li class="industry" data-reveal="up">
+          <h3 class="industry__name">Marine</h3>
+          <p class="industry__desc">Vessels, yachts and dhows lifted and loaded for transport — by day and by floodlight.</p>
+          <a class="industry__link link" href="#contact" data-enquire="Marine">Discuss a lift<span class="sr-only"> — Marine</span></a>
+          <figure class="industry__thumb industry__thumb--land">
+            <img src="assets/media/lowbed-trailer-640.webp"
+                 srcset="assets/media/lowbed-trailer-480.webp 480w, assets/media/lowbed-trailer-640.webp 640w, assets/media/lowbed-trailer-800.webp 800w, assets/media/lowbed-trailer-960.webp 960w, assets/media/lowbed-trailer-1280.webp 1280w"
+                 sizes="(min-width: 960px) 240px, 120px" width="1280" height="960"
+                 alt="Mobile crane lifting a yacht onto a lowbed trailer at sunset"
+                 loading="lazy" decoding="async">
+          </figure>
+        </li>
+        <li class="industry" data-reveal="up">
+          <h3 class="industry__name">Construction</h3>
+          <p class="industry__desc">Precast and steel erection, tower-crane assembly and high-rise lifting on tight urban sites.</p>
+          <a class="industry__link link" href="#contact" data-enquire="Construction">Discuss a lift<span class="sr-only"> — Construction</span></a>
+          <figure class="industry__thumb">
+            <img src="assets/media/luffing-highrise-red-640.webp"
+                 srcset="assets/media/luffing-highrise-red-480.webp 480w, assets/media/luffing-highrise-red-640.webp 640w, assets/media/luffing-highrise-red-800.webp 800w, assets/media/luffing-highrise-red-960.webp 960w, assets/media/luffing-highrise-red-1280.webp 1280w"
+                 sizes="(min-width: 960px) 240px, 120px" width="1280" height="1707"
+                 alt="Red lattice luffing crane rising between high-rise towers"
+                 loading="lazy" decoding="async">
+          </figure>
+        </li>
+        <li class="industry" data-reveal="up">
+          <h3 class="industry__name">Manufacturing</h3>
+          <p class="industry__desc">Plant and equipment installation — heavy machinery lifted into the building and set in place.</p>
+          <a class="industry__link link" href="#contact" data-enquire="Manufacturing">Discuss a lift<span class="sr-only"> — Manufacturing</span></a>
+          <figure class="industry__thumb industry__thumb--land">
+            <img src="assets/media/fhe-crane-plant-lift-640.webp"
+                 srcset="assets/media/fhe-crane-plant-lift-480.webp 480w, assets/media/fhe-crane-plant-lift-640.webp 640w, assets/media/fhe-crane-plant-lift-800.webp 800w, assets/media/fhe-crane-plant-lift-960.webp 960w, assets/media/fhe-crane-plant-lift-1280.webp 1280w"
+                 sizes="(min-width: 960px) 240px, 120px" width="1280" height="960"
+                 alt="FHE-branded all-terrain crane lifting wrapped plant equipment into a building"
+                 loading="lazy" decoding="async">
+          </figure>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===================================================== VI — SAFETY -->
+  <section class="section safety" id="safety" aria-labelledby="safety-title" data-folio="VI · Safety &amp; certification">
+    <div class="wrap">
+      <header class="chapter-head grid">
+        <p class="chapter-mark" data-reveal>
+          <span class="chapter-mark__no">VI</span>
+          <span class="chapter-mark__rule" aria-hidden="true"></span>
+          <span class="chapter-mark__label">Safety &amp; certification</span>
+          <span class="chapter-mark__of" aria-hidden="true">VI / VII</span>
+        </p>
+        <h2 class="chapter-title" id="safety-title" data-reveal="up">Safety first. <em>Then the lift.</em></h2>
+      </header>
+
+      <div class="safety__spread grid">
+        <figure class="plate safety__fig" data-reveal>
+          <div class="plate__frame">
+            <img src="assets/media/rigging-team-1280.webp"
+                 srcset="assets/media/rigging-team-480.webp 480w, assets/media/rigging-team-640.webp 640w, assets/media/rigging-team-800.webp 800w, assets/media/rigging-team-960.webp 960w, assets/media/rigging-team-1280.webp 1280w, assets/media/rigging-team-1920.webp 1920w"
+                 sizes="(min-width: 960px) 56vw, 92vw" width="1280" height="813"
+                 alt="Three FHE crew in red coveralls in front of a Terex FRIENDSHIP crane"
+                 loading="lazy" decoding="async">
+          </div>
+          <figcaption class="plate__cap"><time datetime="2020-11-04">4 Nov 2020</time><span>Three FHE crew in red coveralls, in front of a Terex FRIENDSHIP crane.</span></figcaption>
+        </figure>
+        <div class="safety__text" data-reveal="stagger">
+          <p>Every lift starts with a plan. Our quality and occupational health &amp; safety management systems are certified to ISO 9001:2015 and ISO 45001:2018, and we hold UAE In-Country Value (ICV) certification.</p>
+          <p>Trained operators and lifting supervisors are provided with our equipment, and our site surveys come with engineered rigging studies for maximum safety and efficiency.</p>
+        </div>
+      </div>
+
+      <ul class="certs" data-reveal="stagger">
+        <li class="cert">
+          <p class="cert__std">ISO 9001:2015</p>
+          <p class="cert__name">Quality management</p>
+          <dl class="cert__facts">
+            <div><dt>Certificate</dt><dd>SD-26048/01</dd></div>
+            <div><dt>First certified</dt><dd><time datetime="2017-03-26">26 Mar 2017</time></dd></div>
+            <div><dt>Valid to</dt><dd><time datetime="2027-03-25">25 Mar 2027</time></dd></div>
+          </dl>
+          <p class="cert__scope">Scope: General Transportation and Renting of Mobile Cranes &amp; Lifting Equipment.</p>
+        </li>
+        <li class="cert">
+          <p class="cert__std">ISO 45001:2018</p>
+          <p class="cert__name">Occupational health &amp; safety</p>
+          <dl class="cert__facts">
+            <div><dt>Valid to</dt><dd><time datetime="2028-11-30">30 Nov 2028</time></dd></div>
+          </dl>
+        </li>
+        <li class="cert">
+          <p class="cert__std">ICV</p>
+          <p class="cert__name">UAE In-Country Value programme</p>
+          <dl class="cert__facts">
+            <div><dt>Certificate</dt><dd>150476</dd></div>
+            <div><dt>ICV score</dt><dd class="cert__score">47.14%</dd></div>
+            <div><dt>Valid to</dt><dd><time datetime="2026-11-03">03 Nov 2026</time></dd></div>
+          </dl>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===================================================== VII — CONTACT -->
+  <section class="section contact" id="contact" aria-labelledby="contact-title" data-folio="VII · Contact">
+    <div class="contact__bg" aria-hidden="true">
+      <img src="assets/media/boom-sky-abstract-1280.webp"
+           srcset="assets/media/boom-sky-abstract-480.webp 480w, assets/media/boom-sky-abstract-640.webp 640w, assets/media/boom-sky-abstract-800.webp 800w, assets/media/boom-sky-abstract-960.webp 960w, assets/media/boom-sky-abstract-1280.webp 1280w, assets/media/boom-sky-abstract-1920.webp 1920w"
+           sizes="100vw" width="1280" height="960" alt="" loading="lazy" decoding="async">
+    </div>
+    <div class="wrap">
+      <header class="chapter-head grid">
+        <p class="chapter-mark" data-reveal>
+          <span class="chapter-mark__no">VII</span>
+          <span class="chapter-mark__rule" aria-hidden="true"></span>
+          <span class="chapter-mark__label">Contact</span>
+          <span class="chapter-mark__of" aria-hidden="true">VII / VII</span>
+        </p>
+        <h2 class="contact__title" id="contact-title" data-reveal="up">Call it in. <em>Any hour.</em></h2>
+        <p class="contact__lede" data-reveal="up" data-d="2">Any crane rental job, anytime, anywhere in the United Arab Emirates. Our line is open 24/7<span class="contact__clock"> — it is <span data-uae-clock="hm">00:00</span> in the UAE now</span>.</p>
+        <div class="contact__cta" data-reveal="up" data-d="3">
+          <a class="btn btn--solid btn--xl" href="mailto:fhcrane@gmail.com?subject=Lift%20enquiry" data-enquire>Contact us
+            <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <p class="contact__cta-note">Describe the lift: service, crane size, site and date. It reaches our sales team on WhatsApp or by email.</p>
+        </div>
+      </header>
+
+      <div class="contact__grid grid">
+        <div class="lines" data-reveal="stagger">
+          <p class="contact__label">Telephone</p>
+          <ul class="lines__list">
+            <li class="lines__main"><span class="lines__tag">Main</span><a href="tel:+97124485660">+971 2 448 5660</a></li>
+          </ul>
+        </div>
+        <div class="channels" data-reveal="stagger">
+          <div class="channels__block">
+            <p class="contact__label">WhatsApp</p>
+            <div class="channels__btns">
+              <a class="btn btn--solid" href="https://wa.me/971529026105">WhatsApp Sales</a>
+              <a class="btn" href="https://wa.me/971529026102">WhatsApp Admin</a>
+            </div>
+          </div>
+          <div class="channels__block">
+            <p class="contact__label">Email</p>
+            <p class="channels__big"><a class="link" href="mailto:fhcrane@gmail.com?subject=Lift%20enquiry">fhcrane@gmail.com</a></p>
+          </div>
+          <div class="channels__block">
+            <p class="contact__label">Head office</p>
+            <address class="channels__addr">Office M-1, Bldg C-145, Sector M-9,<br>Mohamed Bin Zayed City, Abu Dhabi, UAE<br>P.O. Box 8058</address>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 </main>
 
-<footer class="wrap foot">Friendship Hall Sole Proprietorship L.L.C · Mohamed Bin Zayed City, Abu Dhabi · Design proposal © 2026</footer>
+<footer class="site-footer">
+  <!-- The seal (js/fhe-mark.js §3): the mark draws itself and pours as it scrolls in. Decorative; needs JS. -->
+  <div class="seal" data-seal aria-hidden="true">
+    <div class="seal__tilt" data-seal-tilt>
+      <svg class="seal__words" viewBox="-600 -600 1200 1200" focusable="false">
+        <path id="seal-orbit" d="M0 -548A548 548 0 1 1 0 548A548 548 0 1 1 0 -548" fill="none"/>
+        <text><textPath href="#seal-orbit" textLength="3420" lengthAdjust="spacing">Friendship Hall · Heavy lifting · United Arab Emirates · Mobile cranes 25–700 T · Support 24/7 ·</textPath></text>
+      </svg>
+      <div class="seal__mark" data-seal-mark></div>
+      <span class="seal__shine"></span>
+    </div>
+  </div>
+  <div class="wrap site-footer__grid">
+    <p class="site-footer__legal"><strong>Friendship Hall Sole Proprietorship L.L.C</strong><br>Office M-1, Bldg C-145, Sector M-9, Mohamed Bin Zayed City, Abu Dhabi, UAE · P.O. Box 8058</p>
+    <p class="site-footer__nav"><a class="link" href="#top">Back to top</a></p>
+    <p class="site-footer__fine">© 2026 Friendship Hall Sole Proprietorship L.L.C</p>
+  </div>
+</footer>
 
-<script>
-  // Number keys open a concept. Normal navigation, so Back returns here.
-  addEventListener('keydown', function (e) {
-    if (e.metaKey || e.ctrlKey || e.altKey || /input|textarea|select/i.test(e.target.tagName)) return;
-    if (e.key === '1' || e.key === '2' || e.key === '3') location.href = 'concept-' + e.key + '.html';
-  });
-</script>
+<!-- ============ CONTACT US: the lift slate (js/site.js · css/site.css §23) ============
+     Opened by any [data-enquire] link (its value, if any, names the sector). Without JS those links fall back to #contact.
+     The slate mirrors the form for sighted users; it is aria-hidden, the form carries everything. -->
+<dialog class="brief" id="brief" aria-labelledby="brief-title" data-brief>
+  <button class="brief__close" type="button" data-brief-close>
+    <span>Close</span>
+    <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+  </button>
+  <div class="brief__stage" data-brief-stage>
+    <div class="brief__scene">
+      <img class="brief__photo" src="assets/media/night-luffing-city-960.webp"
+           srcset="assets/media/night-luffing-city-640.webp 640w, assets/media/night-luffing-city-960.webp 960w, assets/media/night-luffing-city-1280.webp 1280w"
+           sizes="(min-width: 960px) 42vw, 100vw" width="1280" height="960" alt="" loading="lazy" decoding="async">
+      <div class="brief__slot" data-slate-home>
+        <div class="slate" data-slate aria-hidden="true">
+          <div class="slate__sticks">
+            <span class="slate__stick slate__stick--top" data-slate-stick></span>
+            <span class="slate__stick slate__stick--base"></span>
+            <span class="slate__hinge"></span>
+          </div>
+          <div class="slate__body">
+            <p class="slate__head"><span>Friendship Hall</span><span>Lift brief</span></p>
+            <div class="slate__cap">
+              <p class="slate__k">Crane</p>
+              <p class="slate__t"><span data-slate="t">100</span><small data-slate="unit">T</small></p>
+              <p class="slate__class" data-slate="class">Precast, steel erection, tower-crane assembly</p>
+            </div>
+            <dl class="slate__grid">
+              <div><dt>Service</dt><dd data-slate="service">Crane hire</dd></div>
+              <div><dt>Site</dt><dd data-slate="site" class="is-empty">—</dd></div>
+              <div><dt>From</dt><dd data-slate="date" class="is-empty">—</dd></div>
+              <div><dt>Client</dt><dd data-slate="client" class="is-empty">—</dd></div>
+            </dl>
+            <p class="slate__foot"><span>UAE <span data-uae-clock="hm">00:00</span> GST</span><span>Line open 24/7</span></p>
+          </div>
+        </div>
+      </div>
+      <p class="brief__scene-cap">Your brief, as our team will read it.</p>
+    </div>
+
+    <div class="brief__panel">
+      <header class="brief__head">
+        <p class="eyebrow" data-brief-kicker>Contact us · 24/7</p>
+        <h2 class="brief__title" id="brief-title" tabindex="-1" autofocus>Tell us about <em>the lift.</em></h2>
+        <p class="brief__lede">Fill in what you know. It reaches our sales team on WhatsApp or by email, and an engineer sizes the crane with you.</p>
+      </header>
+
+      <form class="brief__form" data-brief-form novalidate>
+        <input type="hidden" name="sector" value="" data-brief-sector>
+        <fieldset class="brief__step">
+          <legend class="brief__legend"><span class="brief__no" aria-hidden="true">01</span>The job</legend>
+          <fieldset class="field">
+            <legend class="field__label">Service</legend>
+            <div class="chips">
+              <label class="chip"><input type="radio" name="service" value="Crane hire" checked><span>Crane hire</span></label>
+              <label class="chip"><input type="radio" name="service" value="Heavy transport"><span>Heavy transport</span></label>
+              <label class="chip"><input type="radio" name="service" value="Site survey &amp; rigging study"><span>Site survey &amp; rigging study</span></label>
+            </div>
+          </fieldset>
+          <div class="field field--dial" data-dial>
+            <div class="dial__head">
+              <label class="field__label" for="bf-cap">Crane capacity</label>
+              <output class="dial__out" for="bf-cap" aria-hidden="true" data-cap-out>100 T</output>
+            </div>
+            <input class="dial" id="bf-cap" name="capacity" type="range" min="0" max="1000" step="1" value="416" aria-describedby="bf-cap-class" data-cap>
+            <ol class="dial__ticks" aria-hidden="true">
+              <li style="--x:0">25</li><li style="--x:.208">50</li><li style="--x:.416">100</li><li style="--x:.623">200</li>
+              <li style="--x:.746">300</li><li style="--x:.899">500</li><li style="--x:1">700</li>
+            </ol>
+            <p class="field__hint" id="bf-cap-class" data-cap-class>Typical work: precast, steel erection, tower-crane assembly.</p>
+            <label class="check"><input type="checkbox" name="advise" data-cap-advise><span class="check__box" aria-hidden="true"></span><span>Not sure. Advise me on the crane.</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="brief__step">
+          <legend class="brief__legend"><span class="brief__no" aria-hidden="true">02</span>The site</legend>
+          <div class="field-row">
+            <div class="field">
+              <label class="field__label" for="bf-site">Emirate</label>
+              <div class="select">
+                <select class="input" id="bf-site" name="site" data-bind="site">
+                  <option value="">Choose an emirate</option>
+                  <option>Abu Dhabi</option><option>Dubai</option><option>Sharjah</option><option>Ajman</option>
+                  <option>Umm Al Quwain</option><option>Ras Al Khaimah</option><option>Fujairah</option>
+                </select>
+              </div>
+            </div>
+            <div class="field">
+              <label class="field__label" for="bf-date">Start date</label>
+              <input class="input" id="bf-date" name="date" type="date" data-bind="date">
+            </div>
+          </div>
+          <div class="field">
+            <label class="field__label" for="bf-notes">About the lift <span class="field__opt">Optional</span></label>
+            <textarea class="input input--area" id="bf-notes" name="notes" rows="3" placeholder="Load weight, lift radius, site access, how long you need the crane"></textarea>
+          </div>
+        </fieldset>
+
+        <fieldset class="brief__step">
+          <legend class="brief__legend"><span class="brief__no" aria-hidden="true">03</span>You</legend>
+          <div class="field-row">
+            <div class="field">
+              <label class="field__label" for="bf-name">Name</label>
+              <input class="input" id="bf-name" name="name" type="text" autocomplete="name" required aria-describedby="bf-name-err" data-bind="client">
+              <p class="field__error" id="bf-name-err" data-error-for="bf-name"></p>
+            </div>
+            <div class="field">
+              <label class="field__label" for="bf-company">Company <span class="field__opt">Optional</span></label>
+              <input class="input" id="bf-company" name="company" type="text" autocomplete="organization" data-bind="client">
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label class="field__label" for="bf-phone">Phone</label>
+              <input class="input" id="bf-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+971" required aria-describedby="bf-phone-err">
+              <p class="field__error" id="bf-phone-err" data-error-for="bf-phone"></p>
+            </div>
+            <div class="field">
+              <label class="field__label" for="bf-email">Email <span class="field__opt">Optional</span></label>
+              <input class="input" id="bf-email" name="email" type="email" autocomplete="email" aria-describedby="bf-email-err">
+              <p class="field__error" id="bf-email-err" data-error-for="bf-email"></p>
+            </div>
+          </div>
+        </fieldset>
+
+        <div class="brief__dock" data-slate-dock></div>
+
+        <div class="brief__actions">
+          <button class="btn btn--solid" type="submit" value="whatsapp">Send on WhatsApp
+            <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <button class="btn" type="submit" value="email">Send by email</button>
+        </div>
+        <p class="brief__alt">Need a crane today? Call <a href="tel:+97124485660">+971 2 448 5660</a>, any hour.</p>
+      </form>
+
+      <div class="brief__done" data-brief-done hidden>
+        <p class="eyebrow">Brief ready</p>
+        <h3 class="brief__done-title" tabindex="-1" data-done-title>WhatsApp is open with your brief.</h3>
+        <p class="brief__done-text"><span data-done-text>Press send in WhatsApp and our sales team will reply.</span> If nothing opened, <a href="#" target="_blank" rel="noopener" data-done-link>open it here</a>.</p>
+        <div class="brief__actions">
+          <button class="btn" type="button" data-brief-edit>Edit the brief</button>
+          <button class="btn btn--solid" type="button" data-brief-close>Close</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</dialog>
+
+<!-- ============ WHATSAPP: floating chooser (fhe-core.js §8 · css/fhe-overlays.css §2) ============ -->
+<div class="wa" data-wa>
+  <button class="wa__fab" type="button" popovertarget="wa-panel" data-wa-fab>
+    <svg class="wa__icon wa__icon--wa" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    <svg class="wa__icon wa__icon--x" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    <span class="wa__tip">WhatsApp us</span>
+  </button>
+  <div class="wa__panel" id="wa-panel" popover role="dialog" aria-labelledby="wa-title" data-wa-panel>
+    <div class="wa__head">
+      <p class="wa__kicker">WhatsApp · 24/7</p>
+      <p class="wa__title" id="wa-title">Who would you like to talk to?</p>
+    </div>
+    <ul class="wa__list">
+      <li>
+        <a class="wa__line" href="https://wa.me/971529026103?text=Hello%20Bashir%2C%20I%27m%20enquiring%20about%20crane%20rental." target="_blank" rel="noopener">
+          <span class="wa__avatar wa__avatar--b" aria-hidden="true">B</span>
+          <span class="wa__who"><span class="wa__name">Bashir</span><span class="wa__role">Chief Operating Officer</span></span>
+          <span class="wa__go" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M7 17 17 7M9 7h8v8"/></svg></span><span class="sr-only"> (opens WhatsApp)</span>
+        </a>
+      </li>
+      <li>
+        <a class="wa__line" href="https://wa.me/971528335333?text=Hello%20Saeed%2C%20I%27m%20enquiring%20about%20crane%20rental." target="_blank" rel="noopener">
+          <span class="wa__avatar wa__avatar--b" aria-hidden="true">S</span>
+          <span class="wa__who"><span class="wa__name">Saeed</span><span class="wa__role">Chief Executive Officer</span></span>
+          <span class="wa__go" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M7 17 17 7M9 7h8v8"/></svg></span><span class="sr-only"> (opens WhatsApp)</span>
+        </a>
+      </li>
+    </ul>
+    <p class="wa__foot">Opens a chat in WhatsApp</p>
+  </div>
+</div>
+
+<script src="js/fhe-mark.js" defer></script>
+<script src="js/fhe-core.js" defer></script>
+<script src="js/site.js" defer></script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 /* ==========================================================================
-   FHE overlays — shared by the three concepts. Linked BEFORE each concept stylesheet, so a concept can retheme
+   FHE overlays — linked BEFORE css/site.css, so the site stylesheet can retheme
    (custom properties on :root) or override any rule here. Behaviour: js/fhe-core.js §7 (hook) and §8 (WhatsApp).
 
    1. Crane hook   a twin-sheave block with a ramshorn double hook, hung on four falls of wire rope in the right
@@ -29,7 +29,7 @@
 
 /* ---------- 1. Crane hook ---------- */
 .hk {
-  position: fixed; top: 0; right: 0; z-index: 40;     /* under every concept's header, over page content */
+  position: fixed; top: 0; right: 0; z-index: 40;     /* under the site header, over page content */
   width: var(--hk-w); height: 0; pointer-events: none;
 }
 @media (min-width: 960px) {
@@ -111,7 +111,7 @@
 @keyframes waPop { from { opacity: 0; transform: translateY(18px) scale(.5); } }
 
 /* attention blink: a green glow + slight swell, on loop while the chooser is closed. filter/scale, not
-   box-shadow/transform, so it layers over each concept's own shadow and the hover/press transforms */
+   box-shadow/transform, so it layers over the site's own shadow and the hover/press transforms */
 @media (prefers-reduced-motion: no-preference) {
   .is-loaded .wa:not(.is-open) .wa__fab {
     animation: waPop .9s var(--wa-spring) .15s backwards, waBlink 1.4s ease-in-out 1.2s infinite;

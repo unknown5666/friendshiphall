@@ -1,22 +1,20 @@
-/* FHE core — shared behaviour for the three homepage concepts. Loaded with `defer`, no dependencies.
+/* FHE core — shared site behaviour. Loaded with `defer`, no dependencies.
  *
  *  1. Hook preloader   emblem drops on a cable, bounces, then lifts and docks into the header logo slot
  *                      (a [data-preloader="mark"] preloader is handed to window.FHEIntro instead — js/fhe-mark.js)
  *  2. In-page links    anchor clicks scroll WITHOUT adding history entries, so Back always returns to the
- *                      previous page (the concepts hub) instead of stepping through #sections
- *  3. Hub link         "All concepts" uses history.back() when we arrived from the hub (no stack growth)
+ *                      previous page instead of stepping through #sections
  *  4. Mobile nav       button-driven (never hash-driven), closes on navigate / Escape
  *  5. Lazy time-lapse  the <video> source is attached only when it nears the viewport; paused off-screen
  *  6. Reveal, count-up, UAE clock, scrolled-header flag
  *  7. Crane hook       a twin-sheave block and ramshorn hook on wire rope pays out down the right margin as you scroll (spring + pendulum)
  *  8. WhatsApp         floating button + two-line chooser (native popover, with a fallback)
  *
- *  Contract (markup each concept provides):
+ *  Contract (markup the page provides):
  *    <html> gets `js` + `is-preloading` from the inline head snippet (see build brief)
  *    [data-preloader] > .preloader__backdrop + [data-preloader-rig] (cable + inline emblem)
  *      or [data-preloader="mark"] with js/fhe-mark.js loaded first: it gets { pre, dock, reveal } and calls reveal(ms)
  *    [data-dock-target]            header emblem the rig docks into
- *    [data-hub-link]               link to index.html
  *    [data-nav-toggle][aria-controls=ID]   mobile menu button; #ID gets `.is-open`
  *    video[data-lazy-video][data-poster] > source[data-src]   inside [data-timelapse]; optional [data-timelapse-toggle]
  *    [data-reveal]  [data-count="40"]  [data-uae-clock="hms|hm"]
@@ -171,21 +169,6 @@
       if (!target.hasAttribute('tabindex')) target.setAttribute('tabindex', '-1');
       target.focus({ preventScroll: true });
     }
-  });
-
-  /* ---------------------------------------------------------------- 3. Hub link */
-  const norm = (p) => p.replace(/\/index(\.html)?$/, '/').replace(/\.html$/, '').replace(/(.)\/$/, '$1');
-  document.querySelectorAll('[data-hub-link]').forEach((a) => {
-    a.addEventListener('click', (e) => {
-      if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
-      let ref;
-      try { ref = new URL(document.referrer); } catch { return; }
-      const hub = new URL(a.getAttribute('href'), location.href);
-      if (ref.origin === location.origin && norm(ref.pathname) === norm(hub.pathname) && history.length > 1) {
-        e.preventDefault();
-        history.back();
-      }
-    });
   });
 
   /* ---------------------------------------------------------------- 4. Mobile nav */
@@ -395,7 +378,7 @@
       unit = drop.offsetWidth / 120 || 1;
       maxLean = innerWidth < 600 ? 1.6 : 3.4;
       height = drop.offsetHeight;
-      top = Math.max(132, innerHeight * 0.17); // clear of every concept's header
+      top = Math.max(132, innerHeight * 0.17); // clear of the site header
       // layout box of the WhatsApp container: unaffected by the button's own hover / entrance transforms
       const base = wa ? wa.getBoundingClientRect().top - 18 : innerHeight - 24;
       floor = Math.max(top, base - height);

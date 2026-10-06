@@ -1,9 +1,9 @@
-/* Concept 2 — Cinematic Editorial. Variant-specific behaviour (everything shared lives in fhe-core.js):
+/* Friendship Hall — Cinematic Editorial. Page behaviour (everything shared lives in fhe-core.js):
  *  1. Cable rail      on wide screens a hairline gold cable grows down the left margin as you read, ending in a
  *                     small hook; a vertical folio beside it names the chapter on screen.
  *  2. Lit prologue    wraps the prologue statement's words so CSS can light them in turn as it scrolls past.
  *  3. Contact us      the lift-slate dialog: any [data-enquire] link opens it; the brief is sent as a pre-filled
- *                     WhatsApp chat or email (there is no server). Styles: css/concept-2.css §23.
+ *                     WhatsApp chat or email (there is no server). Styles: css/site.css §23.
  */
 (() => {
   'use strict';

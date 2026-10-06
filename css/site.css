@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Friendship Hall — Concept 2 · Cinematic Editorial
+   Friendship Hall — Cinematic Editorial
    "The Premium Enterprise Contractor"
    Midnight Obsidian #0B0C10 · Matte Zinc #1F2833 · Brushed Gold #C5A059
    Display: Bodoni Moda (roman + italic, optical size axis)
@@ -34,7 +34,7 @@
   --colgap: clamp(12px, 1.9vw, 28px);
   --section-pad: clamp(88px, 15vw, 224px);
 
-  --strip-h: 34px;
+  --strip-h: 0px;
   --bar-h: 64px;
   --header-h: calc(var(--strip-h) + var(--bar-h));
 
@@ -267,29 +267,9 @@ section[id] { scroll-margin-top: var(--header-h); }
   .nav-open .rail { display: none; }
 }
 
-/* ---------- 5. Header : concept strip + bar + nav -------------------------- */
+/* ---------- 5. Header : bar + nav -------------------------- */
 .site-header { position: fixed; inset: 0 0 auto 0; z-index: 60; }
 
-.concept-strip {
-  display: flex; align-items: center; justify-content: flex-end;
-  height: var(--strip-h); padding-inline: var(--gutter);
-  background: #07080B; border-bottom: 1px solid var(--gold-faint);
-  font: 500 .66rem/1 var(--sans); letter-spacing: .22em; text-transform: uppercase; color: var(--mute);
-}
-.concept-strip__note { display: none; margin: 0; margin-right: auto; }
-.concept-switch { display: flex; align-items: center; }
-.concept-switch a {
-  position: relative; display: inline-flex; align-items: center; justify-content: center;
-  min-width: 44px; height: var(--strip-h); padding: 0 8px;
-  color: var(--mute); text-decoration: none; transition: color .3s var(--ease);
-}
-.concept-switch a:first-child { padding-right: 14px; }
-.concept-switch a:hover { color: var(--ivory); }
-.concept-switch a[aria-current="page"] { color: var(--gold); }
-.concept-switch a[aria-current="page"]::after {
-  content: ""; position: absolute; left: 50%; bottom: 6px; width: 14px; height: 1px; background: var(--gold); translate: -50% 0;
-}
-@media (min-width: 600px) { .concept-strip__note { display: block; } }
 
 .bar {
   position: relative; isolation: isolate;
@@ -1149,7 +1129,7 @@ section[id] { scroll-margin-top: var(--header-h); }
 }
 @keyframes glint { 0% { background-position: 100% 0; } 24%, 100% { background-position: 0 0; } }
 
-/* Prologue: the statement lights word by word as it crosses the screen (concept-2.js wraps the words). */
+/* Prologue: the statement lights word by word as it crosses the screen (site.js wraps the words). */
 @keyframes wordLit { from { opacity: .16; } to { opacity: 1; } }
 @supports (animation-timeline: view()) {
   @media (prefers-reduced-motion: no-preference) {
