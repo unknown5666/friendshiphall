@@ -161,7 +161,9 @@
     // Close menus first: an open mobile menu locks scrolling (overflow: hidden) and would swallow the jump.
     document.dispatchEvent(new CustomEvent('fhe:navigate', { detail: { hash } }));
     const behavior = reduced ? 'auto' : 'smooth';
-    if (toTop) scrollTo({ top: 0, behavior });
+    const lenis = window.FHE_LENIS; // js/smooth.js, when smooth scrolling is on (it honours scroll-margin-top)
+    if (lenis) lenis.scrollTo(toTop ? 0 : target, { duration: 1.5, force: true });
+    else if (toTop) scrollTo({ top: 0, behavior });
     else target.scrollIntoView({ behavior, block: 'start' });
     // replaceState, never pushState: keeps the URL shareable without creating Back-button stops
     history.replaceState(history.state, '', toTop ? location.pathname + location.search : hash);

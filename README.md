@@ -19,6 +19,8 @@ css/fhe-overlays.css       crane hook + floating WhatsApp structure, linked befo
 js/fhe-core.js             generic behaviour (see below)
 js/fhe-mark.js             logo animation: intro, header swing, footer seal (loaded before fhe-core.js)
 js/site.js                 page-specific interactions (prologue, lift slate, …)
+js/smooth.js               smooth wheel/trackpad scrolling (Lenis), paused while an overlay holds the page
+js/vendor/lenis.min.js     Lenis 1.3.26, self-hosted
 assets/media/              optimised photos (WebP 640/960/1280/1920 + one 1280 JPG each) + manifest.json
 assets/fonts/              self-hosted Google Fonts (latin woff2); @font-face is inlined in the page's <head>
 assets/team/               leadership portraits (800×1000), not currently shown
@@ -29,6 +31,7 @@ assets/brand/              FHS mark built from the client's DWG (fhs-mark.svg re
 
 ## Core behaviour (`js/fhe-core.js`)
 - **Preloader.** A `[data-preloader="mark"]` preloader is handed to `window.FHEIntro` (`js/fhe-mark.js`, below). Tap or Escape skips it. It doesn't run for reduced-motion users or on Back/Forward navigation.
+- **Smooth scrolling.** On mouse and trackpad, `js/smooth.js` runs Lenis and in-page links glide through it. Touch keeps native scrolling, reduced-motion users get none, and it pauses during the intro, the mobile menu and the Contact us dialog (which scroll natively via `data-lenis-prevent`).
 - **Back button.** In-page menu links scroll with `history.replaceState`, so they never add history entries. The mobile menu is a button, not a hash link.
 - **Lazy time-lapse.** The `<video>` gets its source only when it nears the viewport (IntersectionObserver), and it pauses when off-screen.
 - Reveal-on-scroll, count-up numbers, a live Asia/Dubai clock and a scrolled-header flag.

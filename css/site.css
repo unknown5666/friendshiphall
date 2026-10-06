@@ -3,7 +3,7 @@
    "The Premium Enterprise Contractor"
    Midnight Obsidian #0B0C10 · Matte Zinc #1F2833 · Brushed Gold #C5A059
    Display: Bodoni Moda (roman + italic, optical size axis)
-   Text / labels: Instrument Sans
+   Text / labels / figures: Instrument Sans (numbers are set in the sans: Bodoni's hairline 4 vanishes at size)
    Mobile-first (base = 360px); enhancements at 600 / 960 / 1280.
    ========================================================================== */
 
@@ -32,7 +32,7 @@
 
   --gutter: clamp(20px, 5.4vw, 84px);
   --colgap: clamp(12px, 1.9vw, 28px);
-  --section-pad: clamp(88px, 15vw, 224px);
+  --section-pad: clamp(72px, 10vw, 152px);
 
   --strip-h: 0px;
   --bar-h: 64px;
@@ -43,7 +43,7 @@
 
   color-scheme: dark;
 }
-@media (min-width: 960px) { :root { --bar-h: 76px; } }
+@media (min-width: 960px) { :root { --bar-h: 76px; --gutter: clamp(20px, 8.4vw, 132px); } } /* wide margins: the hook hangs in its own lane */
 
 /* ---------- 2. Reset & base ------------------------------------------------ */
 *, *::before, *::after { box-sizing: border-box; }
@@ -454,7 +454,7 @@ section[id] { scroll-margin-top: var(--header-h); }
 .js .chapter-mark[data-reveal]:not(.is-in) .chapter-mark__rule { transform: scaleX(0); }
 
 /* ---------- 7. Shared editorial components -------------------------------- */
-.chapter-head { margin-bottom: clamp(48px, 8vw, 128px); }
+.chapter-head { margin-bottom: clamp(40px, 6vw, 96px); }
 .chapter-mark {
   display: flex; align-items: center; gap: 14px; margin-bottom: clamp(24px, 3.4vw, 44px);
   font: 500 .7rem/1 var(--sans); letter-spacing: .24em; text-transform: uppercase; color: var(--mute);
@@ -529,7 +529,7 @@ section[id] { scroll-margin-top: var(--header-h); }
 .facts__item + .facts__item { padding-left: clamp(10px, 2vw, 28px); border-left: 1px solid var(--gold-faint); }
 .facts dt { font: 500 .66rem/1.45 var(--sans); letter-spacing: .12em; text-transform: uppercase; color: var(--mute); }
 .facts dd {
-  font: 450 clamp(1.4rem, 6.4vw, 3.2rem)/1 var(--serif); letter-spacing: -.01em; color: var(--gold);
+  font: 400 clamp(1.5rem, 6.4vw, 3.1rem)/1 var(--sans); letter-spacing: -.045em; color: var(--gold);
   font-variant-numeric: lining-nums tabular-nums; white-space: nowrap;
 }
 .facts__plus { margin-left: .04em; }
@@ -577,7 +577,7 @@ section[id] { scroll-margin-top: var(--header-h); }
 }
 
 /* ---------- 9. Prologue ----------------------------------------------------- */
-.prologue { padding-block: clamp(80px, 13vw, 184px) clamp(24px, 4vw, 64px); }
+.prologue { padding-block: clamp(72px, 10vw, 140px) clamp(24px, 4vw, 56px); }
 .prologue__mark { margin-bottom: clamp(24px, 4vw, 48px); }
 .prologue__statement {
   font: 450 clamp(1.7rem, 5.4vw, 3.6rem)/1.18 var(--serif); letter-spacing: -.012em; text-wrap: balance;
@@ -660,7 +660,7 @@ section[id] { scroll-margin-top: var(--header-h); }
 
 /* ---------- 11. Chapter II — services --------------------------------------- */
 .services .chapter-head { margin-bottom: clamp(24px, 4vw, 56px); }
-.service { row-gap: clamp(28px, 5vw, 48px); margin-top: clamp(64px, 10vw, 160px); }
+.service { row-gap: clamp(28px, 5vw, 48px); margin-top: clamp(56px, 8vw, 120px); }
 .service__no {
   margin-bottom: .1em;
   font: 400 clamp(4.4rem, 19vw, 9.5rem)/.8 var(--serif); letter-spacing: -.04em; color: var(--gold);
@@ -736,7 +736,7 @@ section[id] { scroll-margin-top: var(--header-h); }
 .fleet .chapter-head { margin-bottom: clamp(40px, 6vw, 88px); }
 .range__figure {
   display: flex; align-items: center; gap: .06em; white-space: nowrap;
-  font: 450 clamp(4.4rem, 22vw, 20rem)/.84 var(--serif); letter-spacing: -.035em; color: var(--gold);
+  font: 400 clamp(4.2rem, 21vw, 18rem)/.86 var(--sans); letter-spacing: -.065em; color: var(--gold);
   font-variant-numeric: lining-nums;
 }
 .range__dash { flex: 1 1 auto; min-width: .3em; height: 1px; margin-top: .04em; background: var(--gold); transform-origin: left; transition: transform 1.6s var(--ease-io) .2s; }
@@ -747,7 +747,7 @@ section[id] { scroll-margin-top: var(--header-h); }
 }
 .range__label em { font: italic 450 1.5rem/1 var(--serif); letter-spacing: 0; text-transform: none; color: var(--ivory); }
 
-.scale { margin: clamp(48px, 7vw, 96px) 0 clamp(36px, 5vw, 64px); padding: 0 14px; }
+.scale { margin: clamp(40px, 5vw, 72px) 0 clamp(32px, 4vw, 52px); padding: 0 14px; }
 .scale__ticks { position: relative; height: clamp(48px, 6vw, 64px); }
 .scale__ticks::before {
   content: ""; position: absolute; top: 0; left: -14px; right: -14px; height: 1px; background: var(--gold);
@@ -764,7 +764,7 @@ section[id] { scroll-margin-top: var(--header-h); }
 .scale__ticks li::before { content: ""; position: absolute; left: 0; top: 0; width: 1px; height: 16px; background: var(--gold); }
 .scale__ticks li span {
   position: absolute; left: 0; top: 24px; transform: translateX(-50%); white-space: nowrap;
-  font: 450 .82rem/1 var(--serif); color: var(--ivory); font-variant-numeric: lining-nums tabular-nums;
+  font: 400 .82rem/1 var(--sans); letter-spacing: -.01em; color: var(--ivory); font-variant-numeric: lining-nums tabular-nums;
 }
 .scale__ticks small { display: none; margin-left: 2px; font: 500 .5em/1 var(--sans); letter-spacing: .1em; color: var(--gold); }
 .js .scale[data-reveal]:not(.is-in) .scale__ticks::before { transform: scaleX(0); }
@@ -781,7 +781,7 @@ section[id] { scroll-margin-top: var(--header-h); }
   display: grid; grid-template-columns: minmax(0, 7.2rem) minmax(0, 1fr); gap: 4px 20px; align-items: baseline;
   padding: 20px 0 18px; border-top: 1px solid var(--gold-line);
 }
-.class__range { font: 450 clamp(1.5rem, 6.4vw, 2.2rem)/1 var(--serif); color: var(--gold); font-variant-numeric: lining-nums tabular-nums; white-space: nowrap; }
+.class__range { font: 400 clamp(1.5rem, 6.4vw, 2.2rem)/1 var(--sans); letter-spacing: -.035em; color: var(--gold); font-variant-numeric: lining-nums tabular-nums; white-space: nowrap; }
 .class__range small { margin-left: .14em; font: 500 .42em/1 var(--sans); letter-spacing: .1em; color: var(--mute); }
 .class__use { color: var(--ivory); }
 .class__flag { display: inline-block; margin-right: .7em; font: 500 .66rem/1 var(--sans); letter-spacing: .24em; text-transform: uppercase; color: var(--gold); }
@@ -800,7 +800,7 @@ section[id] { scroll-margin-top: var(--header-h); }
   .class__bar { margin-top: 18px; }
 }
 
-.catalogue { display: grid; grid-template-columns: minmax(0, 1fr); gap: clamp(72px, 11vw, 176px); margin-top: clamp(80px, 12vw, 192px); }
+.catalogue { display: grid; grid-template-columns: minmax(0, 1fr); gap: clamp(64px, 8vw, 128px); margin-top: clamp(64px, 9vw, 136px); }
 .yard { row-gap: 32px; }
 .yard__lead { margin-top: 18px; font: 450 clamp(1.5rem, 4.6vw, 2.7rem)/1.18 var(--serif); letter-spacing: -.012em; text-wrap: balance; }
 .yard__sub { margin-top: 22px; max-width: 42ch; color: var(--ivory-soft); }
@@ -892,7 +892,7 @@ section[id] { scroll-margin-top: var(--header-h); }
   .work--10, .work--11, .work--12, .work--13 { width: 62%; }
 }
 @media (min-width: 960px) {
-  .works__grid { grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--colgap); row-gap: clamp(72px, 9vw, 144px); align-items: start; }
+  .works__grid { grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--colgap); row-gap: clamp(56px, 7vw, 108px); align-items: start; }
   .work--1, .work--2, .work--3, .work--4, .work--5, .work--6,
   .work--7, .work--8, .work--9, .work--10, .work--11, .work--12, .work--13 { width: auto; margin-left: 0; }
   .work--1 { grid-column: 1 / span 7; grid-row: 1; }
@@ -958,7 +958,7 @@ section[id] { scroll-margin-top: var(--header-h); }
 .cert__name { margin-bottom: 22px; font: 450 clamp(1.5rem, 3vw, 2.1rem)/1.15 var(--serif); }
 .cert__facts > div { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 11px 0; border-bottom: 1px solid var(--ivory-line); }
 .cert__facts dt { font: 500 .66rem/1.4 var(--sans); letter-spacing: .22em; text-transform: uppercase; color: var(--mute); }
-.cert__facts dd { font: 450 1.1rem/1.2 var(--serif); text-align: right; font-variant-numeric: tabular-nums lining-nums; }
+.cert__facts dd { font: 400 1.05rem/1.2 var(--sans); letter-spacing: -.01em; text-align: right; font-variant-numeric: tabular-nums lining-nums; }
 .cert__score { font-size: 1.7rem; color: var(--gold); }
 .cert__scope { margin-top: 16px; font-size: .875rem; line-height: 1.55; color: var(--mute); }
 @media (min-width: 960px) {
@@ -996,10 +996,11 @@ section[id] { scroll-margin-top: var(--header-h); }
 .lines__tag { font: 500 .66rem/1 var(--sans); letter-spacing: .24em; text-transform: uppercase; color: var(--mute); }
 .lines__list a {
   display: inline-block; min-height: 44px;
-  font: 450 clamp(1.6rem, 6.8vw, 2.5rem)/1.3 var(--serif); letter-spacing: .01em; font-variant-numeric: tabular-nums lining-nums;
+  font: 400 clamp(1.6rem, 6.8vw, 2.5rem)/1.3 var(--sans); letter-spacing: -.025em; font-variant-numeric: tabular-nums lining-nums;
   color: var(--ivory); text-decoration: none; transition: color .3s var(--ease);
 }
-.lines__main a { font-size: clamp(2.05rem, 8.8vw, 4.6rem); line-height: 1.15; color: var(--gold); }
+.lines__main a { font-size: clamp(2rem, 8.4vw, 3.4rem); line-height: 1.15; letter-spacing: -.035em; white-space: nowrap; color: var(--gold); }
+@media (min-width: 960px) { .lines__main a { font-size: clamp(2rem, 3.9vw, 3.4rem); } }
 .lines__list a:hover { color: var(--gold); }
 .contact__fig { margin-top: clamp(32px, 4vw, 48px); }
 .contact__fig .plate__frame { --ar: 16 / 10; }
@@ -1296,7 +1297,7 @@ legend.field__label { margin-bottom: 12px; }
 /* capacity dial: a log scale, 25 to 700 tonnes, same spacing as the fleet chapter's scale */
 .dial__head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; }
 .dial__head .field__label { margin: 0; }
-.dial__out { font: 450 clamp(2rem, 6vw, 2.7rem)/1 var(--serif); letter-spacing: -.01em; color: var(--gold); font-variant-numeric: lining-nums tabular-nums; }
+.dial__out { font: 400 clamp(2rem, 6vw, 2.7rem)/1 var(--sans); letter-spacing: -.04em; color: var(--gold); font-variant-numeric: lining-nums tabular-nums; }
 .dial {
   --v: .416;
   display: block; width: 100%; height: 44px; margin: 4px 0 0; padding: 0;
@@ -1325,7 +1326,7 @@ legend.field__label { margin-bottom: 12px; }
 .dial__ticks { position: relative; height: 16px; margin: 2px 11px 0; }
 .dial__ticks li {
   position: absolute; top: 0; left: calc(var(--x) * 100%); translate: -50% 0;
-  font: 450 .8rem/1 var(--serif); color: var(--mute); font-variant-numeric: lining-nums;
+  font: 400 .8rem/1 var(--sans); color: var(--mute); font-variant-numeric: lining-nums;
 }
 .field__hint { margin-top: 14px; font: italic 400 1.02rem/1.45 var(--serif); color: var(--ivory-soft); }
 .field--dial.is-advise .dial, .field--dial.is-advise .dial__ticks, .field--dial.is-advise .dial__out { opacity: .3; }
@@ -1397,7 +1398,7 @@ legend.field__label { margin-bottom: 12px; }
 .slate__cap { padding: 18px 18px 20px; border-bottom: 1px solid var(--ivory-line); }
 .slate__t {
   margin-top: 12px; white-space: nowrap;
-  font: 450 clamp(4rem, 13vw, 6.4rem)/.84 var(--serif); letter-spacing: -.035em; color: var(--gold);
+  font: 400 clamp(4rem, 13vw, 6.4rem)/.86 var(--sans); letter-spacing: -.06em; color: var(--gold);
   font-variant-numeric: lining-nums tabular-nums;
 }
 .slate__t small { margin-left: .1em; font: 500 .24em/1 var(--sans); letter-spacing: .12em; color: var(--ivory); }
@@ -1465,3 +1466,32 @@ legend.field__label { margin-bottom: 12px; }
   .brief:not(.is-open) .brief__slot { opacity: 0; transform: translateY(-70px) rotate(-2.5deg); }
   .brief.is-open .brief__slot { transition: opacity .7s var(--ease) .38s, transform 1.4s cubic-bezier(.2, .9, .25, 1.12) .38s; }
 }
+
+
+/* ---------- 24. Polish: graded plates, a quiet hook, smooth scrolling --------------------------------------- */
+/* The photographs are daylight phone shots; graded here so they sit in the obsidian: a little less colour, deeper
+   shadows, a warm cast toward the gold, and a soft vignette. Full colour comes back under the pointer. */
+:root {
+  --grade: saturate(.72) contrast(1.1) brightness(.84) sepia(.14);
+  --grade-lit: saturate(1) contrast(1.04) brightness(1) sepia(0);
+}
+.plate__frame img, .panorama__img { filter: var(--grade); }
+.hero__img { filter: saturate(.88) contrast(1.06); }
+.plate__frame img { transition: transform 2s var(--ease) var(--delay, 0s), filter 1.2s var(--ease); }
+.plate__frame::before {
+  content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background: radial-gradient(125% 95% at 50% 42%, rgba(11, 12, 16, 0) 52%, rgba(11, 12, 16, .5) 100%);
+  transition: opacity 1.2s var(--ease);
+}
+@media (hover: hover) {
+  .plate:hover .plate__frame img, .work:hover .plate__frame img { filter: var(--grade-lit); transform: scale(1.035); }
+  .plate:hover .plate__frame::before, .work:hover .plate__frame::before { opacity: .3; }
+}
+
+/* the hook rides the margin without its load readout, so it never sits over a photograph or a line of text */
+@media (min-width: 960px) { .hk__tag { display: none; } }
+
+/* Lenis (js/vendor/lenis.min.js, started by js/smooth.js): the rules from its lenis.css that this page needs */
+html.lenis, html.lenis body { height: auto; }
+.lenis [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-smooth iframe { pointer-events: none; }
