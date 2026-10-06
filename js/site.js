@@ -4,6 +4,7 @@
  *  2. Lit prologue    wraps the prologue statement's words so CSS can light them in turn as it scrolls past.
  *  3. Contact us      the lift-slate dialog: any [data-enquire] link opens it; the brief is sent as a pre-filled
  *                     WhatsApp chat or email (there is no server). Styles: css/site.css §23.
+ *  4. Roster          the fleet tally filters the units by class; long lists show a dozen until asked. Styles: §13b.
  */
 (() => {
   'use strict';
@@ -340,4 +341,72 @@
 
   sync();
   quiet = false;
+})();
+
+/* 4. The roster: each tally figure is a filter button for the units below it. A class with more than a dozen units
+ * shows the first twelve and a "Show all" button. Units fade out, swap and fade back in with a short stagger. */
+(() => {
+  'use strict';
+  const root = document.querySelector('[data-roster]');
+  if (!root) return;
+  const buttons = Array.from(root.querySelectorAll('[data-roster-filter]'));
+  const list = root.querySelector('[data-roster-units]');
+  const more = root.querySelector('[data-roster-more]');
+  const moreLabel = root.querySelector('[data-roster-more-label]');
+  const status = root.querySelector('[data-roster-status]');
+  const tally = root.querySelector('.tally');
+  const units = Array.from(list.children);
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const CAP = 12;
+  let current = 'all';
+  let open = false;
+  let timer = 0;
+
+  const render = () => {
+    const match = units.filter((u) => current === 'all' || u.dataset.cls === current);
+    units.forEach((u) => { u.hidden = true; });
+    match.forEach((u, i) => {
+      u.hidden = !open && i >= CAP;
+      u.style.setProperty('--i', String(i % CAP));
+    });
+    more.hidden = match.length <= CAP;
+    more.setAttribute('aria-expanded', String(open));
+    moreLabel.textContent = open ? 'Show fewer' : `Show all ${match.length} models`;
+  };
+
+  // fade the visible units out, swap, and let them stagger back in
+  const swap = (after) => {
+    clearTimeout(timer);
+    if (reduced) { render(); if (after) after(); return; }
+    list.classList.add('is-out');
+    timer = setTimeout(() => {
+      render();
+      void list.offsetWidth; // commit the hidden state before the fade-in starts
+      list.classList.remove('is-out');
+      if (after) after();
+    }, 240);
+  };
+
+  buttons.forEach((btn) => btn.addEventListener('click', () => {
+    if (btn.dataset.rosterFilter === current) return;
+    current = btn.dataset.rosterFilter;
+    open = false;
+    buttons.forEach((b) => b.setAttribute('aria-pressed', String(b === btn)));
+    const label = current === 'all' ? 'heavy units' : btn.querySelector('.tally__label').textContent.toLowerCase();
+    status.textContent = `Showing ${btn.querySelector('.tally__n').dataset.count} ${label}.`;
+    swap();
+  }));
+
+  more.addEventListener('click', () => {
+    open = !open;
+    // on the way back to a dozen, bring the tally into view so the reader isn't left below a shorter list
+    swap(open ? null : () => {
+      if (tally.getBoundingClientRect().top >= 0) return;
+      const lenis = window.FHE_LENIS;
+      if (lenis) lenis.scrollTo(tally, { duration: 1.1, force: true });
+      else tally.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'start' });
+    });
+  });
+
+  render();
 })();

@@ -418,6 +418,120 @@
         </li>
       </ol>
 
+      <div class="roster" id="roster" data-roster>
+        <header class="roster__head grid">
+          <p class="eyebrow roster__kicker" data-reveal="up">The roster</p>
+          <h3 class="roster__title" data-reveal="up">Every machine, <em>on call.</em></h3>
+          <p class="roster__lede" data-reveal="up" data-d="2">158 heavy units on our books across Abu Dhabi and Dubai: cranes, prime movers, trailers and handling plant. Pick a class.</p>
+        </header>
+
+        <div class="tally" role="group" aria-label="Show the roster by class" data-reveal="stagger">
+          <button class="tally__btn" type="button" aria-pressed="true" aria-controls="roster-units" data-roster-filter="all"><span class="tally__n" data-count="158">158</span><span class="tally__label">All heavy units</span></button>
+          <button class="tally__btn" type="button" aria-pressed="false" aria-controls="roster-units" data-roster-filter="mobile"><span class="tally__n" data-count="64">64</span><span class="tally__label">Mobile cranes</span></button>
+          <button class="tally__btn" type="button" aria-pressed="false" aria-controls="roster-units" data-roster-filter="crawler"><span class="tally__n" data-count="14">14</span><span class="tally__label">Crawler cranes</span></button>
+          <button class="tally__btn" type="button" aria-pressed="false" aria-controls="roster-units" data-roster-filter="prime"><span class="tally__n" data-count="33">33</span><span class="tally__label">Prime movers</span></button>
+          <button class="tally__btn" type="button" aria-pressed="false" aria-controls="roster-units" data-roster-filter="trailer"><span class="tally__n" data-count="36">36</span><span class="tally__label">Trailers</span></button>
+          <button class="tally__btn" type="button" aria-pressed="false" aria-controls="roster-units" data-roster-filter="handling"><span class="tally__n" data-count="11">11</span><span class="tally__label">Forklifts &amp; loaders</span></button>
+        </div>
+        <p class="sr-only" aria-live="polite" data-roster-status></p>
+
+        <ul class="units" id="roster-units" data-roster-units>
+          <li class="unit" data-cls="mobile"><p class="unit__make">Liebherr</p><p class="unit__model">LTM 1500</p><p class="unit__kind">Mobile crane</p><span class="unit__n" aria-hidden="true">×2</span><span class="sr-only">, 2 units</span></li>
+          <li class="unit" data-cls="mobile"><p class="unit__make">Liebherr</p><p class="unit__model">LTM 1300-6.2</p><p class="unit__kind">Mobile crane</p></li>
+          <li class="unit" data-cls="mobile"><p class="unit__make">Liebherr</p><p class="unit__model">LTM 1250</p><p class="unit__kind">Mobile crane</p><span class="unit__n" aria-hidden="true">×2</span><span class="sr-only">, 2 units</span></li>
+          <li class="unit" data-cls="mobile"><p class="unit__make">Liebherr</p><p class="unit__model">LTM 1200</p><p class="unit__kind">Mobile crane</p><span class="unit__n" aria-hidden="true">×3</span><span class="sr-only">, 3 units</span></li>
+          <li class="unit" data-cls="mobile"><p class="unit__make">Liebherr</p><p class="unit__model">LTM 1160</p><p class="unit__kind">Mobile crane</p><span class="unit__n" aria-hidden="true">×2</span><span class="sr-only">, 2 units</span></li>
+          <li class="unit" data-cls="mobile"><p class="unit__make">Liebherr</p><p class="unit__model">LTM 1080</p><p class="unit__kind">Mobile crane</p></li>
+          <li class="unit" data-cls="mobile"><p class="unit__make">Liebherr</p><p class="unit__model">LTM 1050-4</p><p class="unit__kind">Mobile crane</p></li>
+          <li class="unit" data-cls="mobile"><p class="unit__make">Demag</p><p class="unit__model">AC 700</p><p class="unit__kind">Mobile crane</p></li>
+          <li class="unit" data-cls="mobile"><p class="unit__make">Demag</p><p class="unit__model">AC 500</p><p class="unit__kind">Mobile crane</p></li>
+          <li class="unit" data-cls="mobile"><p class="unit__make">Demag</p><p class="unit__model">AC 200</p><p class="unit__kind">Mobile crane</p></li>
+          <li class="unit" data-cls="mobile"><p class="unit__make">Demag</p><p class="unit__model">AC 120</p><p class="unit__kind">Mobile crane</p><span class="unit__n" aria-hidden="true">×3</span><span class="sr-only">, 3 units</span></li>
+          <li class="unit" data-cls="mobile"><p class="unit__make">Demag</p><p class="unit__model">AC 100</p><p class="unit__kind">Mobile crane</p><span class="unit__n" aria-hidden="true">×7</span><span class="sr-only">, 7 units</span></li>
+          <li class="unit" data-cls="mobile"><p class="unit__make">Terex</p><p class="unit__model">Explorer 5800</p><p class="unit__kind">Mobile crane</p></li>
+          <li class="unit" data-cls="mobile"><p class="unit__make">Terex</p><p class="unit__model">A600</p><p class="unit__kind">Mobile crane</p><span class="unit__n" aria-hidden="true">×2</span><span class="sr-only">, 2 units</span></li>
+          <li class="unit" data-cls="mobile"><p class="unit__make">Zoomlion</p><p class="unit__model">ZAT 4000</p><p class="unit__kind">Mobile crane</p></li>
+          <li class="unit" data-cls="mobile"><p class="unit__make">Zoomlion</p><p class="unit__model">ZTC 1300V</p><p class="unit__kind">Mobile crane</p></li>
+          <li class="unit" data-cls="mobile"><p class="unit__make">Zoomlion</p><p class="unit__model">ZTC 1000V</p><p class="unit__kind">Mobile crane</p></li>
+          <li class="unit" data-cls="mobile"><p class="unit__make">Zoomlion</p><p class="unit__model">ZTC 800V</p><p class="unit__kind">Mobile crane</p><span class="unit__n" aria-hidden="true">×3</span><span class="sr-only">, 3 units</span></li>
+          <li class="unit" data-cls="mobile"><p class="unit__make">Zoomlion</p><p class="unit__model">ZTC 600</p><p class="unit__kind">Mobile crane</p></li>
+          <li class="unit" data-cls="mobile"><p class="unit__make">Zoomlion</p><p class="unit__model">ZTC 550V</p><p class="unit__kind">Mobile crane</p><span class="unit__n" aria-hidden="true">×3</span><span class="sr-only">, 3 units</span></li>
+          <li class="unit" data-cls="mobile"><p class="unit__make">Zoomlion</p><p class="unit__model">ZTC 300</p><p class="unit__kind">Mobile crane</p></li>
+          <li class="unit" data-cls="mobile"><p class="unit__make">Zoomlion</p><p class="unit__model">ZTC 250</p><p class="unit__kind">Mobile crane</p><span class="unit__n" aria-hidden="true">×2</span><span class="sr-only">, 2 units</span></li>
+          <li class="unit" data-cls="mobile"><p class="unit__make">Zoomlion</p><p class="unit__model">QY 50</p><p class="unit__kind">Mobile crane</p></li>
+          <li class="unit" data-cls="mobile"><p class="unit__make">XCMG</p><p class="unit__model">XCA 250</p><p class="unit__kind">Mobile crane</p></li>
+          <li class="unit" data-cls="mobile"><p class="unit__make">XCMG</p><p class="unit__model">QY 110KH</p><p class="unit__kind">Mobile crane</p><span class="unit__n" aria-hidden="true">×2</span><span class="sr-only">, 2 units</span></li>
+          <li class="unit" data-cls="mobile"><p class="unit__make">XCMG</p><p class="unit__model">QY 100K</p><p class="unit__kind">Mobile crane</p></li>
+          <li class="unit" data-cls="mobile"><p class="unit__make">XCMG</p><p class="unit__model">QY 70K</p><p class="unit__kind">Mobile crane</p></li>
+          <li class="unit" data-cls="mobile"><p class="unit__make">XCMG</p><p class="unit__model">XCT 70E</p><p class="unit__kind">Mobile crane</p></li>
+          <li class="unit" data-cls="mobile"><p class="unit__make">XCMG</p><p class="unit__model">50 T</p><p class="unit__kind">Mobile crane</p></li>
+          <li class="unit" data-cls="mobile"><p class="unit__make">XCMG</p><p class="unit__model">QY 50K</p><p class="unit__kind">Mobile crane</p></li>
+          <li class="unit" data-cls="mobile"><p class="unit__make">XCMG</p><p class="unit__model">QY 25K</p><p class="unit__kind">Mobile crane</p></li>
+          <li class="unit" data-cls="mobile"><p class="unit__make">Sany</p><p class="unit__model">SAC 2600T</p><p class="unit__kind">Mobile crane</p></li>
+          <li class="unit" data-cls="mobile"><p class="unit__make">Sany</p><p class="unit__model">SAC 1600</p><p class="unit__kind">Mobile crane</p></li>
+          <li class="unit" data-cls="mobile"><p class="unit__make">Sany</p><p class="unit__model">STC 1000C</p><p class="unit__kind">Mobile crane</p></li>
+          <li class="unit" data-cls="mobile"><p class="unit__make">Sany</p><p class="unit__model">STC 500</p><p class="unit__kind">Mobile crane</p><span class="unit__n" aria-hidden="true">×3</span><span class="sr-only">, 3 units</span></li>
+          <li class="unit" data-cls="mobile"><p class="unit__make">Sany</p><p class="unit__model">300 T</p><p class="unit__kind">Mobile crane</p></li>
+          <li class="unit" data-cls="mobile"><p class="unit__make">Sany</p><p class="unit__model">STC 250</p><p class="unit__kind">Mobile crane</p></li>
+          <li class="unit" data-cls="mobile"><p class="unit__make">Sany</p><p class="unit__model">100 T</p><p class="unit__kind">Mobile crane</p></li>
+          <li class="unit" data-cls="mobile"><p class="unit__make">Sany</p><p class="unit__model">STC 75</p><p class="unit__kind">Mobile crane</p></li>
+          <li class="unit" data-cls="mobile"><p class="unit__make">Sany</p><p class="unit__model">QY 50C</p><p class="unit__kind">Mobile crane</p></li>
+          <li class="unit" data-cls="mobile"><p class="unit__make">Sany</p><p class="unit__model">Truck crane</p><p class="unit__kind">Mobile crane</p></li>
+          <li class="unit" data-cls="mobile"><p class="unit__make">Kobelco</p><p class="unit__model">RK 70M</p><p class="unit__kind">Mobile crane</p></li>
+          <li class="unit" data-cls="crawler"><p class="unit__make">Zoomlion</p><p class="unit__model">ZCC 300V</p><p class="unit__kind">Crawler crane</p></li>
+          <li class="unit" data-cls="crawler"><p class="unit__make">XCMG</p><p class="unit__model">XGC 150</p><p class="unit__kind">Crawler crane</p></li>
+          <li class="unit" data-cls="crawler"><p class="unit__make">XCMG</p><p class="unit__model">QUY 55</p><p class="unit__kind">Crawler crane</p></li>
+          <li class="unit" data-cls="crawler"><p class="unit__make">Sany</p><p class="unit__model">SCC 3200A</p><p class="unit__kind">Crawler crane</p></li>
+          <li class="unit" data-cls="crawler"><p class="unit__make">Sany</p><p class="unit__model">SCC 600A</p><p class="unit__kind">Crawler crane</p></li>
+          <li class="unit" data-cls="crawler"><p class="unit__make">Kobelco</p><p class="unit__model">CKE 2500</p><p class="unit__kind">Crawler crane</p><span class="unit__n" aria-hidden="true">×2</span><span class="sr-only">, 2 units</span></li>
+          <li class="unit" data-cls="crawler"><p class="unit__make">Kobelco</p><p class="unit__model">CKE 1350</p><p class="unit__kind">Crawler crane</p></li>
+          <li class="unit" data-cls="crawler"><p class="unit__make">Kobelco</p><p class="unit__model">600 series</p><p class="unit__kind">Crawler crane</p><span class="unit__n" aria-hidden="true">×3</span><span class="sr-only">, 3 units</span></li>
+          <li class="unit" data-cls="crawler"><p class="unit__make">Kobelco</p><p class="unit__model">Crawler crane</p><p class="unit__kind">Crawler crane</p></li>
+          <li class="unit" data-cls="crawler"><p class="unit__make">Hitachi</p><p class="unit__model">KH 300</p><p class="unit__kind">Crawler crane</p></li>
+          <li class="unit" data-cls="crawler"><p class="unit__make">Sumitomo</p><p class="unit__model">LS-248RH</p><p class="unit__kind">Crawler crane</p></li>
+          <li class="unit" data-cls="prime"><p class="unit__make">Sany</p><p class="unit__model">HQC</p><p class="unit__kind">Prime mover</p><span class="unit__n" aria-hidden="true">×8</span><span class="sr-only">, 8 units</span></li>
+          <li class="unit" data-cls="prime"><p class="unit__make">Mercedes-Benz</p><p class="unit__model">3848</p><p class="unit__kind">Prime mover</p><span class="unit__n" aria-hidden="true">×2</span><span class="sr-only">, 2 units</span></li>
+          <li class="unit" data-cls="prime"><p class="unit__make">Mercedes-Benz</p><p class="unit__model">2653</p><p class="unit__kind">Prime mover</p></li>
+          <li class="unit" data-cls="prime"><p class="unit__make">Mercedes-Benz</p><p class="unit__model">1948</p><p class="unit__kind">Prime mover</p></li>
+          <li class="unit" data-cls="prime"><p class="unit__make">Mercedes-Benz</p><p class="unit__model">1848</p><p class="unit__kind">Prime mover</p><span class="unit__n" aria-hidden="true">×2</span><span class="sr-only">, 2 units</span></li>
+          <li class="unit" data-cls="prime"><p class="unit__make">Mercedes-Benz</p><p class="unit__model">1843</p><p class="unit__kind">Prime mover</p><span class="unit__n" aria-hidden="true">×2</span><span class="sr-only">, 2 units</span></li>
+          <li class="unit" data-cls="prime"><p class="unit__make">Mercedes-Benz</p><p class="unit__model">1840</p><p class="unit__kind">Prime mover</p></li>
+          <li class="unit" data-cls="prime"><p class="unit__make">Mercedes-Benz</p><p class="unit__model">1834</p><p class="unit__kind">Prime mover</p><span class="unit__n" aria-hidden="true">×2</span><span class="sr-only">, 2 units</span></li>
+          <li class="unit" data-cls="prime"><p class="unit__make">Volvo</p><p class="unit__model">FH12</p><p class="unit__kind">Prime mover</p><span class="unit__n" aria-hidden="true">×2</span><span class="sr-only">, 2 units</span></li>
+          <li class="unit" data-cls="prime"><p class="unit__make">Volvo</p><p class="unit__model">FM12</p><p class="unit__kind">Prime mover</p></li>
+          <li class="unit" data-cls="prime"><p class="unit__make">Volvo</p><p class="unit__model">FH</p><p class="unit__kind">Prime mover</p><span class="unit__n" aria-hidden="true">×5</span><span class="sr-only">, 5 units</span></li>
+          <li class="unit" data-cls="prime"><p class="unit__make">MAN</p><p class="unit__model">TGA 33.400</p><p class="unit__kind">Prime mover</p></li>
+          <li class="unit" data-cls="prime"><p class="unit__make">MAN</p><p class="unit__model">19.414</p><p class="unit__kind">Prime mover</p></li>
+          <li class="unit" data-cls="prime"><p class="unit__make">MAN</p><p class="unit__model">TGA 18.440</p><p class="unit__kind">Prime mover</p></li>
+          <li class="unit" data-cls="prime"><p class="unit__make">MAN</p><p class="unit__model">TGX 18.440</p><p class="unit__kind">Prime mover</p></li>
+          <li class="unit" data-cls="prime"><p class="unit__make">Tata</p><p class="unit__model">Prima</p><p class="unit__kind">Prime mover</p></li>
+          <li class="unit" data-cls="prime"><p class="unit__make">Daewoo</p><p class="unit__model">7542</p><p class="unit__kind">Prime mover</p></li>
+          <li class="unit" data-cls="trailer"><p class="unit__make">Valt</p><p class="unit__model">Flatbed</p><p class="unit__kind">Trailer</p><span class="unit__n" aria-hidden="true">×17</span><span class="sr-only">, 17 units</span></li>
+          <li class="unit" data-cls="trailer"><p class="unit__make">Valt</p><p class="unit__model">Lowbed</p><p class="unit__kind">Trailer</p><span class="unit__n" aria-hidden="true">×3</span><span class="sr-only">, 3 units</span></li>
+          <li class="unit" data-cls="trailer"><p class="unit__make">Semi-trailer</p><p class="unit__model">Flatbed</p><p class="unit__kind">Trailer</p><span class="unit__n" aria-hidden="true">×13</span><span class="sr-only">, 13 units</span></li>
+          <li class="unit" data-cls="trailer"><p class="unit__make">Semi-trailer</p><p class="unit__model">Lowbed</p><p class="unit__kind">Trailer</p><span class="unit__n" aria-hidden="true">×3</span><span class="sr-only">, 3 units</span></li>
+          <li class="unit" data-cls="handling"><p class="unit__make">Caterpillar</p><p class="unit__model">966G</p><p class="unit__kind">Handling</p><span class="unit__n" aria-hidden="true">×2</span><span class="sr-only">, 2 units</span></li>
+          <li class="unit" data-cls="handling"><p class="unit__make">Caterpillar</p><p class="unit__model">950G</p><p class="unit__kind">Handling</p></li>
+          <li class="unit" data-cls="handling"><p class="unit__make">JCB</p><p class="unit__model">540-170</p><p class="unit__kind">Handling</p><span class="unit__n" aria-hidden="true">×2</span><span class="sr-only">, 2 units</span></li>
+          <li class="unit" data-cls="handling"><p class="unit__make">Kalmar</p><p class="unit__model">DCD250-12LB</p><p class="unit__kind">Handling</p></li>
+          <li class="unit" data-cls="handling"><p class="unit__make">Toyota</p><p class="unit__model">FD50</p><p class="unit__kind">Handling</p></li>
+          <li class="unit" data-cls="handling"><p class="unit__make">Toyota</p><p class="unit__model">FD8-32</p><p class="unit__kind">Handling</p></li>
+          <li class="unit" data-cls="handling"><p class="unit__make">Hangcha</p><p class="unit__model">CPCD100</p><p class="unit__kind">Handling</p></li>
+          <li class="unit" data-cls="handling"><p class="unit__make">Dalian</p><p class="unit__model">CPCD30</p><p class="unit__kind">Handling</p></li>
+          <li class="unit" data-cls="handling"><p class="unit__make">CVS Ferrari</p><p class="unit__model">Forklift</p><p class="unit__kind">Handling</p></li>
+        </ul>
+        <div class="roster__more">
+          <button class="roster__more-btn" type="button" aria-controls="roster-units" aria-expanded="false" data-roster-more hidden><span data-roster-more-label>Show all</span><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        </div>
+
+        <div class="makers" aria-label="Makes in the fleet">
+          <div class="makers__track">
+            <ul class="makers__list"><li>Liebherr</li><li>Demag</li><li>Terex</li><li>Zoomlion</li><li>XCMG</li><li>Sany</li><li>Kobelco</li><li>Hitachi</li><li>Sumitomo</li><li>Mercedes-Benz</li><li>Volvo</li><li>MAN</li><li>Tata</li><li>Daewoo</li><li>Caterpillar</li><li>JCB</li><li>Kalmar</li><li>Toyota</li><li>Hangcha</li></ul>
+            <ul class="makers__list" aria-hidden="true"><li>Liebherr</li><li>Demag</li><li>Terex</li><li>Zoomlion</li><li>XCMG</li><li>Sany</li><li>Kobelco</li><li>Hitachi</li><li>Sumitomo</li><li>Mercedes-Benz</li><li>Volvo</li><li>MAN</li><li>Tata</li><li>Daewoo</li><li>Caterpillar</li><li>JCB</li><li>Kalmar</li><li>Toyota</li><li>Hangcha</li></ul>
+          </div>
+        </div>
+      </div>
+
       <div class="catalogue">
         <div class="yard grid">
           <div class="yard__text" data-reveal="stagger">
