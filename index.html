@@ -418,126 +418,22 @@
         </li>
       </ol>
 
-      <div class="roster" id="roster" data-roster>
-        <header class="roster__head grid">
-          <p class="eyebrow roster__kicker" data-reveal="up">The roster</p>
-          <h3 class="roster__title" data-reveal="up">Every machine, <em>on call.</em></h3>
-          <p class="roster__lede" data-reveal="up" data-d="2">158 heavy units on our books across Abu Dhabi and Dubai: cranes, prime movers, trailers and handling plant. Pick a class.</p>
-        </header>
-
-        <div class="tally" role="group" aria-label="Show the roster by class" data-reveal="stagger">
-          <button class="tally__btn" type="button" aria-pressed="true" aria-controls="roster-units" data-roster-filter="all"><span class="tally__n" data-count="158">158</span><span class="tally__label">All heavy units</span></button>
-          <button class="tally__btn" type="button" aria-pressed="false" aria-controls="roster-units" data-roster-filter="mobile"><span class="tally__n" data-count="64">64</span><span class="tally__label">Mobile cranes</span></button>
-          <button class="tally__btn" type="button" aria-pressed="false" aria-controls="roster-units" data-roster-filter="crawler"><span class="tally__n" data-count="14">14</span><span class="tally__label">Crawler cranes</span></button>
-          <button class="tally__btn" type="button" aria-pressed="false" aria-controls="roster-units" data-roster-filter="prime"><span class="tally__n" data-count="33">33</span><span class="tally__label">Prime movers</span></button>
-          <button class="tally__btn" type="button" aria-pressed="false" aria-controls="roster-units" data-roster-filter="trailer"><span class="tally__n" data-count="36">36</span><span class="tally__label">Trailers</span></button>
-          <button class="tally__btn" type="button" aria-pressed="false" aria-controls="roster-units" data-roster-filter="handling"><span class="tally__n" data-count="11">11</span><span class="tally__label">Forklifts &amp; loaders</span></button>
-        </div>
-        <p class="sr-only" aria-live="polite" data-roster-status></p>
-
-        <ul class="units" id="roster-units" data-roster-units>
-          <li class="unit" data-cls="mobile"><p class="unit__make">Liebherr</p><p class="unit__model">LTM 1500</p><p class="unit__kind">Mobile crane</p><span class="unit__n" aria-hidden="true">×2</span><span class="sr-only">, 2 units</span></li>
-          <li class="unit" data-cls="mobile"><p class="unit__make">Liebherr</p><p class="unit__model">LTM 1300-6.2</p><p class="unit__kind">Mobile crane</p></li>
-          <li class="unit" data-cls="mobile"><p class="unit__make">Liebherr</p><p class="unit__model">LTM 1250</p><p class="unit__kind">Mobile crane</p><span class="unit__n" aria-hidden="true">×2</span><span class="sr-only">, 2 units</span></li>
-          <li class="unit" data-cls="mobile"><p class="unit__make">Liebherr</p><p class="unit__model">LTM 1200</p><p class="unit__kind">Mobile crane</p><span class="unit__n" aria-hidden="true">×3</span><span class="sr-only">, 3 units</span></li>
-          <li class="unit" data-cls="mobile"><p class="unit__make">Liebherr</p><p class="unit__model">LTM 1160</p><p class="unit__kind">Mobile crane</p><span class="unit__n" aria-hidden="true">×2</span><span class="sr-only">, 2 units</span></li>
-          <li class="unit" data-cls="mobile"><p class="unit__make">Liebherr</p><p class="unit__model">LTM 1080</p><p class="unit__kind">Mobile crane</p></li>
-          <li class="unit" data-cls="mobile"><p class="unit__make">Liebherr</p><p class="unit__model">LTM 1050-4</p><p class="unit__kind">Mobile crane</p></li>
-          <li class="unit" data-cls="mobile"><p class="unit__make">Demag</p><p class="unit__model">AC 700</p><p class="unit__kind">Mobile crane</p></li>
-          <li class="unit" data-cls="mobile"><p class="unit__make">Demag</p><p class="unit__model">AC 500</p><p class="unit__kind">Mobile crane</p></li>
-          <li class="unit" data-cls="mobile"><p class="unit__make">Demag</p><p class="unit__model">AC 200</p><p class="unit__kind">Mobile crane</p></li>
-          <li class="unit" data-cls="mobile"><p class="unit__make">Demag</p><p class="unit__model">AC 120</p><p class="unit__kind">Mobile crane</p><span class="unit__n" aria-hidden="true">×3</span><span class="sr-only">, 3 units</span></li>
-          <li class="unit" data-cls="mobile"><p class="unit__make">Demag</p><p class="unit__model">AC 100</p><p class="unit__kind">Mobile crane</p><span class="unit__n" aria-hidden="true">×7</span><span class="sr-only">, 7 units</span></li>
-          <li class="unit" data-cls="mobile"><p class="unit__make">Terex</p><p class="unit__model">Explorer 5800</p><p class="unit__kind">Mobile crane</p></li>
-          <li class="unit" data-cls="mobile"><p class="unit__make">Terex</p><p class="unit__model">A600</p><p class="unit__kind">Mobile crane</p><span class="unit__n" aria-hidden="true">×2</span><span class="sr-only">, 2 units</span></li>
-          <li class="unit" data-cls="mobile"><p class="unit__make">Zoomlion</p><p class="unit__model">ZAT 4000</p><p class="unit__kind">Mobile crane</p></li>
-          <li class="unit" data-cls="mobile"><p class="unit__make">Zoomlion</p><p class="unit__model">ZTC 1300V</p><p class="unit__kind">Mobile crane</p></li>
-          <li class="unit" data-cls="mobile"><p class="unit__make">Zoomlion</p><p class="unit__model">ZTC 1000V</p><p class="unit__kind">Mobile crane</p></li>
-          <li class="unit" data-cls="mobile"><p class="unit__make">Zoomlion</p><p class="unit__model">ZTC 800V</p><p class="unit__kind">Mobile crane</p><span class="unit__n" aria-hidden="true">×3</span><span class="sr-only">, 3 units</span></li>
-          <li class="unit" data-cls="mobile"><p class="unit__make">Zoomlion</p><p class="unit__model">ZTC 600</p><p class="unit__kind">Mobile crane</p></li>
-          <li class="unit" data-cls="mobile"><p class="unit__make">Zoomlion</p><p class="unit__model">ZTC 550V</p><p class="unit__kind">Mobile crane</p><span class="unit__n" aria-hidden="true">×3</span><span class="sr-only">, 3 units</span></li>
-          <li class="unit" data-cls="mobile"><p class="unit__make">Zoomlion</p><p class="unit__model">ZTC 300</p><p class="unit__kind">Mobile crane</p></li>
-          <li class="unit" data-cls="mobile"><p class="unit__make">Zoomlion</p><p class="unit__model">ZTC 250</p><p class="unit__kind">Mobile crane</p><span class="unit__n" aria-hidden="true">×2</span><span class="sr-only">, 2 units</span></li>
-          <li class="unit" data-cls="mobile"><p class="unit__make">Zoomlion</p><p class="unit__model">QY 50</p><p class="unit__kind">Mobile crane</p></li>
-          <li class="unit" data-cls="mobile"><p class="unit__make">XCMG</p><p class="unit__model">XCA 250</p><p class="unit__kind">Mobile crane</p></li>
-          <li class="unit" data-cls="mobile"><p class="unit__make">XCMG</p><p class="unit__model">QY 110KH</p><p class="unit__kind">Mobile crane</p><span class="unit__n" aria-hidden="true">×2</span><span class="sr-only">, 2 units</span></li>
-          <li class="unit" data-cls="mobile"><p class="unit__make">XCMG</p><p class="unit__model">QY 100K</p><p class="unit__kind">Mobile crane</p></li>
-          <li class="unit" data-cls="mobile"><p class="unit__make">XCMG</p><p class="unit__model">QY 70K</p><p class="unit__kind">Mobile crane</p></li>
-          <li class="unit" data-cls="mobile"><p class="unit__make">XCMG</p><p class="unit__model">XCT 70E</p><p class="unit__kind">Mobile crane</p></li>
-          <li class="unit" data-cls="mobile"><p class="unit__make">XCMG</p><p class="unit__model">50 T</p><p class="unit__kind">Mobile crane</p></li>
-          <li class="unit" data-cls="mobile"><p class="unit__make">XCMG</p><p class="unit__model">QY 50K</p><p class="unit__kind">Mobile crane</p></li>
-          <li class="unit" data-cls="mobile"><p class="unit__make">XCMG</p><p class="unit__model">QY 25K</p><p class="unit__kind">Mobile crane</p></li>
-          <li class="unit" data-cls="mobile"><p class="unit__make">Sany</p><p class="unit__model">SAC 2600T</p><p class="unit__kind">Mobile crane</p></li>
-          <li class="unit" data-cls="mobile"><p class="unit__make">Sany</p><p class="unit__model">SAC 1600</p><p class="unit__kind">Mobile crane</p></li>
-          <li class="unit" data-cls="mobile"><p class="unit__make">Sany</p><p class="unit__model">STC 1000C</p><p class="unit__kind">Mobile crane</p></li>
-          <li class="unit" data-cls="mobile"><p class="unit__make">Sany</p><p class="unit__model">STC 500</p><p class="unit__kind">Mobile crane</p><span class="unit__n" aria-hidden="true">×3</span><span class="sr-only">, 3 units</span></li>
-          <li class="unit" data-cls="mobile"><p class="unit__make">Sany</p><p class="unit__model">300 T</p><p class="unit__kind">Mobile crane</p></li>
-          <li class="unit" data-cls="mobile"><p class="unit__make">Sany</p><p class="unit__model">STC 250</p><p class="unit__kind">Mobile crane</p></li>
-          <li class="unit" data-cls="mobile"><p class="unit__make">Sany</p><p class="unit__model">100 T</p><p class="unit__kind">Mobile crane</p></li>
-          <li class="unit" data-cls="mobile"><p class="unit__make">Sany</p><p class="unit__model">STC 75</p><p class="unit__kind">Mobile crane</p></li>
-          <li class="unit" data-cls="mobile"><p class="unit__make">Sany</p><p class="unit__model">QY 50C</p><p class="unit__kind">Mobile crane</p></li>
-          <li class="unit" data-cls="mobile"><p class="unit__make">Sany</p><p class="unit__model">Truck crane</p><p class="unit__kind">Mobile crane</p></li>
-          <li class="unit" data-cls="mobile"><p class="unit__make">Kobelco</p><p class="unit__model">RK 70M</p><p class="unit__kind">Mobile crane</p></li>
-          <li class="unit" data-cls="crawler"><p class="unit__make">Zoomlion</p><p class="unit__model">ZCC 300V</p><p class="unit__kind">Crawler crane</p></li>
-          <li class="unit" data-cls="crawler"><p class="unit__make">XCMG</p><p class="unit__model">XGC 150</p><p class="unit__kind">Crawler crane</p></li>
-          <li class="unit" data-cls="crawler"><p class="unit__make">XCMG</p><p class="unit__model">QUY 55</p><p class="unit__kind">Crawler crane</p></li>
-          <li class="unit" data-cls="crawler"><p class="unit__make">Sany</p><p class="unit__model">SCC 3200A</p><p class="unit__kind">Crawler crane</p></li>
-          <li class="unit" data-cls="crawler"><p class="unit__make">Sany</p><p class="unit__model">SCC 600A</p><p class="unit__kind">Crawler crane</p></li>
-          <li class="unit" data-cls="crawler"><p class="unit__make">Kobelco</p><p class="unit__model">CKE 2500</p><p class="unit__kind">Crawler crane</p><span class="unit__n" aria-hidden="true">×2</span><span class="sr-only">, 2 units</span></li>
-          <li class="unit" data-cls="crawler"><p class="unit__make">Kobelco</p><p class="unit__model">CKE 1350</p><p class="unit__kind">Crawler crane</p></li>
-          <li class="unit" data-cls="crawler"><p class="unit__make">Kobelco</p><p class="unit__model">600 series</p><p class="unit__kind">Crawler crane</p><span class="unit__n" aria-hidden="true">×3</span><span class="sr-only">, 3 units</span></li>
-          <li class="unit" data-cls="crawler"><p class="unit__make">Kobelco</p><p class="unit__model">Crawler crane</p><p class="unit__kind">Crawler crane</p></li>
-          <li class="unit" data-cls="crawler"><p class="unit__make">Hitachi</p><p class="unit__model">KH 300</p><p class="unit__kind">Crawler crane</p></li>
-          <li class="unit" data-cls="crawler"><p class="unit__make">Sumitomo</p><p class="unit__model">LS-248RH</p><p class="unit__kind">Crawler crane</p></li>
-          <li class="unit" data-cls="prime"><p class="unit__make">Sany</p><p class="unit__model">HQC</p><p class="unit__kind">Prime mover</p><span class="unit__n" aria-hidden="true">×8</span><span class="sr-only">, 8 units</span></li>
-          <li class="unit" data-cls="prime"><p class="unit__make">Mercedes-Benz</p><p class="unit__model">3848</p><p class="unit__kind">Prime mover</p><span class="unit__n" aria-hidden="true">×2</span><span class="sr-only">, 2 units</span></li>
-          <li class="unit" data-cls="prime"><p class="unit__make">Mercedes-Benz</p><p class="unit__model">2653</p><p class="unit__kind">Prime mover</p></li>
-          <li class="unit" data-cls="prime"><p class="unit__make">Mercedes-Benz</p><p class="unit__model">1948</p><p class="unit__kind">Prime mover</p></li>
-          <li class="unit" data-cls="prime"><p class="unit__make">Mercedes-Benz</p><p class="unit__model">1848</p><p class="unit__kind">Prime mover</p><span class="unit__n" aria-hidden="true">×2</span><span class="sr-only">, 2 units</span></li>
-          <li class="unit" data-cls="prime"><p class="unit__make">Mercedes-Benz</p><p class="unit__model">1843</p><p class="unit__kind">Prime mover</p><span class="unit__n" aria-hidden="true">×2</span><span class="sr-only">, 2 units</span></li>
-          <li class="unit" data-cls="prime"><p class="unit__make">Mercedes-Benz</p><p class="unit__model">1840</p><p class="unit__kind">Prime mover</p></li>
-          <li class="unit" data-cls="prime"><p class="unit__make">Mercedes-Benz</p><p class="unit__model">1834</p><p class="unit__kind">Prime mover</p><span class="unit__n" aria-hidden="true">×2</span><span class="sr-only">, 2 units</span></li>
-          <li class="unit" data-cls="prime"><p class="unit__make">Volvo</p><p class="unit__model">FH12</p><p class="unit__kind">Prime mover</p><span class="unit__n" aria-hidden="true">×2</span><span class="sr-only">, 2 units</span></li>
-          <li class="unit" data-cls="prime"><p class="unit__make">Volvo</p><p class="unit__model">FM12</p><p class="unit__kind">Prime mover</p></li>
-          <li class="unit" data-cls="prime"><p class="unit__make">Volvo</p><p class="unit__model">FH</p><p class="unit__kind">Prime mover</p><span class="unit__n" aria-hidden="true">×5</span><span class="sr-only">, 5 units</span></li>
-          <li class="unit" data-cls="prime"><p class="unit__make">MAN</p><p class="unit__model">TGA 33.400</p><p class="unit__kind">Prime mover</p></li>
-          <li class="unit" data-cls="prime"><p class="unit__make">MAN</p><p class="unit__model">19.414</p><p class="unit__kind">Prime mover</p></li>
-          <li class="unit" data-cls="prime"><p class="unit__make">MAN</p><p class="unit__model">TGA 18.440</p><p class="unit__kind">Prime mover</p></li>
-          <li class="unit" data-cls="prime"><p class="unit__make">MAN</p><p class="unit__model">TGX 18.440</p><p class="unit__kind">Prime mover</p></li>
-          <li class="unit" data-cls="prime"><p class="unit__make">Tata</p><p class="unit__model">Prima</p><p class="unit__kind">Prime mover</p></li>
-          <li class="unit" data-cls="prime"><p class="unit__make">Daewoo</p><p class="unit__model">7542</p><p class="unit__kind">Prime mover</p></li>
-          <li class="unit" data-cls="trailer"><p class="unit__make">Valt</p><p class="unit__model">Flatbed</p><p class="unit__kind">Trailer</p><span class="unit__n" aria-hidden="true">×17</span><span class="sr-only">, 17 units</span></li>
-          <li class="unit" data-cls="trailer"><p class="unit__make">Valt</p><p class="unit__model">Lowbed</p><p class="unit__kind">Trailer</p><span class="unit__n" aria-hidden="true">×3</span><span class="sr-only">, 3 units</span></li>
-          <li class="unit" data-cls="trailer"><p class="unit__make">Semi-trailer</p><p class="unit__model">Flatbed</p><p class="unit__kind">Trailer</p><span class="unit__n" aria-hidden="true">×13</span><span class="sr-only">, 13 units</span></li>
-          <li class="unit" data-cls="trailer"><p class="unit__make">Semi-trailer</p><p class="unit__model">Lowbed</p><p class="unit__kind">Trailer</p><span class="unit__n" aria-hidden="true">×3</span><span class="sr-only">, 3 units</span></li>
-          <li class="unit" data-cls="handling"><p class="unit__make">Caterpillar</p><p class="unit__model">966G</p><p class="unit__kind">Handling</p><span class="unit__n" aria-hidden="true">×2</span><span class="sr-only">, 2 units</span></li>
-          <li class="unit" data-cls="handling"><p class="unit__make">Caterpillar</p><p class="unit__model">950G</p><p class="unit__kind">Handling</p></li>
-          <li class="unit" data-cls="handling"><p class="unit__make">JCB</p><p class="unit__model">540-170</p><p class="unit__kind">Handling</p><span class="unit__n" aria-hidden="true">×2</span><span class="sr-only">, 2 units</span></li>
-          <li class="unit" data-cls="handling"><p class="unit__make">Kalmar</p><p class="unit__model">DCD250-12LB</p><p class="unit__kind">Handling</p></li>
-          <li class="unit" data-cls="handling"><p class="unit__make">Toyota</p><p class="unit__model">FD50</p><p class="unit__kind">Handling</p></li>
-          <li class="unit" data-cls="handling"><p class="unit__make">Toyota</p><p class="unit__model">FD8-32</p><p class="unit__kind">Handling</p></li>
-          <li class="unit" data-cls="handling"><p class="unit__make">Hangcha</p><p class="unit__model">CPCD100</p><p class="unit__kind">Handling</p></li>
-          <li class="unit" data-cls="handling"><p class="unit__make">Dalian</p><p class="unit__model">CPCD30</p><p class="unit__kind">Handling</p></li>
-          <li class="unit" data-cls="handling"><p class="unit__make">CVS Ferrari</p><p class="unit__model">Forklift</p><p class="unit__kind">Handling</p></li>
-        </ul>
-        <div class="roster__more">
-          <button class="roster__more-btn" type="button" aria-controls="roster-units" aria-expanded="false" data-roster-more hidden><span data-roster-more-label>Show all</span><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-        </div>
-
-        <div class="makers" aria-label="Makes in the fleet">
-          <div class="makers__track">
-            <ul class="makers__list"><li>Liebherr</li><li>Demag</li><li>Terex</li><li>Zoomlion</li><li>XCMG</li><li>Sany</li><li>Kobelco</li><li>Hitachi</li><li>Sumitomo</li><li>Mercedes-Benz</li><li>Volvo</li><li>MAN</li><li>Tata</li><li>Daewoo</li><li>Caterpillar</li><li>JCB</li><li>Kalmar</li><li>Toyota</li><li>Hangcha</li></ul>
-            <ul class="makers__list" aria-hidden="true"><li>Liebherr</li><li>Demag</li><li>Terex</li><li>Zoomlion</li><li>XCMG</li><li>Sany</li><li>Kobelco</li><li>Hitachi</li><li>Sumitomo</li><li>Mercedes-Benz</li><li>Volvo</li><li>MAN</li><li>Tata</li><li>Daewoo</li><li>Caterpillar</li><li>JCB</li><li>Kalmar</li><li>Toyota</li><li>Hangcha</li></ul>
-          </div>
-        </div>
-      </div>
-
       <div class="catalogue">
         <div class="yard grid">
           <div class="yard__text" data-reveal="stagger">
             <p class="eyebrow">In the yard</p>
             <p class="yard__lead">Mobile, crawler and forklift. Lowbed and flatbed. One of the largest fleets of cranes, ready for any job.</p>
             <p class="yard__sub">Backed by man lifts, Bobcats, JCBs and excavators — and trained operators and lifting supervisors.</p>
+            <figure class="plate yard__inset">
+              <div class="plate__frame">
+                <img src="assets/media/mobile-crane-clouds-960.webp"
+                     srcset="assets/media/mobile-crane-clouds-480.webp 480w, assets/media/mobile-crane-clouds-640.webp 640w, assets/media/mobile-crane-clouds-800.webp 800w, assets/media/mobile-crane-clouds-960.webp 960w, assets/media/mobile-crane-clouds-1280.webp 1280w"
+                     sizes="(min-width: 960px) 22vw, 60vw" width="1280" height="1707"
+                     alt="Red and yellow FHE all-terrain crane rigged under a cloud-streaked sky"
+                     loading="lazy" decoding="async">
+              </div>
+              <figcaption class="plate__cap"><span>All-terrain, rigged and ready.</span></figcaption>
+            </figure>
           </div>
           <figure class="plate yard__fig" data-reveal>
             <div class="plate__frame">
@@ -551,128 +447,124 @@
           </figure>
         </div>
 
-        <article class="tier tier--mobile grid">
-          <figure class="plate tier__fig" data-reveal>
-            <div class="plate__frame">
-              <img src="assets/media/heavy-crane-superlift-night-1280.webp"
-                   srcset="assets/media/heavy-crane-superlift-night-480.webp 480w, assets/media/heavy-crane-superlift-night-640.webp 640w, assets/media/heavy-crane-superlift-night-800.webp 800w, assets/media/heavy-crane-superlift-night-960.webp 960w, assets/media/heavy-crane-superlift-night-1280.webp 1280w"
-                   sizes="(min-width: 960px) 38vw, 92vw" width="1280" height="1707"
-                   alt="FHE heavy crane with superlift counterweight working at night"
-                   loading="lazy" decoding="async">
-            </div>
-            <figcaption class="plate__cap"><span>A heavy crane with superlift counterweight, working at night.</span></figcaption>
-          </figure>
-          <div class="tier__text" data-reveal="stagger">
-            <p class="tier__kicker">Mobile cranes</p>
-            <h3 class="tier__title">25T <em>to</em> 700T</h3>
-            <p>The heart of the fleet: mobile cranes from 25 to 700 tonnes, rigged with superlift counterweight for the heaviest lifts.</p>
-            <div class="tier__duo">
-              <figure class="plate">
-                <div class="plate__frame">
-                  <img src="assets/media/mobile-crane-clouds-1280.webp"
-                       srcset="assets/media/mobile-crane-clouds-480.webp 480w, assets/media/mobile-crane-clouds-640.webp 640w, assets/media/mobile-crane-clouds-800.webp 800w, assets/media/mobile-crane-clouds-960.webp 960w, assets/media/mobile-crane-clouds-1280.webp 1280w"
-                       sizes="(min-width: 960px) 17vw, 46vw" width="1280" height="1707"
-                       alt="Red and yellow all-terrain crane rigged under a cloud-streaked sky"
-                       loading="lazy" decoding="async">
-                </div>
-                <figcaption class="plate__cap"><span>All-terrain, rigged and ready.</span></figcaption>
-              </figure>
-              <figure class="plate">
-                <div class="plate__frame">
-                  <img src="assets/media/terex-friendship-closeup-1280.webp"
-                       srcset="assets/media/terex-friendship-closeup-480.webp 480w, assets/media/terex-friendship-closeup-640.webp 640w, assets/media/terex-friendship-closeup-800.webp 800w, assets/media/terex-friendship-closeup-960.webp 960w, assets/media/terex-friendship-closeup-1280.webp 1280w, assets/media/terex-friendship-closeup-1920.webp 1920w"
-                       sizes="(min-width: 960px) 17vw, 46vw" width="1280" height="960"
-                       alt="White Terex all-terrain crane in FRIENDSHIP livery"
-                       loading="lazy" decoding="async">
-                </div>
-                <figcaption class="plate__cap"><span>A Terex in FRIENDSHIP livery.</span></figcaption>
-              </figure>
-            </div>
-          </div>
-        </article>
+        <div class="roster" id="roster" data-roster>
+          <header class="roster__head grid">
+            <p class="eyebrow roster__kicker" data-reveal="up">The roster</p>
+            <h3 class="roster__title" data-reveal="up">Every machine, <em>on call.</em></h3>
+            <p class="roster__lede" data-reveal="up" data-d="2">158 heavy units on our books across Abu Dhabi and Dubai: cranes, prime movers, trailers and handling plant. Pick a class.</p>
+          </header>
 
-        <article class="tier tier--crawler grid">
-          <div class="tier__text" data-reveal="stagger">
-            <p class="tier__kicker">Crawler cranes</p>
-            <h3 class="tier__title">Lattice boom, <em>long reach.</em></h3>
-            <p>Lattice-boom crawler cranes for heavy, long-radius lifting on site.</p>
+          <div class="tally" role="group" aria-label="Show the roster by class" data-reveal="stagger">
+            <button class="tally__btn" type="button" aria-pressed="true" aria-controls="roster-units" data-roster-filter="all"><span class="tally__n" data-count="158">158</span><span class="tally__label">All heavy units</span></button>
+            <button class="tally__btn" type="button" aria-pressed="false" aria-controls="roster-units" data-roster-filter="mobile"><span class="tally__n" data-count="64">64</span><span class="tally__label">Mobile cranes</span></button>
+            <button class="tally__btn" type="button" aria-pressed="false" aria-controls="roster-units" data-roster-filter="crawler"><span class="tally__n" data-count="14">14</span><span class="tally__label">Crawler cranes</span></button>
+            <button class="tally__btn" type="button" aria-pressed="false" aria-controls="roster-units" data-roster-filter="prime"><span class="tally__n" data-count="33">33</span><span class="tally__label">Prime movers</span></button>
+            <button class="tally__btn" type="button" aria-pressed="false" aria-controls="roster-units" data-roster-filter="trailer"><span class="tally__n" data-count="36">36</span><span class="tally__label">Trailers</span></button>
+            <button class="tally__btn" type="button" aria-pressed="false" aria-controls="roster-units" data-roster-filter="handling"><span class="tally__n" data-count="11">11</span><span class="tally__label">Forklifts &amp; loaders</span></button>
           </div>
-          <figure class="plate tier__fig" data-reveal>
-            <div class="plate__frame">
-              <img src="assets/media/crawler-crane-coast-1280.webp"
-                   srcset="assets/media/crawler-crane-coast-480.webp 480w, assets/media/crawler-crane-coast-640.webp 640w, assets/media/crawler-crane-coast-800.webp 800w, assets/media/crawler-crane-coast-960.webp 960w, assets/media/crawler-crane-coast-1280.webp 1280w, assets/media/crawler-crane-coast-1920.webp 1920w"
-                   sizes="(min-width: 960px) 54vw, 92vw" width="1280" height="960"
-                   alt="White lattice-boom crawler crane working on a coastal site"
-                   loading="lazy" decoding="async">
-            </div>
-            <figcaption class="plate__cap"><span>A white lattice-boom crawler crane working on a coastal site.</span></figcaption>
-          </figure>
-        </article>
+          <p class="sr-only" aria-live="polite" data-roster-status></p>
 
-        <article class="tier tier--trailers grid">
-          <figure class="plate tier__fig" data-reveal>
-            <div class="plate__frame">
-              <img src="assets/media/crane-on-flatbed-1280.webp"
-                   srcset="assets/media/crane-on-flatbed-480.webp 480w, assets/media/crane-on-flatbed-640.webp 640w, assets/media/crane-on-flatbed-800.webp 800w, assets/media/crane-on-flatbed-960.webp 960w, assets/media/crane-on-flatbed-1280.webp 1280w, assets/media/crane-on-flatbed-1920.webp 1920w"
-                   sizes="(min-width: 960px) 46vw, 92vw" width="1280" height="960"
-                   alt="Heavy crane lifting a mobile crane carrier onto a flatbed trailer with orange round slings"
-                   loading="lazy" decoding="async">
-            </div>
-            <figcaption class="plate__cap"><span>A crane carrier lifted onto a flatbed with orange round slings.</span></figcaption>
-          </figure>
-          <div class="tier__text" data-reveal="stagger">
-            <p class="tier__kicker">Lowbed &amp; flatbed trailers</p>
-            <h3 class="tier__title">Moved with <em>permits in hand.</em></h3>
-            <p>Hydraulic lowbeds and flatbeds for over-dimensional and overweight loads, with the special equipment and permits they require.</p>
-          </div>
-        </article>
+          <ul class="fams" id="roster-units" data-roster-units>
+            <li class="fam fam--wide" data-reveal="up" data-cls="mobile">
+              <figure class="fam__media" style="--pos: 50% 45%"><img src="assets/media/fleet/liebherr-960.jpg" srcset="assets/media/fleet/liebherr-640.jpg 640w, assets/media/fleet/liebherr-960.jpg 960w, assets/media/fleet/liebherr-1280.jpg 1280w" sizes="(min-width: 1100px) 62vw, (min-width: 600px) 92vw, 92vw" width="1280" height="960" alt="Liebherr LTM all-terrain crane (model photo)" loading="lazy" decoding="async"><p class="fam__n">12<small>units</small></p></figure>
+              <div class="fam__body"><p class="fam__kind">All-terrain</p><h4 class="fam__name">Liebherr <em>LTM</em></h4><ul class="fam__models" aria-label="Models"><li>LTM 1500 <b>×2</b></li><li>LTM 1300-6.2</li><li>LTM 1250 <b>×2</b></li><li>LTM 1200 <b>×3</b></li><li>LTM 1160 <b>×2</b></li><li>LTM 1080</li><li>LTM 1050-4</li></ul></div>
+            </li>
+            <li class="fam fam--wide" data-reveal="up" data-cls="mobile">
+              <figure class="fam__media" style="--pos: 50% 50%"><img src="assets/media/heavy-crane-truss-1280.webp" srcset="assets/media/heavy-crane-truss-480.webp 480w, assets/media/heavy-crane-truss-640.webp 640w, assets/media/heavy-crane-truss-800.webp 800w, assets/media/heavy-crane-truss-960.webp 960w, assets/media/heavy-crane-truss-1280.webp 1280w, assets/media/heavy-crane-truss-1920.webp 1920w" sizes="(min-width: 1100px) 62vw, (min-width: 600px) 92vw, 92vw" width="1280" height="790" alt="Red FHE crane with counterweight stack lifting a steel truss" loading="lazy" decoding="async"><span class="fam__tag">FHE fleet</span><p class="fam__n">13<small>units</small></p></figure>
+              <div class="fam__body"><p class="fam__kind">All-terrain</p><h4 class="fam__name">Demag <em>AC</em></h4><ul class="fam__models" aria-label="Models"><li>AC 700</li><li>AC 500</li><li>AC 200</li><li>AC 120 <b>×3</b></li><li>AC 100 <b>×7</b></li></ul></div>
+            </li>
+            <li class="fam fam--wide" data-reveal="up" data-cls="mobile">
+              <figure class="fam__media" style="--pos: 50% 62%"><img src="assets/media/fleet/zoomlion-960.jpg" srcset="assets/media/fleet/zoomlion-640.jpg 640w, assets/media/fleet/zoomlion-960.jpg 960w, assets/media/fleet/zoomlion-1280.jpg 1280w" sizes="(min-width: 1100px) 62vw, (min-width: 600px) 92vw, 92vw" width="1280" height="960" alt="Zoomlion truck crane (model photo)" loading="lazy" decoding="async"><p class="fam__n">14<small>units</small></p></figure>
+              <div class="fam__body"><p class="fam__kind">Truck &amp; all-terrain</p><h4 class="fam__name">Zoomlion</h4><ul class="fam__models" aria-label="Models"><li>ZAT 4000</li><li>ZTC 1300V</li><li>ZTC 1000V</li><li>ZTC 800V <b>×3</b></li><li>ZTC 600</li><li>ZTC 550V <b>×3</b></li><li>ZTC 300</li><li>ZTC 250 <b>×2</b></li><li>QY 50</li></ul></div>
+            </li>
+            <li class="fam" data-reveal="up" data-cls="mobile">
+              <figure class="fam__media" style="--pos: 50% 50%"><img src="assets/media/terex-friendship-closeup-1280.webp" srcset="assets/media/terex-friendship-closeup-480.webp 480w, assets/media/terex-friendship-closeup-640.webp 640w, assets/media/terex-friendship-closeup-800.webp 800w, assets/media/terex-friendship-closeup-960.webp 960w, assets/media/terex-friendship-closeup-1280.webp 1280w, assets/media/terex-friendship-closeup-1920.webp 1920w" sizes="(min-width: 1100px) 30vw, (min-width: 600px) 46vw, 92vw" width="1280" height="960" alt="White Terex all-terrain crane in FRIENDSHIP livery" loading="lazy" decoding="async"><span class="fam__tag">FHE fleet</span><p class="fam__n">3<small>units</small></p></figure>
+              <div class="fam__body"><p class="fam__kind">All-terrain</p><h4 class="fam__name">Terex</h4><ul class="fam__models" aria-label="Models"><li>Explorer 5800</li><li>A600 <b>×2</b></li></ul></div>
+            </li>
+            <li class="fam" data-reveal="up" data-cls="mobile">
+              <figure class="fam__media" style="--pos: 58% 55%"><img src="assets/media/fleet/xcmg-960.jpg" srcset="assets/media/fleet/xcmg-640.jpg 640w, assets/media/fleet/xcmg-960.jpg 960w, assets/media/fleet/xcmg-1280.jpg 1280w" sizes="(min-width: 1100px) 30vw, (min-width: 600px) 46vw, 92vw" width="1280" height="960" alt="XCMG QY50K truck crane (model photo)" loading="lazy" decoding="async"><p class="fam__n">9<small>units</small></p></figure>
+              <div class="fam__body"><p class="fam__kind">Truck &amp; all-terrain</p><h4 class="fam__name">XCMG</h4><ul class="fam__models" aria-label="Models"><li>XCA 250</li><li>QY 110KH <b>×2</b></li><li>QY 100K</li><li>QY 70K</li><li>XCT 70E</li><li>50 T</li><li>QY 50K</li><li>QY 25K</li></ul></div>
+            </li>
+            <li class="fam" data-reveal="up" data-cls="mobile">
+              <figure class="fam__media" style="--pos: 50% 28%"><img src="assets/media/fleet/sany-960.jpg" srcset="assets/media/fleet/sany-640.jpg 640w, assets/media/fleet/sany-960.jpg 960w, assets/media/fleet/sany-1280.jpg 1280w" sizes="(min-width: 1100px) 30vw, (min-width: 600px) 46vw, 92vw" width="1280" height="1706" alt="Sany STC truck crane (model photo)" loading="lazy" decoding="async"><p class="fam__n">12<small>units</small></p></figure>
+              <div class="fam__body"><p class="fam__kind">Truck &amp; all-terrain</p><h4 class="fam__name">Sany</h4><ul class="fam__models" aria-label="Models"><li>SAC 2600T</li><li>SAC 1600</li><li>STC 1000C</li><li>STC 500 <b>×3</b></li><li>300 T</li><li>STC 250</li><li>100 T</li><li>STC 75</li><li>QY 50C</li><li>Other model</li></ul></div>
+            </li>
+            <li class="fam" data-reveal="up" data-cls="mobile">
+              <figure class="fam__media fam__media--draw"><div class="spec fam__spec" role="img" aria-label="Line drawing: Kobelco RK rough-terrain crane"><svg class="spec__svg" viewBox="0 0 360 230" focusable="false" aria-hidden="true"><g class="spec__draw" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path class="spec__faint" d="M6 206H354"/><path class="spec__faint" d="M14 8v10M9 13h10M346 8v10M341 13h10M14 212v10M9 217h10M346 212v10M341 217h10"/><path d="M60 178V150H296V178Z"/><path d="M66 150V120H106L116 150"/><path class="spec__faint" d="M72 126H102V144H72Z"/><path class="spec__faint" d="M60 170H36V202M296 170H322V202M28 202H44M314 202H330"/><circle cx="104" cy="182" r="22"/><circle cx="104" cy="182" r="8"/><circle cx="252" cy="182" r="22"/><circle cx="252" cy="182" r="8"/><path d="M150 150V140H238V150"/><path d="M238 140H272V122H240Z"/><path d="M234 132L82 30L74 42L226 144Z"/><path class="spec__faint" d="M186 100L178 112M138 68L130 80"/><path d="M206 150L182 112"/><path class="spec__faint" d="M78 36V118"/><path d="M73 118h10v7h-10z"/><path d="M78 125v6a6 6 0 1 1-6 6"/></g></svg></div><p class="fam__n">1<small>unit</small></p></figure>
+              <div class="fam__body"><p class="fam__kind">Rough terrain</p><h4 class="fam__name">Kobelco <em>RK</em></h4><ul class="fam__models" aria-label="Models"><li>RK 70M</li></ul></div>
+            </li>
+            <li class="fam fam--wide" data-reveal="up" data-cls="crawler">
+              <figure class="fam__media" style="--pos: 45% 62%"><img src="assets/media/fleet/kobelco-crawler-960.jpg" srcset="assets/media/fleet/kobelco-crawler-640.jpg 640w, assets/media/fleet/kobelco-crawler-960.jpg 960w, assets/media/fleet/kobelco-crawler-1280.jpg 1280w" sizes="(min-width: 1100px) 62vw, (min-width: 600px) 92vw, 92vw" width="1280" height="853" alt="Kobelco CKE 2500 crawler crane (model photo)" loading="lazy" decoding="async"><p class="fam__n">7<small>units</small></p></figure>
+              <div class="fam__body"><p class="fam__kind">Lattice-boom crawler</p><h4 class="fam__name">Kobelco</h4><ul class="fam__models" aria-label="Models"><li>CKE 2500 <b>×2</b></li><li>CKE 1350</li><li>600 series <b>×3</b></li><li>Other model</li></ul></div>
+            </li>
+            <li class="fam" data-reveal="up" data-cls="crawler">
+              <figure class="fam__media" style="--pos: 35% 55%"><img src="assets/media/fleet/hitachi-sumitomo-960.jpg" srcset="assets/media/fleet/hitachi-sumitomo-640.jpg 640w, assets/media/fleet/hitachi-sumitomo-960.jpg 960w, assets/media/fleet/hitachi-sumitomo-1280.jpg 1280w" sizes="(min-width: 1100px) 30vw, (min-width: 600px) 46vw, 92vw" width="1280" height="960" alt="Hitachi KH crawler crane (model photo)" loading="lazy" decoding="async"><p class="fam__n">2<small>units</small></p></figure>
+              <div class="fam__body"><p class="fam__kind">Lattice-boom crawler</p><h4 class="fam__name">Hitachi <em>&amp;</em> Sumitomo</h4><ul class="fam__models" aria-label="Models"><li>Hitachi KH 300</li><li>Sumitomo LS-248RH</li></ul></div>
+            </li>
+            <li class="fam" data-reveal="up" data-cls="crawler">
+              <figure class="fam__media" style="--pos: 58% 45%"><img src="assets/media/fleet/xcmg-crawler-960.jpg" srcset="assets/media/fleet/xcmg-crawler-640.jpg 640w, assets/media/fleet/xcmg-crawler-960.jpg 960w, assets/media/fleet/xcmg-crawler-1280.jpg 1280w" sizes="(min-width: 1100px) 30vw, (min-width: 600px) 46vw, 92vw" width="1280" height="960" alt="XCMG crawler cranes (model photo)" loading="lazy" decoding="async"><p class="fam__n">2<small>units</small></p></figure>
+              <div class="fam__body"><p class="fam__kind">Crawler</p><h4 class="fam__name">XCMG</h4><ul class="fam__models" aria-label="Models"><li>XGC 150</li><li>QUY 55</li></ul></div>
+            </li>
+            <li class="fam" data-reveal="up" data-cls="crawler">
+              <figure class="fam__media fam__media--draw"><div class="spec fam__spec" role="img" aria-label="Line drawing: lattice-boom crawler crane"><svg class="spec__svg" viewBox="0 0 360 230" focusable="false" aria-hidden="true"><g class="spec__draw" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path class="spec__faint" d="M6 206H354"/><path class="spec__faint" d="M14 8v10M9 13h10M346 8v10M341 13h10M14 212v10M9 217h10M346 212v10M341 217h10"/><path d="M84 202H262A14 14 0 0 0 262 174H84A14 14 0 0 0 84 202Z"/><circle class="spec__faint" cx="96" cy="188" r="6"/><circle class="spec__faint" cx="126" cy="188" r="6"/><circle class="spec__faint" cx="156" cy="188" r="6"/><circle class="spec__faint" cx="186" cy="188" r="6"/><circle class="spec__faint" cx="216" cy="188" r="6"/><circle class="spec__faint" cx="246" cy="188" r="6"/><path d="M106 174V160H244V174"/><path d="M146 160V128H252V160"/><path d="M118 160V136H146"/><path class="spec__faint" d="M124 140H142V156H124Z"/><path d="M252 154H276V130H252"/><path d="M236 128L248 98L260 128"/><path d="M182.4 119.9L78.4 9.9M173.6 128.1L69.6 18.1"/><path class="spec__faint" d="M182.4 119.9L165.0 119.0L165.0 101.5L147.6 100.6L147.7 83.2L130.3 82.3L130.4 64.9L113.0 64.0L113.0 46.5L95.6 45.6L95.7 28.2L78.3 27.3L78.4 9.9"/><path class="spec__faint" d="M76 16L248 98"/><path class="spec__faint" d="M74 18V140"/><path d="M69 140h10v7h-10z"/><path d="M74 147v6a6 6 0 1 1-6 6"/></g></svg></div><p class="fam__n">3<small>units</small></p></figure>
+              <div class="fam__body"><p class="fam__kind">Crawler</p><h4 class="fam__name">Sany <em>&amp;</em> Zoomlion</h4><ul class="fam__models" aria-label="Models"><li>Zoomlion ZCC 300V</li><li>Sany SCC 3200A</li><li>Sany SCC 600A</li></ul></div>
+            </li>
+            <li class="fam fam--wide" data-reveal="up" data-cls="prime">
+              <figure class="fam__media" style="--pos: 50% 42%"><img src="assets/media/fleet/mercedes-960.jpg" srcset="assets/media/fleet/mercedes-640.jpg 640w, assets/media/fleet/mercedes-960.jpg 960w, assets/media/fleet/mercedes-1280.jpg 1280w" sizes="(min-width: 1100px) 62vw, (min-width: 600px) 92vw, 92vw" width="1280" height="1024" alt="Mercedes-Benz Actros 2653 tractor head (model photo)" loading="lazy" decoding="async"><p class="fam__n">11<small>units</small></p></figure>
+              <div class="fam__body"><p class="fam__kind">Tractor heads</p><h4 class="fam__name">Mercedes-Benz</h4><ul class="fam__models" aria-label="Models"><li>3848 <b>×2</b></li><li>2653</li><li>1948</li><li>1848 <b>×2</b></li><li>1843 <b>×2</b></li><li>1840</li><li>1834 <b>×2</b></li></ul></div>
+            </li>
+            <li class="fam" data-reveal="up" data-cls="prime">
+              <figure class="fam__media" style="--pos: 78% 55%"><img src="assets/media/fleet/volvo-960.jpg" srcset="assets/media/fleet/volvo-640.jpg 640w, assets/media/fleet/volvo-960.jpg 960w, assets/media/fleet/volvo-1280.jpg 1280w" sizes="(min-width: 1100px) 30vw, (min-width: 600px) 46vw, 92vw" width="1280" height="960" alt="Volvo FH12 tractor head (model photo)" loading="lazy" decoding="async"><p class="fam__n">8<small>units</small></p></figure>
+              <div class="fam__body"><p class="fam__kind">Tractor heads</p><h4 class="fam__name">Volvo</h4><ul class="fam__models" aria-label="Models"><li>FH12 <b>×2</b></li><li>FM12</li><li>FH <b>×5</b></li></ul></div>
+            </li>
+            <li class="fam" data-reveal="up" data-cls="prime">
+              <figure class="fam__media fam__media--draw"><div class="spec fam__spec" role="img" aria-label="Line drawing: tractor head"><svg class="spec__svg" viewBox="0 0 360 230" focusable="false" aria-hidden="true"><g class="spec__draw" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path class="spec__faint" d="M6 206H354"/><path class="spec__faint" d="M14 8v10M9 13h10M346 8v10M341 13h10M14 212v10M9 217h10M346 212v10M341 217h10"/><path d="M40 166H322M40 174H322"/><path d="M46 166V84Q46 72 58 72H118L130 92V166"/><path class="spec__faint" d="M54 90H114V122H54Z"/><path class="spec__faint" d="M88 128V162"/><path d="M38 166H62V180H38Z"/><path class="spec__faint" d="M48 136H56M48 144H56M48 152H56"/><path d="M136 166V58M142 58V166M134 58H144"/><path d="M150 166V144H204V166"/><path d="M240 160H294V152H240Z"/><path class="spec__faint" d="M262 152V146H272V152"/><circle cx="92" cy="188" r="20"/><circle cx="92" cy="188" r="7"/><circle cx="246" cy="188" r="20"/><circle cx="246" cy="188" r="7"/><circle cx="296" cy="188" r="20"/><circle cx="296" cy="188" r="7"/><path class="spec__faint" d="M64 166A28 28 0 0 1 120 166M218 166A28 28 0 0 1 324 166"/></g></svg></div><p class="fam__n">8<small>units</small></p></figure>
+              <div class="fam__body"><p class="fam__kind">Tractor heads</p><h4 class="fam__name">Sany <em>HQC</em></h4><ul class="fam__models" aria-label="Models"><li>HQC <b>×8</b></li></ul></div>
+            </li>
+            <li class="fam" data-reveal="up" data-cls="prime">
+              <figure class="fam__media" style="--pos: 82% 55%"><img src="assets/media/fleet/man-960.jpg" srcset="assets/media/fleet/man-640.jpg 640w, assets/media/fleet/man-960.jpg 960w, assets/media/fleet/man-1280.jpg 1280w" sizes="(min-width: 1100px) 30vw, (min-width: 600px) 46vw, 92vw" width="1280" height="960" alt="MAN TGX 18.440 tractor head (model photo)" loading="lazy" decoding="async"><p class="fam__n">4<small>units</small></p></figure>
+              <div class="fam__body"><p class="fam__kind">Tractor heads</p><h4 class="fam__name">MAN</h4><ul class="fam__models" aria-label="Models"><li>TGA 33.400</li><li>19.414</li><li>TGA 18.440</li><li>TGX 18.440</li></ul></div>
+            </li>
+            <li class="fam" data-reveal="up" data-cls="prime">
+              <figure class="fam__media" style="--pos: 22% 50%"><img src="assets/media/fleet/tata-daewoo-960.jpg" srcset="assets/media/fleet/tata-daewoo-640.jpg 640w, assets/media/fleet/tata-daewoo-960.jpg 960w, assets/media/fleet/tata-daewoo-1280.jpg 1280w" sizes="(min-width: 1100px) 30vw, (min-width: 600px) 46vw, 92vw" width="1280" height="960" alt="Tata Daewoo tractor head (model photo)" loading="lazy" decoding="async"><p class="fam__n">2<small>units</small></p></figure>
+              <div class="fam__body"><p class="fam__kind">Tractor heads</p><h4 class="fam__name">Tata <em>&amp;</em> Daewoo</h4><ul class="fam__models" aria-label="Models"><li>Tata Prima</li><li>Daewoo 7542</li></ul></div>
+            </li>
+            <li class="fam fam--wide" data-reveal="up" data-cls="trailer">
+              <figure class="fam__media" style="--pos: 50% 50%"><img src="assets/media/crane-on-flatbed-1280.webp" srcset="assets/media/crane-on-flatbed-480.webp 480w, assets/media/crane-on-flatbed-640.webp 640w, assets/media/crane-on-flatbed-800.webp 800w, assets/media/crane-on-flatbed-960.webp 960w, assets/media/crane-on-flatbed-1280.webp 1280w, assets/media/crane-on-flatbed-1920.webp 1920w" sizes="(min-width: 1100px) 62vw, (min-width: 600px) 92vw, 92vw" width="1280" height="960" alt="Heavy crane lifting a mobile crane carrier onto an FHE flatbed trailer" loading="lazy" decoding="async"><span class="fam__tag">FHE fleet</span><p class="fam__n">30<small>units</small></p></figure>
+              <div class="fam__body"><p class="fam__kind">Semi-trailers</p><h4 class="fam__name">Flatbeds</h4><ul class="fam__models" aria-label="Models"><li>Valt <b>×17</b></li><li>Other builds <b>×13</b></li></ul></div>
+            </li>
+            <li class="fam" data-reveal="up" data-cls="trailer">
+              <figure class="fam__media" style="--pos: 40% 50%"><img src="assets/media/lowbed-trailer-1280.webp" srcset="assets/media/lowbed-trailer-480.webp 480w, assets/media/lowbed-trailer-640.webp 640w, assets/media/lowbed-trailer-800.webp 800w, assets/media/lowbed-trailer-960.webp 960w, assets/media/lowbed-trailer-1280.webp 1280w, assets/media/lowbed-trailer-1920.webp 1920w" sizes="(min-width: 1100px) 30vw, (min-width: 600px) 46vw, 92vw" width="1280" height="960" alt="Mobile crane lifting a yacht onto an FHE lowbed trailer at sunset" loading="lazy" decoding="async"><span class="fam__tag">FHE fleet</span><p class="fam__n">6<small>units</small></p></figure>
+              <div class="fam__body"><p class="fam__kind">Semi-trailers</p><h4 class="fam__name">Lowbeds</h4><ul class="fam__models" aria-label="Models"><li>Valt <b>×3</b></li><li>Other builds <b>×3</b></li></ul></div>
+            </li>
+            <li class="fam" data-reveal="up" data-cls="handling">
+              <figure class="fam__media" style="--pos: 40% 58%"><img src="assets/media/fleet/caterpillar-960.jpg" srcset="assets/media/fleet/caterpillar-640.jpg 640w, assets/media/fleet/caterpillar-960.jpg 960w, assets/media/fleet/caterpillar-1280.jpg 1280w" sizes="(min-width: 1100px) 30vw, (min-width: 600px) 46vw, 92vw" width="1280" height="960" alt="Caterpillar 966G wheel loader (model photo)" loading="lazy" decoding="async"><p class="fam__n">3<small>units</small></p></figure>
+              <div class="fam__body"><p class="fam__kind">Wheel loaders</p><h4 class="fam__name">Caterpillar</h4><ul class="fam__models" aria-label="Models"><li>966G <b>×2</b></li><li>950G</li></ul></div>
+            </li>
+            <li class="fam" data-reveal="up" data-cls="handling">
+              <figure class="fam__media" style="--pos: 45% 58%"><img src="assets/media/fleet/jcb-960.jpg" srcset="assets/media/fleet/jcb-640.jpg 640w, assets/media/fleet/jcb-960.jpg 960w, assets/media/fleet/jcb-1280.jpg 1280w" sizes="(min-width: 1100px) 30vw, (min-width: 600px) 46vw, 92vw" width="1280" height="720" alt="JCB 540-170 telehandler (model photo)" loading="lazy" decoding="async"><p class="fam__n">2<small>units</small></p></figure>
+              <div class="fam__body"><p class="fam__kind">Telehandlers</p><h4 class="fam__name">JCB</h4><ul class="fam__models" aria-label="Models"><li>540-170 <b>×2</b></li></ul></div>
+            </li>
+            <li class="fam fam--wide" data-reveal="up" data-cls="handling">
+              <figure class="fam__media" style="--pos: 50% 46%"><img src="assets/media/fleet/kalmar-960.jpg" srcset="assets/media/fleet/kalmar-640.jpg 640w, assets/media/fleet/kalmar-960.jpg 960w, assets/media/fleet/kalmar-1280.jpg 1280w" sizes="(min-width: 1100px) 62vw, (min-width: 600px) 92vw, 92vw" width="1280" height="718" alt="Kalmar DCD 250 heavy forklift (model photo)" loading="lazy" decoding="async"><p class="fam__n">6<small>units</small></p></figure>
+              <div class="fam__body"><p class="fam__kind">Up to 25 t class</p><h4 class="fam__name">Forklifts</h4><ul class="fam__models" aria-label="Models"><li>Kalmar DCD250-12LB</li><li>Toyota FD50</li><li>Toyota FD8-32</li><li>Hangcha CPCD100</li><li>Dalian CPCD30</li><li>CVS Ferrari</li></ul></div>
+            </li>
+          </ul>
+          <details class="credits">
+            <summary>Photo credits</summary>
+            <p>Cards marked <b>FHE fleet</b> are our own machines. The others are model photos: the same makes and models we run, from Wikimedia Commons, resized and colour-graded for this page.</p>
+            <ul><li><a href="https://commons.wikimedia.org/wiki/File:Liebherr_LTM_1250-6.1_pic1.JPG" rel="noopener" target="_blank">Liebherr LTM 1250-6.1 pic1</a>, AlfvanBeem, <a href="http://creativecommons.org/publicdomain/zero/1.0/deed.en" rel="license noopener" target="_blank">CC0</a></li><li><a href="https://commons.wikimedia.org/wiki/File:Zoomlion_ZTC130V_Crane_20210522.jpg" rel="noopener" target="_blank">Zoomlion ZTC130V Crane 20210522</a>, Huangdan2060, <a href="https://creativecommons.org/licenses/by/3.0" rel="license noopener" target="_blank">CC BY 3.0</a></li><li><a href="https://commons.wikimedia.org/wiki/File:Xcmg_qy50k_crane_in_Dnipro.jpg" rel="noopener" target="_blank">Xcmg qy50k crane in Dnipro</a>, Alex Blokha, <a href="https://creativecommons.org/licenses/by-sa/4.0" rel="license noopener" target="_blank">CC BY-SA 4.0</a></li><li><a href="https://commons.wikimedia.org/wiki/File:Sany_STC1000C7_Truck_Crane_20210522.jpg" rel="noopener" target="_blank">Sany STC1000C7 Truck Crane 20210522</a>, Huangdan2060, <a href="https://creativecommons.org/licenses/by/3.0" rel="license noopener" target="_blank">CC BY 3.0</a></li><li><a href="https://commons.wikimedia.org/wiki/File:Kobelco_CKE_2500_(52502578328).jpg" rel="noopener" target="_blank">Kobelco CKE 2500 (52502578328)</a>, Alexandre Prevot from Nancy, France, <a href="https://creativecommons.org/licenses/by-sa/2.0" rel="license noopener" target="_blank">CC BY-SA 2.0</a></li><li><a href="https://commons.wikimedia.org/wiki/File:Hitachi_KH_230_GLS_crawler_crane_near_Amsterdam_pic-002.JPG" rel="noopener" target="_blank">Hitachi KH 230 GLS crawler crane near Amsterdam pic-002</a>, AlfvanBeem, <a href="http://creativecommons.org/publicdomain/zero/1.0/deed.en" rel="license noopener" target="_blank">CC0</a></li><li><a href="https://commons.wikimedia.org/wiki/File:XCMG_QUY75_cranes_01.jpg" rel="noopener" target="_blank">XCMG QUY75 cranes 01</a>, Obandoeño12345, <a href="https://creativecommons.org/licenses/by-sa/4.0" rel="license noopener" target="_blank">CC BY-SA 4.0</a></li><li><a href="https://commons.wikimedia.org/wiki/File:Mercedes-Benz_Actros_2653,_North_Fremantle,_2020_(02).jpg" rel="noopener" target="_blank">Mercedes-Benz Actros 2653, North Fremantle, 2020 (02)</a>, Bahnfrend, <a href="https://creativecommons.org/licenses/by-sa/4.0" rel="license noopener" target="_blank">CC BY-SA 4.0</a></li><li><a href="https://commons.wikimedia.org/wiki/File:Volvo_FH12,_B2C_Europe.JPG" rel="noopener" target="_blank">Volvo FH12, B2C Europe</a>, Alf van Beem, <a href="http://creativecommons.org/publicdomain/zero/1.0/deed.en" rel="license noopener" target="_blank">CC0</a></li><li><a href="https://commons.wikimedia.org/wiki/File:MAN_TGX_18.440_4X2_BLS,_Velthoven.JPG" rel="noopener" target="_blank">MAN TGX 18.440 4X2 BLS, Velthoven</a>, Alf van Beem, <a href="http://creativecommons.org/publicdomain/zero/1.0/deed.en" rel="license noopener" target="_blank">CC0</a></li><li><a href="https://commons.wikimedia.org/wiki/File:Tata_Daewoo_Tractor_Gwangyang.JPG" rel="noopener" target="_blank">Tata Daewoo Tractor Gwangyang</a>, hyolee2, <a href="https://creativecommons.org/licenses/by-sa/4.0" rel="license noopener" target="_blank">CC BY-SA 4.0</a></li><li><a href="https://commons.wikimedia.org/wiki/File:Caterpillar_966G_p1.JPG" rel="noopener" target="_blank">Caterpillar 966G p1</a>, Alf van Beem, <a href="http://creativecommons.org/publicdomain/zero/1.0/deed.en" rel="license noopener" target="_blank">CC0</a></li><li><a href="https://commons.wikimedia.org/wiki/File:Telehandler_JCB_540-170,_Koryazhma.jpg" rel="noopener" target="_blank">Telehandler JCB 540-170, Koryazhma</a>, Georg Pik, <a href="http://creativecommons.org/publicdomain/zero/1.0/deed.en" rel="license noopener" target="_blank">CC0</a></li><li><a href="https://commons.wikimedia.org/wiki/File:Mallorca-Portocolom-Port-Kalmar_DCD_250-11.jpg" rel="noopener" target="_blank">Mallorca-Portocolom-Port-Kalmar DCD 250-11</a>, Asurnipal, <a href="https://creativecommons.org/licenses/by-sa/4.0" rel="license noopener" target="_blank">CC BY-SA 4.0</a></li></ul>
+          </details>
 
-        <article class="tier tier--forklift grid">
-          <div class="tier__text" data-reveal="stagger">
-            <p class="tier__kicker">Forklifts</p>
-            <h3 class="tier__title">Down to <em>the yard.</em></h3>
-            <p>Forklifts for loading, unloading and material handling on site and in the yard.</p>
-          </div>
-          <div class="tier__plate" data-reveal>
-            <div class="spec" role="img" aria-label="Line drawing of a forklift">
-              <svg class="spec__svg" viewBox="0 0 360 230" focusable="false" aria-hidden="true">
-                <g class="spec__draw" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-                  <path class="spec__faint" d="M6 206H354"/>
-                  <path class="spec__faint" d="M14 8v10M9 13h10M346 8v10M341 13h10M14 212v10M9 217h10M346 212v10M341 217h10"/>
-                  <path class="spec__faint" stroke-dasharray="3 4" d="M24 22V200M24 22H58M24 200H40"/>
-                  <path class="spec__faint" d="M18 22h12M18 200h12"/>
-                  <path d="M58 22V200M72 22V200M58 22H72M58 76H72M58 128H72"/>
-                  <path d="M40 142V196H56V142Z"/>
-                  <path d="M6 192H40V198H6ZM6 186H40V192"/>
-                  <path d="M72 200V152H112L122 140H236V124H262Q300 124 316 148Q326 162 326 184V200H72Z"/>
-                  <path d="M110 140V56M232 140V56M104 56H244M104 56L112 48H236L244 56"/>
-                  <path class="spec__faint" d="M122 56V48M146 56V48M170 56V48M194 56V48M218 56V48"/>
-                  <path d="M168 140V118Q168 112 174 112H190Q196 112 196 118V140M196 140V94Q196 90 200 90H206Q210 90 210 94V140"/>
-                  <circle cx="136" cy="106" r="9"/>
-                  <path d="M136 115L142 140"/>
-                  <path class="spec__faint" d="M262 142H326M286 142V200"/>
-                  <circle cx="112" cy="178" r="28"/>
-                  <circle cx="112" cy="178" r="12"/>
-                  <circle cx="268" cy="184" r="22"/>
-                  <circle cx="268" cy="184" r="9"/>
-                </g>
-              </svg>
-              <p class="spec__label" aria-hidden="true"><span>Forklifts</span><span>Fleet plate</span></p>
+          <div class="makers" aria-label="Makes in the fleet">
+            <div class="makers__track">
+              <ul class="makers__list"><li>Liebherr</li><li>Demag</li><li>Terex</li><li>Zoomlion</li><li>XCMG</li><li>Sany</li><li>Kobelco</li><li>Hitachi</li><li>Sumitomo</li><li>Mercedes-Benz</li><li>Volvo</li><li>MAN</li><li>Tata</li><li>Daewoo</li><li>Caterpillar</li><li>JCB</li><li>Kalmar</li><li>Toyota</li><li>Hangcha</li></ul>
+              <ul class="makers__list" aria-hidden="true"><li>Liebherr</li><li>Demag</li><li>Terex</li><li>Zoomlion</li><li>XCMG</li><li>Sany</li><li>Kobelco</li><li>Hitachi</li><li>Sumitomo</li><li>Mercedes-Benz</li><li>Volvo</li><li>MAN</li><li>Tata</li><li>Daewoo</li><li>Caterpillar</li><li>JCB</li><li>Kalmar</li><li>Toyota</li><li>Hangcha</li></ul>
             </div>
           </div>
-        </article>
+        </div>
 
         <div class="support grid" data-reveal="stagger">
-          <figure class="plate support__fig">
-            <div class="plate__frame">
-              <img src="assets/media/heavy-crane-truss-1280.webp"
-                   srcset="assets/media/heavy-crane-truss-480.webp 480w, assets/media/heavy-crane-truss-640.webp 640w, assets/media/heavy-crane-truss-800.webp 800w, assets/media/heavy-crane-truss-960.webp 960w, assets/media/heavy-crane-truss-1280.webp 1280w, assets/media/heavy-crane-truss-1920.webp 1920w"
-                   sizes="92vw" width="1280" height="790"
-                   alt="Red FHE crane with counterweight stack lifting a steel truss"
-                   loading="lazy" decoding="async">
-            </div>
-            <figcaption class="plate__cap"><span>Counterweight stacked, truss on the hook.</span></figcaption>
-          </figure>
           <div class="support__item">
             <p class="support__label">Support equipment</p>
             <p class="support__text">Man lifts, Bobcats, JCBs and excavators, on the job alongside the cranes.</p>
@@ -835,6 +727,28 @@
                  loading="lazy" decoding="async">
           </div>
           <figcaption class="work__cap"><span>A luffing crane reaching up a high-rise facade.</span></figcaption>
+        </figure>
+
+        <figure class="work work--14" data-reveal>
+          <div class="plate__frame">
+            <img src="assets/media/heavy-crane-superlift-night-1280.webp"
+                 srcset="assets/media/heavy-crane-superlift-night-480.webp 480w, assets/media/heavy-crane-superlift-night-640.webp 640w, assets/media/heavy-crane-superlift-night-800.webp 800w, assets/media/heavy-crane-superlift-night-960.webp 960w, assets/media/heavy-crane-superlift-night-1280.webp 1280w"
+                 sizes="(min-width: 960px) 30vw, 72vw" width="1280" height="1707"
+                 alt="FHE heavy crane with superlift counterweight working at night"
+                 loading="lazy" decoding="async">
+          </div>
+          <figcaption class="work__cap"><span>A heavy crane on superlift counterweight, working through the night.</span></figcaption>
+        </figure>
+
+        <figure class="work work--15" data-reveal data-d="2">
+          <div class="plate__frame">
+            <img src="assets/media/crawler-crane-coast-1280.webp"
+                 srcset="assets/media/crawler-crane-coast-480.webp 480w, assets/media/crawler-crane-coast-640.webp 640w, assets/media/crawler-crane-coast-800.webp 800w, assets/media/crawler-crane-coast-960.webp 960w, assets/media/crawler-crane-coast-1280.webp 1280w, assets/media/crawler-crane-coast-1920.webp 1920w"
+                 sizes="(min-width: 960px) 55vw, 92vw" width="1280" height="960"
+                 alt="White lattice-boom crawler crane working on a coastal site"
+                 loading="lazy" decoding="async">
+          </div>
+          <figcaption class="work__cap"><span>A lattice-boom crawler crane working on a coastal site.</span></figcaption>
         </figure>
       </div>
     </div>
