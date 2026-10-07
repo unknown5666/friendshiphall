@@ -1,0 +1,96 @@
+---
+/* The page shell: head, the first-visit intro gate, fonts, and the page script.
+ * CSS is imported here and inlined into the HTML at build (astro.config.mjs), so first paint needs one request. */
+import '../styles/overlays.css';
+import '../styles/site.css';
+import '../styles/fleet.css';
+import { sources } from '../data/media';
+
+interface Props {
+  title: string;
+  description: string;
+}
+const { title, description } = Astro.props;
+const hero = sources('hero-gantry-dusk');
+const og = new URL('/assets/media/hero-gantry-dusk-1280.jpg', Astro.site).href;
+---
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{title}</title>
+<meta name="description" content={description}>
+<meta name="theme-color" content="#0B0C10">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Friendship Hall — FHE">
+<meta property="og:title" content="Friendship Hall — Forty years of lifting the Emirates, since 1986">
+<meta property="og:description" content="Mobile cranes from 25 to 700 tonnes, heavy transport and engineered rigging studies across the UAE. Support 24/7.">
+<meta property="og:image" content={og}>
+<meta property="og:image:alt" content="Two mobile cranes lifting a yellow bridge-launching girder marked SAFETY FIRST under a dusk sky">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/brand/fhs-mark.svg" type="image/svg+xml">
+{hero.avif
+  ? <link rel="preload" as="image" type="image/avif" imagesrcset={hero.avif} imagesizes="(min-width: 960px) 100vw, 120vw" fetchpriority="high">
+  : <link rel="preload" as="image" href={hero.src} imagesrcset={hero.srcset} imagesizes="(min-width: 960px) 100vw, 120vw" fetchpriority="high">}
+<link rel="preload" href="/assets/fonts/bodoni-moda-normal-3LUYJSKSKg.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/instrument-sans-normal-ibnr0SZe1Q.woff2" as="font" type="font/woff2" crossorigin>
+{/* The intro plays once, on the first visit (about 1.6 s); never on Back/Forward or with reduced motion.
+    The page under it is already painted. If the page script never runs, the curtain lifts by itself. */}
+<script is:inline>
+(function (d) {
+  d.classList.add('js');
+  var n = performance.getEntriesByType && performance.getEntriesByType('navigation')[0];
+  var seen = '1';
+  try { seen = localStorage.getItem('fhe:intro'); localStorage.setItem('fhe:intro', '1'); } catch (e) {}
+  if (seen || (n && n.type === 'back_forward') || matchMedia('(prefers-reduced-motion: reduce)').matches) { d.classList.add('is-loaded'); return; }
+  d.classList.add('is-preloading');
+  setTimeout(function () {
+    if (window.FHE) return;
+    d.classList.remove('is-preloading'); d.classList.add('is-loaded');
+    document.querySelectorAll('[data-reveal]').forEach(function (e) { e.classList.add('is-in'); });
+  }, 4500);
+})(document.documentElement);
+</script>
+<style is:inline>
+/* Self-hosted Google Fonts (latin). The fallback faces are metric-matched (size-adjust and overrides from the woff2
+   metrics), so nothing reflows when the web fonts swap in. */
+@font-face { font-family: 'Bodoni Moda'; font-style: normal; font-weight: 400 600; font-display: swap; src: url(/assets/fonts/bodoni-moda-normal-3LUYJSKSKg.woff2) format('woff2'); }
+@font-face { font-family: 'Bodoni Moda'; font-style: italic; font-weight: 400 600; font-display: swap; src: url(/assets/fonts/bodoni-moda-italic-YJSPeKrcWw.woff2) format('woff2'); }
+@font-face { font-family: 'Instrument Sans'; font-style: normal; font-weight: 400 600; font-stretch: 100%; font-display: swap; src: url(/assets/fonts/instrument-sans-normal-ibnr0SZe1Q.woff2) format('woff2'); }
+@font-face { font-family: 'Bodoni Fallback'; font-style: normal; src: local('Times New Roman'), local('TimesNewRomanPSMT'), local('Noto Serif'); size-adjust: 116%; ascent-override: 97%; descent-override: 34.5%; line-gap-override: 0%; }
+@font-face { font-family: 'Bodoni Fallback'; font-style: italic; src: local('Times New Roman Italic'), local('TimesNewRomanPS-ItalicMT'), local('Noto Serif Italic'); size-adjust: 109%; ascent-override: 103%; descent-override: 36.7%; line-gap-override: 0%; }
+@font-face { font-family: 'Instrument Fallback'; src: local('Arial'), local('ArialMT'), local('Roboto'); size-adjust: 103.8%; ascent-override: 93.4%; descent-override: 24.1%; line-gap-override: 0%; }
+</style>
+<script type="application/ld+json" set:html={JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: 'Friendship Hall Sole Proprietorship L.L.C',
+  alternateName: 'Friendship Hall — FHE',
+  description: 'Heavy equipment rental: mobile cranes from 25 to 700 tonnes, crawler cranes, forklifts, lowbed and flatbed trailers, with trained operators and lifting supervisors.',
+  url: 'https://fhecrane.com',
+  telephone: '+97124485660',
+  email: 'fhcrane@gmail.com',
+  image: og,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Office M-1, Bldg C-145, Sector M-9, Mohamed Bin Zayed City',
+    postOfficeBoxNumber: '8058',
+    addressLocality: 'Abu Dhabi',
+    addressCountry: 'AE',
+  },
+  areaServed: 'AE',
+  openingHours: 'Mo-Su 00:00-23:59',
+})} />
+</head>
+<body>
+<slot />
+<script>
+  // Order matters: mark.js defines window.FHEIntro before core.js hands it the preloader.
+  import '../scripts/mark.js';
+  import '../scripts/core.js';
+  import '../scripts/site.js';
+  import '../scripts/fleet.js';
+</script>
+</body>
+</html>

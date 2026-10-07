@@ -1,0 +1,53 @@
+# Builds the site on every push to main and publishes the result (dist/) to the `deploy` branch, which Hostinger
+# serves (hPanel → Websites → fhscrane.com → Advanced → Git, branch: deploy). The deploy branch only ever holds the
+# built files, one commit per build, fast-forward, so Hostinger's own pull always applies cleanly.
+name: Build and publish
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: deploy
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - run: npm run build
+        env:
+          ASTRO_TELEMETRY_DISABLED: 1
+
+      - name: Publish dist/ to the deploy branch
+        run: |
+          set -e
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898299+github-actions[bot]@users.noreply.github.com"
+          if git ls-remote --exit-code --heads origin deploy > /dev/null; then
+            git fetch --depth=1 origin deploy
+            git worktree add --detach ../site FETCH_HEAD
+          else
+            git worktree add --detach ../site
+            git -C ../site checkout -q --orphan deploy
+            git -C ../site rm -rfq .
+          fi
+          rsync -a --delete --exclude .git dist/ ../site/
+          cd ../site
+          git add -A
+          if git diff --cached --quiet; then echo "Nothing changed"; exit 0; fi
+          git commit -q -m "Site build from ${GITHUB_SHA::7}"
+          git push origin HEAD:deploy

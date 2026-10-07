@@ -1,0 +1,64 @@
+---
+import Photo from './Photo.astro';
+---
+<section class="section safety" id="safety" aria-labelledby="safety-title" data-folio="VI · Safety &amp; certification">
+  <div class="wrap">
+    <header class="chapter-head grid">
+      <p class="chapter-mark" data-reveal>
+        <span class="chapter-mark__no">VI</span>
+        <span class="chapter-mark__rule" aria-hidden="true"></span>
+        <span class="chapter-mark__label">Safety &amp; certification</span>
+        <span class="chapter-mark__of" aria-hidden="true">VI / VII</span>
+      </p>
+      <h2 class="chapter-title" id="safety-title" data-reveal="up">Safety first. <em>Then the lift.</em></h2>
+    </header>
+
+    <div class="safety__spread grid">
+      <figure class="plate safety__fig" data-reveal>
+        <div class="plate__frame">
+          <Photo name="rigging-team" sizes="(min-width: 960px) 56vw, 92vw" w={1280} h={813} alt="Three FHE crew in red coveralls in front of a Terex FRIENDSHIP crane" />
+        </div>
+        <figcaption class="plate__cap"><span>Three FHE crew in red coveralls, in front of a Terex FRIENDSHIP crane.</span></figcaption>
+      </figure>
+      <div class="safety__text" data-reveal="stagger">
+        <figure class="plate safety__inset">
+          <div class="plate__frame">
+            <Photo name="superlift-uae-flag" sizes="(min-width: 960px) 30vw, 92vw" w={1280} h={1707} alt="Heavy crane with superlift counterweight beside a tower draped with the UAE flag" />
+          </div>
+          <figcaption class="plate__cap"><span>Lifting beside the flag, in the Emirates since 1986.</span></figcaption>
+        </figure>
+        <p>Every lift starts with a plan. Our quality and occupational health &amp; safety management systems are certified to ISO 9001:2015 and ISO 45001:2018, and we hold UAE In-Country Value (ICV) certification.</p>
+        <p>Trained operators and lifting supervisors are provided with our equipment, and our site surveys come with engineered rigging studies for maximum safety and efficiency.</p>
+      </div>
+    </div>
+
+    <ul class="certs" data-reveal="stagger">
+      <li class="cert">
+        <p class="cert__std">ISO 9001:2015</p>
+        <p class="cert__name">Quality management</p>
+        <dl class="cert__facts">
+          <div><dt>Certificate</dt><dd>SD-26048/01</dd></div>
+          <div><dt>First certified</dt><dd><time datetime="2017-03-26">26 Mar 2017</time></dd></div>
+          <div><dt>Valid to</dt><dd><time datetime="2027-03-25">25 Mar 2027</time></dd></div>
+        </dl>
+        <p class="cert__scope">Scope: General Transportation and Renting of Mobile Cranes &amp; Lifting Equipment.</p>
+      </li>
+      <li class="cert">
+        <p class="cert__std">ISO 45001:2018</p>
+        <p class="cert__name">Occupational health &amp; safety</p>
+        <dl class="cert__facts">
+          <div><dt>Valid to</dt><dd><time datetime="2028-11-30">30 Nov 2028</time></dd></div>
+        </dl>
+      </li>
+      <li class="cert">
+        <p class="cert__std">ICV</p>
+        <p class="cert__name">UAE In-Country Value programme</p>
+        <dl class="cert__facts">
+          <div><dt>Certificate</dt><dd>150476</dd></div>
+          <div><dt>ICV score</dt><dd class="cert__score">47.14%</dd></div>
+          <div><dt>Valid to</dt><dd><time datetime="2026-11-03">03 Nov 2026</time></dd></div>
+        </dl>
+      </li>
+    </ul>
+  </div>
+</section>

@@ -1,0 +1,33 @@
+---
+import Photo from './Photo.astro';
+---
+<section class="hero" id="top" aria-labelledby="hero-title" data-folio="Prologue">
+  <div class="hero__media">
+    <Photo name="hero-gantry-dusk" class="hero__img" sizes="(min-width: 960px) 100vw, 120vw" w={1920} h={1440} alt="Two mobile cranes lifting a yellow bridge-launching girder marked SAFETY FIRST under a dusk sky" eager />
+    <p class="hero__credit">Two cranes, one launching girder</p>
+  </div>
+  <div class="hero__body wrap">
+    <p class="hero__eyebrow eyebrow" data-reveal="up">Heavy crane rental · United Arab Emirates · Since 1986</p>
+    <h1 class="hero__title" id="hero-title" data-reveal="lines">
+      <span class="line"><span>Forty years </span></span>
+      <span class="line"><span>of lifting </span></span>
+      <span class="line"><span><em>the Emirates.</em></span></span>
+    </h1>
+    <div class="hero__aside" data-reveal="up" data-d="3">
+      <p class="hero__lede">A leading heavy equipment rental company — comprehensive, quality equipment, delivered with punctuality. Mobile cranes from 25 to 700 tonnes, lowbed transport and engineered rigging studies.</p>
+      <div class="hero__cta">
+        <a class="btn btn--solid" href="#contact" data-enquire>Contact us
+          <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a class="btn btn--ghost" href="tel:+97124485660">Call 24/7
+          <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+    <dl class="facts" data-reveal="stagger">
+      <div class="facts__item"><dt>Years in the UAE, since 1986</dt><dd><span data-count="40">40</span></dd></div>
+      <div class="facts__item"><dt>Support, UAE-wide</dt><dd>24/7</dd></div>
+      <div class="facts__item"><dt>Mobile cranes</dt><dd>25–700<span class="facts__unit">T</span></dd></div>
+    </dl>
+  </div>
+</section>

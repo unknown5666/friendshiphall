@@ -1,0 +1,22 @@
+---
+import Photo from './Photo.astro';
+---
+<section class="section prologue" id="prologue" aria-label="About Friendship Hall" data-folio="Prologue">
+  <div class="wrap grid">
+    <p class="chapter-mark prologue__mark" data-reveal>
+      <span class="chapter-mark__label">Prologue</span>
+      <span class="chapter-mark__rule" aria-hidden="true"></span>
+    </p>
+    <p class="prologue__statement" data-reveal="up">A leading heavy equipment rental company, bringing <em>comprehensive, quality equipment</em> and <em>punctuality</em> to any crane job, anytime, anywhere in the UAE.</p>
+    <div class="prologue__note" data-reveal="up" data-d="2">
+      <p>Friendship Hall — FHE — has been lifting in the United Arab Emirates since 1986: 40 years of real-world experience. One of the largest fleets of cranes, extensive lifting and rigging support, and trained operators and lifting supervisors, on call around the clock.</p>
+      <p><a class="link" href="#services">What we do</a></p>
+    </div>
+    <figure class="plate plate--matted prologue__fig" data-reveal>
+      <div class="plate__frame">
+        <Photo name="fhe-carrier-closeup" sizes="(min-width: 960px) 38vw, 92vw" w={1280} h={960} alt="Close-up of a red FRIENDSHIP crane carrier cab and yellow boom head" />
+      </div>
+      <figcaption class="plate__cap"><span>A FRIENDSHIP carrier cab under a yellow boom head.</span></figcaption>
+    </figure>
+  </div>
+</section>

@@ -1,0 +1,58 @@
+---
+import Photo from './Photo.astro';
+---
+<section class="section contact" id="contact" aria-labelledby="contact-title" data-folio="VII · Contact">
+  <div class="contact__bg" aria-hidden="true">
+    <Photo name="boom-sky-abstract" sizes="100vw" w={1280} h={960} alt="" />
+  </div>
+  <div class="wrap">
+    <header class="chapter-head grid">
+      <p class="chapter-mark" data-reveal>
+        <span class="chapter-mark__no">VII</span>
+        <span class="chapter-mark__rule" aria-hidden="true"></span>
+        <span class="chapter-mark__label">Contact</span>
+        <span class="chapter-mark__of" aria-hidden="true">VII / VII</span>
+      </p>
+      <h2 class="contact__title" id="contact-title" data-reveal="up">Call it in. <em>Any hour.</em></h2>
+      <p class="contact__lede" data-reveal="up" data-d="2">Any crane rental job, anytime, anywhere in the United Arab Emirates. Our line is open 24/7<span class="contact__clock"> — it is <span data-uae-clock="hm">00:00</span> in the UAE now</span>.</p>
+      <div class="contact__cta" data-reveal="up" data-d="3">
+        <a class="btn btn--solid btn--xl" href="mailto:fhcrane@gmail.com?subject=Lift%20enquiry" data-enquire>Contact us
+          <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <p class="contact__cta-note">Describe the lift: service, crane size, site and date. It reaches our sales team on WhatsApp or by email.</p>
+      </div>
+    </header>
+
+    <div class="contact__grid grid">
+      <div class="lines" data-reveal="stagger">
+        <p class="contact__label">Telephone</p>
+        <ul class="lines__list">
+          <li class="lines__main"><span class="lines__tag">Main</span><a href="tel:+97124485660">+971 2 448 5660</a></li>
+        </ul>
+        <figure class="plate plate--matted contact__fig">
+          <div class="plate__frame">
+            <Photo name="contact-boom-sky" sizes="(min-width: 960px) 44vw, 92vw" w={1280} h={960} alt="Crane boom and jib against a vivid blue cloud-patterned sky" />
+          </div>
+          <figcaption class="plate__cap"><span>Boom up, line open. Any hour.</span></figcaption>
+        </figure>
+      </div>
+      <div class="channels" data-reveal="stagger">
+        <div class="channels__block">
+          <p class="contact__label">WhatsApp</p>
+          <div class="channels__btns">
+            <a class="btn btn--solid" href="https://wa.me/971529026105">WhatsApp Sales</a>
+            <a class="btn" href="https://wa.me/971529026102">WhatsApp Admin</a>
+          </div>
+        </div>
+        <div class="channels__block">
+          <p class="contact__label">Email</p>
+          <p class="channels__big"><a class="link" href="mailto:fhcrane@gmail.com?subject=Lift%20enquiry">fhcrane@gmail.com</a></p>
+        </div>
+        <div class="channels__block">
+          <p class="contact__label">Head office</p>
+          <address class="channels__addr">Office M-1, Bldg C-145, Sector M-9,<br>Mohamed Bin Zayed City, Abu Dhabi, UAE<br>P.O. Box 8058</address>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

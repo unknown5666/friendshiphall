@@ -1,0 +1,41 @@
+---
+import Base from '../layouts/Base.astro';
+import Intro from '../components/Intro.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Prologue from '../components/Prologue.astro';
+import Film from '../components/Film.astro';
+import Services from '../components/Services.astro';
+import Panorama from '../components/Panorama.astro';
+import Fleet from '../components/fleet/Fleet.astro';
+import Works from '../components/Works.astro';
+import Industries from '../components/Industries.astro';
+import Safety from '../components/Safety.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+import Brief from '../components/Brief.astro';
+import WhatsApp from '../components/WhatsApp.astro';
+---
+<Base
+  title="Friendship Hall — Heavy Crane Rental, UAE"
+  description="Friendship Hall (FHE): mobile cranes from 25 to 700 tonnes, heavy transport and engineered rigging studies across the UAE. Lifting in the UAE since 1986: 40 years of experience. Support 24/7."
+>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <Intro />
+  <Header />
+  <main id="main">
+    <Hero />
+    <Prologue />
+    <Film />
+    <Services />
+    <Panorama />
+    <Fleet />
+    <Works />
+    <Industries />
+    <Safety />
+    <Contact />
+  </main>
+  <Footer />
+  <Brief />
+  <WhatsApp />
+</Base>

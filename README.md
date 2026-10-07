@@ -1,83 +1,94 @@
 # Friendship Hall (FHE): website
 
-The live site for Friendship Hall Sole Proprietorship L.L.C (fhecrane.com), in the client-confirmed **Cinematic Editorial** design: obsidian #0B0C10, zinc #1F2833, brushed gold #C5A059, serif headlines, an asymmetric layout, film grain and a gold glint on the italics. It opens with the **mark intro** and closes with the **seal** (see below), and its **Contact us** button opens the lift slate. It's plain static HTML and CSS with a little vanilla JS, and there's no build step.
+The live site for Friendship Hall Sole Proprietorship L.L.C (fhscrane.com), in the client-confirmed **Cinematic Editorial** design: obsidian #0B0C10, zinc #1F2833, brushed gold #C5A059, Bodoni Moda headlines over Instrument Sans, an asymmetric layout, film grain and a gold glint on the italics. On a first visit it opens with a short **mark intro**, it closes with the **seal**, and its **Contact us** button opens the lift slate.
 
-## Preview locally
+It's built with [Astro](https://astro.build): components at build time, plain HTML and CSS in the browser. The one interactive widget that needs state, the fleet's **capacity console**, is a Preact island (React's API on a 4 KB runtime) that loads as it scrolls near. Everything else is a few small scripts.
+
+## Develop
+Needs Node 22.12 or later. (On the Mac this was built on, Node lives in `~/.local/node/bin`; add it to `PATH`.)
 ```bash
-npx -y serve -l 5173 .
+npm ci
+npm run dev        # http://localhost:4321, live reload
+npm run build      # the site, in dist/
+npm run preview    # serve dist/ locally
 ```
-Then open http://localhost:5173. Use a server rather than double-clicking the file: the video needs HTTP range requests to seek and loop correctly.
 
 ## Deploy
-Vercel serves the folder as-is (`/` is `index.html`). Run `vercel deploy --prod`, or push to `main`. `vercel.json` turns on clean URLs and sets security and cache headers.
+**Hostinger (fhscrane.com).** Push to `main`. The GitHub Action in `.github/workflows/deploy.yml` builds the site and commits the result to the `deploy` branch, which Hostinger serves (hPanel → Websites → fhscrane.com → Advanced → Git: repository `unknown5666/friendshiphall`, branch **`deploy`**, auto-deployment on). The `deploy` branch only ever holds built files; never edit it by hand. `public/.htaccess` (copied into the build) sets the cache, compression and security headers there.
+
+**Vercel (friendshiphall.vercel.app).** Builds `main` itself; `vercel.json` sets the build command, `dist/` as output, and the same headers.
+
+## Speed
+Lighthouse 13, run locally on the production build (mobile = simulated Moto G Power on slow 4G, first visit, so the intro plays):
+
+| | Performance | Accessibility | Best practices | SEO |
+|---|---|---|---|---|
+| Mobile | 98 | 100 | 100 | 100 |
+| Desktop | 100 | 100 | 100 | 100 |
+
+What keeps it there, so it stays there:
+- **One request to first paint.** All CSS is inlined into the HTML (`build.inlineStylesheets: 'always'`); the hero photo and the two upright fonts are preloaded; the hero is AVIF (WebP fallback).
+- **No layout jumps when fonts load.** The fallback fonts in `Base.astro` are metric-matched to Bodoni Moda and Instrument Sans (`size-adjust` and overrides computed from the woff2 files).
+- **The browser skips what's off screen.** Every chapter below the hero has `content-visibility: auto`.
+- **Little JS, none of it blocking.** About 14 KB (gzipped) for the page, deferred. Anything that builds DOM or reads layout (the hook, the rail, the seal, the Contact us dialog) sets itself up in an idle moment after load. The console island (≈ 10 KB with Preact) loads only as the fleet chapter nears.
+- **Animations on the compositor.** Scroll effects are CSS scroll-driven animations (`animation-timeline`) of `transform`, `clip-path` and `opacity`; nothing animates `filter`, `box-shadow` or layout. There is no scroll-jacking library: scrolling is native.
+- **CSS is minified with esbuild, not Lightning CSS** (`astro.config.mjs`). Lightning CSS folds `animation-timeline` into the `animation` shorthand, where browsers reject it, and every scroll-driven effect silently disappears. Don't switch it back.
 
 ## Structure
 ```
-index.html                 the site
-css/site.css               the design (ends with its crane-hook + WhatsApp theme)
-css/fhe-overlays.css       crane hook + floating WhatsApp structure, linked before site.css
-js/fhe-core.js             generic behaviour (see below)
-js/fhe-mark.js             logo animation: intro, header swing, footer seal (loaded before fhe-core.js)
-js/site.js                 page-specific interactions (prologue, lift slate, …)
-js/smooth.js               smooth wheel/trackpad scrolling (Lenis), paused while an overlay holds the page
-js/vendor/lenis.min.js     Lenis 1.3.26, self-hosted
-assets/media/              optimised photos (WebP 640/960/1280/1920 + one 1280 JPG each) + manifest.json
-assets/fonts/              self-hosted Google Fonts (latin woff2); @font-face is inlined in the page's <head>
-assets/team/               leadership portraits (800×1000), not currently shown
-assets/video/              crane-timelapse.mp4 (28.6 s, 720p), posters, cues JSON
-assets/brand/              FHS mark built from the client's DWG (fhs-mark.svg red, fhs-mark.inline.svg currentColor),
-                           the earlier emblem export fhs-emblem.svg (glyph source for the build) and source/ (the DWG + build script)
+src/pages/index.astro            the page: the chapters in order
+src/layouts/Base.astro           <head>: meta, preloads, fonts, the first-visit intro gate; the page script
+src/components/                  one component per chapter (Hero, Prologue, Film, Services, Panorama, Works,
+                                 Industries, Safety, Contact, Footer), plus Header, Intro, Brief (Contact us),
+                                 WhatsApp, Mark (the FHS mark), Photo (responsive images), Drawing (line drawings)
+src/components/fleet/            Chapter III: Fleet.astro, Odometer.astro, CapacityConsole.tsx (Preact island)
+src/data/fleet.ts                the fleet register: every heavy unit, by family and class, with rated capacities
+src/data/media.ts                finds each photo's widths in public/assets/media at build time
+src/styles/                      site.css (the design), fleet.css (Chapter III), overlays.css (hook + WhatsApp)
+src/scripts/                     mark.js (intro, header swing, seal), core.js (shared behaviour), site.js (rail,
+                                 lit prologue, Contact us), fleet.js (drums, the stage)
+public/assets/                   photos (WebP 480–1920; the hero also AVIF), fleet model photos, video, fonts, brand
+public/.htaccess                 Hostinger headers
+brand-source/                    the client's DWG and the script that builds the mark from it (not deployed)
 ```
 
-## Core behaviour (`js/fhe-core.js`)
-- **Preloader.** A `[data-preloader="mark"]` preloader is handed to `window.FHEIntro` (`js/fhe-mark.js`, below). Tap or Escape skips it. It doesn't run for reduced-motion users or on Back/Forward navigation.
-- **Smooth scrolling.** On mouse and trackpad, `js/smooth.js` runs Lenis and in-page links glide through it. Touch keeps native scrolling, reduced-motion users get none, and it pauses during the intro, the mobile menu and the Contact us dialog (which scroll natively via `data-lenis-prevent`).
-- **Back button.** In-page menu links scroll with `history.replaceState`, so they never add history entries. The mobile menu is a button, not a hash link.
-- **Lazy time-lapse.** The `<video>` gets its source only when it nears the viewport (IntersectionObserver), and it pauses when off-screen.
+## Core behaviour (`src/scripts/core.js`)
+- **Intro gate.** The head script in `Base.astro` plays the mark intro on the **first visit only** (localStorage `fhe:intro`), never on Back/Forward or with reduced motion. The page under it is already painted. If the page script never runs, the curtain lifts itself after 4.5 s.
+- **In-page links** scroll with `history.replaceState`, so they never add history entries. The mobile menu is a button, not a hash link.
+- **Lazy time-lapse.** The `<video>` gets its source only when it nears the viewport and pauses when off-screen.
 - Reveal-on-scroll, count-up numbers, a live Asia/Dubai clock and a scrolled-header flag.
-- **Crane hook.** A twin-sheave block with a ramshorn double hook hangs in the right margin on four falls of wire rope and is lowered as you scroll. A spring gives it weight and a little bounce, scroll speed swings it like a pendulum (slower as the cable gets longer) and the hook trails on its swivel, while the rope lay and the knurl on the sheave rims run as the rope visibly pays out. The site stylesheet recolours the block, its hazard band and the rim light in the hook's throats. At the foot of the page it rests just above the WhatsApp button and shows the "WhatsApp us" label. JS builds it, so the pages carry no markup for it. With reduced motion it simply follows the page.
-- **Floating WhatsApp.** One button opens a chooser with two lines: Friendship Hall main line +971 52 833 5333 and Bashir (COO) +971 52 902 6103. Each opens WhatsApp with a short enquiry pre-filled. It uses the native `popover`, so tap-outside and Escape close it, and older browsers get a scripted fallback. It hides while the mobile menu is open and shows the label once, a third of the way down the page.
+- **Crane hook.** A twin-sheave block with a ramshorn double hook hangs in the right margin on four falls of wire rope and is lowered as you scroll: a spring gives it weight, scroll speed swings it like a pendulum, the rope lay and the sheave knurl run as it pays out. At the foot of the page it rests above the WhatsApp button. With reduced motion it simply follows the page.
+- **Floating WhatsApp.** One button opens a chooser with two lines (Bashir, COO, +971 52 902 6103 and Saeed, CEO, +971 52 833 5333), each with an enquiry pre-filled. Native `popover`, with a scripted fallback. The button blinks green.
 
 ## The mark
-The logo comes from the client's AutoCAD file, `assets/brand/source/logo_fhe.dwg`. `build-mark.mjs` in the same folder reads it and writes `assets/brand/fhs-mark.svg` (brand red) and `fhs-mark.inline.svg` (currentColor). The drawing's circle is mapped to r = 500 at the origin, at a scale of 1:138, and every line, arc and pin comes straight from the DWG. The lettering in the DWG is a font reference (Times New Roman Bold), not geometry, so the glyph outlines come from the earlier vector export, `fhs-emblem.svg`. The script checks that export against the DWG and won't write the files if they disagree by more than one unit (today they're 0.07 apart). To rebuild, run `npm i --no-save @mlightcad/libredwg-web && node build-mark.mjs` inside `assets/brand/source/`. That folder is in `.vercelignore`, so it isn't deployed.
+The logo comes from the client's AutoCAD file, `brand-source/logo_fhe.dwg`. `brand-source/build-mark.mjs` reads it and writes `public/assets/brand/fhs-mark.svg` (brand red) and `fhs-mark.inline.svg` (currentColor); the same paths are in `src/components/Mark.astro`. The drawing's circle is mapped to r = 500 at the origin, and every line, arc and pin comes straight from the DWG; the lettering (a font reference in the DWG) comes from the earlier vector export `fhs-emblem.svg`, checked against the DWG. To rebuild: `npm i --no-save @mlightcad/libredwg-web && node brand-source/build-mark.mjs`.
 
-`js/fhe-mark.js` animates the mark. The header copy is the source, and the other two uses clone it:
-- **Intro** (about 7.5 s). The preloader is `[data-preloader="mark"]`, so `fhe-core.js` hands it to `window.FHEIntro`.
-  1. A welding spark draws the ring while a load dial ticks round it and the readout counts 25 → 700 T.
-  2. The rope and hook drop in, catch, and swing.
-  3. Three weld heads trace F, H and S, throwing sparks.
-  4. Molten gold pours up into the letters.
-  5. The mark locks with a punch, a shockwave, a spray of sparks and a glint, and the name fades up.
-  6. The ring opens as an iris onto the hero while the mark flies into the header.
+`src/scripts/mark.js` animates it. The header copy is the source; the intro and the seal clone it.
+- **Intro** (about 1.6 s, first visit). A welding spark draws the ring while a load dial ticks round and the readout counts 25 → 700 T; the rope and hook drop in and swing; three weld heads trace F, H and S; molten gold pours into the letters; the mark locks with a punch and a spray of sparks; the ring opens as an iris onto the hero while the mark flies into the header. A tap, key or scroll jumps to the lock.
+- **Header.** Hovering or focusing the brand swings the hook on its ropes.
+- **Seal** (top of the footer). A large mark draws itself as it scrolls in, then pours; it tilts toward the pointer and scroll speed swings the hook. It is built only as the footer comes within a few screens.
 
-  A second load in the same tab gets a 3 s cut (sessionStorage `fhe:mark`). A tap, key or scroll jumps to the lock. It doesn't run with reduced motion or on Back/Forward. Styles are in `css/site.css` §3 and §3b.
-- **Header.** Hovering or focusing the brand swings the hook on its ropes. It also swings once as the intro lands it.
-- **Seal** (`[data-seal]`, top of the footer). A large mark draws itself as it scrolls in, then pours. The drawing eases after the scroll position, so even a fast flick plays out over about 2 s. It tilts toward the pointer with a moving highlight, scroll speed swings the hook, and the lettering turns slowly around it. With reduced motion it's shown finished and still.
+## Chapter III: the fleet
+Built from the client's vehicle register (FHE-BBH and FHE-DXB, September 2026): **158 heavy units** in 21 families: 64 mobile cranes, 14 crawler cranes, 33 prime movers (rows the register calls "Tractor" or "Locomotive" are truck heads), 36 trailers and 11 forklifts and loaders. Passenger and light vehicles are left out on purpose; plates and chassis numbers are never shown. Everything comes from `src/data/fleet.ts`: edit a family's units there and the totals, ledgers and console all follow.
+
+1. **Overture.** The yard photo opens from a letterbox slit to full frame as you scroll (pinned, CSS scroll-driven), over the total on rolling drums and the five class counts (each a link to its class).
+2. **Line-up.** One chapter per class with a ledger of every make and model and its share of the class drawn in gold. From 1100 px a pinned stage beside the chapters changes photograph with the class (a wipe in the direction of travel), rolls its count, and shows each make's photo or line drawing under the pointer.
+3. **Capacity console** (`CapacityConsole.tsx`). Every crane with a known rated capacity, one block per unit, on the site's 25–700 t log scale. Drag the load (it snaps to common sizes) or tap a column: the cranes rated for it light up, the readout counts them and names the range, and **Brief us on a … T lift** opens Contact us with that size set. Rated capacity is the maker's maximum at minimum radius, and the note under the chart says so.
+4. Makers marquee, support equipment and operators, and the photo credits.
+
+Rated capacities come from the model designations (LTM 1500 = 500 t, AC 700 = 700 t, QY 50K = 50 t …). The others were checked against maker data: Terex Explorer 5800 220 t, Hitachi KH 300 80 t, Sumitomo LS-248RH 150 t, XCMG XGC 150 150 t, Sany SCC 3200A 320 t, Sany SCC 600A 60 t, Kobelco CKE 1350 135 t. The Kobelco RK 70M is a **7 t compact** rough-terrain crane, so it is listed but not plotted.
+
+**Photos.** Demag, Terex, flatbed and lowbed families and the mobile, crawler and trailer classes use FHE's own photos ("FHE fleet"). The others are model photos of the same makes and models from Wikimedia Commons (`public/assets/media/fleet/`, WebP), with author, licence and source in `credits.json`, which the "Photo credits" list under the chapter is built from. Several are CC BY or CC BY-SA, so **keep that list on the page** while they're used. Sany HQC, Kobelco RK and the Sany/Zoomlion crawlers have gold line drawings instead.
 
 ## Contact us
-Every **Contact us** button (header, hero, mobile menu, contact chapter, and the "Discuss a lift" links under Industries) opens a full-screen brief. Visitors pick a service, set the crane size on a 25–700 T dial (same log scale as the fleet chapter), and add the emirate, start date, notes and their details. A film-slate panel fills in as they type. **Send on WhatsApp** opens a chat with Sales (+971 52 902 6105) and **Send by email** opens their mail app addressed to fhcrane@gmail.com. Either way the brief is written out for them, and the slate claps shut. Nothing is stored or sent by the site itself, so there's no server or form backend to run. Name and phone are required. The behaviour is in `js/site.js` §3 and the styles are in `css/site.css` §23. Without JavaScript the buttons fall back to the contact chapter.
-
-## Fleet roster
-Chapter III lists every heavy unit on the books (`#roster`), built from the client's vehicle register (FHE-BBH and FHE-DXB, September 2026): **158 units** on 21 family cards: 64 mobile cranes, 14 crawler cranes, 33 prime movers (rows the register calls "Tractor" or "Locomotive" are truck heads), 36 trailers and 11 forklifts and loaders. Each card has a photo with the unit count over it and every model on the books as a chip. Passenger and light vehicles are left out on purpose (54 rows: sedans, SUVs, hatchbacks, double cabins, pickups, the Hiace bus, Isuzu staff carriers, Canters, the Dongfeng and Mahindra light cargo trucks, and the Kia workshop van). Plates and chassis numbers are never shown. The tally figures filter the cards (`js/site.js` §4, `css/site.css` §13b).
-
-- **Photos.** Demag, Terex, flatbed and lowbed cards use FHE's own photos (tagged "FHE fleet"). The other cards use model photos of the same makes and models from Wikimedia Commons (`assets/media/fleet/`), with author, licence and source in `assets/media/fleet/credits.json` and in the "Photo credits" list under the cards. Several are CC BY or CC BY-SA, so **keep that credits list on the page** while they're used. Sany HQC, Kobelco RK and the Sany/Zoomlion crawlers have gold line drawings instead (no usable photo).
-- **Updating.** Edit the card's model chips, its count in `.fam__n`, and the matching tally `data-count` together.
+Every **Contact us** button opens a full-screen brief: pick a service, set the crane size on a 25–700 T dial (the same stops as the capacity console), add the emirate, start date, notes and details, and a film-slate panel fills in as you type. **Send on WhatsApp** opens a chat with Sales (+971 52 902 6105); **Send by email** opens the visitor's mail app addressed to fhcrane@gmail.com. Nothing is stored or sent by the site, so there is no server or form backend. A link with `data-cap="220"` opens it with that size set. Without JavaScript the buttons fall back to the contact chapter.
 
 ## Assets: where everything came from
-The original photos are in `C:/Users/user/Downloads/FHE Assets/` (2–23 MB phone images). Browsers can't load `C:/` paths from a web page, and those paths won't exist on a server. So each photo was resized to WebP, given a descriptive name and placed in `assets/media/`. `assets/media/manifest.json` maps every file back to its original and records its capture date, aspect ratio, alt text and intended use. For example:
-
-- `lowbed-trailer` ← `20180410_183509.jpg` (yacht onto a lowbed, sunset)
-- `rigging-team` ← `20201104_1738421.png` (crew in front of the Terex)
-- `crawler-crane-coast` ← `banner.jpg`
-- `tandem-bridge-panorama` ← `20201116_153907.jpg`
-
-The time-lapse was rendered from the 30 dated photos in capture order, from 2017-12-19 to 2020-11-29. `crane-timelapse.cues.json` lists when each photo appears in the video.
-
-There's no forklift photo in the asset folder, so forklifts are shown as typographic or blueprint spec blocks.
+The original photos are in `C:/Users/user/Downloads/FHE Assets/` (2–23 MB phone images), resized to WebP with descriptive names in `public/assets/media/`; `manifest.json` there maps every file back to its original with capture date, aspect ratio, alt text and intended use. The time-lapse was rendered from 30 dated photos in capture order (2017-12-19 to 2020-11-29); `crane-timelapse.cues.json` lists when each appears.
 
 ## To finalise with the client
-- **Leadership portraits.** Haji Saleem (Chairman), Saeed (CEO), Darwaish (Managing Director) and Bashir (COO) have placeholder images. Replace `assets/team/{haji-saleem,saeed,darwaish,bashir}.webp` (and the `.jpg`) with 800×1000 photos under the same names.
-- **Habib** uses the real on-site photo. His title is set to **"Site Operations"**. Please confirm it.
+- **Fleet capacities.** Not on the capacity chart until confirmed: Terex A600 ×2, Kobelco "600 series" ×3, Zoomlion ZCC 300V, and one Kobelco crawler and one Sany crane the register lists without a model. Add a `t` to each in `src/data/fleet.ts` once known.
+- **Fleet register.** Four rows say "Nissan H?" but share the Sany HQC chassis series, so they're counted as Sany HQC (8 in all). The "Skania? 300T" crane has a Sany chassis prefix and is shown as "Sany 300 T".
+- **Leadership portraits.** Haji Saleem (Chairman), Saeed (CEO), Darwaish (Managing Director) and Bashir (COO) have placeholder images in `public/assets/team/` (not currently shown).
 - **Certificates** shown: ISO 9001:2015 (SD-26048/01, valid to 25 Mar 2027), ISO 45001:2018 (valid to 30 Nov 2028) and ICV no. 150476, 47.14%. **The ICV certificate expires 03 Nov 2026**, so update it when it's renewed.
-- **Fleet roster: please confirm.** Four register rows say "Nissan H?" but share the Sany HQC chassis series, so they're counted as Sany HQC (8 in all). The "Skania? 300T" crane has a Sany chassis prefix and is shown as "Sany 300 T". "Terex A600", "Kobelco 600 series" and the unnamed Sany/XCMG/Kobelco cranes are shown as the register names them.
-- **WhatsApp numbers** are from fhecrane.com: Admin +971 52 902 6102, Sales +971 52 902 6105. The floating button uses +971 52 833 5333 (labelled "Main line") and Bashir on +971 52 902 6103. Please confirm both labels.
+- **WhatsApp numbers** are from fhecrane.com: Admin +971 52 902 6102, Sales +971 52 902 6105. The floating button uses Bashir (+971 52 902 6103) and Saeed (+971 52 833 5333).

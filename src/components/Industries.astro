@@ -1,0 +1,51 @@
+---
+import Photo from './Photo.astro';
+---
+<section class="section industries" id="industries" aria-labelledby="industries-title" data-folio="V · Industries">
+  <div class="wrap">
+    <header class="chapter-head grid">
+      <p class="chapter-mark" data-reveal>
+        <span class="chapter-mark__no">V</span>
+        <span class="chapter-mark__rule" aria-hidden="true"></span>
+        <span class="chapter-mark__label">Industries</span>
+        <span class="chapter-mark__of" aria-hidden="true">V / VII</span>
+      </p>
+      <h2 class="chapter-title" id="industries-title" data-reveal="up">Industries <em>we serve.</em></h2>
+    </header>
+
+    <ul class="industries__list">
+      <li class="industry" data-reveal="up">
+        <h3 class="industry__name">Oil <em>&amp;</em> Gas</h3>
+        <p class="industry__desc">Heavy industrial, refinery and power-site lifts, and the transmission-tower work that energy projects demand.</p>
+        <a class="industry__link link" href="#contact" data-enquire="Oil &amp; Gas">Discuss a lift<span class="sr-only"> — Oil &amp; Gas</span></a>
+        <figure class="industry__thumb">
+          <Photo name="transmission-tower-a" sizes="(min-width: 960px) 240px, 120px" w={1280} h={1707} alt="Heavy crane rigged between two red-and-white lattice transmission towers" />
+        </figure>
+      </li>
+      <li class="industry" data-reveal="up">
+        <h3 class="industry__name">Marine</h3>
+        <p class="industry__desc">Vessels, yachts and dhows lifted and loaded for transport — by day and by floodlight.</p>
+        <a class="industry__link link" href="#contact" data-enquire="Marine">Discuss a lift<span class="sr-only"> — Marine</span></a>
+        <figure class="industry__thumb industry__thumb--land">
+          <Photo name="lowbed-trailer" sizes="(min-width: 960px) 240px, 120px" w={1280} h={960} alt="Mobile crane lifting a yacht onto a lowbed trailer at sunset" />
+        </figure>
+      </li>
+      <li class="industry" data-reveal="up">
+        <h3 class="industry__name">Construction</h3>
+        <p class="industry__desc">Precast and steel erection, tower-crane assembly and high-rise lifting on tight urban sites.</p>
+        <a class="industry__link link" href="#contact" data-enquire="Construction">Discuss a lift<span class="sr-only"> — Construction</span></a>
+        <figure class="industry__thumb">
+          <Photo name="luffing-highrise-red" sizes="(min-width: 960px) 240px, 120px" w={1280} h={1707} alt="Red lattice luffing crane rising between high-rise towers" />
+        </figure>
+      </li>
+      <li class="industry" data-reveal="up">
+        <h3 class="industry__name">Manufacturing</h3>
+        <p class="industry__desc">Plant and equipment installation — heavy machinery lifted into the building and set in place.</p>
+        <a class="industry__link link" href="#contact" data-enquire="Manufacturing">Discuss a lift<span class="sr-only"> — Manufacturing</span></a>
+        <figure class="industry__thumb industry__thumb--land">
+          <Photo name="fhe-crane-plant-lift" sizes="(min-width: 960px) 240px, 120px" w={1280} h={960} alt="FHE-branded all-terrain crane lifting wrapped plant equipment into a building" />
+        </figure>
+      </li>
+    </ul>
+  </div>
+</section>

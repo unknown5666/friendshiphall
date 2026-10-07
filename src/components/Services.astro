@@ -1,0 +1,74 @@
+---
+import Photo from './Photo.astro';
+---
+<section class="section services" id="services" aria-labelledby="services-title" data-folio="II · Services">
+  <div class="wrap">
+    <header class="chapter-head grid">
+      <p class="chapter-mark" data-reveal>
+        <span class="chapter-mark__no">II</span>
+        <span class="chapter-mark__rule" aria-hidden="true"></span>
+        <span class="chapter-mark__label">Services</span>
+        <span class="chapter-mark__of" aria-hidden="true">II / VII</span>
+      </p>
+      <h2 class="chapter-title" id="services-title" data-reveal="up">What we <em>lift, move</em> and plan.</h2>
+      <p class="chapter-intro" data-reveal="up" data-d="2">Three services under one roof, delivered with punctuality — any crane rental job, anytime, anywhere in the UAE.</p>
+    </header>
+
+    <article class="service service--lifting grid">
+      <div class="service__text" data-reveal="stagger">
+        <p class="service__no">01</p>
+        <h3 class="service__title">Heavy lifting</h3>
+        <p>One of the largest fleets of cranes — 25 to 700-tonne mobile cranes — with extensive lifting and rigging equipment support. We have the capability to perform any crane rental job, anytime, anywhere in the UAE.</p>
+        <ul class="service__tags"><li>25–700 T mobile cranes</li><li>Lifting &amp; rigging support</li></ul>
+        <figure class="plate service__inset">
+          <div class="plate__frame">
+            <Photo name="superlift-truss-red" sizes="(min-width: 960px) 34vw, 92vw" w={1280} h={960} alt="Red FHE heavy crane with superlift counterweight lifting a steel truss" />
+          </div>
+          <figcaption class="plate__cap"><span>A steel truss on the hook, superlift counterweight rigged.</span></figcaption>
+        </figure>
+      </div>
+      <figure class="plate plate--matted service__fig" data-reveal>
+        <div class="plate__frame">
+          <Photo name="bridge-segment-spmt" sizes="(min-width: 960px) 36vw, 92vw" w={1280} h={1707} alt="Red mobile crane beside a bridge box-girder segment loaded on a multi-axle modular trailer" />
+        </div>
+        <figcaption class="plate__cap"><span>A box-girder segment on a multi-axle modular trailer, beside a red mobile crane.</span></figcaption>
+      </figure>
+    </article>
+
+    <article class="service service--transport grid">
+      <figure class="plate plate--matted service__fig" data-reveal>
+        <div class="plate__frame">
+          <Photo name="lowbed-trailer" sizes="(min-width: 960px) 46vw, 92vw" w={1280} h={960} alt="Mobile crane lifting a yacht onto a lowbed trailer at sunset" />
+        </div>
+        <figcaption class="plate__cap"><span>A yacht set onto a lowbed trailer at sunset.</span></figcaption>
+      </figure>
+      <div class="service__text" data-reveal="stagger">
+        <p class="service__no">02</p>
+        <h3 class="service__title">Heavy transportation <em>by truck trailer</em></h3>
+        <p>Best-in-class land transport on a wide variety of trailers, including hydraulic lowbeds and flatbeds. We move over-dimensional and overweight shipments that need special equipment and permits — with quality, reliability and on-time delivery.</p>
+        <ul class="service__tags"><li>Hydraulic lowbed</li><li>Flatbed</li><li>Special permits</li></ul>
+      </div>
+    </article>
+
+    <article class="service service--survey grid">
+      <div class="service__text" data-reveal="stagger">
+        <p class="service__no">03</p>
+        <h3 class="service__title">Site surveys <em>&amp; project estimation</em></h3>
+        <p>Free-of-cost consultation, and engineered rigging studies for maximum safety and efficiency. We plan the optimal deployment of the right equipment, so you get the most effective solution for the job.</p>
+        <ul class="service__tags"><li>Free consultation</li><li>Engineered rigging studies</li></ul>
+        <figure class="plate service__inset">
+          <div class="plate__frame">
+            <Photo name="pier-cap-lift" sizes="(min-width: 960px) 34vw, 92vw" w={1280} h={1707} alt="White mobile crane lowering a precast concrete pier cap onto a bridge column" />
+          </div>
+          <figcaption class="plate__cap"><span>A precast pier cap lowered onto its column, to plan.</span></figcaption>
+        </figure>
+      </div>
+      <figure class="plate plate--matted service__fig" data-reveal>
+        <div class="plate__frame">
+          <Photo name="precast-segment-spreader" sizes="(min-width: 960px) 30vw, 92vw" w={1280} h={1707} alt="Red heavy crane setting a precast bridge segment using a blue spreader beam" />
+        </div>
+        <figcaption class="plate__cap"><span>A precast bridge segment set with a blue spreader beam.</span></figcaption>
+      </figure>
+    </article>
+  </div>
+</section>

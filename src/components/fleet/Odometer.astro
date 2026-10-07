@@ -1,0 +1,21 @@
+---
+/* A number on rolling drums. Each digit is a column 0–9 twice over; CSS rolls it to its digit when `.is-on` is added
+ * (src/scripts/fleet.js), so every drum makes at least one full turn. JS can retarget a drum by setting --d.
+ * Screen readers get the plain number. */
+interface Props {
+  value: number;
+  digits?: number;
+  class?: string;
+}
+const { value, digits = String(value).length, class: cls } = Astro.props;
+const str = String(value).padStart(digits, '0');
+const col = Array.from({ length: 20 }, (_, n) => n % 10);
+---
+<span class:list={['odo', cls]} data-odo={value}>
+  <span class="sr-only">{value}</span>
+  {str.split('').map((d, i) => (
+    <span class="odo__d" style={`--d:${d};--i:${i}`} aria-hidden="true">
+      <span class="odo__col">{col.map((n) => <span>{n}</span>)}</span>
+    </span>
+  ))}
+</span>

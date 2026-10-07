@@ -1,0 +1,52 @@
+---
+/* One responsive <img> for a photo in public/assets/media (see src/data/media.ts), in a <picture> with an AVIF source
+ * where AVIF files exist. Lazy unless `eager`. */
+import { sources } from '../data/media';
+
+interface Props {
+  name: string;
+  fleet?: boolean;
+  sizes: string;
+  w: number;
+  h: number;
+  alt: string;
+  eager?: boolean;
+  class?: string;
+  style?: string;
+}
+
+const { name, fleet = false, sizes, w, h, alt, eager = false, class: cls, style } = Astro.props;
+const s = sources(name, fleet);
+---
+{s.avif ? (
+<picture>
+  <source type="image/avif" srcset={s.avif} sizes={sizes} />
+  <img
+    class={cls}
+    style={style}
+    src={s.src}
+    srcset={s.srcset}
+    sizes={sizes}
+    width={w}
+    height={h}
+    alt={alt}
+    loading={eager ? undefined : 'lazy'}
+    fetchpriority={eager ? 'high' : undefined}
+    decoding="async"
+  />
+</picture>
+) : (
+<img
+  class={cls}
+  style={style}
+  src={s.src}
+  srcset={s.srcset}
+  sizes={sizes}
+  width={w}
+  height={h}
+  alt={alt}
+  loading={eager ? undefined : 'lazy'}
+  fetchpriority={eager ? 'high' : undefined}
+  decoding="async"
+/>
+)}

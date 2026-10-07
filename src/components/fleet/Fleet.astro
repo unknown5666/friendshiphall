@@ -1,0 +1,184 @@
+---
+/* Chapter III — the fleet. Four movements:
+ *  1. Overture   the yard doors open as you scroll (a pinned, scroll-driven reveal) on 158 heavy units, rolled up on
+ *                drums, with the five classes underneath.
+ *  2. Line-up    the five classes, one chapter each, every make and model on the books in a ledger. On wide screens
+ *                a pinned stage beside them changes photograph with the class and, under the pointer, shows the make.
+ *  3. Console    the cranes by rated capacity: drag the load, see what can take it, brief us on it (Preact island).
+ *  4. Makers, support equipment, operators and the photo credits.
+ * Data: src/data/fleet.ts. Styles: src/styles/fleet.css. Behaviour: src/scripts/fleet.js. */
+import Photo from '../Photo.astro';
+import Drawing from '../Drawing.astro';
+import Odometer from './Odometer.astro';
+import CapacityConsole from './CapacityConsole.tsx';
+import { CLASSES, FAMILIES, MAKERS, TOTAL, classTotal, unitsOf, type Family } from '../../data/fleet';
+import { sources } from '../../data/media';
+import credits from '../../../public/assets/media/fleet/credits.json';
+
+const pad = (n: number) => String(n).padStart(2, '0');
+const peek = (f: Family) => {
+  const name = `${f.make}${f.em ? ` ${f.em}` : ''}`;
+  if (f.photo) {
+    const s = sources(f.photo.src, f.photo.fleet);
+    return {
+      'data-peek': f.drawing ?? 'photo',
+      'data-peek-src': s.src,
+      'data-peek-srcset': s.srcset,
+      'data-peek-pos': f.photo.pos ?? '50% 50%',
+      'data-peek-name': name,
+      'data-peek-tag': f.own ? 'FHE fleet' : 'Model photo',
+    };
+  }
+  return { 'data-peek': f.drawing, 'data-peek-name': name, 'data-peek-tag': 'Line drawing' };
+};
+const credit = Object.values(credits as Record<string, { title: string; page: string; lic: string; licurl: string; artist: string }>)
+  .map((c) => ({ ...c, title: c.title.replace(/^File:/, '').replace(/\.(jpe?g|png)$/i, '') }));
+---
+<section class="section fleet" id="fleet" aria-labelledby="fleet-title" data-folio="III · The fleet">
+  <div class="wrap">
+    <header class="chapter-head grid">
+      <p class="chapter-mark" data-reveal>
+        <span class="chapter-mark__no">III</span>
+        <span class="chapter-mark__rule" aria-hidden="true"></span>
+        <span class="chapter-mark__label">The fleet</span>
+        <span class="chapter-mark__of" aria-hidden="true">III / VII</span>
+      </p>
+      <h2 class="chapter-title" id="fleet-title" data-reveal="up">The fleet, <em>by the tonne.</em></h2>
+      <p class="chapter-intro" data-reveal="up" data-d="2">From city picks to flagship lifts, with the prime movers, trailers and handling plant to put the right machine in the right place, and trained operators to run it.</p>
+    </header>
+  </div>
+
+  {/* 1 · Overture: the yard doors open */}
+  <div class="overture" data-overture>
+    <div class="overture__pin">
+      <div class="overture__yard">
+        <Photo name="fleet-yard" class="overture__img" sizes="100vw" w={1280} h={1082} alt="The FHE fleet of red and yellow all-terrain cranes in the yard" />
+      </div>
+      <div class="overture__veil" aria-hidden="true"></div>
+      <span class="overture__crop overture__crop--tl" aria-hidden="true"></span>
+      <span class="overture__crop overture__crop--tr" aria-hidden="true"></span>
+      <span class="overture__crop overture__crop--bl" aria-hidden="true"></span>
+      <span class="overture__crop overture__crop--br" aria-hidden="true"></span>
+      <div class="overture__body wrap">
+        <p class="eyebrow overture__kicker">On the books · Abu Dhabi &amp; Dubai</p>
+        <p class="overture__total">
+          <Odometer value={TOTAL} class="overture__n" />
+          <span class="overture__label">heavy units, <em>on call.</em></span>
+        </p>
+        <ol class="overture__split">
+          {CLASSES.map((c, i) => (
+            <li style={`--i:${i}`}>
+              <a href={`#fleet-${c.id}`}>
+                <span class="overture__k" data-count={classTotal(c.id)}>{classTotal(c.id)}</span>
+                <span class="overture__c">{c.name} {c.em}</span>
+              </a>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  {/* 2 · Line-up */}
+  <div class="wrap">
+    <div class="lineup" data-lineup>
+      <div class="lineup__stage" aria-hidden="true">
+        <div class="stage" data-stage>
+          {CLASSES.map((c, i) => (
+            <figure class:list={['stage__frame', { 'is-on': i === 0 }]} data-frame={i}>
+              <Photo name={c.photo.src} fleet={c.photo.fleet} sizes="(min-width: 1100px) 52vw, 1px" w={c.photo.w} h={c.photo.h} alt="" style={`object-position:${c.photo.pos ?? '50% 50%'}`} />
+            </figure>
+          ))}
+          <figure class="stage__peek" data-peek-photo></figure>
+          {(['rough', 'crawler', 'tractor'] as const).map((k) => (
+            <div class="stage__draw" data-peek-draw={k}><Drawing kind={k} /></div>
+          ))}
+          <div class="stage__hud">
+            <p class="stage__idx"><span data-stage-no>01</span><span> / {pad(CLASSES.length)}</span></p>
+            <p class="stage__tag" data-stage-tag>{CLASSES[0].name} {CLASSES[0].em}</p>
+            <p class="stage__count"><Odometer value={classTotal(CLASSES[0].id)} digits={2} class="stage__odo" /><span>units</span></p>
+            <p class="stage__span" data-stage-span>{CLASSES[0].span}</p>
+            <ol class="stage__ticks">{CLASSES.map((_, i) => <li class:list={{ 'is-on': i === 0 }} />)}</ol>
+          </div>
+          <span class="stage__crop stage__crop--tl"></span><span class="stage__crop stage__crop--tr"></span>
+          <span class="stage__crop stage__crop--bl"></span><span class="stage__crop stage__crop--br"></span>
+        </div>
+      </div>
+
+      <div class="lineup__list">
+        {CLASSES.map((c, i) => {
+          const fams = FAMILIES.filter((f) => f.cls === c.id);
+          const max = Math.max(...fams.map(unitsOf));
+          const total = classTotal(c.id);
+          return (
+            <article class="lu" id={`fleet-${c.id}`} data-lu={i} data-total={total} data-span={c.span} data-name={`${c.name} ${c.em}`} aria-labelledby={`fleet-${c.id}-t`}>
+              <header class="lu__head" data-reveal="up">
+                <p class="lu__no"><span>{pad(i + 1)}</span><i aria-hidden="true"></i></p>
+                <h3 class="lu__name" id={`fleet-${c.id}-t`}>{c.name} <em>{c.em}</em></h3>
+                <p class="lu__meta"><span><b data-count={total}>{total}</b> units</span><span>{c.span}</span></p>
+                <p class="lu__lede">{c.lede}</p>
+              </header>
+              <figure class="lu__photo plate" data-reveal>
+                <div class="plate__frame">
+                  <Photo name={c.photo.src} fleet={c.photo.fleet} sizes="(min-width: 1100px) 1px, (min-width: 600px) 84vw, 92vw" w={c.photo.w} h={c.photo.h} alt={c.photo.alt} style={`object-position:${c.photo.pos ?? '50% 50%'}`} />
+                </div>
+              </figure>
+              <ol class="ledger" data-reveal="ledger">
+                {fams.map((f, j) => (
+                  <li class="ledger__row" style={`--i:${j};--w:${(unitsOf(f) / max).toFixed(3)}`} {...peek(f)}>
+                    <p class="ledger__make">{f.make}{f.em && <> <em>{f.em}</em></>}</p>
+                    <p class="ledger__n"><span>{unitsOf(f)}</span><small>{unitsOf(f) === 1 ? 'unit' : 'units'}</small></p>
+                    <p class="ledger__kind">{f.kind}{f.own && <span class="ledger__own">FHE fleet</span>}</p>
+                    <p class="ledger__models">
+                      {f.units.map((u) => <span>{u.model}{u.n > 1 && <b> ×{u.n}</b>}{u.t && u.t >= 25 && <small> · {u.t} T</small>}</span>)}
+                    </p>
+                    <span class="ledger__bar" aria-hidden="true"><i></i></span>
+                  </li>
+                ))}
+              </ol>
+            </article>
+          );
+        })}
+      </div>
+    </div>
+
+    {/* 3 · Capacity console */}
+    <div class="console" id="capacity">
+      <header class="console__head grid">
+        <p class="eyebrow console__kicker" data-reveal="up">Capacity console</p>
+        <h3 class="console__title" data-reveal="up">Size the lift. <em>See the fleet.</em></h3>
+        <p class="console__lede" data-reveal="up" data-d="2">Our cranes by rated capacity, one block per unit. Set the load and every crane that can take it lights up.</p>
+      </header>
+      <CapacityConsole client:visible={{ rootMargin: '600px' }} />
+    </div>
+
+    {/* 4 · Makers, support, credits */}
+    <div class="makers" aria-label="Makes in the fleet">
+      <div class="makers__track">
+        <ul class="makers__list">{MAKERS.map((m) => <li>{m}</li>)}</ul>
+        <ul class="makers__list" aria-hidden="true">{MAKERS.map((m) => <li>{m}</li>)}</ul>
+      </div>
+    </div>
+
+    <div class="support grid" data-reveal="stagger">
+      <div class="support__item">
+        <p class="support__label">Support equipment</p>
+        <p class="support__text">Man lifts, Bobcats, JCBs and excavators, on the job alongside the cranes.</p>
+      </div>
+      <div class="support__item">
+        <p class="support__label">Operators &amp; supervisors</p>
+        <p class="support__text">Trained operators and lifting supervisors provided with the equipment.</p>
+      </div>
+    </div>
+
+    <details class="credits">
+      <summary>Photo credits</summary>
+      <p>Photos marked <b>FHE fleet</b> are our own machines. The others are model photos: the same makes and models we run, from Wikimedia Commons, resized and colour-graded for this page.</p>
+      <ul>
+        {credit.map((c) => (
+          <li><a href={c.page} rel="noopener" target="_blank">{c.title}</a>, {c.artist}, <a href={c.licurl} rel="license noopener" target="_blank">{c.lic}</a></li>
+        ))}
+      </ul>
+    </details>
+  </div>
+</section>
