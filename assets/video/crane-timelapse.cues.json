@@ -1,0 +1,212 @@
+[
+ {
+  "t": 0,
+  "date": "2017-12-19",
+  "time": "07:14",
+  "label": "Bridge-launching girder lift",
+  "image": "hero-gantry-dusk"
+ },
+ {
+  "t": 0.9,
+  "date": "2018-02-26",
+  "time": "12:27",
+  "label": "Box-girder segment on modular trailer",
+  "image": "bridge-segment-spmt"
+ },
+ {
+  "t": 1.8,
+  "date": "2018-03-05",
+  "time": "09:26",
+  "label": "Precast pier cap placement",
+  "image": "pier-cap-lift"
+ },
+ {
+  "t": 2.7,
+  "date": "2018-03-27",
+  "time": "13:54",
+  "label": "Precast segment on spreader beam",
+  "image": "precast-segment-spreader"
+ },
+ {
+  "t": 3.6,
+  "date": "2018-04-10",
+  "time": "18:35",
+  "label": "Yacht onto lowbed trailer",
+  "image": "lowbed-trailer"
+ },
+ {
+  "t": 4.5,
+  "date": "2018-05-02",
+  "time": "12:29",
+  "label": "Crane carrier onto flatbed",
+  "image": "crane-on-flatbed"
+ },
+ {
+  "t": 5.4,
+  "date": "2019-03-20",
+  "time": "10:51",
+  "label": "Tower crane dismantle",
+  "image": "tower-crane-dismantle"
+ },
+ {
+  "t": 6.3,
+  "date": "2019-05-05",
+  "time": "13:56",
+  "label": "Piling rig into excavation",
+  "image": "piling-rig-excavation"
+ },
+ {
+  "t": 7.2,
+  "date": "2019-06-20",
+  "time": "10:03",
+  "label": "Plant equipment installation",
+  "image": "fhe-crane-plant-lift"
+ },
+ {
+  "t": 8.1,
+  "date": "2019-09-14",
+  "time": "09:54",
+  "label": "Tower crane assembly",
+  "image": "luffing-jib-towercrane"
+ },
+ {
+  "t": 9,
+  "date": "2019-09-22",
+  "time": "11:59",
+  "label": "Four-crane tensile roof lift",
+  "image": "tensile-roof-tandem"
+ },
+ {
+  "t": 9.9,
+  "date": "2019-10-28",
+  "time": "17:43",
+  "label": "Vessel lift at port",
+  "image": "port-vessel-dusk"
+ },
+ {
+  "t": 10.8,
+  "date": "2019-11-26",
+  "time": "01:14",
+  "label": "Night lift, traditional dhow",
+  "image": "night-dhow-lift"
+ },
+ {
+  "t": 11.7,
+  "date": "2019-12-26",
+  "time": "09:17",
+  "label": "Luffing crane between towers",
+  "image": "luffing-highrise-red"
+ },
+ {
+  "t": 12.6,
+  "date": "2019-12-26",
+  "time": "14:59",
+  "label": "FHE carrier",
+  "image": "fhe-carrier-closeup"
+ },
+ {
+  "t": 13.5,
+  "date": "2020-01-28",
+  "time": "10:06",
+  "label": "All-terrain crane rig-up",
+  "image": "mobile-crane-clouds"
+ },
+ {
+  "t": 14.4,
+  "date": "2020-03-05",
+  "time": "03:27",
+  "label": "Night works, luffing jib",
+  "image": "night-luffing-city"
+ },
+ {
+  "t": 15.3,
+  "date": "2020-06-12",
+  "time": "14:15",
+  "label": "Luffing crane, mid-rise",
+  "image": "luffing-building-day"
+ },
+ {
+  "t": 16.2,
+  "date": "2020-09-16",
+  "time": "13:29",
+  "label": "Excavator up a facade",
+  "image": "excavator-rooftop-lift"
+ },
+ {
+  "t": 17.1,
+  "date": "2020-10-03",
+  "time": "14:26",
+  "label": "Yacht hull on spreader frame",
+  "image": "yacht-spreader-lift"
+ },
+ {
+  "t": 18,
+  "date": "2020-10-27",
+  "time": "22:05",
+  "label": "Superlift, night shift",
+  "image": "heavy-crane-superlift-night"
+ },
+ {
+  "t": 18.9,
+  "date": "2020-10-30",
+  "time": "15:38",
+  "label": "Tower crane works",
+  "image": "yellow-crane-towercrane"
+ },
+ {
+  "t": 19.8,
+  "date": "2020-11-04",
+  "time": "16:09",
+  "label": "Terex in FRIENDSHIP livery",
+  "image": "terex-friendship-closeup"
+ },
+ {
+  "t": 20.7,
+  "date": "2020-11-04",
+  "time": "17:38",
+  "label": "Crew: operators and riggers",
+  "image": "rigging-team"
+ },
+ {
+  "t": 21.6,
+  "date": "2020-11-06",
+  "time": "16:18",
+  "label": "Transmission tower lift",
+  "image": "transmission-tower-a"
+ },
+ {
+  "t": 22.5,
+  "date": "2020-11-07",
+  "time": "13:15",
+  "label": "Steelwork, civic building",
+  "image": "luffing-civic-building"
+ },
+ {
+  "t": 23.4,
+  "date": "2020-11-16",
+  "time": "15:33",
+  "label": "Steel truss, superlift",
+  "image": "superlift-truss-red"
+ },
+ {
+  "t": 24.3,
+  "date": "2020-11-16",
+  "time": "15:39",
+  "label": "Tandem lift, pedestrian bridge",
+  "image": "tandem-bridge-panorama"
+ },
+ {
+  "t": 26.28,
+  "date": "2020-11-29",
+  "time": "09:43",
+  "label": "High-rise, luffing jib",
+  "image": "fisheye-highrise-luffing"
+ },
+ {
+  "t": 27.18,
+  "date": "2020-11-29",
+  "time": "12:17",
+  "label": "Superlift beside the UAE flag",
+  "image": "superlift-uae-flag"
+ }
+]
