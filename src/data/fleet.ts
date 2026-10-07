@@ -58,7 +58,7 @@ export const FAMILIES: Family[] = [
   },
   {
     id: 'demag', cls: 'mobile', make: 'Demag', em: 'AC', kind: 'All-terrain', own: true,
-    photo: own('heavy-crane-truss', 1280, 790, 'Red FHE crane with counterweight stack lifting a steel truss'),
+    photo: own('heavy-crane-truss', 1280, 790, 'Red FHS crane with counterweight stack lifting a steel truss'),
     units: [
       { model: 'AC 700', n: 1, t: 700 }, { model: 'AC 500', n: 1, t: 500 }, { model: 'AC 200', n: 1, t: 200 },
       { model: 'AC 120', n: 3, t: 120 }, { model: 'AC 100', n: 7, t: 100 },
@@ -158,12 +158,12 @@ export const FAMILIES: Family[] = [
   // ---- trailers: 36
   {
     id: 'flatbeds', cls: 'trailer', make: 'Flatbeds', kind: 'Semi-trailers', own: true,
-    photo: own('crane-on-flatbed', 1280, 960, 'Heavy crane lifting a mobile crane carrier onto an FHE flatbed trailer'),
+    photo: own('crane-on-flatbed', 1280, 960, 'Heavy crane lifting a mobile crane carrier onto an FHS flatbed trailer'),
     units: [{ model: 'Valt', n: 17 }, { model: 'Other builds', n: 13 }],
   },
   {
     id: 'lowbeds', cls: 'trailer', make: 'Lowbeds', kind: 'Semi-trailers', own: true,
-    photo: own('lowbed-trailer', 1280, 960, 'Mobile crane lifting a yacht onto an FHE lowbed trailer at sunset', '40% 50%'),
+    photo: own('lowbed-trailer', 1280, 960, 'Mobile crane lifting a yacht onto an FHS lowbed trailer at sunset', '40% 50%'),
     units: [{ model: 'Valt', n: 3 }, { model: 'Other builds', n: 3 }],
   },
 
@@ -202,7 +202,7 @@ export const CLASSES: FleetClass[] = [
   {
     id: 'mobile', name: 'Mobile', em: 'cranes', span: '25–700 T',
     lede: 'All-terrain and truck cranes, from city picks to the flagship Demag AC 700, with trained operators and lifting supervisors.',
-    photo: own('superlift-truss-red', 1280, 960, 'Red FHE heavy crane with superlift counterweight lifting a steel truss', '50% 40%'),
+    photo: own('superlift-truss-red', 1280, 960, 'Red FHS heavy crane with superlift counterweight lifting a steel truss', '50% 40%'),
   },
   {
     id: 'crawler', name: 'Crawler', em: 'cranes', span: '55–320 T',
@@ -217,7 +217,7 @@ export const CLASSES: FleetClass[] = [
   {
     id: 'trailer', name: 'Heavy', em: 'trailers', span: 'Flatbed & lowbed',
     lede: 'Flatbeds and lowbeds for over-dimensional and overweight shipments that need special equipment and permits.',
-    photo: own('lowbed-trailer', 1280, 960, 'Mobile crane lifting a yacht onto an FHE lowbed trailer at sunset', '40% 50%'),
+    photo: own('lowbed-trailer', 1280, 960, 'Mobile crane lifting a yacht onto an FHS lowbed trailer at sunset', '40% 50%'),
   },
   {
     id: 'handling', name: 'Forklifts', em: '& loaders', span: 'Up to 25 T class',

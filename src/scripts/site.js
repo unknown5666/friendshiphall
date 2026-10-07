@@ -115,7 +115,7 @@ function split(el) {
   // built in an idle moment after load, or on the first click if that comes sooner
   const setup = () => {
     const WA_SALES = '971529026105';
-    const EMAIL = 'fhcrane@gmail.com';
+    const EMAIL = 'info@fhecrane.com';
 
     const doc = document.documentElement;
     const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;

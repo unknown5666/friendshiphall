@@ -26,7 +26,7 @@ const peek = (f: Family) => {
       'data-peek-srcset': s.srcset,
       'data-peek-pos': f.photo.pos ?? '50% 50%',
       'data-peek-name': name,
-      'data-peek-tag': f.own ? 'FHE fleet' : 'Model photo',
+      'data-peek-tag': f.own ? 'FHS fleet' : 'Model photo',
     };
   }
   return { 'data-peek': f.drawing, 'data-peek-name': name, 'data-peek-tag': 'Line drawing' };
@@ -52,7 +52,7 @@ const credit = Object.values(credits as Record<string, { title: string; page: st
   <div class="overture" data-overture>
     <div class="overture__pin">
       <div class="overture__yard">
-        <Photo name="fleet-yard" class="overture__img" sizes="100vw" w={1280} h={1082} alt="The FHE fleet of red and yellow all-terrain cranes in the yard" />
+        <Photo name="fleet-yard" class="overture__img" sizes="100vw" w={1280} h={1082} alt="The FHS fleet of red and yellow all-terrain cranes in the yard" />
       </div>
       <div class="overture__veil" aria-hidden="true"></div>
       <span class="overture__crop overture__crop--tl" aria-hidden="true"></span>
@@ -128,7 +128,7 @@ const credit = Object.values(credits as Record<string, { title: string; page: st
                   <li class="ledger__row" style={`--i:${j};--w:${(unitsOf(f) / max).toFixed(3)}`} {...peek(f)}>
                     <p class="ledger__make">{f.make}{f.em && <> <em>{f.em}</em></>}</p>
                     <p class="ledger__n"><span>{unitsOf(f)}</span><small>{unitsOf(f) === 1 ? 'unit' : 'units'}</small></p>
-                    <p class="ledger__kind">{f.kind}{f.own && <span class="ledger__own">FHE fleet</span>}</p>
+                    <p class="ledger__kind">{f.kind}{f.own && <span class="ledger__own">FHS fleet</span>}</p>
                     <p class="ledger__models">
                       {f.units.map((u) => <span>{u.model}{u.n > 1 && <b> ×{u.n}</b>}{u.t && u.t >= 25 && <small> · {u.t} T</small>}</span>)}
                     </p>
@@ -173,7 +173,7 @@ const credit = Object.values(credits as Record<string, { title: string; page: st
 
     <details class="credits">
       <summary>Photo credits</summary>
-      <p>Photos marked <b>FHE fleet</b> are our own machines. The others are model photos: the same makes and models we run, from Wikimedia Commons, resized and colour-graded for this page.</p>
+      <p>Photos marked <b>FHS fleet</b> are our own machines. The others are model photos: the same makes and models we run, from Wikimedia Commons, resized and colour-graded for this page.</p>
       <ul>
         {credit.map((c) => (
           <li><a href={c.page} rel="noopener" target="_blank">{c.title}</a>, {c.artist}, <a href={c.licurl} rel="license noopener" target="_blank">{c.lic}</a></li>
