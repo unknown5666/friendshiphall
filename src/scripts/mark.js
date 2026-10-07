@@ -5,7 +5,7 @@
  *              A spark welds the ring while a load dial ticks round it; the rope and hook drop in and swing; three
  *              weld heads trace F·H·S; molten gold pours into the letters; the mark locks with a shockwave and a
  *              spray of sparks; then the ring opens as an iris onto the page while the mark flies into the header.
- *              About 1.6 s, on the first visit only (Base.astro's head script). A tap, a key or a scroll skips to the lock.
+ *              About 7.5 s; a later load in the same tab gets a 3 s cut. A tap, a key or a scroll skips to the lock.
  *  2. Header   hovering the brand swings the hook on its ropes (and it swings once as the intro lands it).
  *  3. Seal     [data-seal] above the footer: the mark draws itself as it scrolls in and pours (eased behind the
  *              scroll, so a fast flick still plays out), tilts toward the pointer, and scroll speed swings the hook.
@@ -196,11 +196,18 @@
     const load = pre.querySelector('[data-mark-load]');
     if (!source || !stage || !backdrop) { reveal(); return; }
 
-    // First visit only (the head script in Base.astro decides), so one short cut of about 1.6 s: the same show as the
-    // old 7.5 s intro, compressed. ms from the start. Everything up to the lock is a pure function of the clock, so a
-    // skip just moves the clock; after the lock, times count from the moment it actually fired.
-    // open: lock → iris; iris: the iris and the flight to the header.
-    const T = { ring: [0, 560], drop: [90, 400], trace: [[170, 600], [210, 640], [250, 680]], pour: [480, 900], lock: 920, open: 160, iris: 560 };
+    let quick = false;
+    try {
+      quick = sessionStorage.getItem('fhe:mark') === 'seen';
+      sessionStorage.setItem('fhe:mark', 'seen');
+    } catch (e) { /* storage blocked: play it in full */ }
+
+    // ms from the start. Everything up to the lock is a pure function of the clock, so a skip just moves the clock.
+    // After the lock, times count from the moment it actually fired.
+    // open: lock → iris; iris: the iris and the flight to the header. Full ≈ 7.4 s, quick ≈ 3.1 s.
+    const T = quick
+      ? { ring: [0, 900], drop: [100, 520], trace: [[250, 900], [310, 960], [370, 1020]], pour: [600, 1350], lock: 1400, open: 600, iris: 1100 }
+      : { ring: [250, 1800], drop: [1650, 2150], trace: [[2350, 3350], [2480, 3480], [2610, 3610]], pour: [3500, 4650], lock: 4750, open: 1200, iris: 1450 };
     const land = T.drop[1];
 
     const svg = source.cloneNode(true);
@@ -334,7 +341,7 @@
         m.ring.style.strokeWidth = `calc(var(--sw) * ${(1 + 1.6 * Math.exp(-tk / 220)).toFixed(3)})`;
         fx.glow(cx, cy, S * 2.4, 0.42 * Math.exp(-tk / 200));
       }
-      const gap = Math.min(1200, irisAt - lockAt);   // the glint fits the hold before the iris
+      const gap = Math.min(1200, irisAt - lockAt);   // the glint fits the hold before the iris (shorter in the quick cut / a skip)
       glintAt(m, tk < 0 ? -1 : seg(tk, gap * 0.08, gap * 1.08));
       const tons = String(Math.round(25 + 675 * outCubic(seg(t, T.ring[0], T.lock))));
       if (load && tons !== shown) load.textContent = shown = tons;
@@ -403,7 +410,7 @@
     function skip() {
       if (done || openAt >= 0) return;
       const now = performance.now();
-      if (lockAt < 0) { t0 = now - T.lock; irisAt = T.lock + 200; }
+      if (lockAt < 0) { t0 = now - T.lock; irisAt = T.lock + 450; }
       else irisAt = Math.min(irisAt, now - t0 + 120);
     }
     const events = [['keydown', skip], ['wheel', skip], ['touchmove', skip], ['resize', measure]];
@@ -427,7 +434,7 @@
       pre.addEventListener('pointerdown', skip);
       events.forEach(([type, fn]) => addEventListener(type, fn, { passive: true }));
       // safety net: if frames stall (a background tab, a hung device), open the page anyway
-      setTimeout(() => { if (!done) { reveal(0); finish(); } }, T.lock + T.open + T.iris + 1500);
+      setTimeout(() => { if (!done) { reveal(0); finish(); } }, T.lock + T.open + T.iris + 3000);
     };
     // A page opened in a background tab waits until it is first shown, so the show is actually seen.
     if (document.visibilityState === 'hidden') document.addEventListener('visibilitychange', start, { once: true });

@@ -35,21 +35,19 @@ const og = new URL('/assets/media/hero-gantry-dusk-1280.jpg', Astro.site).href;
   : <link rel="preload" as="image" href={hero.src} imagesrcset={hero.srcset} imagesizes="(min-width: 960px) 100vw, 120vw" fetchpriority="high">}
 <link rel="preload" href="/assets/fonts/bodoni-moda-normal-3LUYJSKSKg.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/instrument-sans-normal-ibnr0SZe1Q.woff2" as="font" type="font/woff2" crossorigin>
-{/* The intro plays once, on the first visit (about 1.6 s); never on Back/Forward or with reduced motion.
-    The page under it is already painted. If the page script never runs, the curtain lifts by itself. */}
+{/* The mark intro (about 7.5 s; a 3 s cut on later loads in the same tab), never on Back/Forward or with reduced
+    motion. The page under it is already painted. If the page script never runs, the curtain lifts by itself. */}
 <script is:inline>
 (function (d) {
   d.classList.add('js');
   var n = performance.getEntriesByType && performance.getEntriesByType('navigation')[0];
-  var seen = '1';
-  try { seen = localStorage.getItem('fhe:intro'); localStorage.setItem('fhe:intro', '1'); } catch (e) {}
-  if (seen || (n && n.type === 'back_forward') || matchMedia('(prefers-reduced-motion: reduce)').matches) { d.classList.add('is-loaded'); return; }
+  if ((n && n.type === 'back_forward') || matchMedia('(prefers-reduced-motion: reduce)').matches) { d.classList.add('is-loaded'); return; }
   d.classList.add('is-preloading');
   setTimeout(function () {
     if (window.FHE) return;
     d.classList.remove('is-preloading'); d.classList.add('is-loaded');
     document.querySelectorAll('[data-reveal]').forEach(function (e) { e.classList.add('is-in'); });
-  }, 4500);
+  }, 6000);
 })(document.documentElement);
 </script>
 <style is:inline>

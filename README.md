@@ -1,6 +1,6 @@
 # Friendship Hall (FHE): website
 
-The live site for Friendship Hall Sole Proprietorship L.L.C (fhscrane.com), in the client-confirmed **Cinematic Editorial** design: obsidian #0B0C10, zinc #1F2833, brushed gold #C5A059, Bodoni Moda headlines over Instrument Sans, an asymmetric layout, film grain and a gold glint on the italics. On a first visit it opens with a short **mark intro**, it closes with the **seal**, and its **Contact us** button opens the lift slate.
+The live site for Friendship Hall Sole Proprietorship L.L.C (fhscrane.com), in the client-confirmed **Cinematic Editorial** design: obsidian #0B0C10, zinc #1F2833, brushed gold #C5A059, Bodoni Moda headlines over Instrument Sans, an asymmetric layout, film grain and a gold glint on the italics. It opens with the **mark intro**, closes with the **seal**, and its **Contact us** button opens the lift slate.
 
 It's built with [Astro](https://astro.build): components at build time, plain HTML and CSS in the browser. The one interactive widget that needs state, the fleet's **capacity console**, is a Preact island (React's API on a 4 KB runtime) that loads as it scrolls near. Everything else is a few small scripts.
 
@@ -19,7 +19,7 @@ npm run preview    # serve dist/ locally
 **Vercel (friendshiphall.vercel.app).** Builds `main` itself; `vercel.json` sets the build command, `dist/` as output, and the same headers.
 
 ## Speed
-Lighthouse 13, run locally on the production build (mobile = simulated Moto G Power on slow 4G, first visit, so the intro plays):
+Lighthouse 13, run locally on the production build (mobile = simulated Moto G Power on slow 4G, with the full intro playing):
 
 | | Performance | Accessibility | Best practices | SEO |
 |---|---|---|---|---|
@@ -53,7 +53,7 @@ brand-source/                    the client's DWG and the script that builds the
 ```
 
 ## Core behaviour (`src/scripts/core.js`)
-- **Intro gate.** The head script in `Base.astro` plays the mark intro on the **first visit only** (localStorage `fhe:intro`), never on Back/Forward or with reduced motion. The page under it is already painted. If the page script never runs, the curtain lifts itself after 4.5 s.
+- **Intro gate.** The head script in `Base.astro` starts the mark intro on every load except Back/Forward and reduced motion. The page under it is already painted, which is why the intro costs nothing in Lighthouse (measured: the full 7.5 s show scores the same as a 1.6 s cut). If the page script never runs, the curtain lifts itself after 6 s.
 - **In-page links** scroll with `history.replaceState`, so they never add history entries. The mobile menu is a button, not a hash link.
 - **Lazy time-lapse.** The `<video>` gets its source only when it nears the viewport and pauses when off-screen.
 - Reveal-on-scroll, count-up numbers, a live Asia/Dubai clock and a scrolled-header flag.
@@ -64,7 +64,7 @@ brand-source/                    the client's DWG and the script that builds the
 The logo comes from the client's AutoCAD file, `brand-source/logo_fhe.dwg`. `brand-source/build-mark.mjs` reads it and writes `public/assets/brand/fhs-mark.svg` (brand red) and `fhs-mark.inline.svg` (currentColor); the same paths are in `src/components/Mark.astro`. The drawing's circle is mapped to r = 500 at the origin, and every line, arc and pin comes straight from the DWG; the lettering (a font reference in the DWG) comes from the earlier vector export `fhs-emblem.svg`, checked against the DWG. To rebuild: `npm i --no-save @mlightcad/libredwg-web && node brand-source/build-mark.mjs`.
 
 `src/scripts/mark.js` animates it. The header copy is the source; the intro and the seal clone it.
-- **Intro** (about 1.6 s, first visit). A welding spark draws the ring while a load dial ticks round and the readout counts 25 → 700 T; the rope and hook drop in and swing; three weld heads trace F, H and S; molten gold pours into the letters; the mark locks with a punch and a spray of sparks; the ring opens as an iris onto the hero while the mark flies into the header. A tap, key or scroll jumps to the lock.
+- **Intro** (about 7.5 s; a later load in the same tab gets a 3 s cut, sessionStorage `fhe:mark`). A welding spark draws the ring while a load dial ticks round and the readout counts 25 → 700 T; the rope and hook drop in and swing; three weld heads trace F, H and S; molten gold pours into the letters; the mark locks with a punch and a spray of sparks; the ring opens as an iris onto the hero while the mark flies into the header. A tap, key or scroll jumps to the lock.
 - **Header.** Hovering or focusing the brand swings the hook on its ropes.
 - **Seal** (top of the footer). A large mark draws itself as it scrolls in, then pours; it tilts toward the pointer and scroll speed swings the hook. It is built only as the footer comes within a few screens.
 
