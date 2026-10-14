@@ -7,7 +7,8 @@
  *   npm i --no-save @mlightcad/libredwg-web && node build-mark.mjs
  *
  * The drawing is line work on layer 0: one circle (r = 69000), three wire-rope strands with cut (V) ends, a hook block
- * (shank, two arms, lugs, pins) and a ramshorn double hook. It is mapped so the circle sits at the origin with r = 500,
+ * (shank, two arms, lugs, pins) and a ramshorn double hook. The rope strands are left out: they sit between the legs of
+ * the H and, at header size, fill it into a solid block, so the hook hangs straight from the H. It is mapped so the circle sits at the origin with r = 500,
  * y pointing down. The lettering is an MTEXT ("FHS", Times New Roman Bold), i.e. a font reference rather than
  * geometry, so the glyph outlines are taken from ../public/assets/brand/fhs-emblem.svg (a vector export of the same drawing) and placed in
  * the same space. The script checks that export against the DWG and refuses to write if the two disagree.
@@ -50,7 +51,6 @@ function circle(h) {
 const range = (from, to) => Array.from({ length: parseInt(to, 16) - parseInt(from, 16) + 1 }, (_, i) => (parseInt(from, 16) + i).toString(16).toUpperCase());
 
 // Entity handles in logo_fhe.dwg, grouped by the part they draw.
-const ropes = [range('330', '335'), range('354', '359'), range('342', '347')].map((hs) => chain(hs, true)); // left, middle, right
 const hook = {
   shank: chain(range('2E5', '2E9'), false),
   arms: [chain(range('2F1', '2F4'), true), chain(range('2F5', '2F8'), true)],
@@ -90,7 +90,6 @@ const body = (color) => [
   ...['f', 'h', 's'].map((c, i) => `    <path class="fhm-glyph fhm-glyph--${c}" pathLength="1" d="${glyphs[i]}"/>`),
   '  </g>',
   `  <g class="fhm-rig" fill="none" stroke="${color}" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">`,
-  `    <g class="fhm-ropes">${ropes.map((d) => stroked('fhm-rope', d)).join('')}</g>`,
   '    <g class="fhm-hook">',
   `      ${stroked('fhm-shank', hook.shank)}`,
   `      ${hook.arms.map((d) => stroked('fhm-arm', d)).join('')}`,

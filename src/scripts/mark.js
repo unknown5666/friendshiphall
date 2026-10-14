@@ -2,11 +2,11 @@
  * public/assets/brand/fhs-mark.svg), brought to life. Imported BEFORE core.js (Base.astro). No dependencies.
  *
  *  1. Intro    window.FHEIntro: core.js hands it the preloader when that is [data-preloader="mark"].
- *              A spark welds the ring while a load dial ticks round it; the rope and hook drop in and swing; three
+ *              A spark welds the ring while a load dial ticks round it; the hook drops in and swings; three
  *              weld heads trace F·H·S; molten gold pours into the letters; the mark locks with a shockwave and a
  *              spray of sparks; then the ring opens as an iris onto the page while the mark flies into the header.
  *              About 7.5 s; a later load in the same tab gets a 3 s cut. A tap, a key or a scroll skips to the lock.
- *  2. Header   hovering the brand swings the hook on its ropes (and it swings once as the intro lands it).
+ *  2. Header   hovering the brand swings the hook under the H (and it swings once as the intro lands it).
  *  3. Seal     [data-seal] above the footer: the mark draws itself as it scrolls in and pours (eased behind the
  *              scroll, so a fast flick still plays out), tilts toward the pointer, and scroll speed swings the hook.
  *
@@ -18,7 +18,7 @@
   const NS = 'http://www.w3.org/2000/svg';
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const TAU = Math.PI * 2;
-  const PIVOT = -104.5;   // top of the ropes in mark units (ring r = 500, centre 0 0): the hook swings about it
+  const PIVOT = 140.4;    // top of the hook's shank, just under the H, in mark units (ring r = 500, centre 0 0)
   const UNITS = 1010;     // the mark's viewBox width
 
   const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
@@ -284,18 +284,18 @@
       const irisR = openAt < 0 ? 0 : lerp(R, Math.hypot(Math.max(cx, W - cx), Math.max(cy, H - cy)) + 60, inOutQuart(ip));
       dial(t, pr < 1 ? head : Infinity, irisR ? irisR / R : 1, seg(t, T.ring[0], T.ring[0] + 450) * (1 - ip));
 
-      // 2 · the rope and hook drop in, catch, and swing about the rope tops -----------------------------------------
+      // 2 · the hook drops in, catches under the H and swings ----------------------------------------------------------
       const off = cy / k + 380;   // far enough above to start off-screen
       let ry = -off, ra = 0, vy = 0;
       if (t >= T.drop[0] && t < land) {
         const p = seg(t, T.drop[0], land);
         ry = -off * (1 - p * p);
         vy = (2 * off * p) / (land - T.drop[0]);   // units per ms
-        ra = 3.2 * p;
+        ra = 6 * p;
       } else if (t >= land) {
         const s = t - land;
         ry = 15 * Math.exp(-s / 220) * Math.sin((s / 320) * TAU);
-        ra = 3.2 * Math.exp(-s / 700) * Math.cos((s / 980) * TAU);
+        ra = 6 * Math.exp(-s / 700) * Math.cos((s / 640) * TAU);
       }
       m.rig.style.visibility = t < T.drop[0] ? 'hidden' : '';
       m.rig.setAttribute('transform', `translate(0 ${ry.toFixed(2)}) rotate(${ra.toFixed(3)} 0 ${PIVOT})`);
@@ -451,7 +451,7 @@
     brand.addEventListener('pointerenter', swing);
     brand.addEventListener('focus', swing);
     mark.addEventListener('animationend', (e) => { if (e.animationName === 'fhmSwing') mark.classList.remove('is-swinging'); });
-    // the intro lands the mark in the slot: let it settle on its ropes
+    // the intro lands the mark in the slot: let the hook settle
     document.addEventListener('fhe:mark-docked', () => setTimeout(swing, 80), { once: true });
   }
 
@@ -466,8 +466,7 @@
     svg.classList.add('fhs-mark--seal');
     host.appendChild(svg);
     const m = dress(svg, 'fhms');
-    const ropes = Array.from(m.rig.querySelectorAll('.fhm-rope'));
-    const hook = Array.from(m.rig.querySelectorAll('path:not(.fhm-rope)'));
+    const hook = Array.from(m.rig.querySelectorAll('path'));
     const fit = () => strokePx(svg, 1.7);
     fit();
     addEventListener('resize', fit, { passive: true });
@@ -482,8 +481,7 @@
       if (Math.abs(p - drawn) < 0.0005) return;
       drawn = p;
       draw([m.ring], inOutSine(seg(p, 0, 0.42)));
-      draw(ropes, inOutSine(seg(p, 0.14, 0.46)));
-      draw(hook, inOutSine(seg(p, 0.3, 0.62)));
+      draw(hook, inOutSine(seg(p, 0.2, 0.56)));
       m.glyphs.forEach((g, i) => draw([g], inOutSine(seg(p, 0.36 + i * 0.05, 0.72 + i * 0.05))));
     }
 
@@ -521,8 +519,8 @@
       // the hook lags behind the page: scroll speed leans it, a damped spring brings it home
       const v = dt ? (scrollY - lastY) / dt : 0;
       lastY = scrollY;
-      const lean = clamp(-v * 0.011, -13, 13);
-      vel += ((lean - ang) * 70 - vel * 6) * dt;
+      const lean = clamp(-v * 0.02, -20, 20);
+      vel += ((lean - ang) * 150 - vel * 9) * dt;
       ang += vel * dt;
       const settled = Math.abs(ang) < 0.005 && Math.abs(vel) < 0.005;
       if (settled) { ang = vel = 0; }
