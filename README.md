@@ -58,7 +58,7 @@ brand-source/                    the client's DWG and the script that builds the
 - **Lazy time-lapse.** The `<video>` gets its source only when it nears the viewport and pauses when off-screen.
 - Reveal-on-scroll, count-up numbers, a live Asia/Dubai clock and a scrolled-header flag.
 - **Crane hook.** A twin-sheave block with a ramshorn double hook hangs in the right margin on four falls of wire rope and is lowered as you scroll: a spring gives it weight, scroll speed swings it like a pendulum, the rope lay and the sheave knurl run as it pays out. At the foot of the page it rests above the WhatsApp button. With reduced motion it simply follows the page.
-- **Floating WhatsApp.** One button opens a chooser with three lines (Bashir, COO, +971 52 902 6103; Saeed, CEO, +971 52 833 5333; Abid, Manager, +971 50 617 6471), each with an enquiry pre-filled. Native `popover`, with a scripted fallback. The button blinks green.
+- **Floating WhatsApp.** One button opens a panel with a single line, Bashir (COO, +971 52 902 6103), with an enquiry pre-filled. Native `popover`, with a scripted fallback. The button blinks green.
 
 ## The mark
 The logo comes from the client's AutoCAD file, `brand-source/logo_fhe.dwg`. `brand-source/build-mark.mjs` reads it and writes `public/assets/brand/fhs-mark.svg` (brand red) and `fhs-mark.inline.svg` (currentColor); the same paths are in `src/components/Mark.astro`. The drawing's circle is mapped to r = 500 at the origin, and every line, arc and pin comes straight from the DWG; the lettering (a font reference in the DWG) comes from the earlier vector export `fhs-emblem.svg`, checked against the DWG. To rebuild: `npm i --no-save @mlightcad/libredwg-web && node brand-source/build-mark.mjs`.
@@ -91,4 +91,4 @@ The original photos are in `C:/Users/user/Downloads/FHE Assets/` (2–23 MB phon
 - **Fleet register.** Four rows say "Nissan H?" but share the Sany HQC chassis series, so they're counted as Sany HQC (8 in all). The "Skania? 300T" crane has a Sany chassis prefix and is shown as "Sany 300 T".
 - **Leadership portraits.** Haji Saleem (Chairman), Saeed (CEO), Darwaish (Managing Director) and Bashir (COO) have placeholder images in `public/assets/team/` (not currently shown).
 - **Certificates** shown: ISO 9001:2015 (SD-26048/01, valid to 25 Mar 2027), ISO 45001:2018 (valid to 30 Nov 2028) and ICV no. 150476, 47.14%. **The ICV certificate expires 03 Nov 2026**, so update it when it's renewed.
-- **WhatsApp numbers** are from fhecrane.com: Admin +971 52 902 6102, Sales +971 52 902 6105. The floating button uses Bashir (+971 52 902 6103), Saeed (+971 52 833 5333) and Abid (+971 50 617 6471).
+- **WhatsApp numbers** are from fhecrane.com: Admin +971 52 902 6102, Sales +971 52 902 6105. The floating button uses only Bashir (+971 52 902 6103); Saeed and Abid were taken off it on 2026-10-21.
