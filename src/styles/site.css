@@ -1015,17 +1015,12 @@ section[id] { scroll-margin-top: var(--header-h); }
 .cert__facts > div { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 11px 0; border-bottom: 1px solid var(--ivory-line); }
 .cert__facts dt { font: 500 .66rem/1.4 var(--sans); letter-spacing: .22em; text-transform: uppercase; color: var(--mute); }
 .cert__facts dd { font: 400 1.05rem/1.2 var(--sans); letter-spacing: -.01em; text-align: right; font-variant-numeric: tabular-nums lining-nums; }
-.cert__score { font-size: 1.7rem; color: var(--gold); }
-.cert__gauge { position: relative; }
-.cert__bar { position: absolute; left: 0; right: 0; bottom: -1px; height: 3px; overflow: hidden; }
-.cert__bar i { position: absolute; inset: 0; background: var(--gold); transform-origin: 0 50%; transform: scaleX(var(--v, 0)); transition: transform 1.6s var(--ease) .5s; }
-.js .certs[data-reveal]:not(.is-in) .cert__bar i { transform: scaleX(0); }
 .cert__scope { margin-top: 16px; font-size: .875rem; line-height: 1.55; color: var(--mute); }
 @media (min-width: 960px) {
   .safety__spread { align-items: end; }
   .safety__fig { grid-column: 1 / span 7; grid-row: 1; }
   .safety__text { grid-column: 9 / span 4; grid-row: 1; padding-bottom: 36px; }
-  .certs { grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: var(--colgap); }
+  .certs { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: var(--colgap); max-width: 1040px; }
 }
 
 /* ---------- 17. Chapter VII — contact ------------------------------------- */
