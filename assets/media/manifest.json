@@ -2030,5 +2030,46 @@
     "kb": 124
    }
   ]
+ },
+ {
+  "name": "crew-ppe-terex",
+  "source": "Edited photo from Saad (helmets and vests added to the 2020-11-04 rigging-team shot); background restored from the original",
+  "taken": "2020-11-04T17:38:42",
+  "orientation": "landscape",
+  "aspect": 1.5744,
+  "alt": "Three FHS crew in hard hats and hi-vis vests in front of a Terex FRIENDSHIP crane",
+  "use": "Safety chapter spread (replaces rigging-team there).",
+  "sizes": [
+   {
+    "w": 480,
+    "h": 305,
+    "file": "assets/media/crew-ppe-terex-480.webp",
+    "kb": 22
+   },
+   {
+    "w": 640,
+    "h": 406,
+    "file": "assets/media/crew-ppe-terex-640.webp",
+    "kb": 34
+   },
+   {
+    "w": 800,
+    "h": 508,
+    "file": "assets/media/crew-ppe-terex-800.webp",
+    "kb": 47
+   },
+   {
+    "w": 960,
+    "h": 610,
+    "file": "assets/media/crew-ppe-terex-960.webp",
+    "kb": 62
+   },
+   {
+    "w": 1280,
+    "h": 813,
+    "file": "assets/media/crew-ppe-terex-1280.webp",
+    "kb": 87
+   }
+  ]
  }
 ]
