@@ -90,48 +90,6 @@
   "jpg": "assets/media/bridge-segment-spmt-1280.jpg"
  },
  {
-  "name": "pier-cap-lift",
-  "source": "C:/Users/user/Downloads/FHE Assets/20180305_092636.jpg",
-  "taken": "2018-03-05T09:26:36",
-  "orientation": "portrait",
-  "aspect": 0.75,
-  "alt": "White mobile crane lowering a precast concrete pier cap onto a bridge column",
-  "use": "Engineered lift / infrastructure.",
-  "sizes": [
-   {
-    "w": 480,
-    "h": 640,
-    "file": "assets/media/pier-cap-lift-480.webp",
-    "kb": 27
-   },
-   {
-    "w": 640,
-    "h": 853,
-    "file": "assets/media/pier-cap-lift-640.webp",
-    "kb": 45
-   },
-   {
-    "w": 800,
-    "h": 1067,
-    "file": "assets/media/pier-cap-lift-800.webp",
-    "kb": 66
-   },
-   {
-    "w": 960,
-    "h": 1280,
-    "file": "assets/media/pier-cap-lift-960.webp",
-    "kb": 89
-   },
-   {
-    "w": 1280,
-    "h": 1707,
-    "file": "assets/media/pier-cap-lift-1280.webp",
-    "kb": 144
-   }
-  ],
-  "jpg": "assets/media/pier-cap-lift-1280.jpg"
- },
- {
   "name": "precast-segment-spreader",
   "source": "C:/Users/user/Downloads/FHE Assets/20180327_135442.jpg",
   "taken": "2018-03-27T13:54:42",
