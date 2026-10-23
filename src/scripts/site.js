@@ -145,9 +145,9 @@ function split(el) {
     const SIZES = [25, 30, 35, 40, 50, 55, 60, 70, 75, 80, 90, 100, 110, 120, 130, 135, 150, 160, 200, 220, 250, 260, 300, 320, 350, 400, 450, 500, 700];   // = CapacityConsole SIZES
     const CLASSES = [
       [65, '', 'City picks, HVAC & signage, plant maintenance'],
-      [140, '', 'Precast, steel erection, tower-crane assembly'],
-      [350, '', 'Bridge girders, heavy modules, tandem lifts'],
-      [600, '', 'Heavy industrial, refinery & power, superlift work'],
+      [140, '', 'Precast, steel erection, tower-crane work'],
+      [350, '', 'Bridge girders, heavy modules, long-reach lifts'],
+      [600, '', 'Heavy industrial and power-plant lifts'],
       [Infinity, 'Flagship', 'Vessels, heavy plant, long-radius lifts'],
     ];
     const ADVISE = 'An engineer sizes the crane from your load and radius.';

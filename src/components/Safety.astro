@@ -38,13 +38,13 @@ const practices = [
 
 /* On the yard: the wall of crew photos. `sizes` is widened by each slot's crop factor (the photos are 2.16:1). */
 const shots = [
-  { name: 'hse-yard-lineup', sizes: '(min-width: 960px) 56vw, 92vw', w: 1280, h: 591, alt: 'HSE briefing to a line of FHS riggers and operators in front of the parked mobile cranes', cap: 'A pre-shift briefing in front of the cranes.' },
-  { name: 'hse-tyre-workshop', sizes: '(min-width: 960px) 21vw, 62vw', w: 960, h: 2078, alt: 'FHS workshop technician in hard hat, hi-vis vest and coveralls beside stacked heavy-vehicle tyres', cap: 'In our workshop: tyres and running gear are checked before a crane goes back out.' },
-  { name: 'hse-assembly-briefing', sizes: '(min-width: 960px) 57vw, 120vw', w: 1280, h: 591, alt: 'HSE officer briefing a line of FHS crew in red coveralls beside the emergency assembly point sign', cap: 'At the assembly point: where to muster, and why.' },
-  { name: 'hse-assembly-drill', sizes: '(min-width: 960px) 50vw, 115vw', w: 1280, h: 591, alt: 'FHS crew mustered at the emergency assembly point during an evacuation drill, seen from above', cap: 'Evacuation drill. Everyone at the assembly point, everyone counted.' },
-  { name: 'hse-briefing-back', sizes: '(min-width: 960px) 59vw, 140vw', w: 1280, h: 591, alt: 'HSE officer in an FHE vest, seen from behind, addressing the crew under a yellow crane boom', cap: 'Under the boom, before the boom moves.' },
-  { name: 'hse-toolbox-talk', sizes: '(min-width: 960px) 53vw, 100vw', w: 1280, h: 591, alt: 'Toolbox talk beside the workshop wall, with forklifts and a mobile crane in the yard behind the crew', cap: 'Toolbox talk by the workshop, before the day’s lifts.' },
-  { name: 'hse-crew-vests', sizes: '(min-width: 960px) 56vw, 92vw', w: 1280, h: 591, alt: 'Rows of FHS crew from behind, FHE logos on their hi-vis vests and coveralls, listening to a safety briefing', cap: 'One crew, one standard: hard hat, hi-vis, coveralls, boots.' },
+  { name: 'hse-yard-lineup', sizes: '(min-width: 960px) 56vw, 92vw', w: 1280, h: 591, alt: 'A briefing to a line of FHS crew in front of the parked mobile cranes', cap: 'A briefing in front of the parked cranes.' },
+  { name: 'hse-tyre-workshop', sizes: '(min-width: 960px) 21vw, 62vw', w: 960, h: 2078, alt: 'An FHS worker in hard hat, hi-vis vest and coveralls beside stacked heavy-vehicle tyres', cap: 'Among the tyres, the same PPE: hard hat, vest and coveralls.' },
+  { name: 'hse-assembly-briefing', sizes: '(min-width: 960px) 57vw, 120vw', w: 1280, h: 591, alt: 'An officer briefing a line of FHS crew in red coveralls beside the emergency assembly point sign', cap: 'A briefing beside the assembly point sign.' },
+  { name: 'hse-assembly-drill', sizes: '(min-width: 960px) 50vw, 115vw', w: 1280, h: 591, alt: 'FHS crew gathered at the emergency assembly point sign, seen from behind', cap: 'Gathered at the assembly point.' },
+  { name: 'hse-briefing-back', sizes: '(min-width: 960px) 59vw, 140vw', w: 1280, h: 591, alt: 'An officer in an FHE vest, seen from behind, addressing the crew, with a yellow crane boom beyond', cap: 'The briefing, from behind the officer leading it.' },
+  { name: 'hse-toolbox-talk', sizes: '(min-width: 960px) 53vw, 100vw', w: 1280, h: 591, alt: 'A briefing beside a building wall, with a forklift and a mobile crane in the yard behind the crew', cap: 'A briefing by the yard building.' },
+  { name: 'hse-crew-vests', sizes: '(min-width: 960px) 56vw, 92vw', w: 1280, h: 591, alt: 'Rows of FHS crew from behind, FHE logos on their hi-vis vests and coveralls', cap: 'FHE on every back: vests and coveralls, row after row.' },
 ];
 const pad = (n: number) => String(n).padStart(2, '0');
 ---
@@ -66,14 +66,14 @@ const pad = (n: number) => String(n).padStart(2, '0');
       <div class="plate__frame hse-lead__frame">
         <Photo name="hse-yard-huddle" class="hse-lead__img" sizes="(min-width: 960px) 100vw, (min-width: 600px) 162vw, 270vw" w={1280} h={591} alt="FHS crew in red coveralls and FHE hi-vis vests gathered in a circle for a toolbox talk in front of three mobile cranes" />
         <span class="hse-lead__corners" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
-        <p class="hse-lead__osd" aria-hidden="true"><span class="hse-lead__rec"></span>Toolbox talk · The yard</p>
+        <p class="hse-lead__osd" aria-hidden="true"><span class="hse-lead__rec"></span>Safety briefing · The yard</p>
       </div>
       <p class="hse-lead__title" data-reveal="lines">
         <span class="line"><span>Briefed.</span></span>
         <span class="line"><span><em>Equipped.</em></span></span>
         <span class="line"><span>Drilled.</span></span>
       </p>
-      <figcaption class="plate__cap hse-lead__cap"><span>Toolbox talk in the crane yard: the whole crew in one circle, before the day’s lifts.</span></figcaption>
+      <figcaption class="plate__cap hse-lead__cap"><span>A safety briefing in the crane yard, the crew in one circle.</span></figcaption>
     </figure>
 
     <!-- The HSE system: a pre-lift checklist -->
@@ -130,12 +130,12 @@ const pad = (n: number) => String(n).padStart(2, '0');
         <div class="plate__frame">
           <Photo name="crew-ppe-terex" sizes="(min-width: 960px) 56vw, 92vw" w={1280} h={813} alt="Three FHS crew in hard hats and hi-vis vests in front of a Terex FRIENDSHIP crane" />
         </div>
-        <figcaption class="plate__cap"><span>Hard hats on, vests on: an FHS crew in front of a Terex FRIENDSHIP crane.</span></figcaption>
+        <figcaption class="plate__cap"><span>Three FHS crew in front of a Terex FRIENDSHIP crane.</span></figcaption>
       </figure>
       <div class="safety__text" data-reveal="stagger">
         <figure class="plate safety__inset">
           <div class="plate__frame">
-            <Photo name="superlift-uae-flag" sizes="(min-width: 960px) 30vw, 92vw" w={1280} h={1707} alt="Heavy crane with superlift counterweight beside a tower draped with the UAE flag" />
+            <Photo name="superlift-uae-flag" sizes="(min-width: 960px) 30vw, 92vw" w={1280} h={1707} alt="Heavy crane with a luffing jib beside a building draped with the UAE flag" />
           </div>
           <figcaption class="plate__cap"><span>Lifting beside the flag, in the Emirates since 1986.</span></figcaption>
         </figure>
