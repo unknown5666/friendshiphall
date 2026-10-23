@@ -818,7 +818,75 @@ section[id] { scroll-margin-top: var(--header-h); }
   .industry:hover .industry__thumb img, .industry:focus-within .industry__thumb img { filter: none; }
 }
 
-/* ---------- 16. Chapter VI — safety & certification -------------------------- */
+/* ---------- 16. Chapter VI — safety & HSE ----------------------------------- */
+/* The lead plate: the toolbox-talk circle in the yard. A 4:3 crop on phones (the photo is 2.16:1), full width above. */
+.hse-lead .plate__frame { --ar: 4 / 3; }
+.hse-lead .plate__frame img { object-position: 46% 55%; }
+@media (min-width: 600px) { .hse-lead .plate__frame { --ar: 2576 / 1190; } }
+
+/* The HSE system: a numbered ledger, one practice per row */
+.hse { margin-top: clamp(72px, 10vw, 152px); }
+.hse__head { row-gap: 18px; margin-bottom: clamp(32px, 5vw, 72px); }
+.hse__statement { max-width: 17ch; font: 450 clamp(2rem, 6vw, 4rem)/1.06 var(--serif); letter-spacing: -.018em; text-wrap: balance; }
+.hse__statement em { color: var(--gold); }
+.hse__list { border-bottom: 1px solid var(--gold-line); }
+.hse__item {
+  display: grid; grid-template-columns: auto minmax(0, 1fr); grid-template-areas: "no name" "no desc";
+  column-gap: 18px; row-gap: 10px; padding: 26px 0; border-top: 1px solid var(--gold-line);
+}
+.hse__no { grid-area: no; padding-top: .45em; font: 500 .78rem/1 var(--sans); letter-spacing: .2em; color: var(--gold); font-variant-numeric: tabular-nums lining-nums; }
+.hse__name { grid-area: name; font: 450 clamp(1.6rem, 6.4vw, 2.7rem)/1.08 var(--serif); letter-spacing: -.012em; }
+.hse__name em { color: var(--gold); }
+.hse__desc { grid-area: desc; max-width: 46ch; color: var(--ivory-soft); }
+@media (min-width: 960px) {
+  .hse__eyebrow { grid-column: 1 / span 3; padding-top: .9em; }
+  .hse__statement { grid-column: 4 / span 9; }
+  .hse__item {
+    grid-template-columns: repeat(12, minmax(0, 1fr)); grid-template-areas: none;
+    column-gap: var(--colgap); align-items: baseline; padding: clamp(26px, 2.6vw, 40px) 0;
+  }
+  .hse__no { grid-column: 1 / span 1; padding-top: 0; }
+  .hse__name { grid-column: 2 / span 6; }
+  .hse__desc { grid-column: 8 / span 5; }
+}
+
+/* On the yard: an asymmetric wall of the crew at work. The photos are 2.16:1 (one is a tall portrait), so each is
+   cropped to its slot; the `sizes` in Safety.astro are widened by the same crop factor so the picked file stays sharp. */
+.hse-wall { display: grid; grid-template-columns: minmax(0, 1fr); gap: clamp(48px, 9vw, 104px); margin-block: clamp(80px, 11vw, 168px); }
+.hse-wall__label { margin-bottom: calc(-1 * clamp(24px, 6vw, 72px)); }
+.hse-shot { margin: 0; }
+.hse-shot .plate__frame { --ar: 2576 / 1190; }
+.hse-shot--2 .plate__frame { --ar: 2 / 3; }
+.hse-shot--2 .plate__frame img { object-position: 50% 55%; }
+.hse-shot--3 .plate__frame { --ar: 4 / 3; }
+.hse-shot--3 .plate__frame img { object-position: 6% 50%; }
+.hse-shot--4 .plate__frame { --ar: 3 / 2; }
+.hse-shot--5 .plate__frame { --ar: 1 / 1; }
+.hse-shot--5 .plate__frame img { object-position: 92% 50%; }
+.hse-shot--6 .plate__frame { --ar: 2 / 1; }
+.hse-shot--2 { width: 62%; margin-left: auto; }
+.hse-shot--3 { width: 82%; }
+.hse-shot--4 { width: 82%; margin-left: auto; }
+.hse-shot--5 { width: 70%; }
+@media (min-width: 600px) {
+  .hse-shot--2 { width: 46%; }
+  .hse-shot--3, .hse-shot--4 { width: 72%; }
+  .hse-shot--5 { width: 56%; }
+}
+@media (min-width: 960px) {
+  .hse-wall { grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--colgap); row-gap: clamp(56px, 7vw, 108px); align-items: start; }
+  .hse-wall__label { grid-column: 1 / -1; grid-row: 1; margin-bottom: calc(-1 * clamp(28px, 4vw, 64px)); }
+  .hse-shot--2, .hse-shot--3, .hse-shot--4, .hse-shot--5 { width: auto; margin-left: 0; }
+  .hse-shot--1 { grid-column: 1 / span 8; grid-row: 2; }
+  .hse-shot--2 { grid-column: 10 / span 3; grid-row: 2; margin-top: clamp(80px, 12vw, 200px); }
+  .hse-shot--3 { grid-column: 2 / span 5; grid-row: 3; }
+  .hse-shot--4 { grid-column: 8 / span 5; grid-row: 3; margin-top: clamp(64px, 9vw, 150px); }
+  .hse-shot--5 { grid-column: 1 / span 4; grid-row: 4; align-self: end; }
+  .hse-shot--6 { grid-column: 6 / span 7; grid-row: 4; }
+  .hse-shot--7 { grid-column: 3 / span 8; grid-row: 5; }
+}
+
+/* Certification */
 .safety__spread { row-gap: 32px; margin-bottom: clamp(56px, 8vw, 112px); }
 .safety__text { max-width: 46ch; color: var(--ivory-soft); font-size: 1.0625rem; }
 .safety__text p + p { margin-top: 1.1em; }

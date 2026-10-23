@@ -1,17 +1,121 @@
 ---
 import Photo from './Photo.astro';
+
+/* The HSE system: what happens on every job, in the order it happens. Six items (the stagger reveal steps six). */
+const practices = [
+  {
+    name: 'Toolbox talk,',
+    em: 'every shift.',
+    desc: 'Before a crane leaves the yard, the crew is briefed on the day’s lifts, the hazards on site and who does what. Attendance is recorded.',
+  },
+  {
+    name: 'Every lift,',
+    em: 'planned.',
+    desc: 'Lift plans and engineered rigging studies fix the crane, configuration, radius, ground bearing and rigging before we arrive. Critical lifts are checked by an Appointed Person.',
+  },
+  {
+    name: 'Assessed,',
+    em: 'then permitted.',
+    desc: 'A method statement and risk assessment for each job, and on site we work inside the client’s permit-to-work system. No permit, no lift.',
+  },
+  {
+    name: 'Full PPE,',
+    em: 'no exceptions.',
+    desc: 'Hard hat, hi-vis, coveralls and safety boots for everyone in the yard and on site, and every helmet carries its site-induction stickers.',
+  },
+  {
+    name: 'Drilled for',
+    em: 'the worst day.',
+    desc: 'Evacuation drills to marked assembly points, with a headcount, so everyone knows where to go and the supervisor knows who is missing.',
+  },
+  {
+    name: 'Equipment,',
+    em: 'checked daily.',
+    desc: 'Operators run pre-use checks every day. Cranes, tyres, rigging and lifting accessories are maintained in our own workshop and carry current third-party inspection certificates.',
+  },
+];
 ---
-<section class="section safety" id="safety" aria-labelledby="safety-title" data-folio="VI · Safety &amp; certification">
+<section class="section safety" id="safety" aria-labelledby="safety-title" data-folio="VI · Safety &amp; HSE">
   <div class="wrap">
     <header class="chapter-head grid">
       <p class="chapter-mark" data-reveal>
         <span class="chapter-mark__no">VI</span>
         <span class="chapter-mark__rule" aria-hidden="true"></span>
-        <span class="chapter-mark__label">Safety &amp; certification</span>
+        <span class="chapter-mark__label">Safety &amp; HSE</span>
         <span class="chapter-mark__of" aria-hidden="true">VI / VII</span>
       </p>
       <h2 class="chapter-title" id="safety-title" data-reveal="up">Safety first. <em>Then the lift.</em></h2>
+      <p class="chapter-intro" data-reveal="up" data-d="2">Every crew is briefed, equipped and drilled before a crane leaves the yard, and every lift is planned before it is made.</p>
     </header>
+
+    <figure class="plate hse-lead" data-reveal>
+      <div class="plate__frame">
+        <Photo name="hse-yard-huddle" sizes="(min-width: 960px) 84vw, (min-width: 600px) 92vw, 150vw" w={1280} h={591} alt="FHS crew in red coveralls and FHE hi-vis vests gathered in a circle for a toolbox talk in front of three mobile cranes" />
+      </div>
+      <figcaption class="plate__cap"><span>Toolbox talk in the crane yard: the whole crew in one circle, before the day’s lifts.</span></figcaption>
+    </figure>
+
+    <div class="hse">
+      <div class="hse__head grid">
+        <p class="eyebrow hse__eyebrow" data-reveal="up">The HSE system</p>
+        <p class="hse__statement" data-reveal="up" data-d="1">Nobody lifts until <em>everyone knows the plan.</em></p>
+      </div>
+      <ol class="hse__list" data-reveal="stagger">
+        {practices.map((p, i) => (
+          <li class="hse__item">
+            <span class="hse__no" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+            <h3 class="hse__name">{p.name} <em>{p.em}</em></h3>
+            <p class="hse__desc">{p.desc}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+
+    <div class="hse-wall">
+      <p class="eyebrow hse-wall__label" data-reveal="up">On the yard</p>
+      <figure class="plate hse-shot hse-shot--1" data-reveal>
+        <div class="plate__frame">
+          <Photo name="hse-yard-lineup" sizes="(min-width: 960px) 56vw, 92vw" w={1280} h={591} alt="HSE briefing to a line of FHS riggers and operators in front of the parked mobile cranes" />
+        </div>
+        <figcaption class="plate__cap"><span>A pre-shift briefing in front of the cranes.</span></figcaption>
+      </figure>
+      <figure class="plate hse-shot hse-shot--2" data-reveal data-d="2">
+        <div class="plate__frame">
+          <Photo name="hse-tyre-workshop" sizes="(min-width: 960px) 21vw, 62vw" w={960} h={2078} alt="FHS workshop technician in hard hat, hi-vis vest and coveralls beside stacked heavy-vehicle tyres" />
+        </div>
+        <figcaption class="plate__cap"><span>In our workshop: tyres and running gear are checked before a crane goes back out.</span></figcaption>
+      </figure>
+      <figure class="plate hse-shot hse-shot--3" data-reveal>
+        <div class="plate__frame">
+          <Photo name="hse-assembly-briefing" sizes="(min-width: 960px) 57vw, 120vw" w={1280} h={591} alt="HSE officer briefing a line of FHS crew in red coveralls beside the emergency assembly point sign" />
+        </div>
+        <figcaption class="plate__cap"><span>At the assembly point: where to muster, and why.</span></figcaption>
+      </figure>
+      <figure class="plate hse-shot hse-shot--4" data-reveal data-d="2">
+        <div class="plate__frame">
+          <Photo name="hse-assembly-drill" sizes="(min-width: 960px) 50vw, 115vw" w={1280} h={591} alt="FHS crew mustered at the emergency assembly point during an evacuation drill, seen from above" />
+        </div>
+        <figcaption class="plate__cap"><span>Evacuation drill. Everyone at the assembly point, everyone counted.</span></figcaption>
+      </figure>
+      <figure class="plate hse-shot hse-shot--5" data-reveal>
+        <div class="plate__frame">
+          <Photo name="hse-briefing-back" sizes="(min-width: 960px) 59vw, 140vw" w={1280} h={591} alt="HSE officer in an FHE vest, seen from behind, addressing the crew under a yellow crane boom" />
+        </div>
+        <figcaption class="plate__cap"><span>Under the boom, before the boom moves.</span></figcaption>
+      </figure>
+      <figure class="plate hse-shot hse-shot--6" data-reveal data-d="2">
+        <div class="plate__frame">
+          <Photo name="hse-toolbox-talk" sizes="(min-width: 960px) 53vw, 100vw" w={1280} h={591} alt="Toolbox talk beside the workshop wall, with forklifts and a mobile crane in the yard behind the crew" />
+        </div>
+        <figcaption class="plate__cap"><span>Toolbox talk by the workshop, before the day’s lifts.</span></figcaption>
+      </figure>
+      <figure class="plate hse-shot hse-shot--7" data-reveal>
+        <div class="plate__frame">
+          <Photo name="hse-crew-vests" sizes="(min-width: 960px) 56vw, 92vw" w={1280} h={591} alt="Rows of FHS crew from behind, FHE logos on their hi-vis vests and coveralls, listening to a safety briefing" />
+        </div>
+        <figcaption class="plate__cap"><span>One crew, one standard: hard hat, hi-vis, coveralls, boots.</span></figcaption>
+      </figure>
+    </div>
 
     <div class="safety__spread grid">
       <figure class="plate safety__fig" data-reveal>

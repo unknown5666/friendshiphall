@@ -80,15 +80,22 @@ Rated capacities come from the model designations (LTM 1500 = 500 t, AC 700 = 70
 
 **Photos.** Demag, Terex, flatbed and lowbed families and the mobile, crawler and trailer classes use FHS's own photos ("FHS fleet"). The others are model photos of the same makes and models from Wikimedia Commons (`public/assets/media/fleet/`, WebP), with author, licence and source in `credits.json`, which the "Photo credits" list under the chapter is built from. Several are CC BY or CC BY-SA, so **keep that list on the page** while they're used. Sany HQC, Kobelco RK and the Sany/Zoomlion crawlers have gold line drawings instead.
 
+## Chapter VI: safety & HSE
+1. **Lead plate.** The toolbox-talk circle in the crane yard, full width (a 4:3 crop on phones).
+2. **The HSE system.** A numbered ledger of six practices (toolbox talks, lift planning, RAMS and permits, PPE, emergency drills, equipment checks). The copy is the `practices` array at the top of `Safety.astro`; the stagger reveal steps six items.
+3. **On the yard.** Seven of the crew photos (October 2026) in an asymmetric wall. They are 2.16:1 phone panoramas (one portrait), so each is cropped to its slot in CSS, and each `sizes` is widened by the same crop factor so the browser still picks a sharp file.
+4. The rigging-team spread and the three certificates, as before.
+
 ## Contact us
 Every **Contact us** button opens a full-screen brief: pick a service, set the crane size on a 25–700 T dial (the same stops as the capacity console), add the emirate, start date, notes and details, and a film-slate panel fills in as you type. **Send on WhatsApp** opens a chat with Sales (+971 52 902 6105); **Send by email** opens the visitor's mail app addressed to info@fhecrane.com. Nothing is stored or sent by the site, so there is no server or form backend. A link with `data-cap="220"` opens it with that size set. Without JavaScript the buttons fall back to the contact chapter.
 
 ## Assets: where everything came from
-The original photos are in `C:/Users/user/Downloads/FHE Assets/` (2–23 MB phone images), resized to WebP with descriptive names in `public/assets/media/`; `manifest.json` there maps every file back to its original with capture date, aspect ratio, alt text and intended use. The time-lapse was rendered from 30 dated photos in capture order (2017-12-19 to 2020-11-29); `crane-timelapse.cues.json` lists when each appears.
+The original photos are in `C:/Users/user/Downloads/FHE Assets/` (2–23 MB phone images), resized to WebP with descriptive names in `public/assets/media/`; `manifest.json` there maps every file back to its original with capture date, aspect ratio, alt text and intended use. The `hse-*` photos (Chapter VI) came over WhatsApp in October 2026 (2576 px, no EXIF dates); 8 of the 20 were used, the rest were near-duplicate frames. The time-lapse was rendered from 30 dated photos in capture order (2017-12-19 to 2020-11-29); `crane-timelapse.cues.json` lists when each appears.
 
 ## To finalise with the client
 - **Fleet capacities.** Not on the capacity chart until confirmed: Terex A600 ×2, Kobelco "600 series" ×3, Zoomlion ZCC 300V, and one Kobelco crawler and one Sany crane the register lists without a model. Add a `t` to each in `src/data/fleet.ts` once known.
 - **Fleet register.** Four rows say "Nissan H?" but share the Sany HQC chassis series, so they're counted as Sany HQC (8 in all). The "Skania? 300T" crane has a Sany chassis prefix and is shown as "Sany 300 T".
 - **Leadership portraits.** Haji Saleem (Chairman), Saeed (CEO), Darwaish (Managing Director) and Bashir (COO) have placeholder images in `public/assets/team/` (not currently shown).
 - **Certificates** shown: ISO 9001:2015 (SD-26048/01, valid to 25 Mar 2027), ISO 45001:2018 (valid to 30 Nov 2028) and ICV no. 150476, 47.14%. **The ICV certificate expires 03 Nov 2026**, so update it when it's renewed.
+- **HSE practices** (`Safety.astro`): confirm each line matches what FHS does on every job, especially toolbox-talk attendance records, Appointed Person checks on critical lifts, permit-to-work, and current third-party inspection certificates. Cut any that don't hold.
 - **WhatsApp numbers** are from fhecrane.com: Admin +971 52 902 6102, Sales +971 52 902 6105. The floating button uses only Bashir (+971 52 902 6103); Saeed and Abid were taken off it on 2026-10-21.
