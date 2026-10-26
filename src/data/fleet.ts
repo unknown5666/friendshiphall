@@ -202,7 +202,7 @@ export const CLASSES: FleetClass[] = [
   {
     id: 'mobile', name: 'Mobile', em: 'cranes', span: '25–700 T',
     lede: 'All-terrain and truck cranes, from city picks to the flagship Demag AC 700, with trained operators and lifting supervisors.',
-    photo: own('superlift-truss-red', 1280, 960, 'Red FHS heavy crane with superlift counterweight lifting a steel truss', '50% 40%'),
+    photo: own('superlift-truss-red', 1280, 960, 'Red FHE Terex crane with a steel truss on the hook', '50% 40%'),
   },
   {
     id: 'crawler', name: 'Crawler', em: 'cranes', span: '55–320 T',
@@ -254,9 +254,9 @@ export const UNPLOTTED = FAMILIES
 /** Typical work by size: the same bands the Contact us brief uses. */
 export const BANDS: [number, string, string][] = [
   [65, '', 'City picks, HVAC & signage, plant maintenance'],
-  [140, '', 'Precast, steel erection, tower-crane assembly'],
-  [350, '', 'Bridge girders, heavy modules, tandem lifts'],
-  [600, '', 'Heavy industrial, refinery & power, superlift work'],
+  [140, '', 'Precast, steel erection, tower-crane work'],
+  [350, '', 'Bridge girders, heavy modules, long-reach lifts'],
+  [600, '', 'Heavy industrial and power-plant lifts'],
   [Infinity, 'Flagship', 'Vessels, heavy plant, long-radius lifts'],
 ];
 

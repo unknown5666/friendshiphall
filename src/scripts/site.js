@@ -1,7 +1,8 @@
 /* Friendship Hall — Cinematic Editorial. Page behaviour (everything shared lives in core.js; the fleet in fleet.js):
  *  1. Cable rail      on wide screens a hairline gold cable grows down the left margin as you read, ending in a
  *                     small hook; a vertical folio beside it names the chapter on screen.
- *  2. Lit prologue    wraps the prologue statement's words so CSS can light them in turn as it scrolls past.
+ *  2. Lit statements  wraps the words of the prologue statement (and any [data-lit]) so CSS can light them in turn
+ *                     as they scroll past.
  *  3. Contact us      the lift-slate dialog: any [data-enquire] link opens it (data-cap="220" presets the crane size);
  *                     the brief is sent as a pre-filled WhatsApp chat or email (there is no server).
  *                     Styles: src/styles/site.css §23.
@@ -70,13 +71,14 @@ const idle = (fn) => (window.requestIdleCallback ? requestIdleCallback(() => fn(
   idle(sync);
 })();
 
-/* 2. Lit prologue: one span per word, each with its share of the scroll range (--k, 0..1). Only where CSS can
- * drive it from scroll; elsewhere the statement is left untouched and fully lit. */
+/* 2. Lit statements (the prologue, and any [data-lit] such as the safety chapter's): one span per word, each with
+ * its share of the scroll range (--k, 0..1). Only where CSS can drive it from scroll; elsewhere the statements are
+ * left untouched and fully lit. */
 (() => {
   'use strict';
-  const el = document.querySelector('.prologue__statement');
-  if (!el || !(window.CSS && CSS.supports('animation-timeline: view()'))) return;
-  idle(() => split(el));
+  const els = document.querySelectorAll('.prologue__statement, [data-lit]');
+  if (!els.length || !(window.CSS && CSS.supports('animation-timeline: view()'))) return;
+  idle(() => els.forEach(split));
 })();
 
 function split(el) {
@@ -143,9 +145,9 @@ function split(el) {
     const SIZES = [25, 30, 35, 40, 50, 55, 60, 70, 75, 80, 90, 100, 110, 120, 130, 135, 150, 160, 200, 220, 250, 260, 300, 320, 350, 400, 450, 500, 700];   // = CapacityConsole SIZES
     const CLASSES = [
       [65, '', 'City picks, HVAC & signage, plant maintenance'],
-      [140, '', 'Precast, steel erection, tower-crane assembly'],
-      [350, '', 'Bridge girders, heavy modules, tandem lifts'],
-      [600, '', 'Heavy industrial, refinery & power, superlift work'],
+      [140, '', 'Precast, steel erection, tower-crane work'],
+      [350, '', 'Bridge girders, heavy modules, long-reach lifts'],
+      [600, '', 'Heavy industrial and power-plant lifts'],
       [Infinity, 'Flagship', 'Vessels, heavy plant, long-radius lifts'],
     ];
     const ADVISE = 'An engineer sizes the crane from your load and radius.';
