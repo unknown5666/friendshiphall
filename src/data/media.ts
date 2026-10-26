@@ -8,7 +8,7 @@ import path from 'node:path';
 const root = path.join(process.cwd(), 'public/assets/media');
 const files = new Set([
   ...fs.readdirSync(root),
-  ...fs.readdirSync(path.join(root, 'fleet')).map((f) => `fleet/${f}`),
+  ...(fs.existsSync(path.join(root, 'fleet')) ? fs.readdirSync(path.join(root, 'fleet')).map((f) => `fleet/${f}`) : []),
 ]);
 
 export interface Sources {

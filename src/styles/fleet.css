@@ -406,22 +406,6 @@
   .support__item:last-child { grid-column: 7 / span 5; }
 }
 
-.credits { margin-top: clamp(40px, 5vw, 64px); color: var(--mute); font-size: .8rem; line-height: 1.6; }
-.credits summary {
-  display: inline-flex; align-items: center; gap: 10px; min-height: 44px; cursor: pointer; list-style: none;
-  font: 500 .62rem/1 var(--sans); letter-spacing: .24em; text-transform: uppercase; color: var(--mute);
-}
-.credits summary::-webkit-details-marker { display: none; }
-.credits summary::before { content: "+"; font: 400 1rem/1 var(--sans); color: var(--gold); transition: transform .4s var(--ease); }
-.credits[open] summary::before { transform: rotate(45deg); }
-.credits summary:hover { color: var(--ivory); }
-.credits p { max-width: 70ch; }
-.credits b { font-weight: 500; color: var(--gold); }
-.credits ul { margin-top: 10px; columns: 2 320px; column-gap: var(--colgap); }
-.credits li { break-inside: avoid; padding: 3px 0; }
-.credits a { color: var(--ivory-soft); text-underline-offset: 3px; text-decoration-color: var(--gold-line); }
-.credits a:hover { color: var(--gold); }
-
 .spec { position: relative; color: var(--gold); }
 .spec__svg { position: relative; width: 100%; height: 100%; overflow: visible; }
 .spec__svg * { vector-effect: non-scaling-stroke; }

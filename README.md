@@ -47,7 +47,7 @@ src/data/media.ts                finds each photo's widths in public/assets/medi
 src/styles/                      site.css (the design), fleet.css (Chapter III), overlays.css (hook + WhatsApp)
 src/scripts/                     mark.js (intro, header swing, seal), core.js (shared behaviour), site.js (rail,
                                  lit prologue, Contact us), fleet.js (drums, the stage)
-public/assets/                   photos (WebP 480–1920; the hero also AVIF), fleet model photos, video, fonts, brand
+public/assets/                   photos (WebP 480–1920; the hero also AVIF), video, fonts, brand
 public/.htaccess                 Hostinger headers
 brand-source/                    the client's DWG and the script that builds the mark from it (not deployed)
 ```
@@ -69,16 +69,15 @@ The logo comes from the client's AutoCAD file, `brand-source/logo_fhe.dwg`. `bra
 - **Seal** (top of the footer). A large mark draws itself as it scrolls in, then pours; it tilts toward the pointer and scroll speed swings the hook. It is built only as the footer comes within a few screens.
 
 ## Chapter III: the fleet
-Built from the client's vehicle register (FHE-BBH and FHE-DXB, September 2026): **158 heavy units** in 21 families: 64 mobile cranes, 14 crawler cranes, 33 prime movers (rows the register calls "Tractor" or "Locomotive" are truck heads), 36 trailers and 11 forklifts and loaders. Passenger and light vehicles are left out on purpose; plates and chassis numbers are never shown. Everything comes from `src/data/fleet.ts`: edit a family's units there and the totals, ledgers and console all follow.
+Built from the client's vehicle register (FHE-BBH and FHE-DXB, September 2026): **150 heavy units** in 19 families: 63 mobile cranes, 7 crawler cranes, 33 prime movers (rows the register calls "Tractor" or "Locomotive" are truck heads), 36 trailers and 11 forklifts and loaders. Passenger and light vehicles are left out on purpose; plates and chassis numbers are never shown. Everything comes from `src/data/fleet.ts`: edit a family's units there and the totals, ledgers and console all follow.
 
 1. **Overture.** The yard photo opens from a letterbox slit to full frame as you scroll (pinned, CSS scroll-driven), over the total on rolling drums and the five class counts (each a link to its class).
 2. **Line-up.** One chapter per class with a ledger of every make and model and its share of the class drawn in gold. From 1100 px a pinned stage beside the chapters changes photograph with the class (a wipe in the direction of travel), rolls its count, and shows each make's photo or line drawing under the pointer.
 3. **Capacity console** (`CapacityConsole.tsx`). Every crane with a known rated capacity, one block per unit, on the site's 25–700 t log scale. Drag the load (it snaps to common sizes) or tap a column: the cranes rated for it light up, the readout counts them and names the range, and **Brief us on a … T lift** opens Contact us with that size set. Rated capacity is the maker's maximum at minimum radius, and the note under the chart says so.
-4. Makers marquee, support equipment and operators, and the photo credits.
+4. Makers marquee, support equipment and operators.
 
-Rated capacities come from the model designations (LTM 1500 = 500 t, AC 700 = 700 t, QY 50K = 50 t …). The others were checked against maker data: Terex Explorer 5800 220 t, Hitachi KH 300 80 t, Sumitomo LS-248RH 150 t, XCMG XGC 150 150 t, Sany SCC 3200A 320 t, Sany SCC 600A 60 t, Kobelco CKE 1350 135 t. The Kobelco RK 70M is a **7 t compact** rough-terrain crane, so it is listed but not plotted.
-
-**Photos.** Demag, Terex, flatbed and lowbed families and the mobile, crawler and trailer classes use FHS's own photos ("FHS fleet"). The others are model photos of the same makes and models from Wikimedia Commons (`public/assets/media/fleet/`, WebP), with author, licence and source in `credits.json`, which the "Photo credits" list under the chapter is built from. Several are CC BY or CC BY-SA, so **keep that list on the page** while they're used. Sany HQC, Kobelco RK and the Sany/Zoomlion crawlers have gold line drawings instead.
+Rated capacities come from the model designations (LTM 1500 = 500 t, AC 700 = 700 t, QY 50K = 50 t …). The others were checked against maker data: Terex Explorer 5800 220 t, Hitachi KH 300 80 t, Sumitomo LS-248RH 150 t, XCMG XGC 150 150 t, Sany SCC 3200A 320 t, Sany SCC 600A 60 t. 
+**Photos.** Only FHS's own photos are used. Liebherr, Demag, Zoomlion, XCMG, Terex, flatbed and lowbed families carry them ("FHS fleet"); the others (Sany, the crawlers, the tractor heads) show gold line drawings, and forklifts and loaders show their class photo. Kobelco is not on the site.
 
 ## Chapter VI: safety & HSE
 Built as a set piece, phones included; every effect is CSS (transform, opacity, clip-path; scroll-driven where supported) on the site's own reveal system, and reduced motion gets the finished state.
@@ -100,7 +99,7 @@ A photo of a **DYNAMIC**-branded crane (a precast pier cap) was in the client's 
 The original photos are in `C:/Users/user/Downloads/FHE Assets/` (2–23 MB phone images), resized to WebP with descriptive names in `public/assets/media/`; `manifest.json` there maps every file back to its original with capture date, aspect ratio, alt text and intended use. The `hse-*` photos (Chapter VI) came over WhatsApp in October 2026 (2576 px, no EXIF dates); 8 of the 20 were used, the rest were near-duplicate frames. `crew-ppe-terex` is the 2020 rigging-team shot with hard hats and vests added in an AI edit; the edit garbled the crane's sign (wrong phone numbers), so everything except the three people was put back from the original photo. A real reshoot of the same pose would be better for an HSE page. The time-lapse was rendered from 30 dated photos in capture order (2017-12-19 to 2020-11-29), now 29 with the DYNAMIC frame cut; `crane-timelapse.cues.json` lists them, with roughly when each appears.
 
 ## To finalise with the client
-- **Fleet capacities.** Not on the capacity chart until confirmed: Terex A600 ×2, Kobelco "600 series" ×3, Zoomlion ZCC 300V, and one Kobelco crawler and one Sany crane the register lists without a model. Add a `t` to each in `src/data/fleet.ts` once known.
+- **Fleet capacities.** Not on the capacity chart until confirmed: Terex A600 ×2, Zoomlion ZCC 300V, and one Sany crane the register lists without a model. Add a `t` to each in `src/data/fleet.ts` once known.
 - **Fleet register.** Four rows say "Nissan H?" but share the Sany HQC chassis series, so they're counted as Sany HQC (8 in all). The "Skania? 300T" crane has a Sany chassis prefix and is shown as "Sany 300 T".
 - **Leadership portraits.** Haji Saleem (Chairman), Saeed (CEO), Darwaish (Managing Director) and Bashir (COO) have placeholder images in `public/assets/team/` (not currently shown).
 - **Certificates**: the site shows ISO 9001:2015 (SD-26048/01, first certified 26 Mar 2017) and ISO 45001:2018, with **no expiry dates**. ICV is deliberately left off. Both are the client's instruction (23 Oct 2026): nothing that dates the certificates or hands competitors detail. Don't add them back.

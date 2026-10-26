@@ -1,11 +1,11 @@
 ---
 /* Chapter III — the fleet. Four movements:
- *  1. Overture   the yard doors open as you scroll (a pinned, scroll-driven reveal) on 158 heavy units, rolled up on
+ *  1. Overture   the yard doors open as you scroll (a pinned, scroll-driven reveal) on 150 heavy units, rolled up on
  *                drums, with the five classes underneath.
  *  2. Line-up    the five classes, one chapter each, every make and model on the books in a ledger. On wide screens
  *                a pinned stage beside them changes photograph with the class and, under the pointer, shows the make.
  *  3. Console    the cranes by rated capacity: drag the load, see what can take it, brief us on it (Preact island).
- *  4. Makers, support equipment, operators and the photo credits.
+ *  4. Makers, support equipment and operators.
  * Data: src/data/fleet.ts. Styles: src/styles/fleet.css. Behaviour: src/scripts/fleet.js. */
 import Photo from '../Photo.astro';
 import Drawing from '../Drawing.astro';
@@ -13,7 +13,6 @@ import Odometer from './Odometer.astro';
 import CapacityConsole from './CapacityConsole.tsx';
 import { CLASSES, FAMILIES, MAKERS, TOTAL, classTotal, unitsOf, type Family } from '../../data/fleet';
 import { sources } from '../../data/media';
-import credits from '../../../public/assets/media/fleet/credits.json';
 
 const pad = (n: number) => String(n).padStart(2, '0');
 const peek = (f: Family) => {
@@ -26,13 +25,11 @@ const peek = (f: Family) => {
       'data-peek-srcset': s.srcset,
       'data-peek-pos': f.photo.pos ?? '50% 50%',
       'data-peek-name': name,
-      'data-peek-tag': f.own ? 'FHS fleet' : 'Model photo',
+      'data-peek-tag': 'FHS fleet',
     };
   }
   return { 'data-peek': f.drawing, 'data-peek-name': name, 'data-peek-tag': 'Line drawing' };
 };
-const credit = Object.values(credits as Record<string, { title: string; page: string; lic: string; licurl: string; artist: string }>)
-  .map((c) => ({ ...c, title: c.title.replace(/^File:/, '').replace(/\.(jpe?g|png)$/i, '') }));
 ---
 <section class="section fleet" id="fleet" aria-labelledby="fleet-title" data-folio="III · The fleet">
   <div class="wrap">
@@ -171,14 +168,5 @@ const credit = Object.values(credits as Record<string, { title: string; page: st
       </div>
     </div>
 
-    <details class="credits">
-      <summary>Photo credits</summary>
-      <p>Photos marked <b>FHS fleet</b> are our own machines. The others are model photos: the same makes and models we run, from Wikimedia Commons, resized and colour-graded for this page.</p>
-      <ul>
-        {credit.map((c) => (
-          <li><a href={c.page} rel="noopener" target="_blank">{c.title}</a>, {c.artist}, <a href={c.licurl} rel="license noopener" target="_blank">{c.lic}</a></li>
-        ))}
-      </ul>
-    </details>
   </div>
 </section>
