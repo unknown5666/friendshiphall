@@ -2,9 +2,16 @@
 import Photo from './Photo.astro';
 ---
 <section class="hero" id="top" aria-labelledby="hero-title" data-folio="Prologue">
-  <div class="hero__media">
+  <div class="hero__media" data-timelapse>
     <Photo name="hero-gantry-dusk" class="hero__img" sizes="(min-width: 960px) 100vw, 120vw" w={1920} h={1440} alt="A mobile crane boom crossing a yellow bridge-launching girder marked SAFETY FIRST, under a dusk sky" eager />
-    <p class="hero__credit">A bridge-launching girder, marked Safety First</p>
+    <video class="hero__video" data-lazy-video muted loop playsinline preload="none" width="1280" height="720" aria-hidden="true" tabindex="-1">
+      <source data-src="/assets/video/fhs-night-haul.mp4" type="video/mp4">
+    </video>
+    <p class="hero__credit">A night rig-down, in time-lapse</p>
+    <button type="button" class="hero__toggle" data-timelapse-toggle aria-pressed="false">
+      <svg class="hero__icon hero__icon--play" viewBox="0 0 24 24" width="14" height="14" focusable="false" aria-hidden="true"><path d="M8.5 5.2v13.6L19.2 12z" fill="currentColor"/></svg>
+      <svg class="hero__icon hero__icon--pause" viewBox="0 0 24 24" width="14" height="14" focusable="false" aria-hidden="true"><path d="M7 5h3.6v14H7zM13.4 5H17v14h-3.6z" fill="currentColor"/></svg>
+    </button>
   </div>
   <div class="hero__body wrap">
     <p class="hero__eyebrow eyebrow" data-reveal="up">Heavy crane rental · United Arab Emirates · Since 1986</p>
